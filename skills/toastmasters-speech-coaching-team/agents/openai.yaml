@@ -1,0 +1,4 @@
+interface:
+  display_name: "Toastmasters Speech Coaching Team"
+  short_description: "Holistic speech feedback from five AI roles"
+  default_prompt: "Use $toastmasters-speech-coaching-team to evaluate my prepared speech with separate role reports and one holistic summary."
