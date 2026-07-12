@@ -46,6 +46,18 @@ Create a virtual Toastmasters evaluation team for one prepared speech. Five dist
 
 ## 🚀 Usage | 使用方式
 
+### Universal Chat Prompts
+
+The [`prompts/`](prompts/) folder contains copy-and-paste versions for general AI assistants such as Kimi, Claude, Gemini, DeepSeek, and ChatGPT. Unlike the agent skills, these prompts check the current platform's actual file, media, code, and editing capabilities before choosing a workflow. When a platform cannot create the requested artifact, the prompt defines a truthful text-based fallback.
+
+`prompts/` 文件夹提供可直接复制到 Kimi、Claude、Gemini、DeepSeek、ChatGPT 等通用 AI 助手中的版本。与智能体技能不同，这些提示词会先确认当前平台实际具备的文件、媒体、代码和编辑能力，再选择工作流程；如果平台无法生成目标文件，则使用明确的文本交付方案。
+
+For best results, paste only the reusable instruction section identified in each file, then add your own input using its example format.
+
+为获得更稳定的效果，请仅复制每个文件中标明的可复用指令部分，再按照示例格式添加自己的材料。
+
+### Agent Skills
+
 These skills are designed for use with AI coding agents that support the **Hermes Agent skill system** (SKILL.md format):
 
 ```bash
@@ -75,6 +87,9 @@ Provide the speech transcript, audio/video, project criteria, or any evaluation 
 
 ```
 D85 AI SKILLs resource/
+├── prompts/
+│   ├── powerpoint-translation-redesign.md
+│   └── toastmasters-speech-coaching-team.md
 └── skills/
     ├── powerpoint-translation-redesign/
     │   ├── SKILL.md               # Skill definition & workflow
