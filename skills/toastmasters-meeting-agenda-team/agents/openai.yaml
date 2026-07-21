@@ -1,0 +1,4 @@
+interface:
+  display_name: "Toastmasters Meeting Agenda Team"
+  short_description: "Reviewer-gated agenda creation in source format"
+  default_prompt: "Use $toastmasters-meeting-agenda-team to create and independently review my Toastmasters meeting agenda in the source-derived file format."
