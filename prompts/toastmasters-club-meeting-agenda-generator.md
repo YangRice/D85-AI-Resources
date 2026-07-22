@@ -14,6 +14,7 @@ Use the user-provided template first, then a supplied sample, then the attached 
 - For PDF input or no source, return an editable `.docx`.
 - Preserve the source's dimensions, branding, typography, layout, native structure, headers/footers, hyperlinks, and continuation design.
 - Treat text enclosed in braces, such as `{Club Name}`, `{Meeting Date}`, or `{Speaker #1}`, as template placeholders. Replace each placeholder with the matching user input everywhere it appears while preserving its formatting and position. If required input is missing, ask the user; use `TBD` or remove an optional placeholder only with approval. Do not leave any unresolved `{placeholder}` text in the final file.
+- **Missing placeholder fallback:** If a user-supplied template or sample lacks a specific `{placeholder}` for a field that has matching input (e.g., the template has a speaker row but no `{Speaker #1}` placeholder), populate the content using the best available mechanism — edit that text directly, clone the nearest matching row, insert the value where it logically belongs. **Before doing so, inform the user** that the template is missing that placeholder, point out where it should appear, and recommend they add it to their template for more reliable replacement in future agendas. Never fail to populate content just because a placeholder is missing.
 
 ## Agenda rules
 
