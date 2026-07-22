@@ -65,7 +65,7 @@ These journeys compose atomic skills for project interpretation, topic selection
 - **Architecture:** [`design/portable-toastmasters-skills-mvp.md`](design/portable-toastmasters-skills-mvp.md)
 - **Skill catalog:** [`catalog/skills.json`](catalog/skills.json)
 - **TMCompanion action registry:** [`catalog/integrations.json`](catalog/integrations.json)
-- **Generated portable prompts:** [`prompts/portable/`](prompts/portable/)
+- **Portable prompts:** [`prompts/`](prompts/)
 
 Resource Center pages are deliberately not implemented in this MVP. Their future page IDs are reserved in the catalog so the website can consume the same canonical packages later.
 
@@ -83,7 +83,7 @@ For best results, paste only the reusable instruction section identified in each
 
 为获得更稳定的效果，请仅复制每个文件中标明的可复用指令部分，再按照示例格式添加自己的材料。
 
-Portable Toastmasters prompts under [`prompts/portable/`](prompts/portable/) are generated from the canonical skill catalog. Regenerate and validate them with:
+Portable Toastmasters prompts under [`prompts/`](prompts/) are generated from the canonical skill catalog. Portability is a repository-wide promise, so generated and manually authored prompts share this folder. Generated files identify themselves in their headers and should not be edited manually. Regenerate and validate them with:
 
 ```bash
 python3 scripts/validate_portable_skills.py
@@ -126,8 +126,8 @@ D85 AI SKILLs resource/
 │   └── integrations.json          # Optional TMCompanion action URLs
 ├── design/
 │   └── portable-toastmasters-skills-mvp.md
-├── prompts/
-│   ├── portable/                  # Generated universal prompts
+├── prompts/                       # Portable prompts for general AI tools
+│   ├── <catalog-skill>.md         # Generated from canonical skill packages
 │   ├── powerpoint-translation-redesign.md
 │   └── toastmasters-speech-coaching-team.md
 ├── scripts/
