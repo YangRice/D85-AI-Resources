@@ -31,8 +31,10 @@ Meeting window:
 Ordered sessions and timing:
 Role and speaker assignments:
 Speech and evaluation details:
+Speaker/evaluator row counts and pairings:
 Special activities:
 Template or sample selected:
+Template placeholder mapping:
 Source file type:
 Required output file type:
 Fallback paper size and color, if applicable:
@@ -71,6 +73,11 @@ Give the Visual Designer the shared production brief, selected source copy, and 
 - produce the required source-derived file type, not Markdown, PDF-only output, or a flattened substitute
 - for a non-PDF source, edit its duplicate directly and preserve its native structure, dimensions, orientation, branding, styles, images, masters/themes, headers, footers, alignment system, and continuation design
 - for a PDF source or packaged fallback, produce an editable `.docx`
+- treat brace-wrapped text such as `{Club Name}`, `{Meeting Date}`, and `{Speaker #1}` as template placeholders; replace every occurrence with the matching production-brief value while preserving its formatting and position
+- ask the coordinator for any missing required placeholder value; remove an optional placeholder or use `TBD` only when the user approved it; leave no unresolved brace-wrapped placeholder in the output
+- treat the template's speaker and evaluator rows as sample capacity, not a limit; create one editable row for every supplied speaker and corresponding evaluator without omitting, merging, or overwriting participants
+- clone the nearest matching row's columns, borders, fills, typography, alignment, and spacing; keep numbering, details, timing, and speaker/evaluator pairings consistent throughout the file
+- move later content down cleanly; when extra rows cannot fit legibly, use the closest continuation output unit, repeat required headers, and continue there without shrinking text, clipping content, or extending beyond the canvas
 - implement all content and sequence rules exactly
 - calculate and verify chronological times and the meeting end time
 - remove unused sample data and unapproved placeholders
@@ -85,7 +92,7 @@ After each designer submission, send the same production brief plus the output a
 
 ### Content Reviewer Contract
 
-Require the Content Reviewer to inspect the output file's extracted text and native structure with format-appropriate tools, not only the designer's summary. Check every item in the content gate in [references/agenda-requirements.md](references/agenda-requirements.md), including calculations and mandatory Toastmasters role order.
+Require the Content Reviewer to inspect the output file's extracted text and native structure with format-appropriate tools, not only the designer's summary. Check every item in the content gate in [references/agenda-requirements.md](references/agenda-requirements.md), including calculations, mandatory Toastmasters role order, placeholder replacement, participant row counts, and speaker/evaluator pairings.
 
 Require this response:
 
