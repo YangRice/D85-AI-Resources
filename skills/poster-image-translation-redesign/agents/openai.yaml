@@ -1,0 +1,4 @@
+interface:
+  display_name: "Poster Image Translation Redesign"
+  short_description: "Translate posters with independent design review"
+  default_prompt: "Use $poster-image-translation-redesign to translate this poster into Simplified Chinese with independent translation and visual review."
