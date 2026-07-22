@@ -15,36 +15,9 @@ This repository contains reusable skill definitions designed for **AI coding age
 
 ## 📦 Skills | 技能清单
 
-### 1. PowerPoint Translation Redesign
+### 🧑‍🎓 Member Learning | 会员学习
 
-**Translate PPTX decks while preserving their visual design**  
-翻译 PPTX 演示文稿，同时保留其视觉设计
-
-- **Path:** `skills/powerpoint-translation-redesign/`
-- **Agent config:** `agents/openai.yaml`
-- **Audit script:** `scripts/audit_pptx_text.py`
-
-Translate and localize existing PowerPoint PPTX decks while preserving slide dimensions, layouts, editable shapes, images, charts, typography, brand cues, and design intent. Includes an audit script to detect remaining source-language text, repeated paragraphs, and missing fragments.
-
-在保持幻灯片尺寸、布局、可编辑形状、图片、图表、版式、品牌元素和设计意图不变的前提下，对现有 PPTX 文件进行翻译和本地化。附带审核脚本，可检测残留源语言文本、重复段落及缺失片段。
-
----
-
-### 2. Toastmasters Speech Coaching Team
-
-**Holistic speech feedback from five AI roles**  
-来自五个 AI 角色的全方位演讲反馈
-
-- **Path:** `skills/toastmasters-speech-coaching-team/`
-- **Agent config:** `agents/openai.yaml`
-
-Create a virtual Toastmasters evaluation team for one prepared speech. Five distinct sub-agents take on the roles of **Coach**, **Individual Evaluator**, **Timer**, **Grammarian**, and **Ah-Counter**, each producing an independent report. The main agent then synthesizes their findings into holistic, prioritized feedback.
-
-为一场备稿演讲组建虚拟头马点评团队。五个独立的子 AI 分别扮演**教练**、**个评**、**计时员**、**语法官**和**哼哈官**，各自生成独立报告，再由主 AI 综合得出具有优先级的全方位反馈。
-
----
-
-### 3. Portable Toastmasters Learning Skills MVP
+#### Portable Toastmasters Learning Skills MVP
 
 **Five member journeys composed from nine reusable atomic skills**
 
@@ -66,12 +39,82 @@ These journeys compose atomic skills for project interpretation, topic selection
 - **Skill catalog:** [`catalog/skills.json`](catalog/skills.json)
 - **TMCompanion action registry:** [`catalog/integrations.json`](catalog/integrations.json)
 - **Portable prompts:** [`prompts/`](prompts/)
+- **Build/validate:** [`scripts/build_portable_prompts.py`](scripts/build_portable_prompts.py), [`scripts/validate_portable_skills.py`](scripts/validate_portable_skills.py)
 
 Resource Center pages are deliberately not implemented in this MVP. Their future page IDs are reserved in the catalog so the website can consume the same canonical packages later.
 
+**Generated prompts (14):**  `prompts/` 中每個技能都有 `.en.md`（英文）和可選的 `.zh.md`（中文）
+```
+answer-table-topics-question.en.md
+build-speech-outline.en.md
+choose-speech-topic.en.md
+give-and-apply-toastmasters-feedback.en.md
+navigate-pathways-learning.en.md
+perform-toastmasters-meeting-role.en.md
+practice-toastmasters-table-topics.en.md
+prepare-speech-evaluation.en.md
+prepare-timer-role.en.md
+prepare-toastmasters-speech.en.md
+rehearse-toastmasters-speech.en.md
+review-speech-draft.en.md
+turn-feedback-into-practice.en.md
+understand-pathways-project.en.md
+```
+
+**Canonical skills (14):**
+```
+skills/{answer-table-topics-question, build-speech-outline, …}/SKILL.md + agents/openai.yaml
+```
+
 ---
 
-### 4. Toastmasters Meeting Agenda Team
+### 🛠️ Officer Tools | 幹部工具
+
+#### 1. PowerPoint Translation Redesign
+
+**Translate PPTX decks while preserving their visual design**  
+翻译 PPTX 演示文稿，同时保留其视觉设计
+
+- **Path:** `skills/powerpoint-translation-redesign/`
+- **Agent config:** `agents/openai.yaml`
+- **Audit script:** `scripts/audit_pptx_text.py`
+
+Translate and localize existing PowerPoint PPTX decks while preserving slide dimensions, layouts, editable shapes, images, charts, typography, brand cues, and design intent. Includes an audit script to detect remaining source-language text, repeated paragraphs, and missing fragments.
+
+在保持幻灯片尺寸、布局、可编辑形状、图片、图表、版式、品牌元素和设计意图不变的前提下，对现有 PPTX 文件进行翻译和本地化。附带审核脚本，可检测残留源语言文本、重复段落及缺失片段。
+
+---
+
+#### 2. Poster Image Translation Redesign
+
+**Edit raster images embedded in PPTX slides — translate and replace inline text**
+编辑 PPTX 幻灯片中的栅格图片——翻译并替换内嵌文字
+
+- **Path:** `skills/poster-image-translation-redesign/`
+- **Agent config:** `agents/openai.yaml`
+- **Terminology reference:** `references/toastmasters-terminology.md`
+
+Extract, translate, and reinsert images containing text within PowerPoint slides. Preserve the asset frame, crop, position, and dimensions exactly. Supports mask-based text isolation and pixel-level QA. Referenced as a preprocessing step by the PowerPoint Translation Redesign skill.
+
+提取、翻译并重新插入 PPTX 幻灯片中包含文字的栅格图片。精确保留图片的框架、裁切、位置和尺寸。支持基于遮罩的文字隔离与像素级质量校验。此技能作为 PowerPoint 翻译重设计流程的预处理环节被引用。
+
+---
+
+#### 3. Toastmasters Speech Coaching Team
+
+**Holistic speech feedback from five AI roles**  
+来自五个 AI 角色的全方位演讲反馈
+
+- **Path:** `skills/toastmasters-speech-coaching-team/`
+- **Agent config:** `agents/openai.yaml`
+
+Create a virtual Toastmasters evaluation team for one prepared speech. Five distinct sub-agents take on the roles of **Coach**, **Individual Evaluator**, **Timer**, **Grammarian**, and **Ah-Counter**, each producing an independent report. The main agent then synthesizes their findings into holistic, prioritized feedback.
+
+为一场备稿演讲组建虚拟头马点评团队。五个独立的子 AI 分别扮演**教练**、**个评**、**计时员**、**语法官**和**哼哈官**，各自生成独立报告，再由主 AI 综合得出具有优先级的全方位反馈。
+
+---
+
+#### 4. Toastmasters Meeting Agenda Team
 
 **Reviewer-gated agenda creation in the source format**
 经独立审核把关、保留源文件格式的会议议程生成
@@ -145,22 +188,24 @@ D85 AI SKILLs resource/
 │   └── integrations.json          # Optional TMCompanion action URLs
 ├── design/
 │   └── portable-toastmasters-skills-mvp.md
-├── prompts/                       # Portable prompts for general AI tools
-│   ├── <catalog-skill>.md         # Generated from canonical skill packages
+├── prompts/                       # Portable prompts: <skill>.en.md + optional <skill>.zh.md
+│   ├── <catalog-skill>.en.md      # Generated from canonical skill packages
+│   ├── poster-image-translation-redesign.md
 │   ├── powerpoint-translation-redesign.md
-<<<<<<< Updated upstream
-│   └── toastmasters-speech-coaching-team.md
+│   ├── toastmasters-speech-coaching-team.md
+│   └── toastmasters-club-meeting-agenda-generator.md
 ├── scripts/
 │   ├── build_portable_prompts.py
 │   └── validate_portable_skills.py
-=======
-│   ├── toastmasters-speech-coaching-team.md
-│   └── toastmasters-club-meeting-agenda-generator.md
->>>>>>> Stashed changes
 └── skills/
     ├── <portable-learning-skill>/
     │   ├── SKILL.md
     │   └── agents/openai.yaml
+    ├── poster-image-translation-redesign/
+    │   ├── SKILL.md
+    │   ├── agents/openai.yaml
+    │   └── references/
+    │       └── toastmasters-terminology.md
     ├── powerpoint-translation-redesign/
     │   ├── SKILL.md               # Skill definition & workflow
     │   ├── agents/openai.yaml     # Agent interface config
