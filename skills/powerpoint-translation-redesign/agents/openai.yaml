@@ -1,4 +1,4 @@
 interface:
   display_name: "PowerPoint Translation Redesign"
-  short_description: "Translate PPTX decks while preserving their design"
-  default_prompt: "Use $powerpoint-translation-redesign to translate this PowerPoint deck while preserving its slide size, layout, and visual identity."
+  short_description: "Translate PPTX decks with independent review"
+  default_prompt: "Use $powerpoint-translation-redesign to translate this PowerPoint deck with independent translation and visual review while preserving its design."
