@@ -71,6 +71,21 @@ Resource Center pages are deliberately not implemented in this MVP. Their future
 
 ---
 
+### 4. Toastmasters Meeting Agenda Team
+
+**Reviewer-gated agenda creation in the source format**
+经独立审核把关、保留源文件格式的会议议程生成
+
+- **Path:** `skills/toastmasters-meeting-agenda-team/`
+- **Agent config:** `agents/openai.yaml`
+- **Agenda rules:** `references/agenda-requirements.md`
+
+Create a print-ready Toastmasters meeting agenda through three distinct sub-agents: a **Visual Designer**, a **Content Reviewer**, and a **Visual Reviewer**. A non-PDF template or sample is duplicated, edited directly, and returned in the same file type; a PDF template or sample produces an editable DOCX; only when no source is supplied is the packaged DOCX fallback used. Any rejection returns the file for revision and full re-review; delivery is allowed only when both reviewers accept the same revision.
+
+由三个独立子 AI 创建可打印的头马会议议程：**视觉设计师**、**内容审核员**与**视觉审核员**。非 PDF 模板或样例会先复制、再直接编辑，并以相同文件类型交付；PDF 模板或样例输出可编辑的 DOCX；只有未提供源文件时才使用内置 DOCX 模板。任一审核员拒绝时，文件必须返回设计师修订并重新完整审核；只有同一版本获得双重通过后才能交付。
+
+---
+
 ## 🚀 Usage | 使用方式
 
 ### Universal Chat Prompts
@@ -115,6 +130,10 @@ python3 skills/powerpoint-translation-redesign/scripts/audit_pptx_text.py transl
 
 Provide the speech transcript, audio/video, project criteria, or any evaluation packet to the AI agent. The agent will dispatch five role sub-agents and return a structured evaluation report.
 
+### For Meeting Agendas
+
+Provide meeting rules, session order and timing, club information, and an agenda template or sample. The agent will dispatch the three agenda-team sub-agents and return the approved agenda in the source-derived format: the same file type as a non-PDF template or sample, DOCX for a PDF template or sample, or the packaged DOCX fallback only when no source is supplied.
+
 ---
 
 ## 📁 Repository Structure | 目录结构
@@ -129,10 +148,15 @@ D85 AI SKILLs resource/
 ├── prompts/                       # Portable prompts for general AI tools
 │   ├── <catalog-skill>.md         # Generated from canonical skill packages
 │   ├── powerpoint-translation-redesign.md
+<<<<<<< Updated upstream
 │   └── toastmasters-speech-coaching-team.md
 ├── scripts/
 │   ├── build_portable_prompts.py
 │   └── validate_portable_skills.py
+=======
+│   ├── toastmasters-speech-coaching-team.md
+│   └── toastmasters-club-meeting-agenda-generator.md
+>>>>>>> Stashed changes
 └── skills/
     ├── <portable-learning-skill>/
     │   ├── SKILL.md
@@ -142,9 +166,15 @@ D85 AI SKILLs resource/
     │   ├── agents/openai.yaml     # Agent interface config
     │   └── scripts/
     │       └── audit_pptx_text.py # Translation audit script
-    └── toastmasters-speech-coaching-team/
-        ├── SKILL.md               # Skill definition & workflow
-        └── agents/openai.yaml     # Agent interface config
+    ├── toastmasters-speech-coaching-team/
+    │   ├── SKILL.md               # Skill definition & workflow
+    │   └── agents/openai.yaml     # Agent interface config
+    └── toastmasters-meeting-agenda-team/
+        ├── SKILL.md               # Multi-agent agenda workflow
+        ├── agents/openai.yaml     # Agent interface config
+        ├── assets/                  # Four fallback DOCX templates
+        └── references/
+            └── agenda-requirements.md
 ```
 
 ---
