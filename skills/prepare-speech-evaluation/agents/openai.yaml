@@ -1,0 +1,4 @@
+interface:
+  display_name: "Prepare Speech Evaluation"
+  short_description: "Create kind, specific speech feedback"
+  default_prompt: "Use $prepare-speech-evaluation to turn my observations into a useful Toastmasters speech evaluation."

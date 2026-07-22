@@ -1,0 +1,4 @@
+interface:
+  display_name: "Navigate Pathways Learning"
+  short_description: "Plan the next Pathways learning step"
+  default_prompt: "Use $navigate-pathways-learning to help me choose and plan my next Pathways learning step."

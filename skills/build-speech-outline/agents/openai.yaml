@@ -1,0 +1,4 @@
+interface:
+  display_name: "Build Speech Outline"
+  short_description: "Create a clear, timed speech structure"
+  default_prompt: "Use $build-speech-outline to turn my selected topic into a clear Toastmasters speech outline."

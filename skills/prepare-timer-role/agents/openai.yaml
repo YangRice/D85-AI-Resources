@@ -1,0 +1,4 @@
+interface:
+  display_name: "Prepare Timer Role"
+  short_description: "Prepare, time, report, and reflect"
+  default_prompt: "Use $prepare-timer-role to help me serve confidently as Timer at a Toastmasters meeting."

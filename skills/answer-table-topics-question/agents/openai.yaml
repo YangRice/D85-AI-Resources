@@ -1,0 +1,4 @@
+interface:
+  display_name: "Answer Table Topics Question"
+  short_description: "Structure and improve an impromptu answer"
+  default_prompt: "Use $answer-table-topics-question to help me structure, deliver, and improve a Table Topics response."

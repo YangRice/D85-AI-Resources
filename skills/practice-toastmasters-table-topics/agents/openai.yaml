@@ -1,0 +1,4 @@
+interface:
+  display_name: "Practice Toastmasters Table Topics"
+  short_description: "Build impromptu speaking confidence"
+  default_prompt: "Use $practice-toastmasters-table-topics to guide a focused Table Topics practice and retry."

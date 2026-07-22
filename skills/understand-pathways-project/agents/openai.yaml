@@ -1,0 +1,4 @@
+interface:
+  display_name: "Understand Pathways Project"
+  short_description: "Clarify a project without inventing rules"
+  default_prompt: "Use $understand-pathways-project to clarify my Toastmasters project and identify what I need to confirm officially."

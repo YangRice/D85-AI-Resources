@@ -1,0 +1,4 @@
+interface:
+  display_name: "Give and Apply Toastmasters Feedback"
+  short_description: "Turn evaluation into practical improvement"
+  default_prompt: "Use $give-and-apply-toastmasters-feedback to help me give useful feedback or apply feedback to my next practice."

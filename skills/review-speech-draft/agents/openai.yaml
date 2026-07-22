@@ -1,0 +1,4 @@
+interface:
+  display_name: "Review Speech Draft"
+  short_description: "Review a draft without replacing its voice"
+  default_prompt: "Use $review-speech-draft to review my speech draft against its purpose while preserving my voice."

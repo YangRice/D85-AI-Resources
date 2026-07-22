@@ -1,0 +1,4 @@
+interface:
+  display_name: "Prepare Toastmasters Speech"
+  short_description: "Guide a speech from project to reflection"
+  default_prompt: "Use $prepare-toastmasters-speech to guide my Toastmasters speech from project requirements through rehearsal and reflection."

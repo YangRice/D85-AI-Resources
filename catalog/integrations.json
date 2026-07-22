@@ -1,0 +1,50 @@
+{
+  "version": 1,
+  "actions": {
+    "planner": {
+      "label": "Path Planner",
+      "url": "https://tmcompanion.netlify.app/#planner",
+      "required": false
+    },
+    "coach": {
+      "label": "AI Coach",
+      "url": "https://tmcompanion.netlify.app/#coach",
+      "required": false
+    },
+    "timer": {
+      "label": "Speech Timer",
+      "url": "https://tmcompanion.netlify.app/#timer",
+      "required": false
+    },
+    "topics": {
+      "label": "Table Topics",
+      "url": "https://tmcompanion.netlify.app/#topics",
+      "required": false
+    },
+    "evaluate": {
+      "label": "Evaluation Helper",
+      "url": "https://tmcompanion.netlify.app/#evaluate",
+      "required": false
+    },
+    "speech-builder": {
+      "label": "Speech Draft Builder",
+      "url": "https://tmcompanion.netlify.app/#speech-builder",
+      "required": false
+    },
+    "pathways": {
+      "label": "Pathways Browser",
+      "url": "https://tmcompanion.netlify.app/#pathways",
+      "required": false
+    },
+    "general-evaluator": {
+      "label": "General Evaluator Framework",
+      "url": "https://tmcompanion.netlify.app/#general-evaluator",
+      "required": false
+    },
+    "word-of-the-day": {
+      "label": "Word of the Day",
+      "url": "https://tmcompanion.netlify.app/#word-of-the-day",
+      "required": false
+    }
+  }
+}
