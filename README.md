@@ -44,6 +44,33 @@ Create a virtual Toastmasters evaluation team for one prepared speech. Five dist
 
 ---
 
+### 3. Portable Toastmasters Learning Skills MVP
+
+**Five member journeys composed from nine reusable atomic skills**
+
+**由九个可复用原子技能组成的五条会员学习旅程**
+
+The MVP defines five journey skills:
+
+- `navigate-pathways-learning`
+- `prepare-toastmasters-speech`
+- `perform-toastmasters-meeting-role`
+- `give-and-apply-toastmasters-feedback`
+- `practice-toastmasters-table-topics`
+
+These journeys compose atomic skills for project interpretation, topic selection, outlining, draft review, rehearsal, Timer preparation, speech evaluation, feedback-to-practice planning, and Table Topics responses. Every skill also has a generated universal prompt for text-only use across general AI assistants.
+
+本 MVP 定义五条会员学习旅程，并组合项目理解、主题选择、演讲提纲、讲稿评审、排练、计时员准备、个评、反馈转训练以及即兴演讲等原子技能。每个技能同时生成适用于多种通用 AI 助手的纯文本提示词。
+
+- **Architecture:** [`design/portable-toastmasters-skills-mvp.md`](design/portable-toastmasters-skills-mvp.md)
+- **Skill catalog:** [`catalog/skills.json`](catalog/skills.json)
+- **TMCompanion action registry:** [`catalog/integrations.json`](catalog/integrations.json)
+- **Generated portable prompts:** [`prompts/portable/`](prompts/portable/)
+
+Resource Center pages are deliberately not implemented in this MVP. Their future page IDs are reserved in the catalog so the website can consume the same canonical packages later.
+
+---
+
 ## 🚀 Usage | 使用方式
 
 ### Universal Chat Prompts
@@ -56,9 +83,16 @@ For best results, paste only the reusable instruction section identified in each
 
 为获得更稳定的效果，请仅复制每个文件中标明的可复用指令部分，再按照示例格式添加自己的材料。
 
+Portable Toastmasters prompts under [`prompts/portable/`](prompts/portable/) are generated from the canonical skill catalog. Regenerate and validate them with:
+
+```bash
+python3 scripts/validate_portable_skills.py
+python3 scripts/build_portable_prompts.py
+```
+
 ### Agent Skills
 
-These skills are designed for use with AI coding agents that support the **Hermes Agent skill system** (SKILL.md format):
+The `SKILL.md` packages can be used by compatible AI agents. The portable learning skills do not depend on native skill invocation; their generated prompts provide the text-only compatibility baseline.
 
 ```bash
 # Enable a skill in your Hermes Agent session
@@ -87,10 +121,22 @@ Provide the speech transcript, audio/video, project criteria, or any evaluation 
 
 ```
 D85 AI SKILLs resource/
+├── catalog/
+│   ├── skills.json                # Skill type, composition, version, page ID
+│   └── integrations.json          # Optional TMCompanion action URLs
+├── design/
+│   └── portable-toastmasters-skills-mvp.md
 ├── prompts/
+│   ├── portable/                  # Generated universal prompts
 │   ├── powerpoint-translation-redesign.md
 │   └── toastmasters-speech-coaching-team.md
+├── scripts/
+│   ├── build_portable_prompts.py
+│   └── validate_portable_skills.py
 └── skills/
+    ├── <portable-learning-skill>/
+    │   ├── SKILL.md
+    │   └── agents/openai.yaml
     ├── powerpoint-translation-redesign/
     │   ├── SKILL.md               # Skill definition & workflow
     │   ├── agents/openai.yaml     # Agent interface config
@@ -107,7 +153,8 @@ D85 AI SKILLs resource/
 
 - Python 3.10+
 - `python-pptx` (for the audit script)
-- An AI coding agent that supports SKILL.md (Hermes Agent, etc.)
+- Any capable text-chat AI for universal prompts
+- A compatible skill-aware AI agent only for native `SKILL.md` invocation
 
 ---
 

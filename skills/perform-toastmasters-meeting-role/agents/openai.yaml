@@ -1,0 +1,4 @@
+interface:
+  display_name: "Perform Toastmasters Meeting Role"
+  short_description: "Prepare, perform, report, and reflect"
+  default_prompt: "Use $perform-toastmasters-meeting-role to help me prepare for and learn from my next Toastmasters meeting role."

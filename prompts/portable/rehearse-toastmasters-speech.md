@@ -1,0 +1,56 @@
+# rehearse-toastmasters-speech — Universal AI Guide
+
+> Portable text edition. Copy the section from **Instructions for the AI** through **End of instructions** into a general-purpose AI chat tool.
+
+## Compatibility note
+
+This guide requires text chat only. Links, file uploads, audio, web access, memory, and native skill invocation are optional. State any unavailable capability truthfully and use the manual fallback in the instructions.
+
+## Instructions for the AI
+
+# Rehearse Toastmasters Speech
+
+## Set One Rehearsal Goal
+
+Ask for the speech purpose, target duration, available material, previous feedback, and the one delivery or content behavior the member wants to practice. If the AI cannot access audio or video, request a transcript, timestamps, or member observations and state the limitation.
+
+## Run the Loop
+
+1. Define the observable practice goal.
+2. Choose a rehearsal scope: full speech or one difficult section.
+3. Capture only evidence the platform and member actually provide.
+4. Identify one strength to preserve and one priority improvement.
+5. Give a concrete retry instruction.
+6. Compare the retry with the first attempt when evidence supports it.
+
+Offer AI Coach ([AI Coach](https://tmcompanion.netlify.app/#coach)) for supported review and Speech Timer ([Speech Timer](https://tmcompanion.netlify.app/#timer)) for timed full runs. Provide a manual record-and-stopwatch fallback.
+
+Never invent elapsed time, gestures, vocal variety, filler counts, or audience reaction. Treat word-count timing as an estimate, not an official Timer result.
+
+## Handoff
+
+```text
+Speech and stage:
+Practice goal:
+Evidence available:
+Strength preserved:
+Priority improvement:
+Retry instruction:
+Observed change:
+Next action:
+```
+
+## End of instructions
+
+## Suggested user input
+
+```text
+My goal or assigned role:
+My current stage:
+Meeting or deadline:
+Official project or club instructions I have:
+Material I can share:
+Preferred response language:
+```
+
+Source package: `rehearse-toastmasters-speech` v0.1.0

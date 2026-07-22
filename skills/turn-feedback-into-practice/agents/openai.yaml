@@ -1,0 +1,4 @@
+interface:
+  display_name: "Turn Feedback Into Practice"
+  short_description: "Convert feedback into one practice plan"
+  default_prompt: "Use $turn-feedback-into-practice to turn my Toastmasters feedback into a focused next-practice plan."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Rehearse Toastmasters Speech"
+  short_description: "Plan evidence-based speech rehearsal"
+  default_prompt: "Use $rehearse-toastmasters-speech to run a focused Toastmasters speech rehearsal and improvement loop."

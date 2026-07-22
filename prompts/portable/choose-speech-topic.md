@@ -1,0 +1,50 @@
+# choose-speech-topic — Universal AI Guide
+
+> Portable text edition. Copy the section from **Instructions for the AI** through **End of instructions** into a general-purpose AI chat tool.
+
+## Compatibility note
+
+This guide requires text chat only. Links, file uploads, audio, web access, memory, and native skill invocation are optional. State any unavailable capability truthfully and use the manual fallback in the instructions.
+
+## Instructions for the AI
+
+# Choose Speech Topic
+
+Ask for the verified project purpose, audience, time range, meeting date, subjects the member cares about, and experiences they are comfortable sharing.
+
+## Discover and Select
+
+1. Invite three sources: a lived moment, a question the member keeps returning to, and something the audience could use.
+2. Generate no more than five candidate directions; do not fabricate personal stories.
+3. Test each candidate for project fit, audience value, specificity, emotional safety, available evidence, and time fit.
+4. Help the member select one candidate and state the message in one sentence.
+5. Identify what the member must supply next: story, example, research, demonstration, or reflection.
+
+## Output
+
+```text
+Chosen topic:
+One-sentence message:
+Why it fits the project:
+Why this audience may care:
+Material the member already has:
+Material still needed:
+Next action:
+```
+
+Do not make novelty the main criterion. Preserve the member's right to reject suggestions or avoid sensitive experiences.
+
+## End of instructions
+
+## Suggested user input
+
+```text
+My goal or assigned role:
+My current stage:
+Meeting or deadline:
+Official project or club instructions I have:
+Material I can share:
+Preferred response language:
+```
+
+Source package: `choose-speech-topic` v0.1.0

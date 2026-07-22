@@ -1,0 +1,102 @@
+#!/usr/bin/env python3
+"""Build self-contained copy/paste prompts from the canonical skill catalog."""
+
+from __future__ import annotations
+
+import json
+import re
+from pathlib import Path
+
+
+ROOT = Path(__file__).resolve().parents[1]
+CATALOG = json.loads((ROOT / "catalog" / "skills.json").read_text(encoding="utf-8"))
+INTEGRATIONS = json.loads(
+    (ROOT / "catalog" / "integrations.json").read_text(encoding="utf-8")
+)["actions"]
+OUT_DIR = ROOT / "prompts" / "portable"
+FRONTMATTER_RE = re.compile(r"^---\n.*?\n---\n", re.DOTALL)
+ACTION_RE = re.compile(r"`action:([a-z0-9-]+)`")
+
+
+def skill_body(skill_id: str) -> str:
+    path = ROOT / "skills" / skill_id / "SKILL.md"
+    text = path.read_text(encoding="utf-8")
+    return FRONTMATTER_RE.sub("", text, count=1).strip()
+
+
+def resolve_actions(text: str) -> str:
+    def replace(match: re.Match[str]) -> str:
+        action_id = match.group(1)
+        action = INTEGRATIONS.get(action_id)
+        if not action:
+            raise ValueError(f"Unknown action in prompt body: {action_id}")
+        return f"[{action['label']}]({action['url']})"
+
+    return ACTION_RE.sub(replace, text)
+
+
+def build_prompt(item: dict) -> str:
+    skill_id = item["id"]
+    dependencies = item.get("requires", []) + item.get("recommends", [])
+    sections = [
+        f"# {skill_id} — Universal AI Guide",
+        "",
+        "> Portable text edition. Copy the section from **Instructions for the AI** "
+        "through **End of instructions** into a general-purpose AI chat tool.",
+        "",
+        "## Compatibility note",
+        "",
+        "This guide requires text chat only. Links, file uploads, audio, web access, "
+        "memory, and native skill invocation are optional. State any unavailable "
+        "capability truthfully and use the manual fallback in the instructions.",
+        "",
+        "## Instructions for the AI",
+        "",
+        resolve_actions(skill_body(skill_id)),
+    ]
+    for dependency in dependencies:
+        sections.extend(
+            [
+                "",
+                f"## Bundled capability: {dependency}",
+                "",
+                "Use this capability only when the current journey stage requires it. "
+                "Do not announce internal composition unless the user asks.",
+                "",
+                resolve_actions(skill_body(dependency)),
+            ]
+        )
+    sections.extend(
+        [
+            "",
+            "## End of instructions",
+            "",
+            "## Suggested user input",
+            "",
+            "```text",
+            "My goal or assigned role:",
+            "My current stage:",
+            "Meeting or deadline:",
+            "Official project or club instructions I have:",
+            "Material I can share:",
+            "Preferred response language:",
+            "```",
+            "",
+            f"Source package: `{skill_id}` v{item['version']}",
+            "",
+        ]
+    )
+    return "\n".join(sections)
+
+
+def main() -> None:
+    OUT_DIR.mkdir(parents=True, exist_ok=True)
+    for item in CATALOG["skills"]:
+        output = build_prompt(item)
+        path = OUT_DIR / f"{item['id']}.md"
+        path.write_text(output, encoding="utf-8")
+        print(f"{path.relative_to(ROOT)}: {len(output)} chars")
+
+
+if __name__ == "__main__":
+    main()

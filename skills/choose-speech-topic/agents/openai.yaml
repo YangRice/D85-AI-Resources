@@ -1,0 +1,4 @@
+interface:
+  display_name: "Choose Speech Topic"
+  short_description: "Find a purposeful personal speech topic"
+  default_prompt: "Use $choose-speech-topic to help me select a Toastmasters speech topic that fits my purpose and project."

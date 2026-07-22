@@ -1,0 +1,142 @@
+{
+  "format": "d85-portable-toastmasters-skill-catalog/v1",
+  "version": "0.1.0",
+  "skills": [
+    {
+      "id": "navigate-pathways-learning",
+      "type": "journey",
+      "version": "0.1.0",
+      "resource_page": "plan-your-pathways-journey",
+      "requires": ["understand-pathways-project"],
+      "recommends": [],
+      "actions": ["pathways", "planner"]
+    },
+    {
+      "id": "prepare-toastmasters-speech",
+      "type": "journey",
+      "version": "0.1.0",
+      "resource_page": "prepare-and-improve-a-pathways-speech",
+      "requires": ["understand-pathways-project"],
+      "recommends": [
+        "choose-speech-topic",
+        "build-speech-outline",
+        "review-speech-draft",
+        "rehearse-toastmasters-speech",
+        "turn-feedback-into-practice"
+      ],
+      "actions": ["speech-builder", "coach", "timer"]
+    },
+    {
+      "id": "perform-toastmasters-meeting-role",
+      "type": "journey",
+      "version": "0.1.0",
+      "resource_page": "succeed-in-your-meeting-role",
+      "requires": [],
+      "recommends": [
+        "prepare-timer-role",
+        "prepare-speech-evaluation",
+        "answer-table-topics-question"
+      ],
+      "actions": ["timer", "evaluate", "general-evaluator", "topics", "word-of-the-day"]
+    },
+    {
+      "id": "give-and-apply-toastmasters-feedback",
+      "type": "journey",
+      "version": "0.1.0",
+      "resource_page": "give-and-apply-useful-feedback",
+      "requires": [],
+      "recommends": ["prepare-speech-evaluation", "turn-feedback-into-practice"],
+      "actions": ["evaluate", "coach"]
+    },
+    {
+      "id": "practice-toastmasters-table-topics",
+      "type": "journey",
+      "version": "0.1.0",
+      "resource_page": "build-impromptu-speaking-confidence",
+      "requires": ["answer-table-topics-question"],
+      "recommends": [],
+      "actions": ["topics", "timer"]
+    },
+    {
+      "id": "understand-pathways-project",
+      "type": "atomic",
+      "version": "0.1.0",
+      "resource_page": "understand-a-pathways-project",
+      "requires": [],
+      "recommends": [],
+      "actions": ["pathways"]
+    },
+    {
+      "id": "choose-speech-topic",
+      "type": "atomic",
+      "version": "0.1.0",
+      "resource_page": "choose-a-speech-topic",
+      "requires": [],
+      "recommends": [],
+      "actions": []
+    },
+    {
+      "id": "build-speech-outline",
+      "type": "atomic",
+      "version": "0.1.0",
+      "resource_page": "build-a-speech-outline",
+      "requires": [],
+      "recommends": [],
+      "actions": ["speech-builder"]
+    },
+    {
+      "id": "review-speech-draft",
+      "type": "atomic",
+      "version": "0.1.0",
+      "resource_page": "review-a-speech-draft",
+      "requires": [],
+      "recommends": [],
+      "actions": ["coach"]
+    },
+    {
+      "id": "rehearse-toastmasters-speech",
+      "type": "atomic",
+      "version": "0.1.0",
+      "resource_page": "rehearse-a-toastmasters-speech",
+      "requires": [],
+      "recommends": [],
+      "actions": ["coach", "timer"]
+    },
+    {
+      "id": "prepare-timer-role",
+      "type": "atomic",
+      "version": "0.1.0",
+      "resource_page": "prepare-for-the-timer-role",
+      "requires": [],
+      "recommends": [],
+      "actions": ["timer"]
+    },
+    {
+      "id": "prepare-speech-evaluation",
+      "type": "atomic",
+      "version": "0.1.0",
+      "resource_page": "prepare-a-speech-evaluation",
+      "requires": [],
+      "recommends": [],
+      "actions": ["evaluate"]
+    },
+    {
+      "id": "turn-feedback-into-practice",
+      "type": "atomic",
+      "version": "0.1.0",
+      "resource_page": "turn-feedback-into-practice",
+      "requires": [],
+      "recommends": [],
+      "actions": ["coach"]
+    },
+    {
+      "id": "answer-table-topics-question",
+      "type": "atomic",
+      "version": "0.1.0",
+      "resource_page": "answer-a-table-topics-question",
+      "requires": [],
+      "recommends": [],
+      "actions": ["topics", "timer"]
+    }
+  ]
+}
