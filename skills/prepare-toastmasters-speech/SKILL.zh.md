@@ -22,7 +22,7 @@ description: Guide a Toastmasters member through an end-to-end prepared-speech j
 
 只展示当前阶段和下一步可能步骤。
 
-如果会员仅提供了项目名称，则从 `understand-pathways-project` 开始。明确列出哪些是已验证的、会员提供的、推断的以及仍然未知的信息。会员可以在查找官方简介的同时探索暂定主题，但在提供或验证相关要求之前，不要确认项目匹配或最终确定大纲。
+如果会员仅提供了项目名称，则从 `understand-pathways-project` 开始。清晰列出哪些已验证、会员提供、推断或尚不清楚。当无法获取官方材料时，使用 `understand-pathways-project` 中的降级模板，并明确标注该简要为"通用规划指南——非已验证的项目概要"。会员可以在寻找官方材料的同时探索临时主题，但在相关要求提供或验证之前，不要确认项目契合度或最终确定大纲。
 
 ## Compose the Journey（构建旅程）
 

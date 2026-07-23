@@ -22,7 +22,7 @@ Ask for the project or purpose, target audience, time limit, meeting date, any e
 
 Reveal only the current stage and the next likely step.
 
-If the member provides only a project name, begin with `understand-pathways-project`. Clearly list what is verified, member-provided, inferred, and still unknown. The member may explore a provisional topic while locating the official brief, but do not confirm project fit or finalize the outline until the relevant requirements are supplied or verified.
+If the member provides only a project name, begin with `understand-pathways-project`. Clearly list what is verified, member-provided, inferred, and still unknown. When official material is unavailable, use the fallback template from `understand-pathways-project` and explicitly mark the brief as "GENERAL PLANNING GUIDE — not a verified Project Brief". The member may explore a provisional topic while locating the official brief, but do not confirm project fit or finalize the outline until the relevant requirements are supplied or verified.
 
 ## Compose the Journey
 

@@ -29,7 +29,7 @@ Ask for the project or purpose, target audience, time limit, meeting date, any e
 
 Reveal only the current stage and the next likely step.
 
-If the member provides only a project name, begin with `understand-pathways-project`. Clearly list what is verified, member-provided, inferred, and still unknown. The member may explore a provisional topic while locating the official brief, but do not confirm project fit or finalize the outline until the relevant requirements are supplied or verified.
+If the member provides only a project name, begin with `understand-pathways-project`. Clearly list what is verified, member-provided, inferred, and still unknown. When official material is unavailable, use the fallback template from `understand-pathways-project` and explicitly mark the brief as "GENERAL PLANNING GUIDE — not a verified Project Brief". The member may explore a provisional topic while locating the official brief, but do not confirm project fit or finalize the outline until the relevant requirements are supplied or verified.
 
 ## Compose the Journey
 
@@ -77,7 +77,35 @@ Use this capability only when the current journey stage requires it. Do not anno
 
 ## Gather Evidence
 
-Ask for the official project brief, evaluation criteria, project name, path and level, required outputs, and time range. Use accessible official material when available. If only the project name is supplied, explain general planning concepts but do not reconstruct requirements from memory as confirmed fact.
+Ask for the official project brief, evaluation criteria, project name, path and level, required outputs, and time range. Use accessible official material when available.
+
+### When Official Material Is Available
+
+Use supplied criteria verbatim. Build the Project Brief from confirmed facts.
+
+### When Only the Project Name Is Supplied
+
+Do not reconstruct requirements from memory as confirmed fact. Instead, produce the fallback brief below, clearly labeling every item:
+
+```text
+Project: [member-supplied name]
+Learning purpose: [inferred from standard Pathways framework — confirm with VPE]
+Required deliverables: [inferred — typical structure, verify]
+Evaluation focus: [inferred — standard criteria, verify with official sheet]
+Timing: [member-supplied or typical range]
+Status of this brief: GENERAL PLANNING GUIDE — not a verified Project Brief
+
+Items requiring official confirmation:
+1. Exact evaluation criteria and required deliverables (check Base Camp)
+2. Any project-specific rules or exceptions
+3. Prerequisites or sequencing requirements
+
+Questions to ask your VPE or check in Base Camp:
+- What are the required deliverables for this project?
+- What timing range applies?
+- Are there prerequisites I should complete first?
+- Where can I find the official evaluation form?
+```
 
 ## Produce the Project Brief
 

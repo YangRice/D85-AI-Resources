@@ -24,6 +24,18 @@ Ask at most three questions at once:
 
 If the official project details are unavailable, provide planning guidance but label project-specific requirements as unverified. Never invent completion rules.
 
+When using the fallback (no official material), produce this in the Handoff:
+
+```text
+Learning goal:
+Current Pathways position:
+Project being considered:
+Verified requirements: [none yet — member has no official material]
+Questions to confirm officially: [list 3-5 specific questions for VPE]
+Next milestone:
+Next action: Confirm requirements with VPE or Base Camp before proceeding
+```
+
 ## Guide the Journey
 
 1. **Orient:** restate the learning goal and current Pathways position.
@@ -65,7 +77,35 @@ Use this capability only when the current journey stage requires it. Do not anno
 
 ## Gather Evidence
 
-Ask for the official project brief, evaluation criteria, project name, path and level, required outputs, and time range. Use accessible official material when available. If only the project name is supplied, explain general planning concepts but do not reconstruct requirements from memory as confirmed fact.
+Ask for the official project brief, evaluation criteria, project name, path and level, required outputs, and time range. Use accessible official material when available.
+
+### When Official Material Is Available
+
+Use supplied criteria verbatim. Build the Project Brief from confirmed facts.
+
+### When Only the Project Name Is Supplied
+
+Do not reconstruct requirements from memory as confirmed fact. Instead, produce the fallback brief below, clearly labeling every item:
+
+```text
+Project: [member-supplied name]
+Learning purpose: [inferred from standard Pathways framework — confirm with VPE]
+Required deliverables: [inferred — typical structure, verify]
+Evaluation focus: [inferred — standard criteria, verify with official sheet]
+Timing: [member-supplied or typical range]
+Status of this brief: GENERAL PLANNING GUIDE — not a verified Project Brief
+
+Items requiring official confirmation:
+1. Exact evaluation criteria and required deliverables (check Base Camp)
+2. Any project-specific rules or exceptions
+3. Prerequisites or sequencing requirements
+
+Questions to ask your VPE or check in Base Camp:
+- What are the required deliverables for this project?
+- What timing range applies?
+- Are there prerequisites I should complete first?
+- Where can I find the official evaluation form?
+```
 
 ## Produce the Project Brief
 

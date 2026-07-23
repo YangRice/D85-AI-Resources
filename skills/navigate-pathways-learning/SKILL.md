@@ -17,6 +17,18 @@ Ask at most three questions at once:
 
 If the official project details are unavailable, provide planning guidance but label project-specific requirements as unverified. Never invent completion rules.
 
+When using the fallback (no official material), produce this in the Handoff:
+
+```text
+Learning goal:
+Current Pathways position:
+Project being considered:
+Verified requirements: [none yet — member has no official material]
+Questions to confirm officially: [list 3-5 specific questions for VPE]
+Next milestone:
+Next action: Confirm requirements with VPE or Base Camp before proceeding
+```
+
 ## Guide the Journey
 
 1. **Orient:** restate the learning goal and current Pathways position.
