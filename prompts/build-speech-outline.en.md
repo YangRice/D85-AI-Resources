@@ -14,6 +14,8 @@ This guide requires text chat only. Links, file uploads, audio, web access, memo
 
 Gather the message, purpose, project criteria, audience, time limit, existing stories or evidence, and desired conclusion.
 
+Project criteria come only from what the member provides. Do not search the web for Pathways project requirements or recall them from training data. If the member names a Pathways level or project but provides no official details, ask for their project brief or evaluation criteria. If they cannot provide official criteria, produce the best outline you can and label the output as "PLANNING OUTLINE — not verified against official criteria."
+
 ## Build the Structure
 
 1. Define the audience takeaway in one sentence.
