@@ -11,17 +11,9 @@ Read `skills/translate-pdf/SKILL.md` and its referenced Python scripts. Use the 
 
 The PDF is the visual authority. Translate it, do not redesign it.
 
-## Common Toastmasters terminology
+## Toastmasters terminology reference
 
-For Toastmasters material translated into English, use these established terms consistently. Apply them only where the corresponding source content occurs; do not add absent projects or change the source program version. For other target languages, use the appropriate established terminology rather than forcing English.
-
-- 必修 = Required; 选修 = Elective; 学习路径 = path; 项目 = project.
-- 掌握基础 = Mastering Fundamentals; 了解风格 = Learning Your Style; 增长知识 = Increasing Knowledge; 培养技能 = Building Skills; 展示专业 = Demonstrating Expertise.
-- 动态领导 = Dynamic Leadership; 愿景沟通 = Visionary Communication; 激励策略 = Motivational Strategies; 有说服力的影响 = Persuasive Influence; 精通演讲 = Presentation Mastery; 运用幽默 = Engaging Humor.
-- 初试啼声 = Ice Breaker; 撰写带有目的性的演讲稿 = Writing a Speech with Purpose; 声音与肢体语言 = Introduction to Vocal Variety and Body Language; 评估与反馈 = Evaluation and Feedback.
-- 了解你的领导风格 = Understanding Your Leadership Style; 了解你的沟通风格 = Understanding Your Communication Style; Toastmasters 导师计划 = Introduction to Toastmasters Mentoring; 反思你的学习路径 = Reflect on Your Path; 杰出会员 = Distinguished Toastmaster (DTM).
-
-Preserve source acronyms such as TI, VPE, VPM, VPPR, SAA, TMoD, TTM, GE, DTM, and path codes. For unlisted projects, use the official target-language title when reliably established; otherwise translate consistently and flag unverified terminology in the delivery note. Never use terminology lookup to silently update source requirements.
+For Toastmasters content, read the [shared terminology reference](https://github.com/YangRice/D85-AI-Resources/blob/main/skills/poster-image-translation-redesign/references/toastmasters-terminology.md) before translating. For Pathways project and path names, also read the [PDF translation terminology supplement](https://github.com/YangRice/D85-AI-Resources/blob/main/skills/translate-pdf/references/toastmasters-terminology.md). Use the target-language side of the relevant entries; do not force English terms into another target language. Apply only terms corresponding to source content, preserve acronyms, and do not update source requirements or program versions. If a reference cannot be accessed, disclose it and flag unverified terminology instead of claiming glossary compliance.
 
 Guardrails:
 
@@ -32,7 +24,15 @@ Guardrails:
 - Match the original font style, weight, color, alignment, baseline, rotation, and hierarchy as closely as possible. Measure the target-language text against its actual cell or text region. Preserve font size where it fits; otherwise adjust wrapping and spacing within that region, then use a modest, consistent size adjustment only if still readable. Do not blindly insert a longer translation at the original point or shrink individual labels unpredictably. If accurate, readable text cannot fit, report the specific conflict instead of changing the layout.
 - Render every output page and compare it with the source at matching scale, both full-page and close-up. Check translation coverage, cell associations, readable typography, clipping, overlap, missing glyphs, stray text such as `Q&A;`, damaged rules, and changes outside the replaced text regions. Fix defects and render again after the last edit. Keep text searchable where the source permits.
 
-Return the translated PDF with a brief note about checks actually performed, necessary font adjustments, source ambiguities, and any remaining limitations. Do not claim independent review unless a separate reviewer really inspected the output. If subagents are available, have an independent reviewer inspect the source and final PDF for both content and visual fidelity; fix rejections and obtain a fresh review. Otherwise perform an explicit self-check and label it as such. Do not describe an unresolved draft as finished.
+## Post-generation visual review and correction loop
+
+After generating each candidate PDF, create an independent reviewer subagent if the environment supports it. Give it the original PDF, the exact candidate file, the target language, terminology references, and the preservation requirements above. The reviewer must inspect the actual rendered pages, not just the translation text or your summary. If subagents are unavailable, perform the same review yourself and explicitly label it as self-review; never simulate independent approval.
+
+Review every page at matching full-page scale and readable close-up scale. Check both translation completeness and visual design: original page geometry, table layout, graphics, colors, borders, typography hierarchy, font-size consistency, alignment, line wrapping, and absence of clipping, overlap, missing glyphs, or unintended changes outside text regions. Record the candidate filename, pages inspected, `PASS` or `FAIL`, and each defect's page/region.
+
+If the review fails, correct the defects without redesigning the PDF, generate a new candidate, rerender every page, and repeat the review. Any edit invalidates the previous pass. Deliver only the exact revision that passes both content and visual checks. If a required check is impossible, or the same defect remains after three revisions, stop and report the unresolved issue and required user decision or capability; do not call that a pass.
+
+Return the translated PDF with a brief note about the final review result, whether it was independent or self-review, checks actually performed, necessary font adjustments, and source ambiguities. Do not describe an unresolved draft as finished.
 
 ---
 
