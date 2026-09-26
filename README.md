@@ -19,9 +19,9 @@ This repository contains reusable skill definitions designed for **AI coding age
 
 #### Portable Toastmasters Learning Skills MVP
 
-**Five member journeys composed from nine reusable atomic skills**
+**Five member journeys, nine learning atomics, and one TM Companion routing skill**
 
-**由九个可复用原子技能组成的五条会员学习旅程**
+**五条会员学习旅程、九个学习原子技能，以及一个 TM Companion 工具引导技能**
 
 The MVP defines five journey skills:
 
@@ -38,16 +38,18 @@ These journeys compose atomic skills for project interpretation, topic selection
 - **Architecture:** [`design/portable-toastmasters-skills-mvp.md`](design/portable-toastmasters-skills-mvp.md)
 - **Skill catalog:** [`catalog/skills.json`](catalog/skills.json)
 - **TMCompanion action registry:** [`catalog/integrations.json`](catalog/integrations.json)
+- **TM Companion tool finder:** [`skills/find-tmcompanion-tool/SKILL.md`](skills/find-tmcompanion-tool/SKILL.md) — a standalone, text-only route to one of the nine optional tools
 - **Portable prompts:** [`prompts/`](prompts/)
 - **Build/validate:** [`scripts/build_portable_prompts.py`](scripts/build_portable_prompts.py), [`scripts/validate_portable_skills.py`](scripts/validate_portable_skills.py)
 
 Resource Center pages are deliberately not implemented in this MVP. Their future page IDs are reserved in the catalog so the website can consume the same canonical packages later.
 
-**Generated prompts (14):**  `prompts/` 中每個技能都有 `.en.md`（英文）和可選的 `.zh.md`（中文）
+**Generated prompts (15):**  `prompts/` 中每個技能都有 `.en.md`（英文）和可選的 `.zh.md`（中文）
 ```
 answer-table-topics-question.en.md
 build-speech-outline.en.md
 choose-speech-topic.en.md
+find-tmcompanion-tool.en.md
 give-and-apply-toastmasters-feedback.en.md
 navigate-pathways-learning.en.md
 perform-toastmasters-meeting-role.en.md
@@ -61,7 +63,7 @@ turn-feedback-into-practice.en.md
 understand-pathways-project.en.md
 ```
 
-**Canonical skills (14):**
+**Canonical skills (15):**
 ```
 skills/{answer-table-topics-question, build-speech-outline, …}/SKILL.md + agents/openai.yaml
 ```

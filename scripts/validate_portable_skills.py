@@ -137,6 +137,19 @@ def main() -> int:
         if action.get("required") is not False:
             errors.append(f"Action {action_id}: external actions must remain optional")
 
+    # This skill can be copied without the catalog, so its embedded URLs must
+    # remain an exact copy of the canonical action destinations.
+    tool_finder = ROOT / "skills" / "find-tmcompanion-tool"
+    expected_urls = {action.get("url", "") for action in actions.values()}
+    for filename in ("SKILL.md", "SKILL.zh.md"):
+        path = tool_finder / filename
+        if not path.exists():
+            errors.append(f"find-tmcompanion-tool: {filename} is missing")
+            continue
+        embedded_urls = set(re.findall(r"https://tmcompanion\.netlify\.app/#[a-z0-9-]+", path.read_text(encoding="utf-8")))
+        if embedded_urls != expected_urls:
+            errors.append(f"find-tmcompanion-tool/{filename}: direct links differ from catalog/integrations.json")
+
     for warning in warnings:
         print(f"WARNING: {warning}")
     for error in errors:

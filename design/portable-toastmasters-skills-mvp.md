@@ -16,6 +16,8 @@ Resource Center pages are not implemented in this MVP. The catalog reserves one 
 3. **Integration actions** resolve optional TMCompanion destinations from stable IDs.
 4. **Universal prompts** are generated self-contained text artifacts for several AI tools.
 
+`find-tmcompanion-tool` is a standalone routing skill for members who know their immediate need but do not know which TM Companion destination fits. Its portable prompt and bilingual skill package contain all nine links; `catalog/integrations.json` remains the canonical link registry.
+
 Composition happens at publication time. A journey prompt bundles its required and available recommended atomic instructions. It does not depend on nested skill invocation, persistent memory, web access, file upload, or a custom runtime.
 
 ## MVP journey skills

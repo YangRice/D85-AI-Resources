@@ -1,0 +1,4 @@
+interface:
+  display_name: "Find a TM Companion Tool"
+  short_description: "Choose the right TM Companion tool for your next step"
+  default_prompt: "Use $find-tmcompanion-tool to recommend the TM Companion tool that fits what I want to do next."

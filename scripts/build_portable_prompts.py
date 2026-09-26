@@ -69,6 +69,11 @@ LANG = {
     },
 }
 
+TOOL_FINDER_FIELDS = {
+    "en": ["What I want to do next:", "My current stage or meeting role:", "Preferred response language:"],
+    "zh": ["我接下来想做什么：", "当前阶段或会议角色：", "回复语言偏好："],
+}
+
 
 def skill_body(skill_id: str, lang: str = "en") -> str | None:
     """Read the skill body for a given language.
@@ -145,7 +150,7 @@ def build_prompt(item: dict, lang: str = "en") -> str | None:
             "```text",
         ]
     )
-    sections.extend(meta["fields"])
+    sections.extend(TOOL_FINDER_FIELDS[lang] if skill_id == "find-tmcompanion-tool" else meta["fields"])
     sections.extend(
         [
             "```",

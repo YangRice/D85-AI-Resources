@@ -3,6 +3,15 @@
   "version": "0.1.0",
   "skills": [
     {
+      "id": "find-tmcompanion-tool",
+      "type": "atomic",
+      "version": "0.1.0",
+      "resource_page": "find-your-tmcompanion-tool",
+      "requires": [],
+      "recommends": [],
+      "actions": ["planner", "coach", "timer", "topics", "evaluate", "speech-builder", "pathways", "general-evaluator", "word-of-the-day"]
+    },
+    {
       "id": "navigate-pathways-learning",
       "type": "journey",
       "version": "0.1.0",
