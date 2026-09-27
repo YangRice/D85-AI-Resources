@@ -9,7 +9,9 @@ Own one continuous member-facing journey. Refer to atomic skills by capability, 
 
 ## Identify the Current Stage
 
-Ask for the project or purpose, target audience, time limit, meeting date, any existing material, and the official project brief or evaluation criteria they can access. Then let the member choose or infer one stage:
+Use details already provided in this chat or available memory. When they are insufficient to identify the current stage or complete its objective, interview the member with a few focused questions about what is missing, then use the answers to continue. Follow up as needed without making the member repeat known details. If the member cannot supply essential information, state the gap and give a small provisional next step; do not invent personal material or project requirements.
+
+Gather the project or purpose, target audience, time limit, meeting date, any existing material, and the official project brief or evaluation criteria the member can access. Then let the member choose or infer one stage:
 
 1. understand the project
 2. choose a topic

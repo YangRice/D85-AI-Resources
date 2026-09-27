@@ -7,6 +7,10 @@ description: Turn a Toastmasters member's selected topic, message, project crite
 
 Gather the message, purpose, project criteria, audience, time limit, existing stories or evidence, and desired conclusion.
 
+## Interview When Context Is Thin
+
+Use what the member has already shared in this chat or available memory. If that is insufficient to choose a meaningful structure or allocate time, interview the member before drafting the outline. Ask a few focused questions about the missing decisions or material, such as the intended takeaway, audience, time limit, a real example, or the ending they want. Follow up on answers when needed; do not repeat questions already answered or invent personal experiences to fill gaps. If the member cannot answer, offer a clearly labeled provisional outline with placeholders and state what remains to be supplied.
+
 Project criteria come only from what the member provides. Do not search the web for Pathways project requirements or recall them from training data. If the member names a Pathways level or project but provides no official details, ask for their project brief or evaluation criteria. If they cannot provide official criteria, produce the best outline you can and label the output as "PLANNING OUTLINE — not verified against official criteria."
 
 ## Build the Structure
