@@ -100,9 +100,34 @@ def resolve_actions(text: str) -> str:
     return ACTION_RE.sub(replace, text)
 
 
+def portable_body(item: dict, lang: str, included_refs: set[str] | None = None) -> str | None:
+    """Embed declared references so a copied prompt has no local-file dependency."""
+    body = skill_body(item["id"], lang)
+    if body is None:
+        return None
+    if included_refs is None:
+        included_refs = set()
+    for template in item.get("portable_references", []):
+        filename = template.format(lang=lang)
+        directory = (ROOT / "skills" / item["id"] / "references").resolve()
+        path = (directory / filename).resolve()
+        if not path.is_relative_to(directory):
+            raise ValueError(f"Reference escapes skill package: {filename}")
+        reference = path.read_text(encoding="utf-8").strip()
+        body = re.sub(r"\[([^\]]+)\]\(references/" + re.escape(filename) + r"\)", r"\1 (bundled in this prompt)", body)
+        if reference not in included_refs:
+            body += "\n\n" + reference
+            included_refs.add(reference)
+    # Asset catalogs are supporting native data, not a portable chat prerequisite.
+    if item.get("portable_references"):
+        body = re.sub(r"\[([^\]]+)\]\(references/asset-sources\.json\)", r"\1 (official asset links in the bundled rules)", body)
+    return resolve_actions(body)
+
+
 def build_prompt(item: dict, lang: str = "en") -> str | None:
     skill_id = item["id"]
-    body = skill_body(skill_id, lang)
+    included_refs: set[str] = set()
+    body = portable_body(item, lang, included_refs)
     if body is None:
         return None
 
@@ -118,7 +143,7 @@ def build_prompt(item: dict, lang: str = "en") -> str | None:
         "",
         f"## {meta['compat_title']}",
         "",
-        meta["compat"],
+        item.get("compatibility", {}).get(lang, meta["compat"]),
         "",
         f"## {meta['instructions']}",
         "",
@@ -126,7 +151,8 @@ def build_prompt(item: dict, lang: str = "en") -> str | None:
     ]
 
     for dependency in dependencies:
-        dep_body = skill_body(dependency, lang)
+        dep_item = next(s for s in CATALOG["skills"] if s["id"] == dependency)
+        dep_body = portable_body(dep_item, lang, included_refs)
         if dep_body is None:
             continue
         sections.extend(
@@ -171,14 +197,16 @@ def main() -> None:
         # English — always generated from SKILL.md
         en_out = build_prompt(item, "en")
         en_path = OUT_DIR / f"{skill_id}.en.md"
-        en_path.write_text(en_out, encoding="utf-8")
+        if not en_path.exists() or en_path.read_text(encoding="utf-8") != en_out:
+            en_path.write_text(en_out, encoding="utf-8")
         print(f"{en_path.relative_to(ROOT)}: {len(en_out)} chars")
 
         # Chinese — only if SKILL.zh.md exists
         zh_out = build_prompt(item, "zh")
         if zh_out:
             zh_path = OUT_DIR / f"{skill_id}.zh.md"
-            zh_path.write_text(zh_out, encoding="utf-8")
+            if not zh_path.exists() or zh_path.read_text(encoding="utf-8") != zh_out:
+                zh_path.write_text(zh_out, encoding="utf-8")
             print(f"{zh_path.relative_to(ROOT)}: {len(zh_out)} chars")
         else:
             print(f"  ⚠️  {skill_id}: SKILL.zh.md not found, skipping Chinese prompt")

@@ -1,0 +1,16 @@
+# Private official Toastmasters downloads: never publish/rehost these assets.
+.cache/toastmasters-brand/
+# Bytecode produced while validating the new poster tooling.
+skills/toastmasters-poster-maker/scripts/__pycache__/
+tests/__pycache__/
+# Private real-material poster test output (embedded official assets and invite QR).
+test-poster/test-run-2026-10-13/
+# Reusable official materials kept locally; publish source links, not originals.
+materials/toastmasters-brand/local/
+# Private creative quality tests and user-supplied reference posters.
+test-poster/creative-test-2026-10-13/
+
+# Private production verification embeds protected logos, photos and invitation QR.
+test-poster/production-test-2026-10-13/
+# Original user-supplied test material is private.
+test-poster/Poster material/

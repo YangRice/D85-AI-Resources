@@ -1,0 +1,615 @@
+{
+  "baseline": "Version 2.0 Rev. 08/2026",
+  "rule_set": "tm-poster-brand-2026-08-v1",
+  "links": [
+    {
+      "id": "trademark-use-request",
+      "url": "https://www.toastmasters.org/resources/brand-portal/trademark-use-request",
+      "manual_pages": [
+        3,
+        35,
+        43
+      ],
+      "kind": "permissions-or-discovery",
+      "access_status": "inspected",
+      "retrieved_at": "2026-10-12T22:17:53.402757+00:00",
+      "sha256": "a3288e444a2d80c15ba3384dd89424c72b2a43522bf81314717724004ce0940e",
+      "formats": [
+        "text/html; charset=utf-8"
+      ],
+      "usage": "Follow manual and source terms; download availability is not proof of permission.",
+      "redistribution": "Not established; do not rehost official materials.",
+      "bytes": 65371,
+      "archive_files": [],
+      "resolved_url": "https://www.toastmasters.org/resources/brand-portal/trademark-use-request"
+    },
+    {
+      "id": "toastmasters-logo",
+      "url": "https://ccdn.toastmasters.org/content/toastmasters-logo.zip",
+      "manual_pages": [
+        8
+      ],
+      "kind": "poster-asset",
+      "access_status": "inspected",
+      "retrieved_at": "2026-10-12T22:17:53.404688+00:00",
+      "sha256": "31a16da3c9510a15453f41a797a3d01ae3f3141b7947eb6adc61129fefc7dfb2",
+      "formats": [
+        "jpg",
+        "png",
+        "svg"
+      ],
+      "usage": "Follow manual and source terms; download availability is not proof of permission.",
+      "redistribution": "Not established; do not rehost official materials.",
+      "bytes": 1115752,
+      "archive_files": [
+        "ToastmastersLogo/Color/ToastmastersLogo3Color.jpg",
+        "ToastmastersLogo/Color/ToastmastersLogo3Color.png",
+        "ToastmastersLogo/Color/ToastmastersLogo3Color.svg",
+        "ToastmastersLogo/Color/ToastmastersLogoColor.jpg",
+        "ToastmastersLogo/Color/ToastmastersLogoColor.png",
+        "ToastmastersLogo/Color/ToastmastersLogoColor.svg",
+        "ToastmastersLogo/Grayscale/ToastmastersLogoGrayscale.jpg",
+        "ToastmastersLogo/Grayscale/ToastmastersLogoGrayscale.png",
+        "ToastmastersLogo/Grayscale/ToastmastersLogoGrayscale.svg",
+        "ToastmastersLogo/White/ToastmastersLogoWhite.png",
+        "ToastmastersLogo/White/ToastmastersLogoWhite.svg"
+      ],
+      "resolved_url": "https://ccdn.toastmasters.org/content/toastmasters-logo.zip"
+    },
+    {
+      "id": "toastmasters-wordmark",
+      "url": "https://ccdn.toastmasters.org/content/toastmasters-wordmark.zip",
+      "manual_pages": [
+        9
+      ],
+      "kind": "poster-asset",
+      "access_status": "inspected",
+      "retrieved_at": "2026-10-12T22:17:53.405142+00:00",
+      "sha256": "7da64eaebcda02ab705adf143ceb515206d25420c7a8dc630277d9a4595a9204",
+      "formats": [
+        "jpg",
+        "png",
+        "svg"
+      ],
+      "usage": "Follow manual and source terms; download availability is not proof of permission.",
+      "redistribution": "Not established; do not rehost official materials.",
+      "bytes": 824496,
+      "archive_files": [
+        "ToastmastersWordmark/Black/ToastmastersWordmarkBlack.jpg",
+        "ToastmastersWordmark/Black/ToastmastersWordmarkBlack.png",
+        "ToastmastersWordmark/Black/ToastmastersWordmarkBlack.svg",
+        "ToastmastersWordmark/Color/ToastmastersWordmarkColor.jpg",
+        "ToastmastersWordmark/Color/ToastmastersWordmarkColor.png",
+        "ToastmastersWordmark/Color/ToastmastersWordmarkColor.svg",
+        "ToastmastersWordmark/Grayscale/ToastmastersWordmarkGrayscale.jpg",
+        "ToastmastersWordmark/Grayscale/ToastmastersWordmarkGrayscale.png",
+        "ToastmastersWordmark/Grayscale/ToastmastersWordmarkGrayscale.svg",
+        "ToastmastersWordmark/White/ToastmastersWordmarkWhite.png",
+        "ToastmastersWordmark/White/ToastmastersWordmarkWhite.svg"
+      ],
+      "resolved_url": "https://ccdn.toastmasters.org/content/toastmasters-wordmark.zip"
+    },
+    {
+      "id": "logo-lockups",
+      "url": "https://ccdn.toastmasters.org/content/logo-lockups.zip",
+      "manual_pages": [
+        10
+      ],
+      "kind": "poster-asset",
+      "access_status": "inspected",
+      "retrieved_at": "2026-10-12T22:17:53.405649+00:00",
+      "sha256": "f396efee87b43fc7906c7b4e811838c706258fa36199e876ca46c11abf2299f1",
+      "formats": [
+        "jpg",
+        "png",
+        "svg"
+      ],
+      "usage": "Follow manual and source terms; download availability is not proof of permission.",
+      "redistribution": "Not established; do not rehost official materials.",
+      "bytes": 2323954,
+      "archive_files": [
+        "LogoLockups/ColorLogoSince1924/ColorLogoSince1924Navy.jpg",
+        "LogoLockups/ColorLogoSince1924/ColorLogoSince1924Navy.png",
+        "LogoLockups/ColorLogoSince1924/ColorLogoSince1924Navy.svg",
+        "LogoLockups/ColorLogoSince1924White/ColorLogoSince1924White.png",
+        "LogoLockups/ColorLogoSince1924White/ColorLogoSince1924White.svg",
+        "LogoLockups/ColorLogoWithTagline/ColorLogoWithTagline.jpg",
+        "LogoLockups/ColorLogoWithTagline/ColorLogoWithTagline.png",
+        "LogoLockups/ColorLogoWithTagline/ColorLogoWithTagline.svg",
+        "LogoLockups/ColorLogoWithTaglineWhite/ColorLogoWithTaglineWhite.png",
+        "LogoLockups/ColorLogoWithTaglineWhite/ColorLogoWithTaglineWhite.svg",
+        "LogoLockups/ColorLogoWithWebsite/ColorLogoWithWebsite.jpg",
+        "LogoLockups/ColorLogoWithWebsite/ColorLogoWithWebsite.png",
+        "LogoLockups/ColorLogoWithWebsite/ColorLogoWithWebsite.svg",
+        "LogoLockups/ColorLogoWithWebsiteWhite/WhiteLogoWithWebsite.png",
+        "LogoLockups/ColorLogoWithWebsiteWhite/WhiteLogoWithWebsite.svg",
+        "LogoLockups/WhiteLogoWithTagline/WhiteLogoWithTagline.png",
+        "LogoLockups/WhiteLogoWithTagline/WhiteLogoWithTagline.svg",
+        "LogoLockups/WhiteLogoWithWebsite/WhiteLogoWithWebsite.png",
+        "LogoLockups/WhiteLogoWithWebsite/WhiteLogoWithWebsite.svg",
+        "LogoLockups/WordmarkSince1924/WordmarkSince1924Color.jpg",
+        "LogoLockups/WordmarkSince1924/WordmarkSince1924Color.png",
+        "LogoLockups/WordmarkSince1924/WordmarkSince1924Color.svg",
+        "LogoLockups/WordmarkSince1924White/WordmarkSince1924White.png",
+        "LogoLockups/WordmarkSince1924White/WordmarkSince1924White.svg"
+      ],
+      "resolved_url": "https://ccdn.toastmasters.org/content/logo-lockups.zip"
+    },
+    {
+      "id": "member-of-ti-badge",
+      "url": "https://ccdn.toastmasters.org/content/member-of-ti-badge.zip",
+      "manual_pages": [
+        13
+      ],
+      "kind": "poster-asset",
+      "access_status": "inspected",
+      "retrieved_at": "2026-10-12T22:17:53.406391+00:00",
+      "sha256": "44911c6b19e12c7ca97f393a49349a8a9fef4ee4acd6be58932de1f647e4082c",
+      "formats": [
+        "eps",
+        "png",
+        "svg"
+      ],
+      "usage": "Follow manual and source terms; download availability is not proof of permission.",
+      "redistribution": "Not established; do not rehost official materials.",
+      "bytes": 3074235,
+      "archive_files": [
+        "MemberOfTIBadge/member-badge.eps",
+        "MemberOfTIBadge/member-badge.png",
+        "MemberOfTIBadge/member-badge.svg"
+      ],
+      "resolved_url": "https://ccdn.toastmasters.org/content/member-of-ti-badge.zip"
+    },
+    {
+      "id": "pathways-logo",
+      "url": "https://ccdn.toastmasters.org/content/pathways-logo.zip",
+      "manual_pages": [
+        21
+      ],
+      "kind": "poster-asset",
+      "access_status": "inspected",
+      "retrieved_at": "2026-10-12T22:17:53.407344+00:00",
+      "sha256": "af8e9abe998fe09eec614570508de1e3b8f32942c32857b116c97d65d085e0bf",
+      "formats": [
+        "jpg",
+        "png",
+        "svg"
+      ],
+      "usage": "Follow manual and source terms; download availability is not proof of permission.",
+      "redistribution": "Not established; do not rehost official materials.",
+      "bytes": 1073098,
+      "archive_files": [
+        "PathwaysLogo/Color/PathwaysTypeTreatmentColor-CMYK.jpg",
+        "PathwaysLogo/Color/PathwaysTypeTreatmentColor-CMYK.png",
+        "PathwaysLogo/Color/PathwaysTypeTreatmentColor-RGB.jpg",
+        "PathwaysLogo/Color/PathwaysTypeTreatmentColor-RGB.png",
+        "PathwaysLogo/Color/PathwaysTypeTreatmentColor.svg",
+        "PathwaysLogo/Grayscale/PathwaysTypeTreatmentGrayscale-CMYK.jpg",
+        "PathwaysLogo/Grayscale/PathwaysTypeTreatmentGrayscale-CMYK.png",
+        "PathwaysLogo/Grayscale/PathwaysTypeTreatmentGrayscale-RGB.jpg",
+        "PathwaysLogo/Grayscale/PathwaysTypeTreatmentGrayscale-RGB.png",
+        "PathwaysLogo/Grayscale/PathwaysTypeTreatmentGrayscale.svg",
+        "PathwaysLogo/White/PathwaysTypeTreatmentWhite-CMYK.png",
+        "PathwaysLogo/White/PathwaysTypeTreatmentWhite-RGB.png",
+        "PathwaysLogo/White/PathwaysTypeTreatmentWhite.svg"
+      ],
+      "resolved_url": "https://ccdn.toastmasters.org/content/pathways-logo.zip"
+    },
+    {
+      "id": "pathways-badge",
+      "url": "https://ccdn.toastmasters.org/content/pathways-badge.zip",
+      "manual_pages": [
+        22
+      ],
+      "kind": "poster-asset",
+      "access_status": "inspected",
+      "retrieved_at": "2026-10-12T22:17:55.062727+00:00",
+      "sha256": "01cef18dd049a74c42022ff2dfabbcaae5d8624d53ed6f9d35868552bed73527",
+      "formats": [
+        "png",
+        "svg"
+      ],
+      "usage": "Follow manual and source terms; download availability is not proof of permission.",
+      "redistribution": "Not established; do not rehost official materials.",
+      "bytes": 370853,
+      "archive_files": [
+        "PathwaysBadge/Explorations/omm-badge.png",
+        "PathwaysBadge/Explorations/omm-badge.svg",
+        "PathwaysBadge/Pathways/pathways-badge-dynamic-leadership.png",
+        "PathwaysBadge/Pathways/pathways-badge-dynamic-leadership.svg",
+        "PathwaysBadge/Pathways/pathways-badge-engaging-humor.png",
+        "PathwaysBadge/Pathways/pathways-badge-engaging-humor.svg",
+        "PathwaysBadge/Pathways/pathways-badge-motivational-strategies.png",
+        "PathwaysBadge/Pathways/pathways-badge-motivational-strategies.svg",
+        "PathwaysBadge/Pathways/pathways-badge-persuasive-influence.png",
+        "PathwaysBadge/Pathways/pathways-badge-persuasive-influence.svg",
+        "PathwaysBadge/Pathways/pathways-badge-presentation-mastery.png",
+        "PathwaysBadge/Pathways/pathways-badge-presentation-mastery.svg",
+        "PathwaysBadge/Pathways/pathways-badge-visionary-communication.png",
+        "PathwaysBadge/Pathways/pathways-badge-visionary-communication.svg",
+        "PathwaysBadge/VintagePaths/vintage-path-badge-basic-training.png",
+        "PathwaysBadge/VintagePaths/vintage-path-badge-basic-training.svg",
+        "PathwaysBadge/VintagePaths/vintage-path-badge-comm-series-entertain-storytelling.png",
+        "PathwaysBadge/VintagePaths/vintage-path-badge-comm-series-entertain-storytelling.svg"
+      ],
+      "resolved_url": "https://ccdn.toastmasters.org/content/pathways-badge.zip"
+    },
+    {
+      "id": "font-Montserrat",
+      "url": "https://fonts.google.com/specimen/Montserrat#standard-styles",
+      "manual_pages": [
+        23
+      ],
+      "kind": "font-source",
+      "access_status": "inspected",
+      "retrieved_at": "2026-10-12T22:17:58.771399+00:00",
+      "sha256": "f26b1d306f074695972e51203a77c79156e1b9ebf581180f34e3c9332f6f9e1a",
+      "formats": [
+        "text/html; charset=utf-8"
+      ],
+      "usage": "Follow manual and source terms; download availability is not proof of permission.",
+      "redistribution": "Not established; do not rehost official materials.",
+      "bytes": 199393,
+      "archive_files": [],
+      "resolved_url": "https://fonts.google.com/specimen/Montserrat#standard-styles"
+    },
+    {
+      "id": "font-Source-Sans-3",
+      "url": "https://fonts.google.com/specimen/Source+Sans+3",
+      "manual_pages": [
+        24
+      ],
+      "kind": "font-source",
+      "access_status": "inspected",
+      "retrieved_at": "2026-10-12T22:18:00.827761+00:00",
+      "sha256": "7f1b006090eb2a701e61805d343bd49e6007ee7b20146860399bd67aa5e582ad",
+      "formats": [
+        "text/html; charset=utf-8"
+      ],
+      "usage": "Follow manual and source terms; download availability is not proof of permission.",
+      "redistribution": "Not established; do not rehost official materials.",
+      "bytes": 199423,
+      "archive_files": [],
+      "resolved_url": "https://fonts.google.com/specimen/Source+Sans+3"
+    },
+    {
+      "id": "font-Corinthia",
+      "url": "https://fonts.google.com/specimen/Corinthia?category=Handwriting",
+      "manual_pages": [
+        24
+      ],
+      "kind": "font-source",
+      "access_status": "inspected",
+      "retrieved_at": "2026-10-12T22:18:01.133980+00:00",
+      "sha256": "fedbdc12cd2e80e997ef8097fbabfea0fbfc2d7f42acabadb26806dea0dc0fa0",
+      "formats": [
+        "text/html; charset=utf-8"
+      ],
+      "usage": "Follow manual and source terms; download availability is not proof of permission.",
+      "redistribution": "Not established; do not rehost official materials.",
+      "bytes": 199394,
+      "archive_files": [],
+      "resolved_url": "https://fonts.google.com/specimen/Corinthia?category=Handwriting"
+    },
+    {
+      "id": "font-Luxurious-Script",
+      "url": "https://fonts.google.com/specimen/Luxurious+Script?category=Handwriting",
+      "manual_pages": [
+        24
+      ],
+      "kind": "font-source",
+      "access_status": "inspected",
+      "retrieved_at": "2026-10-12T22:18:03.059977+00:00",
+      "sha256": "0fb650a6b6cceea0b797d5d2b2b12c924ede777b71a67b1bb58c65622b503790",
+      "formats": [
+        "text/html; charset=utf-8"
+      ],
+      "usage": "Follow manual and source terms; download availability is not proof of permission.",
+      "redistribution": "Not established; do not rehost official materials.",
+      "bytes": 199429,
+      "archive_files": [],
+      "resolved_url": "https://fonts.google.com/specimen/Luxurious+Script?category=Handwriting"
+    },
+    {
+      "id": "how-to-take-great-photos",
+      "url": "https://www.toastmasters.org/magazine/magazine-issues/2025/june/how-to-take-great-photos",
+      "manual_pages": [
+        27
+      ],
+      "kind": "supporting-guidance",
+      "access_status": "inspected",
+      "retrieved_at": "2026-10-12T22:18:03.199634+00:00",
+      "sha256": "7a0eb382eccd6a09ade8d494bd719367d4fe46a7f0fd9095528ddeeb3bcb325c",
+      "formats": [
+        "text/html; charset=utf-8"
+      ],
+      "usage": "Follow manual and source terms; download availability is not proof of permission.",
+      "redistribution": "Not established; do not rehost official materials.",
+      "bytes": 87397,
+      "archive_files": [],
+      "resolved_url": "https://www.toastmasters.org/magazine/magazine-issues/2025/june/how-to-take-great-photos"
+    },
+    {
+      "id": "branded-photos",
+      "url": "https://ccdn.toastmasters.org/content/branded-photos.zip",
+      "manual_pages": [
+        27
+      ],
+      "kind": "poster-asset",
+      "access_status": "range-inspected-sample-downloaded",
+      "retrieved_at": "2026-10-12T22:29:09.060587+00:00",
+      "sha256": null,
+      "formats": [
+        "jpg"
+      ],
+      "usage": "Follow manual and source terms; download availability is not proof of permission.",
+      "redistribution": "Not established; do not rehost official materials.",
+      "archive_bytes": 502863180,
+      "archive_files": [
+        "2018-S2-TIWHQ-4024.jpg",
+        "2018-S2-TIWHQ-4144.jpg",
+        "2018-S2-TIWHQ-4165.jpg",
+        "2018-S2-TIWHQ-5039.jpg",
+        "2018-S2-TIWHQ-5434.jpg",
+        "2018-S2-TIWHQ-5545.jpg",
+        "2018-S2-TIWHQ-5598.jpg",
+        "2018-S2-TIWHQ-5927.jpg",
+        "2019-LASTUDIO-1.jpg",
+        "2019-LASTUDIO-10.jpg",
+        "2019-LASTUDIO-11.jpg",
+        "2019-LASTUDIO-12.jpg",
+        "2019-LASTUDIO-13.jpg",
+        "2019-LASTUDIO-14.jpg",
+        "2019-LASTUDIO-15.jpg",
+        "2019-LASTUDIO-16.jpg",
+        "2019-LASTUDIO-17.jpg",
+        "2019-LASTUDIO-18.jpg",
+        "2019-LASTUDIO-2.jpg",
+        "2019-LASTUDIO-3.jpg",
+        "2019-LASTUDIO-4.jpg",
+        "2019-LASTUDIO-5.jpg",
+        "2019-LASTUDIO-6.jpg",
+        "2019-LASTUDIO-7.jpg",
+        "2019-LASTUDIO-8.jpg",
+        "2019-LASTUDIO-9.jpg",
+        "CMM_156.jpg",
+        "CMM_683.jpg",
+        "NBM_1032.jpg",
+        "NBM_1070.jpg",
+        "NBM_1199.jpg",
+        "NBM_1758.jpg",
+        "NBM_1787.jpg",
+        "NBM_1795.jpg",
+        "NBM_1821.jpg",
+        "NBM_1841.jpg",
+        "NBM_1993.jpg"
+      ],
+      "full_archive_sha256": null,
+      "member_inventory_sha256": "e19e8d83f180433a1c26759aeb7dc7ae186868f151b7f3cf1d09a0be511616d0",
+      "selected_members": [
+        {
+          "member": "2019-LASTUDIO-2.jpg",
+          "sha256": "78ac9857177be456dbdd3374d52881733013fa698a9a89112a109e3bc473d80c",
+          "bytes": 5039476,
+          "format": "JPEG",
+          "width_px": 3952,
+          "height_px": 2305
+        }
+      ],
+      "inspection_note": "37 JPEG members inventoried via HTTP ranges; one 5 MB photograph downloaded and decoded. Full 503 MB archive not downloaded or hashed. Other members not visually verified."
+    },
+    {
+      "id": "shop",
+      "url": "https://toastmasters.org/shop",
+      "manual_pages": [
+        31,
+        36
+      ],
+      "kind": "outside-poster-scope",
+      "access_status": "not-fetched-outside-poster-scope",
+      "retrieved_at": null,
+      "sha256": null,
+      "formats": [],
+      "usage": "Follow manual and source terms; download availability is not proof of permission.",
+      "redistribution": "Not established; do not rehost official materials."
+    },
+    {
+      "id": "brand-portal",
+      "url": "https://www.toastmasters.org/resources/brand-portal",
+      "manual_pages": [
+        31
+      ],
+      "kind": "permissions-or-discovery",
+      "access_status": "unavailable",
+      "retrieved_at": "2026-10-12T22:18:03.691600+00:00",
+      "sha256": null,
+      "formats": [],
+      "usage": "Follow manual and source terms; download availability is not proof of permission.",
+      "redistribution": "Not established; do not rehost official materials.",
+      "error": "Official source requires sign-in; use an authorized browser session or supplied file."
+    },
+    {
+      "id": "toastmasters-email-signature-for-members-spec-sheet",
+      "url": "https://ccdn.toastmasters.org/content/toastmasters-email-signature-for-members-spec-sheet.pdf",
+      "manual_pages": [
+        32
+      ],
+      "kind": "outside-poster-scope",
+      "access_status": "not-fetched-outside-poster-scope",
+      "retrieved_at": null,
+      "sha256": null,
+      "formats": [],
+      "usage": "Follow manual and source terms; download availability is not proof of permission.",
+      "redistribution": "Not established; do not rehost official materials."
+    },
+    {
+      "id": "letterhead-template",
+      "url": "https://ccdn.toastmasters.org/content/letterhead-template.zip",
+      "manual_pages": [
+        33
+      ],
+      "kind": "outside-poster-scope",
+      "access_status": "not-fetched-outside-poster-scope",
+      "retrieved_at": null,
+      "sha256": null,
+      "formats": [],
+      "usage": "Follow manual and source terms; download availability is not proof of permission.",
+      "redistribution": "Not established; do not rehost official materials."
+    },
+    {
+      "id": "meeting-agenda-template",
+      "url": "https://ccdn.toastmasters.org/content/meeting-agenda-template.zip",
+      "manual_pages": [
+        33
+      ],
+      "kind": "outside-poster-scope",
+      "access_status": "not-fetched-outside-poster-scope",
+      "retrieved_at": null,
+      "sha256": null,
+      "formats": [],
+      "usage": "Follow manual and source terms; download availability is not proof of permission.",
+      "redistribution": "Not established; do not rehost official materials."
+    },
+    {
+      "id": "branded-business-cards",
+      "url": "https://www.toastmasters.org/resources/brand-portal/branded-business-cards",
+      "manual_pages": [
+        33
+      ],
+      "kind": "permissions-or-discovery",
+      "access_status": "inspected",
+      "retrieved_at": "2026-10-12T22:18:04.796860+00:00",
+      "sha256": "f25a9dabb845a4db28f65f899510534e8173e0b9fd8b73b1451015c932b7917a",
+      "formats": [
+        "text/html; charset=utf-8"
+      ],
+      "usage": "Follow manual and source terms; download availability is not proof of permission.",
+      "redistribution": "Not established; do not rehost official materials.",
+      "bytes": 39005,
+      "archive_files": [],
+      "resolved_url": "https://www.toastmasters.org/resources/brand-portal/branded-business-cards"
+    },
+    {
+      "id": "trademarks-and-copyrights",
+      "url": "https://www.toastmasters.org/membership/leadership/tax-and-legal-resources/trademarks-and-copyrights",
+      "manual_pages": [
+        36
+      ],
+      "kind": "permissions-or-discovery",
+      "access_status": "inspected",
+      "retrieved_at": "2026-10-12T22:18:04.922917+00:00",
+      "sha256": "2b0d68356994d5b9b0f159b1c2af843b009e1fd2418ae4e022ccbab55ea8195c",
+      "formats": [
+        "text/html; charset=utf-8"
+      ],
+      "usage": "Follow manual and source terms; download availability is not proof of permission.",
+      "redistribution": "Not established; do not rehost official materials.",
+      "bytes": 79311,
+      "archive_files": [],
+      "resolved_url": "https://www.toastmasters.org/membership/leadership/tax-and-legal-resources/trademarks-and-copyrights"
+    },
+    {
+      "id": "shop-2",
+      "url": "https://shop.toastmasters.org/shop",
+      "manual_pages": [
+        36
+      ],
+      "kind": "outside-poster-scope",
+      "access_status": "not-fetched-outside-poster-scope",
+      "retrieved_at": null,
+      "sha256": null,
+      "formats": [],
+      "usage": "Follow manual and source terms; download availability is not proof of permission.",
+      "redistribution": "Not established; do not rehost official materials."
+    },
+    {
+      "id": "governing-documents",
+      "url": "https://www.toastmasters.org/Membership/Leadership/governing-documents/#Policy40IntellectualProperty559",
+      "manual_pages": [
+        37
+      ],
+      "kind": "permissions-or-discovery",
+      "access_status": "inspected",
+      "retrieved_at": "2026-10-12T22:20:41.653008+00:00",
+      "sha256": "02306ca6d5d03c35c2b043503e2357dcf493a080e2c5f8b3aad857b03b617182",
+      "formats": [
+        "text/html; charset=utf-8"
+      ],
+      "usage": "Follow manual and source terms; download availability is not proof of permission.",
+      "redistribution": "Not established; do not rehost official materials.",
+      "bytes": 843348,
+      "archive_files": [],
+      "resolved_url": "https://www.toastmasters.org/Membership/Leadership/governing-documents/#Policy40IntellectualProperty559"
+    },
+    {
+      "id": "watch",
+      "url": "https://www.youtube.com/watch?v=v902UJOu4B0",
+      "manual_pages": [
+        38
+      ],
+      "kind": "outside-poster-scope",
+      "access_status": "not-fetched-outside-poster-scope",
+      "retrieved_at": null,
+      "sha256": null,
+      "formats": [],
+      "usage": "Follow manual and source terms; download availability is not proof of permission.",
+      "redistribution": "Not established; do not rehost official materials."
+    },
+    {
+      "id": "gavel-club-logo",
+      "url": "https://ccdn.toastmasters.org/content/gavel-club-logo.zip",
+      "manual_pages": [
+        40
+      ],
+      "kind": "poster-asset",
+      "access_status": "inspected",
+      "retrieved_at": "2026-10-12T22:18:06.370327+00:00",
+      "sha256": "5acf0e23004a0908df96709ad1ff9d485c6c2ca81762ba1140a3c01d93940399",
+      "formats": [
+        "jpg",
+        "png",
+        "svg"
+      ],
+      "usage": "Follow manual and source terms; download availability is not proof of permission.",
+      "redistribution": "Not established; do not rehost official materials.",
+      "bytes": 5973496,
+      "archive_files": [
+        "GavelClubLogo/Black/GavelClubLogoBlack-CMYK.jpg",
+        "GavelClubLogo/Black/GavelClubLogoBlack-CMYK.png",
+        "GavelClubLogo/Black/GavelClubLogoBlack-RGB.jpg",
+        "GavelClubLogo/Black/GavelClubLogoBlack-RGB.png",
+        "GavelClubLogo/Black/GavelClubLogoBlack.svg",
+        "GavelClubLogo/LoyalBlue/GavelClubLogoLoyalBlue-CMYK.jpg",
+        "GavelClubLogo/LoyalBlue/GavelClubLogoLoyalBlue-CMYK.png",
+        "GavelClubLogo/LoyalBlue/GavelClubLogoLoyalBlue-RGB.jpg",
+        "GavelClubLogo/LoyalBlue/GavelClubLogoLoyalBlue-RGB.png",
+        "GavelClubLogo/LoyalBlue/GavelClubLogoLoyalBlue.svg",
+        "GavelClubLogo/TrueMaroon/GavelClubLogoTrueMaroon-CMYK.jpg",
+        "GavelClubLogo/TrueMaroon/GavelClubLogoTrueMaroon-CMYK.png",
+        "GavelClubLogo/TrueMaroon/GavelClubLogoTrueMaroon-RGB.jpg",
+        "GavelClubLogo/TrueMaroon/GavelClubLogoTrueMaroon-RGB.png",
+        "GavelClubLogo/TrueMaroon/GavelClubLogoTrueMaroon.svg"
+      ],
+      "resolved_url": "https://ccdn.toastmasters.org/content/gavel-club-logo.zip"
+    },
+    {
+      "id": "brand-manual",
+      "url": "https://content.toastmasters.org/image/upload/02330-001-0001-brand-manual.pdf",
+      "manual_pages": [],
+      "kind": "baseline-manual",
+      "access_status": "inspected",
+      "retrieved_at": "2026-10-12T22:18:06.701060+00:00",
+      "sha256": "929dec65bdfbb43e27c306e5d3c9ab6bd955d0c0b55256960d51f64509cedbe4",
+      "formats": [
+        "application/pdf"
+      ],
+      "usage": "Private reference only.",
+      "redistribution": "Do not rehost.",
+      "bytes": 2877526,
+      "archive_files": [],
+      "resolved_url": "https://content.toastmasters.org/image/upload/02330-001-0001-brand-manual.pdf",
+      "cover_version": "Brand \nManual \nToastmasters International Brand Manual brand@toastmasters.org Version 2.0 – Rev. 08/2026",
+      "baseline_version_match": true
+    }
+  ]
+}

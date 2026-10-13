@@ -1,0 +1,4 @@
+interface:
+  display_name: "Toastmasters Poster Reviewer"
+  short_description: "Review brand, content, protected assets and QR codes"
+  default_prompt: "Use $toastmasters-poster-reviewer to independently inspect this poster against the brief and official brand rules."

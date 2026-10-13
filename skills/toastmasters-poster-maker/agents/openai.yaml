@@ -1,0 +1,4 @@
+interface:
+  display_name: "Toastmasters Poster Maker"
+  short_description: "Plan, render and independently review branded posters"
+  default_prompt: "Use $toastmasters-poster-maker to create a poster from my brief through layout, rendering, exact overlays and independent review."

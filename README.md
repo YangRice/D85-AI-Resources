@@ -70,6 +70,20 @@ skills/{answer-table-topics-question, build-speech-outline, …}/SKILL.md + agen
 
 ---
 
+### Toastmasters Poster Production | 头马海报制作与评审
+
+- [Poster Maker / 海报制作](skills/toastmasters-poster-maker/SKILL.md) · [中文](skills/toastmasters-poster-maker/SKILL.zh.md): intermediate layout → image-model rendering → exact overlays → independent review. Supplied portraits, documentary photos and QR codes are placed directly, outside generative rendering.
+- [Poster Reviewer / 海报评审](skills/toastmasters-poster-reviewer/SKILL.md) · [中文](skills/toastmasters-poster-reviewer/SKILL.zh.md): standalone or maker quality gate; checks brand, copy, visual quality, protected materials and QR payloads. Design compliance and external authorization are separate.
+- [Maker EN](prompts/toastmasters-poster-maker.en.md) · [制作中文](prompts/toastmasters-poster-maker.zh.md) · [Reviewer EN](prompts/toastmasters-poster-reviewer.en.md) · [评审中文](prompts/toastmasters-poster-reviewer.zh.md). Text-only tools provide briefs/handoffs; production and visual approval require the stated tools and a separate review session.
+- **[Poster materials / 海报素材](materials/toastmasters-brand/README.md)**: direct official links and a saved [URL catalog](materials/toastmasters-brand/sources.json), so users never need to re-extract links from the PDF. Reuse existing local downloads first; browser downloads and supplied assets are supported. The fetch script is optional.
+- [Canonical brand references](references/toastmasters-brand/) use the August 2026 manual. Original files can be reused from the private, Git-ignored `materials/toastmasters-brand/local/` folder; official rights are not covered by the repository MIT license.
+
+素材保持私有，不重托管官方文件；两技能支持普通俱乐部/区域/中区/大区、企业俱乐部、Gavel及年度大会。可编辑SVG中的文字、素材及位置可调整，生成背景仍是栅格层。没有独立评审时仅交未经评审草稿，不自动申请批准或发布。
+
+Maintain canonical references, then run `python3 scripts/sync_poster_references.py`, `python3 scripts/build_portable_prompts.py`, `python3 scripts/validate_portable_skills.py`, `python3 scripts/sync_poster_references.py --check`, and `python3 -m unittest discover -s tests`. Do not hand-edit generated prompt/reference copies.
+
+---
+
 ### 🛠️ Officer Tools | 幹部工具
 
 #### 1. PowerPoint Translation Redesign
