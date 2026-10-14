@@ -168,8 +168,73 @@ python3 scripts/build_portable_prompts.py
 
 The `SKILL.md` packages can be used by compatible AI agents. The portable learning skills do not depend on native skill invocation; their generated prompts provide the text-only compatibility baseline.
 
+#### Install all skills once | 一次安装全部技能
+
+Copy this request into your skill-aware AI agent. If you already installed the complete collection in that client, skip installation and use the skills directly.
+
+将以下请求复制到支持 Skills 安装的 AI 助手中。如果已在该客户端安装过完整技能库，可直接使用，无需重复安装。
+
+```text
+Please install all skills from https://github.com/YangRice/D85-AI-Resources
+for this AI client. Preserve each complete skill folder, including its
+scripts, references, assets, and agent configuration. Check dependencies
+and client compatibility, then report the installed skills, installation
+location, and any missing requirements. Keep a persistent checkout of the
+complete repository, including its tracked materials, catalog, and shared
+references, and report that location too. Private Git-ignored downloads
+are not included; reuse existing authorized local assets or obtain them
+from the bundled official links as needed. Tell me whether I need to restart
+the client or open a new conversation before using them.
+```
+
+```text
+请为当前 AI 客户端安装 https://github.com/YangRice/D85-AI-Resources
+中的全部技能。保留每个技能的完整目录，包括脚本、参考资料、素材和
+智能体配置。检查依赖和客户端兼容性，完成后报告已安装技能、安装位置
+以及尚未满足的要求。同时保留完整仓库的持久本地副本，包括 Git 跟踪的
+materials、catalog 和共享参考资料，并报告该副本的位置。私有且被 Git
+忽略的下载文件不在仓库中；按需复用已有且有权使用的本地素材，或通过
+内置官方链接获取。请说明使用前是否需要重启客户端或新建对话。
+```
+
+**Optional terminal installation / 可选终端安装:** With Node.js and npm available, use the external [Skills CLI](https://github.com/vercel-labs/skills). This repository does not contain a dedicated bulk installer.
+
+安装了 Node.js 和 npm 后，也可使用外部 Skills CLI；本仓库不包含专用的批量安装脚本。
+
 ```bash
-# Enable a skill in your Hermes Agent session
+# Preview available skills without installing / 仅预览，不安装
+npx skills add YangRice/D85-AI-Resources --list
+
+# Install all skills; choose the target client interactively
+# 安装全部技能，交互选择目标客户端
+npx skills add YangRice/D85-AI-Resources --skill '*'
+
+# Example: install globally for Hermes, across projects
+# 示例：为 Hermes 全局安装，供所有项目使用
+npx skills add YangRice/D85-AI-Resources --skill '*' --agent hermes-agent --global
+```
+
+Without `--global`, installation is scoped to the current project. Use `--agent` to select a supported client (for example, `hermes-agent`, `claude-code`, or `codex`). Keep `'*'` quoted so the shell does not expand it. The CLI's `--all` option installs to all supported agents as well as selecting all skills; use `--skill '*'` when you want to choose the client. Installation copies skill instructions and supporting files; workflow dependencies and tools still need to be available.
+
+省略 `--global` 时，仅安装到当前项目。可用 `--agent` 指定受支持的客户端（如 `hermes-agent`、`claude-code` 或 `codex`）。请保留 `'*'` 的引号，避免被终端展开。CLI 的 `--all` 同时选择全部技能和全部受支持的客户端；如需选择客户端，请使用 `--skill '*'`。技能安装包含指令与配套文件，实际工作流所需的依赖和工具仍须另行满足。
+
+**Materials coverage / 素材范围:** The CLI installs individual skill folders, not a persistent copy of the entire repository. Files inside each skill's `assets/`, `references/`, and `scripts/` are included; top-level `materials/`, `catalog/`, and shared `references/` are not. The poster skills bundle the brand rules, material guides, and official asset URL inventory needed for standalone use. To retain the complete tracked resource collection, keep a separate repository checkout:
+
+CLI 安装的是各个技能目录，不会保留完整仓库副本。技能内部的 `assets/`、`references/` 和 `scripts/` 会包含在内；顶层的 `materials/`、`catalog/` 和共享 `references/` 不会。海报技能已内置独立使用所需的品牌规则、素材指南及官方链接目录。若需保留完整的 Git 跟踪资源，请另行保留仓库副本：
+
+```bash
+git clone https://github.com/YangRice/D85-AI-Resources.git
+```
+
+Actual downloaded logos, photos, fonts, and other originals under `materials/toastmasters-brand/local/` are private and Git-ignored. Neither the CLI nor a fresh clone includes these files. Reuse authorized local originals or download needed assets from the [saved official links](materials/toastmasters-brand/README.md).
+
+`materials/toastmasters-brand/local/` 中已下载的标志、照片、字体等原件保持私有并被 Git 忽略；CLI 安装和新克隆均不包含这些文件。请复用已有且有权使用的本地原件，或从[已保存的官方链接](materials/toastmasters-brand/README.md)按需下载。
+
+After installation, start a new conversation or reload the client if required. In Hermes, you can then view a skill with:
+
+安装后，根据客户端要求新建对话或重新加载。在 Hermes 中，可通过以下方式查看技能：
+
+```python
 skill_manage(action='view', name='powerpoint-translation-redesign')
 
 # Or load it from source
