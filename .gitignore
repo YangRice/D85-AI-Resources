@@ -1,5 +1,10 @@
 # Private official Toastmasters downloads: never publish/rehost these assets.
 .cache/toastmasters-brand/
+# Verified third-party editor cache; the standalone skill contains only its adapter.
+.cache/method-draw/
+skills/edit-svg-canvas/scripts/__pycache__/
+# Private browser integration fixtures contain user photos and invitation codes.
+output/svg-editor-qa/
 # Bytecode produced while validating the new poster tooling.
 skills/toastmasters-poster-maker/scripts/__pycache__/
 tests/__pycache__/

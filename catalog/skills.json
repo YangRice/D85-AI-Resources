@@ -185,6 +185,22 @@
         "en": "Text-only tools can provide preliminary findings. Full review requires inspecting the actual image, evidence for exact checks, and a decoder when QR codes are present. A separate agent/session is required for reviewing maker output. Report missing evidence and capabilities; never invent PASS or official approval.",
         "zh": "纯文字工具可提供初步发现。完整评审须查看实际图片、取得准确检查所需证据；有二维码时需要解码器。审核制作流程输出须独立代理/会话。缺证据或能力须说明，不得虚构PASS或官方批准。"
       }
+    },
+    {
+      "id": "edit-svg-canvas",
+      "type": "atomic",
+      "version": "0.1.0",
+      "resource_page": "edit-a-design-visually",
+      "requires": [],
+      "recommends": [],
+      "actions": [],
+      "portable_references": [
+        "runtime.{lang}.md"
+      ],
+      "compatibility": {
+        "en": "Visual editing requires the installed skill package, Python 3.10+, a local browser/server, and a verified Method Draw cache or first-use network access. Text-only chats can prepare a manual handoff but cannot launch this editor.",
+        "zh": "可视化编辑需要完整技能包、Python 3.10+、本地浏览器及服务、已验证的 Method Draw 缓存或首次联网。纯文字聊天只能准备手动交接，不能启动编辑器。"
+      }
     }
   ]
 }

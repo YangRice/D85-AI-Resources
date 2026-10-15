@@ -15,6 +15,13 @@ This repository contains reusable skill definitions designed for **AI coding age
 
 ## 📦 Skills | 技能清单
 
+### Visual editing | 手动编辑设计
+
+- [`edit-svg-canvas`](skills/edit-svg-canvas/SKILL.md): say “let me edit this design myself” or “我要自己改文字／調整位置” to open a local Method Draw canvas, then **Save and finish** to return a new SVG revision. Install this standalone skill package alongside poster-maker when hands-on editing is wanted. Python 3.10+ and local browser/server access are required.
+
+- 独立通用技能，不限于海报。完整复制 `skills/edit-svg-canvas/`（包括 `scripts/`），仅复制提示词无法运行；安装后可通过自然语言调用，无需用户知道 SVG 或编辑器名称。
+
+
 ### 🧑‍🎓 Member Learning | 会员学习
 
 #### Portable Toastmasters Learning Skills MVP

@@ -1,0 +1,6 @@
+interface:
+  display_name: "Edit a design visually"
+  short_description: "Edit text and move materials in a local design canvas"
+  default_prompt: "Use $edit-svg-canvas so I can edit this design myself, then save and finish."
+policy:
+  allow_implicit_invocation: true
