@@ -93,6 +93,17 @@ class EditorTests(unittest.TestCase):
         self.assertIn(b'data:image/png;base64,YWJj', prepared)
         self.assertIn(b'xlink:href', prepared)
 
+    def test_served_serializer_keeps_inherited_default_overrides_without_changing_cache(self):
+        source = b'svgedit.utilities.cleanupElement = function(element) { element.removeAttribute("fill-opacity"); };'
+        directory = self.editor / 'js'
+        directory.mkdir()
+        cached = directory / 'svgutils.js'
+        cached.write_bytes(source)
+        code, body = self.request('GET', f'/{self.session.token}/js/svgutils.js')
+        self.assertEqual(code, 200)
+        self.assertIn(b'function(element) { return;', body)
+        self.assertEqual(cached.read_bytes(), source)
+
     def test_blocks_active_external_and_unsupported_content(self):
         for content in ('<script/>', '<foreignObject/>', '<animate/>', '<filter><feOffset/></filter>',
                         '<image href="https://example.com/a.png"/>',

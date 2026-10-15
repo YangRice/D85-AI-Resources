@@ -198,8 +198,8 @@
         "runtime.{lang}.md"
       ],
       "compatibility": {
-        "en": "Visual editing requires the installed skill package, Python 3.10+, a local browser/server, and a verified Method Draw cache or first-use network access. Text-only chats can prepare a manual handoff but cannot launch this editor.",
-        "zh": "可视化编辑需要完整技能包、Python 3.10+、本地浏览器及服务、已验证的 Method Draw 缓存或首次联网。纯文字聊天只能准备手动交接，不能启动编辑器。"
+        "en": "Use a suitable built-in canvas when available and chosen; its capabilities depend on the host. The Method Draw route requires the installed skill package, Python 3.10+, a local browser/server, and a verified cache or first-use network access. Text-only chats can prepare a manual handoff but cannot launch an editor.",
+        "zh": "可用且用户选择时使用宿主内置画布，能力依宿主而定。Method Draw 路线需要完整技能包、Python 3.10+、本地浏览器及服务、已验证缓存或首次联网。纯文字聊天只能准备手动交接，不能启动编辑器。"
       }
     }
   ]

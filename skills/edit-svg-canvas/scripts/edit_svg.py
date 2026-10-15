@@ -271,6 +271,13 @@ def make_server(session, editor_root, port=0):
                     data = data.replace(
                         b'while(selectedElements[0] == null) selectedElements.shift(0);',
                         b'while(selectedElements.length && selectedElements[0] == null) selectedElements.shift();')
+                if route == 'js/svgutils.js':
+                    # SvgCanvas captures this helper during construction. Patch
+                    # the served definition before that binding: removing default
+                    # values loses child overrides of inherited presentation.
+                    data = data.replace(
+                        b'svgedit.utilities.cleanupElement = function(element) {',
+                        b'svgedit.utilities.cleanupElement = function(element) { return;')
                 if route == 'js/state.js':
                     # Large embedded posters exceed localStorage quota. The
                     # explicit Finish endpoint is the sole durable handoff.

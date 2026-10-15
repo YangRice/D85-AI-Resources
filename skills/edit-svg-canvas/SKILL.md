@@ -5,10 +5,29 @@ description: Use when users want to edit a design themselves, change poster text
 
 # Edit a design visually
 
-Open the current design in a local Method Draw editor. Let the user edit text
-and move materials, then click **Save and finish / 儲存並完成** to save a new SVG
-revision directly into the task's output folder. This works independently of
-Toastmasters, Codex panels, and any particular document task.
+Let the user edit the current design visually, then continue from their exact
+saved changes. This works independently of Toastmasters or any document task.
+
+## Choose the canvas before launching
+
+If the host has a built-in canvas that supports the requested edits, ask the
+user to choose **Built-in canvas (recommended/default)** or **SVG editor
+(Method Draw)**. Honor a choice already made in this conversation without asking
+again. Default means the recommended option, not permission to skip the question
+or infer an answer from silence. A static image or file preview is not an
+editable canvas.
+
+For the built-in canvas, load the latest editable design, let the user edit,
+and capture their latest saved/exported state. Apply that exact state to the
+editable source before continuing the task's rendering and review checks; never
+rebuild an older layout over their changes. Do not launch Method Draw on this
+route. If the built-in canvas cannot preserve the required edits, explain the
+limitation and offer the SVG editor.
+
+Use the Method Draw launch instructions below only when the user chooses it or
+no suitable built-in canvas exists. Let the user edit text and move materials,
+then click **Save and finish / 儲存並完成** to save a new SVG revision directly
+into the task's output folder.
 
 ## Recognize the user's intent
 
@@ -58,7 +77,7 @@ automatically message an agent, call an image model, or publish anything.
 
 ## Limits and truthfulness
 
-The launcher needs Python 3.10+, permission to bind a loopback port, and first-use
+The Method Draw launcher needs Python 3.10+, permission to bind a loopback port, and first-use
 network access or the verified archive/cache. It preserves originals and writes
 new revisions. Unsupported active/external SVG content is rejected explicitly.
 Embedded raster artwork stays raster; outlined text cannot be edited as words.

@@ -37,14 +37,20 @@ the canvas is disabled to avoid editing an already submitted revision. Start a
 new session on the saved SVG for further changes.
 
 Method Draw is a third-party SVG editor with partial SVG support. The adapter
-checks text and image content survives initial import; it is not a full visual
-equivalence proof. Check font faces, clipping, masks, transforms, and multiline
+rejects unsupported attributes and inline CSS properties before import (including
+letter-spacing), and normalizes supported simple inline declarations into
+presentation attributes. Stylesheet rules other than embedded @font-face are
+explicitly rejected; their cascade is not flattened. Save stays disabled on
+incompatibility. Text/image content is checked after import; this is not a full
+visual equivalence proof. Check font faces, clipping, masks, transforms, and multiline
 text in the actual render. The source and output remain available even if a
 feature is unsupported. The generated portable text prompt needs this installed
 package to execute; it must not invent a launcher in text-only chat.
 
 The adapter preserves embedded font declarations, chained transforms, and image
-rendering settings. It applies two small served compatibility patches to the
+rendering settings. It preserves explicit inherited presentation overrides by disabling upstream
+default-value cleanup before canvas construction. It applies small served
+compatibility patches to the
 pinned upstream source (empty-selection guard and disabling large-document
 localStorage autosave); cached originals remain unchanged. Finish is the durable
 save action. The server uses an expanded connection backlog for reliable first

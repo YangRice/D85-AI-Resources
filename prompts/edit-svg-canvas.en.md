@@ -6,16 +6,35 @@
 
 ## Compatibility note
 
-Visual editing requires the installed skill package, Python 3.10+, a local browser/server, and a verified Method Draw cache or first-use network access. Text-only chats can prepare a manual handoff but cannot launch this editor.
+Use a suitable built-in canvas when available and chosen; its capabilities depend on the host. The Method Draw route requires the installed skill package, Python 3.10+, a local browser/server, and a verified cache or first-use network access. Text-only chats can prepare a manual handoff but cannot launch an editor.
 
 ## Instructions for the AI
 
 # Edit a design visually
 
-Open the current design in a local Method Draw editor. Let the user edit text
-and move materials, then click **Save and finish / 儲存並完成** to save a new SVG
-revision directly into the task's output folder. This works independently of
-Toastmasters, Codex panels, and any particular document task.
+Let the user edit the current design visually, then continue from their exact
+saved changes. This works independently of Toastmasters or any document task.
+
+## Choose the canvas before launching
+
+If the host has a built-in canvas that supports the requested edits, ask the
+user to choose **Built-in canvas (recommended/default)** or **SVG editor
+(Method Draw)**. Honor a choice already made in this conversation without asking
+again. Default means the recommended option, not permission to skip the question
+or infer an answer from silence. A static image or file preview is not an
+editable canvas.
+
+For the built-in canvas, load the latest editable design, let the user edit,
+and capture their latest saved/exported state. Apply that exact state to the
+editable source before continuing the task's rendering and review checks; never
+rebuild an older layout over their changes. Do not launch Method Draw on this
+route. If the built-in canvas cannot preserve the required edits, explain the
+limitation and offer the SVG editor.
+
+Use the Method Draw launch instructions below only when the user chooses it or
+no suitable built-in canvas exists. Let the user edit text and move materials,
+then click **Save and finish / 儲存並完成** to save a new SVG revision directly
+into the task's output folder.
 
 ## Recognize the user's intent
 
@@ -65,7 +84,7 @@ automatically message an agent, call an image model, or publish anything.
 
 ## Limits and truthfulness
 
-The launcher needs Python 3.10+, permission to bind a loopback port, and first-use
+The Method Draw launcher needs Python 3.10+, permission to bind a loopback port, and first-use
 network access or the verified archive/cache. It preserves originals and writes
 new revisions. Unsupported active/external SVG content is rejected explicitly.
 Embedded raster artwork stays raster; outlined text cannot be edited as words.
@@ -113,14 +132,20 @@ the canvas is disabled to avoid editing an already submitted revision. Start a
 new session on the saved SVG for further changes.
 
 Method Draw is a third-party SVG editor with partial SVG support. The adapter
-checks text and image content survives initial import; it is not a full visual
-equivalence proof. Check font faces, clipping, masks, transforms, and multiline
+rejects unsupported attributes and inline CSS properties before import (including
+letter-spacing), and normalizes supported simple inline declarations into
+presentation attributes. Stylesheet rules other than embedded @font-face are
+explicitly rejected; their cascade is not flattened. Save stays disabled on
+incompatibility. Text/image content is checked after import; this is not a full
+visual equivalence proof. Check font faces, clipping, masks, transforms, and multiline
 text in the actual render. The source and output remain available even if a
 feature is unsupported. The generated portable text prompt needs this installed
 package to execute; it must not invent a launcher in text-only chat.
 
 The adapter preserves embedded font declarations, chained transforms, and image
-rendering settings. It applies two small served compatibility patches to the
+rendering settings. It preserves explicit inherited presentation overrides by disabling upstream
+default-value cleanup before canvas construction. It applies small served
+compatibility patches to the
 pinned upstream source (empty-selection guard and disabling large-document
 localStorage autosave); cached originals remain unchanged. Finish is the durable
 save action. The server uses an expanded connection backlog for reliable first

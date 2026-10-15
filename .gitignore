@@ -19,3 +19,12 @@ test-poster/creative-test-2026-10-13/
 test-poster/production-test-2026-10-13/
 # Original user-supplied test material is private.
 test-poster/Poster material/
+
+# Local agent scratch state: per-session memory notes, never a published skill.
+.workbuddy/
+# macOS Finder metadata, present in every directory on this machine.
+.DS_Store
+# Local agent discovery directories and scratch files are not published.
+# Install reusable skills from the canonical skills/ packages instead.
+.agents/
+.codebuddy/

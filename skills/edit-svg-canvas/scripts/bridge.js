@@ -20,7 +20,7 @@
   let baseline;
   let finished = false;
   let embeddedFonts = '';
-  const imageRendering = new Map();
+  const imageAttributes = new Map();
   const fingerprint = doc => {
     const images = [...doc.querySelectorAll('image')].map(n => n.getAttribute('href') || n.getAttributeNS('http://www.w3.org/1999/xlink', 'href')).sort();
     const texts = [...doc.querySelectorAll('text')].map(n => n.textContent).sort();
@@ -30,8 +30,7 @@
   const current = () => {
     const doc = parse(svgCanvas.getSvgString());
     for (const image of doc.querySelectorAll('image')) {
-      const href = image.getAttribute('href') || image.getAttributeNS('http://www.w3.org/1999/xlink', 'href');
-      if (imageRendering.has(href)) image.setAttribute('image-rendering', imageRendering.get(href));
+      for (const [name, value] of imageAttributes.get(image.id) || []) image.setAttribute(name, value);
     }
     if (embeddedFonts) {
       const style = doc.createElementNS('http://www.w3.org/2000/svg', 'style');
@@ -51,12 +50,60 @@
     if (!response.ok) throw new Error('Cannot read the design');
     const original = await response.text();
     const originalDoc = parse(original);
-    for (const image of originalDoc.querySelectorAll('image')) {
-      const href = image.getAttribute('href') || image.getAttributeNS('http://www.w3.org/1999/xlink', 'href');
-      const rendering = image.getAttribute('image-rendering') || image.style.imageRendering;
-      if (rendering) imageRendering.set(href, rendering);
-    }
     const workingDoc = parse(original);
+    // Fail closed before upstream sanitization can discard styling. Use the
+    // pinned editor's own per-element attribute support rather than maintaining
+    // a second list. Inline CSS is normalized to presentation attributes only
+    // for simple, supported declarations. Stylesheets other than @font-face
+    // are rejected below: their cascade cannot be flattened reliably here.
+    const supported = svgedit.sanitize.svgWhiteList();
+    // CSS geometry/transform grammars differ from SVG attributes (px/deg,
+    // transform-origin, percentages). Do not treat attribute support alone as
+    // permission to flatten them.
+    const presentationCSS = new Set(('fill fill-opacity fill-rule clip-rule opacity stroke stroke-width stroke-dasharray stroke-dashoffset stroke-linecap stroke-linejoin stroke-miterlimit stroke-opacity font-family font-size font-style font-weight text-anchor stop-color stop-opacity image-rendering clip-path mask filter display shape-rendering').split(' '));
+    for (const node of [workingDoc.documentElement, ...workingDoc.querySelectorAll('*')].filter((n, i, all) => all.indexOf(n) === i)) {
+      if (!Object.hasOwn(supported, node.localName)) throw new Error(`Unsupported SVG element ${node.localName}`);
+      const allowed = supported[node.localName];
+      for (const attr of [...node.attributes]) {
+        if (attr.name.startsWith('aria-') || attr.name === 'role' || attr.name === 'style' || attr.namespaceURI === 'http://www.w3.org/2000/xmlns/' ||
+            (node.localName === 'image' && ['image-rendering', 'preserveAspectRatio'].includes(attr.name))) continue;
+        if (!allowed.includes(attr.name)) {
+          throw new Error(`Unsupported SVG attribute ${attr.name} on ${node.localName}; import stopped to preserve appearance`);
+        }
+      }
+      if (!node.hasAttribute('style')) continue;
+      const css = node.getAttribute('style');
+      if (css.includes('/*') || css.includes('*/')) throw new Error('Unsupported inline CSS comments; import stopped to preserve appearance');
+      for (const declaration of css.split(';')) {
+        if (!declaration.trim()) continue;
+        const match = declaration.match(/^\s*([a-zA-Z-]+)\s*:\s*([^{};]+?)\s*$/);
+        if (!match || /!|var\s*\(|(?:inherit|initial|unset|revert)\b/i.test(match[2])) {
+          throw new Error('Unsupported inline CSS syntax; import stopped to preserve appearance');
+        }
+        const property = match[1].toLowerCase(), value = match[2];
+        if (!presentationCSS.has(property) || (!allowed.includes(property) && !(node.localName === 'image' && property === 'image-rendering'))) {
+          throw new Error(`Unsupported inline CSS property ${property} on ${node.localName}; import stopped to preserve appearance`);
+        }
+        // Reject declarations the browser itself cannot interpret as CSS.
+        if (!CSS.supports(property, value)) throw new Error(`Unsupported CSS value for ${property}`);
+        node.setAttribute(property, value);
+      }
+      node.removeAttribute('style');
+    }
+    // Keep image-only presentation attributes upstream does not retain. IDs
+    // distinguish repeated copies of the same image with different rendering.
+    const usedIds = new Set([...workingDoc.querySelectorAll('[id]')].map(n => n.id));
+    let imageIndex = 0;
+    for (const image of workingDoc.querySelectorAll('image')) {
+      if (!image.id) {
+        let id;
+        do { id = `svg-edit-image-${++imageIndex}`; } while (usedIds.has(id));
+        image.id = id;
+        usedIds.add(id);
+      }
+      imageAttributes.set(image.id, ['image-rendering', 'preserveAspectRatio']
+        .filter(name => image.hasAttribute(name)).map(name => [name, image.getAttribute(name)]));
+    }
     // Upstream's transform normalizer can drop chained translate/scale lists.
     // Consolidate them with the browser's native SVG implementation first.
     for (const node of workingDoc.querySelectorAll('[transform]')) {
@@ -73,12 +120,15 @@
         embeddedFonts += rule + '\n';
         return '';
       });
-      if (!style.textContent.trim()) style.remove();
+      if (style.textContent.trim()) throw new Error('Unsupported SVG stylesheet rules; use supported presentation attributes or a different canvas');
+      style.remove();
     }
     if (svgCanvas.setSvgString(new XMLSerializer().serializeToString(workingDoc)) === false) throw new Error('Method Draw cannot open this SVG');
     for (const image of document.querySelectorAll('#svgcontent image')) {
-      const href = image.getAttribute('href') || image.getAttributeNS('http://www.w3.org/1999/xlink', 'href');
-      if (imageRendering.has(href)) image.style.imageRendering = imageRendering.get(href);
+      for (const [name, value] of imageAttributes.get(image.id) || []) {
+        image.setAttribute(name, value);
+        if (name === 'image-rendering') image.style.imageRendering = value;
+      }
     }
     editor.canvas.update(true);
     // Preserve embedded @font-face declarations for both the canvas and export.
