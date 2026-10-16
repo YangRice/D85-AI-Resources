@@ -11,23 +11,35 @@ on:
 jobs:
   skill-scanner:
     name: Skill Scanner (Cisco AI Defense)
+    runs-on: ubuntu-latest
     # Fork PRs never receive repository secrets, so the LLM judge cannot run
     # there; skip them (the static scan in skill-pr-dry-run.yml still covers
     # every PR). Same-repo PRs and pushes to main run the full scan.
     if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
     permissions:
-      security-events: write
       contents: read
-      actions: read
-    uses: cisco-ai-defense/skill-scanner/.github/workflows/scan-skills.yml@2.2.2
-    with:
-      scanner_version: "2.2.2"
-      skill_path: skills
-      scan_mode: scan-all
-      policy: balanced
-      fail_on_severity: high
-      use_llm: true
-      llm_model: gemini/gemini-3.8-flash
-      use_behavioral: true
-    secrets:
-      llm_api_key: ${{ secrets.SKILL_SCANNER_LLM_API_KEY }}
+      security-events: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install cisco-ai-skill-scanner
+        run: pip install "cisco-ai-skill-scanner[google]==2.3.0"
+      - name: Run scan
+        env:
+          # Deliberately NOT exporting SKILL_SCANNER_LLM_PROVIDER: the analyzer
+          # treats an empty value as an explicit invalid provider (the reusable
+          # workflow upstream always exports it, which breaks the gemini path).
+          # The CLI infers Google AI Studio from the gemini/ model prefix.
+          SKILL_SCANNER_LLM_MODEL: gemini/gemini-3.8-flash
+          SKILL_SCANNER_LLM_API_KEY: ${{ secrets.SKILL_SCANNER_LLM_API_KEY }}
+        run: |
+          skill-scanner scan-all skills --format sarif --policy balanced \
+            --recursive --check-overlap --use-llm --use-behavioral \
+            --output results.sarif --fail-on-severity high
+      - name: Upload SARIF to Code Scanning
+        if: hashFiles('results.sarif') != ''
+        uses: github/codeql-action/upload-sarif@v4
+        with:
+          sarif_file: results.sarif
