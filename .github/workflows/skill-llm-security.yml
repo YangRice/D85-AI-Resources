@@ -34,12 +34,15 @@ jobs:
           # The CLI infers Google AI Studio from the gemini/ model prefix.
           SKILL_SCANNER_LLM_MODEL: gemini/gemini-3.8-flash
           SKILL_SCANNER_LLM_API_KEY: ${{ secrets.SKILL_SCANNER_LLM_API_KEY }}
+          # Plain JSON mode: Gemini's structured-output schema includes keys
+          # (uniqueItems) that the scanner's strict schema parser rejects.
+          SKILL_SCANNER_LLM_FORCE_JSON_OBJECT: "true"
         run: |
           skill-scanner scan-all skills --format sarif --policy balanced \
             --recursive --check-overlap --use-llm --use-behavioral \
             --output results.sarif --fail-on-severity high
       - name: Upload SARIF to Code Scanning
-        if: hashFiles('results.sarif') != ''
+        if: always() && hashFiles('results.sarif') != ''
         uses: github/codeql-action/upload-sarif@v4
         with:
           sarif_file: results.sarif
