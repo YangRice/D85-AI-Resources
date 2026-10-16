@@ -17,7 +17,7 @@ This repository contains reusable skill definitions designed for **AI coding age
 
 ### Visual editing | 手动编辑设计
 
-- [`edit-svg-canvas`](skills/edit-svg-canvas/SKILL.md): say “let me edit this design myself” or “我要自己改文字／調整位置” to open a local Method Draw canvas, then **Save and finish** to return a new SVG revision. Install this standalone skill package alongside poster-maker when hands-on editing is wanted. Python 3.10+ and local browser/server access are required.
+- [`edit-svg-canvas`](skills/edit-svg-canvas/SKILL.md): say “let me edit this design myself” or “我要自己改文字／調整位置” to choose a suitable built-in canvas or the local Method Draw editor. Method Draw uses **Save and finish** to return a new SVG revision and requires Python 3.10+ and local browser/server access. Install this standalone package alongside poster-maker when the SVG editor is needed.
 
 - 独立通用技能，不限于海报。完整复制 `skills/edit-svg-canvas/`（包括 `scripts/`），仅复制提示词无法运行；安装后可通过自然语言调用，无需用户知道 SVG 或编辑器名称。
 
@@ -185,40 +185,48 @@ Copy this request into your skill-aware AI agent. If you already installed the c
 Please install all skills from https://github.com/YangRice/D85-AI-Resources
 for this AI client. Preserve each complete skill folder, including its
 scripts, references, assets, and agent configuration. Check dependencies
-and client compatibility, then report the installed skills, installation
-location, and any missing requirements. Keep a persistent checkout of the
-complete repository, including its tracked materials, catalog, and shared
-references, and report that location too. Private Git-ignored downloads
-are not included; reuse existing authorized local assets or obtain them
-from the bundled official links as needed. Tell me whether I need to restart
-the client or open a new conversation before using them.
+and client compatibility. Report selected and installed skill IDs, active
+installation location and scope, source revision when available, observed
+client discovery/loading evidence (or explicitly unverified), missing
+workflow requirements, and any required restart or new conversation.
+A retained repository checkout is optional for ordinary installation.
+If I request the complete tracked resource collection, also retain a checkout
+with materials, catalog, and shared references; report its location separately.
+Private Git-ignored downloads are excluded. Reuse authorized local assets or
+obtain them from the bundled official links as needed. Distinguish file
+presence, client loading, a harmless first task, and advanced workflow readiness;
+never mark an untested step as passed.
 ```
 
 ```text
 请为当前 AI 客户端安装 https://github.com/YangRice/D85-AI-Resources
 中的全部技能。保留每个技能的完整目录，包括脚本、参考资料、素材和
-智能体配置。检查依赖和客户端兼容性，完成后报告已安装技能、安装位置
-以及尚未满足的要求。同时保留完整仓库的持久本地副本，包括 Git 跟踪的
-materials、catalog 和共享参考资料，并报告该副本的位置。私有且被 Git
-忽略的下载文件不在仓库中；按需复用已有且有权使用的本地素材，或通过
-内置官方链接获取。请说明使用前是否需要重启客户端或新建对话。
+智能体配置。检查依赖和客户端兼容性，报告所选及已安装技能 ID、实际
+安装位置和范围、可取得的来源版本、已观察到的客户端发现／加载证据
+（或明确标为未验证）、缺少的工作流条件，以及是否需要重启或新建对话。
+普通安装可选择是否保留仓库副本；若我要求完整的 Git 跟踪资源库，
+则须另行保留包含 materials、catalog 和共享参考资料的仓库副本，
+并单独报告其位置。私有且被 Git 忽略的下载文件不包含在内。
+按需复用有权使用的本地素材，或通过内置官方链接获取。
+请区分文件存在、客户端加载、无害的首次任务成功和进阶工作流就绪；
+未测试的步骤不得标为通过。
 ```
 
-**Optional terminal installation / 可选终端安装:** With Node.js and npm available, use the external [Skills CLI](https://github.com/vercel-labs/skills). This repository does not contain a dedicated bulk installer.
+**Optional terminal installation / 可选终端安装:** With a compatible Node.js/npm toolchain, use the external [Skills CLI](https://github.com/vercel-labs/skills). Examples below pin released version `1.7.2` (Node `>=22.20.0`). This repository does not contain a dedicated bulk installer. These are documented routes; installation alone does not verify client loading or task readiness. See the [installation guide](docs/installation.md) for evidence levels, capability requirements, selective installs and maintenance.
 
-安装了 Node.js 和 npm 后，也可使用外部 Skills CLI；本仓库不包含专用的批量安装脚本。
+有兼容的 Node.js/npm 环境时，也可使用外部 Skills CLI；以下示例固定为已发布的 `1.7.2`（Node `>=22.20.0`）。本仓库不包含专用批量安装器。这些是已记录的路线；安装本身不等于已验证客户端加载或任务就绪。[安装指南](docs/installation.md)说明证据层级、能力要求、选择安装和维护方式。
 
 ```bash
 # Preview available skills without installing / 仅预览，不安装
-npx skills add YangRice/D85-AI-Resources --list
+npx skills@1.7.2 add YangRice/D85-AI-Resources --list
 
 # Install all skills; choose the target client interactively
 # 安装全部技能，交互选择目标客户端
-npx skills add YangRice/D85-AI-Resources --skill '*'
+npx skills@1.7.2 add YangRice/D85-AI-Resources --skill '*'
 
 # Example: install globally for Hermes, across projects
 # 示例：为 Hermes 全局安装，供所有项目使用
-npx skills add YangRice/D85-AI-Resources --skill '*' --agent hermes-agent --global
+npx skills@1.7.2 add YangRice/D85-AI-Resources --skill '*' --agent hermes-agent --global
 ```
 
 Without `--global`, installation is scoped to the current project. Use `--agent` to select a supported client (for example, `hermes-agent`, `claude-code`, or `codex`). Keep `'*'` quoted so the shell does not expand it. The CLI's `--all` option installs to all supported agents as well as selecting all skills; use `--skill '*'` when you want to choose the client. Installation copies skill instructions and supporting files; workflow dependencies and tools still need to be available.
@@ -248,6 +256,10 @@ skill_manage(action='view', name='powerpoint-translation-redesign')
 skill_view(name='powerpoint-translation-redesign')
 ```
 
+**First use:** In a fresh session, explicitly ask for `build-speech-outline` using a harmless fictional topic, a three-minute limit and a supplied message. Ask the agent to show client-provided loading evidence or state that loading is unverified. Record the result separately from package presence. Successful text guidance does not verify poster, agenda, PDF or PPTX production. The [guide](docs/installation.md) includes update/removal and troubleshooting.
+
+**首次使用：** 在新对话中明确调用 `build-speech-outline`，提供无害的虚构主题、三分钟时限和主旨。请助手展示客户端提供的加载证据，或明确说明加载未验证；将任务结果与文件存在分开记录。文字指导成功不代表海报、议程、PDF 或 PPTX 制作已验证。[指南](docs/installation.md)包含更新、移除和故障排查。
+
 ### For PowerPoint Translation
 
 ```bash
@@ -255,7 +267,7 @@ skill_view(name='powerpoint-translation-redesign')
 python3 skills/powerpoint-translation-redesign/scripts/audit_pptx_text.py translated.pptx --language en
 ```
 
-> **Note:** The audit script requires `python-pptx` (`pip install python-pptx`).
+> **Note / 注意：** This text-audit helper uses Python's standard-library ZIP/XML tools; it does **not** require `python-pptx`. Full translation requires the separately installed `presentations` skill, editing/rendering tools and three independent subagents. 此文字审计脚本仅用 Python 标准库，无须 `python-pptx`；完整翻译须另装 `presentations` 技能，并具备编辑／渲染工具及三个独立子代理。
 
 ### For Speech Coaching
 
@@ -284,6 +296,7 @@ D85 AI SKILLs resource/
 │   └── toastmasters-club-meeting-agenda-generator.md
 ├── scripts/
 │   ├── build_portable_prompts.py
+│   ├── validate_skill_packages.py # All tracked packages; static checks only
 │   └── validate_portable_skills.py
 └── skills/
     ├── <portable-learning-skill>/
@@ -314,10 +327,13 @@ D85 AI SKILLs resource/
 
 ## 🛠️ Requirements | 环境要求
 
-- Python 3.10+
-- `python-pptx` (for the audit script)
-- Any capable text-chat AI for universal prompts
-- A compatible skill-aware AI agent only for native `SKILL.md` invocation
+Text guidance and universal prompts need a capable text-chat AI; they do not universally require Python. Native `SKILL.md` invocation needs a compatible client. File production, independent reviewers, image tools, rendering and local editing have workflow-specific requirements; see the bilingual [capability table](docs/installation.md#workflow-requirements--工作流要求). Installing packages does not install those tools.
+
+文字指导及通用提示词需要有相应能力的文字 AI，不统一要求 Python；原生调用 `SKILL.md` 需要兼容客户端。文件制作、独立评审、图像工具、渲染和本地编辑的条件因工作流而异，详见双语[能力表](docs/installation.md#workflow-requirements--工作流要求)。安装技能包不会自动安装这些工具。
+
+Maintainers / 维护者：`python3 scripts/validate_skill_packages.py` checks every tracked package; `python3 scripts/validate_portable_skills.py` separately checks the portable catalog. The tracked baseline reviewed on 2026-10-16 has 23 packages and 18 portable entries; the five packages outside that catalog are still distributed skills. Both commands are local static validation, not client or workflow certification. See the [guide](docs/installation.md#maintainer-checks--维护检查) for clean-export checks.
+
+前者覆盖所有 Git 跟踪技能包，后者单独检查便携目录。2026-10-16 审查的跟踪基线有 23 个包、18 个便携条目；其余五个技能仍会分发。两者均为本地静态检查，不证明客户端加载或完整工作流成功。干净导出的检查方式见[指南](docs/installation.md#maintainer-checks--维护检查)。
 
 ---
 
