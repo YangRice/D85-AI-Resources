@@ -58,3 +58,16 @@ jobs:
         env:
           PR_BODY: ${{ github.event.pull_request.body }}
           PR_DRAFT: ${{ github.event.pull_request.draft }}
+
+  skill-safety-scan:
+    name: Skill safety scan (best-effort)
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Scan changed files for unsafe material
+        run: python3 scripts/scan_skill_safety.py
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}

@@ -137,6 +137,7 @@ run_check python3 scripts/validate_portable_skills.py
 run_check python3 scripts/sync_poster_references.py --check
 run_check python3 -m unittest discover -s tests
 run_check git diff --check main candidate
+run_check env BASE_SHA=main python3 scripts/scan_skill_safety.py
 set -e
 
 # 6. Identify contributed skill packages for the behavioral spec.

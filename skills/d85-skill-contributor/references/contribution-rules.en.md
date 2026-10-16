@@ -36,7 +36,7 @@ These rules cover preparation and GitHub submission to `https://github.com/YangR
 
 ## Automated PR checks
 
-The upstream repository runs applicable package checks and an evidence-structure check on every pull request. Both walkthrough rows must contain expected and observed results, an explicit PASS / FAIL / NOT RUN verdict, and an evidence label saying 'observed' or 'contributor-reported'. Generated prompt editions must match canonical regeneration exactly; regenerate instead of hand-editing. A draft PR may leave evidence incomplete — the check then warns instead of failing — but a draft is never ready for acceptance.
+The upstream repository runs applicable package checks and an evidence-structure check on every pull request, plus a best-effort safety scan over the changed files: unresolved secret patterns, private user paths, or symlinks fail the scan and block uploads, including draft PRs. Both walkthrough rows must contain expected and observed results, an explicit PASS / FAIL / NOT RUN verdict, and an evidence label saying 'observed' or 'contributor-reported'. Generated prompt editions must match canonical regeneration exactly; regenerate instead of hand-editing. A draft PR may leave evidence incomplete — the check then warns instead of failing — but a draft is never ready for acceptance.
 
 ## Git and submission boundaries
 
