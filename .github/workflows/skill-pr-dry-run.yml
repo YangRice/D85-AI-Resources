@@ -1,0 +1,60 @@
+name: Skill PR dry-run checks
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  package-checks:
+    name: Deterministic package checks
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Run repository checks
+        run: |
+          set -euo pipefail
+          BASE="${BASE_SHA:-origin/main}"
+          git fetch origin "$BASE" --quiet
+          python3 scripts/build_portable_prompts.py
+          if [ -n "$(git status --porcelain)" ]; then
+            echo "::error::build_portable_prompts.py regenerated files - generated prompts in this change are out of date"
+            git status --porcelain
+            exit 1
+          fi
+          python3 scripts/validate_skill_packages.py
+          python3 scripts/validate_portable_skills.py
+          python3 scripts/sync_poster_references.py --check
+          python3 -m unittest discover -s tests
+          git diff --check "$BASE" HEAD
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+      - name: Report changed-file scope
+        run: |
+          BASE="${BASE_SHA:-origin/main}"
+          echo "Files changed:"
+          git diff --name-only "$BASE" HEAD | sed 's/^/  /'
+          echo
+          echo "Paths outside skills/, prompts/, catalog/, .github/, docs/, design/ need human review."
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+
+  pr-evidence:
+    name: PR evidence structure check
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check trial evidence in PR body
+        run: python3 .github/scripts/check_pr_evidence.py
+        env:
+          PR_BODY: ${{ github.event.pull_request.body }}
+          PR_DRAFT: ${{ github.event.pull_request.draft }}
