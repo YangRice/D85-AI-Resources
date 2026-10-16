@@ -34,6 +34,10 @@ These rules cover preparation and GitHub submission to `https://github.com/YangR
 - Record candidate revision, test date, AI tool/model if known, scenario/input, expected behavior, actual outcome, pass/fail/not run, limitations, and evidence source in the PR description. Contributor-reported results remain labeled unless independently reproduced. Retest affected behavior after changes.
 - Assistants check applicable metadata, catalog/reference/dependency paths, generated consistency, and language gaps using reviewed base-revision tooling. Missing tools mean not run. Structure checks alone prove neither usefulness, safety, rights, nor acceptance. No exhaustive platform matrix or separate report file is required from a novice.
 
+## Automated PR checks
+
+The upstream repository runs applicable package checks and an evidence-structure check on every pull request. Both walkthrough rows must contain expected and observed results, an explicit PASS / FAIL / NOT RUN verdict, and an evidence label saying 'observed' or 'contributor-reported'. Generated prompt editions must match canonical regeneration exactly; regenerate instead of hand-editing. A draft PR may leave evidence incomplete — the check then warns instead of failing — but a draft is never ready for acceptance.
+
 ## Git and submission boundaries
 
 - Use a clean isolated candidate checkout from the verified intended upstream base; keep original files, unrelated work, and private source history out. Inspect upstream rules before upload and disclose material differences from bundled rules. Never reset/clean an existing checkout, change global Git configuration, or force-push.
