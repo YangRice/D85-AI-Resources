@@ -331,9 +331,9 @@ Text guidance and universal prompts need a capable text-chat AI; they do not uni
 
 文字指导及通用提示词需要有相应能力的文字 AI，不统一要求 Python；原生调用 `SKILL.md` 需要兼容客户端。文件制作、独立评审、图像工具、渲染和本地编辑的条件因工作流而异，详见双语[能力表](docs/installation.md#workflow-requirements--工作流要求)。安装技能包不会自动安装这些工具。
 
-Maintainers / 维护者：`python3 scripts/validate_skill_packages.py` checks every tracked package; `python3 scripts/validate_portable_skills.py` separately checks the portable catalog. The tracked baseline reviewed on 2026-10-16 has 23 packages and 18 portable entries; the five packages outside that catalog are still distributed skills. Both commands are local static validation, not client or workflow certification. See the [guide](docs/installation.md#maintainer-checks--维护检查) for clean-export checks.
+Maintainers / 维护者：`python3 scripts/validate_skill_packages.py` checks every tracked package; `python3 scripts/validate_portable_skills.py` separately checks the portable catalog. The reviewed baseline `1af81e05` had 23 packages with 18 portable entries; this revision has 24 packages and 19 entries, and the same five packages remain outside the catalog as distributed skills. Both commands are local static validation, not client or workflow certification. See the [guide](docs/installation.md#maintainer-checks--维护检查) for clean-export checks and the [re-check record](design/skills-installation-recheck-2026-10-16.md) for the counts and outputs observed at this revision.
 
-前者覆盖所有 Git 跟踪技能包，后者单独检查便携目录。2026-10-16 审查的跟踪基线有 23 个包、18 个便携条目；其余五个技能仍会分发。两者均为本地静态检查，不证明客户端加载或完整工作流成功。干净导出的检查方式见[指南](docs/installation.md#maintainer-checks--维护检查)。
+前者覆盖所有 Git 跟踪技能包，后者单独检查便携目录。受审基线 `1af81e05` 有 23 个包、18 个便携条目；本版本为 24 个包、19 个便携条目，目录外的仍是同样五个技能，仍会分发。两者均为本地静态检查，不证明客户端加载或完整工作流成功。干净导出的检查方式见[指南](docs/installation.md#maintainer-checks--维护检查)，本版本的计数与输出见[复查记录](design/skills-installation-recheck-2026-10-16.md)。
 
 ---
 

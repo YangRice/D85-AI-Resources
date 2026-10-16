@@ -116,9 +116,9 @@ python3 -m unittest discover -s tests
 git diff --check
 ```
 
-The portable validator remains separate: the tracked baseline reviewed on 2026-10-16 has 18 catalog entries with a different scope from the 23 tracked packages. The five officer/translation packages outside that catalog remain installable; this difference does not mean the installer lost them or that prompts must be generated for them.
+The portable validator remains separate: the reviewed baseline `1af81e05` had 18 catalog entries with a different scope from its 23 tracked packages, and at the revision that adds this guide there are 19 catalog entries and 24 tracked packages. The same five officer/translation packages remain outside that catalog and remain installable; this difference does not mean the installer lost them or that prompts must be generated for them. Observed counts and command output for this revision are in the [re-check record](../design/skills-installation-recheck-2026-10-16.md).
 
-便携检查器保持独立：2026-10-16 审查的跟踪基线有 18 个便携条目，与 23 个跟踪包的范围不同。目录外五个干部／翻译包仍可安装；数量差异不代表安装器漏装，也不要求为其生成新便携提示词。
+便携检查器保持独立：受审基线 `1af81e05` 有 18 个便携条目，与当时 23 个跟踪包的范围不同；加入本指南的版本为 19 个便携条目与 24 个跟踪包。目录外仍是同样的五个干部／翻译包，仍可安装；数量差异不代表安装器漏装，也不要求为其生成新便携提示词。本版本的计数与命令输出见[复查记录](../design/skills-installation-recheck-2026-10-16.md)。
 
 For a clean export without `.git`, first capture a source manifest using `git ls-files > /tmp/d85-tracked-files.txt`, export the same tracked revision, then run the current checker against the export:
 

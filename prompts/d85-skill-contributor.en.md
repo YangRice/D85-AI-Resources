@@ -49,10 +49,11 @@ Record revision, date, tool/model if known, scenario/input, expected behavior, a
 
 ## 4. Check the package and choose readiness
 
-Inspect catalog IDs, reference/dependency paths, metadata, EN/ZH consistency, and public-file safety. Use reviewed **base-revision** tooling, never candidate-modified scripts. Where present and applicable, run from the isolated repository root:
+Inspect catalog IDs, reference/dependency paths, metadata, EN/ZH consistency, and public-file safety. Use reviewed **base-revision** tooling, never candidate-modified scripts. Where present and applicable, run from the isolated repository root. The collection-wide package check and the portable-catalog check are separate: run both when the candidate adds or changes a package.
 
 ```sh
 python3 scripts/build_portable_prompts.py
+python3 scripts/validate_skill_packages.py
 python3 scripts/validate_portable_skills.py
 python3 scripts/sync_poster_references.py --check
 python3 -m unittest discover -s tests

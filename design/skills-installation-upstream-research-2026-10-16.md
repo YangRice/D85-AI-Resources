@@ -1,5 +1,9 @@
 # Upstream skill installation research
 
+**Provenance.** Coordinated, reviewed and committed by the repository maintainer, Git identity `yui.yi <yui.yi@alibaba-inc.com>`, working with native Codex CLI subagents (`codex-cli 0.162.0-alpha.17.2`). Agent session identifiers were not recorded; cite the Git identity and the commit revision to locate the authors.
+
+**Status.** Pre-implementation source research. The commands below were taken from upstream documentation and source and were not executed in this repository; the released-package behavior D85 actually documents was measured separately and recorded in [the verification record](skills-installation-verification-2026-10-16.md) and [its re-check](skills-installation-recheck-2026-10-16.md).
+
 Accessed: 2026-10-16. Scope: primary GitHub repository READMEs and source, read only; no package or skill was installed. This is a selected popular sample, not an exhaustive ranking. Stars are rounded figures displayed by GitHub during this inspection and can change. Commands below document upstream behavior; they have not been executed here. Source on `main` can differ from the currently published npm package.
 
 ## Popularity and distinct distribution models

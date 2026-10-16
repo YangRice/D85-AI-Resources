@@ -2,6 +2,10 @@
 
 This record separates observed packaging behavior from native client loading and workflow results. It covers the 23 tracked packages at baseline commit `1af81e05acacde766f51e4aeeeb7a6134faa4198`, not concurrent uncommitted contributor work or future repository revisions.
 
+**Provenance.** Coordinated, reviewed and committed by the repository maintainer, Git identity `yui.yi <yui.yi@alibaba-inc.com>`. The repository inspection, the three-role review and the implementation were carried out with native Codex CLI subagents (`codex-cli 0.162.0-alpha.17.2`, the same client inspected for discovery below). Agent session identifiers were not recorded in these documents; cite the Git identity and the commit revision to locate the authors.
+
+**Status.** Verification run for baseline revision `1af81e05`, written before the change landed. The implementation it informed landed in commit `6cfe32f` "Improve skill installation guidance and package validation". The revision-anchored, independently reproduced re-check of these claims is [skills-installation-recheck-2026-10-16.md](skills-installation-recheck-2026-10-16.md); read the two together, since the figures here describe revision `1af81e05` only.
+
 ## Environment and isolation
 
 - Released npm package: `skills@1.7.2`. Registry metadata requires Node `>=22.20.0`. The downloaded tarball's SHA-512 matched npm registry integrity metadata.
@@ -57,13 +61,13 @@ Successful exit status is never the sole assertion. Tests compared actual packag
 
 Before implementation, the original 17 unit tests passed with localhost binding allowed. The default command sandbox blocked eight editor tests at server bind; granting local loopback access resolved those environmental failures.
 
-The engineer added 13 focused package-check tests and reported a clean baseline export with only the four owned implementation paths overlaid: **30 tests OK, one Git-only test skipped**. That checkout-discovery test passed separately in the live checkout. The clean export also passed the 23-package static check, the 18-entry portable validator and poster reference synchronization. See the engineer/reviewer reports for final reviewed code state.
+The engineer added 13 focused package-check tests and reported a clean baseline export with only the four owned implementation paths overlaid: **30 tests OK, one Git-only test skipped**. That checkout-discovery test passed separately in the live checkout. The clean export also passed the 23-package static check, the 18-entry portable validator and poster reference synchronization. The engineer and reviewer working reports were not retained in the repository and are not reachable from a clone; the reproducible replacement for that pointer is [skills-installation-recheck-2026-10-16.md](skills-installation-recheck-2026-10-16.md), which re-runs these checks at revision `6cfe32f`.
 
 Concurrent contributor changes arrived during implementation in the shared working directory. At the engineer's check, the whole live suite had two missing-reference subtest errors in `test_contributor_prompts`, and portable validation referenced a missing contributor entry point. These are recorded separately from installation-change results; the concurrent work was preserved. A clean isolated pass must not be described as a whole-live-checkout pass.
 
 ## Durable evidence and reproduction
 
-The coordinator retained the sanitized CLI summary, command harness, released package metadata, installation inventory and stdout/stderr logs in the task's ignored implementation workspace. Disposable test paths were under `/private/tmp/d85-install-verification-raowkb__/`; they are evidence from this run, not a required installation location.
+The sanitized CLI summary, command harness, released package metadata, installation inventory and stdout/stderr logs were kept in a Git-ignored working directory for the duration of this run; they are not part of the repository, a clone, or a pull request, so no reader of this file can open them. Disposable test paths were under `/private/tmp/d85-install-verification-raowkb__/`; they are evidence from that run, not a required installation location. For checks that can be reproduced from inside the repository, use [skills-installation-recheck-2026-10-16.md](skills-installation-recheck-2026-10-16.md) instead of relying on that working directory.
 
 For a repeat test, use a fresh temporary project and matching tracked-file export, provision the pinned CLI with a compatible Node runtime, redirect its state/cache, block writes to the real user installation, and compare names and file hashes. Then test actual client discovery and a harmless task separately. Use a disposable OS user or VM when stronger isolation is required; a temporary folder by itself is not an OS sandbox.
 

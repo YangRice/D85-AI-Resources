@@ -4,6 +4,10 @@ Date: 2026-10-16. Question: What does D85 AI Resources actually need to update a
 
 Three independent native Codex subagents reviewed the local repository, then received opposing arguments for cross-examination. The coordinator synthesized their recommendations. This document records a review decision, not an implemented change or client certification.
 
+**Provenance.** Coordinated, reviewed and committed by the repository maintainer, Git identity `yui.yi <yui.yi@alibaba-inc.com>`. The review ran as three independent native Codex CLI subagents (`codex-cli 0.162.0-alpha.17.2`); their individual session identifiers were not recorded here, so cite the Git identity and the commit revision to locate the authors.
+
+**Status.** Pre-implementation review decision, written before any installation guidance changed. The implementation it recommends landed afterwards in commit `6cfe32f` "Improve skill installation guidance and package validation", so every count or line reference below describes revision `1af81e05` at review time, not the revision that ships this file.
+
 ## Roles and rounds
 
 | Role | Responsibility | Strongest contribution |
@@ -46,7 +50,7 @@ Acceptance: users can understand why a skill can be installed but unable to comp
 
 Discover packages from tracked `skills/*/SKILL.md` rather than creating a second manually maintained list. Check identities, necessary bundled files, local links and declared/conditional companions. Keep the current portable-catalog validator's purpose intact.
 
-Evidence: there are 23 tracked packages; [the validator](../scripts/validate_portable_skills.py) explicitly describes portable-catalog validation at line 2 and iterates its catalog at lines 74–78. That catalog has 18 entries. Five packages are outside its scope; this is not evidence that an installer misses them.
+Evidence: there were 23 tracked packages at review time (revision `1af81e05`); [the validator](../scripts/validate_portable_skills.py) explicitly describes portable-catalog validation at line 2 and iterates its catalog at lines 74–78. That catalog then had 18 entries. Five packages are outside its scope; this is not evidence that an installer misses them.
 
 A separate small script or an extension to the existing validation entry point are both acceptable. No general diagnostic framework or mandatory member-run command is required.
 
@@ -100,4 +104,4 @@ CI for the collection checks is a useful next step once those checks exist. Abse
 3. Exercise the Codex route in an isolated location and record what was actually observed; fix discovered defects before marking that route verified.
 4. Add CI and other verified routes as maintenance capacity permits.
 
-This review added only this decision record. It did not modify installation instructions, skill behavior, runtime dependencies or global/client installations. Existing unrelated work remains outside this review's edits.
+This review added only this decision record; the changes it recommends were implemented afterwards, in commit `6cfe32f` "Improve skill installation guidance and package validation", not by the review itself. It did not modify skill behavior, runtime dependencies or global/client installations. Existing unrelated work remains outside this review's edits.

@@ -42,8 +42,13 @@ Contributors do not need to run terminal commands themselves. A capable assistan
 
 贡献者不必自己运行终端命令。具备能力的助手在静态检查后，在限定范围的候选副本中使用已审核的仓库工具；接收材料时不执行投稿技能自带的脚本。
 
+The collection-wide package check reads the Git-tracked package list, or an explicit `git ls-files` manifest for a clean export; the portable-catalog check covers only the catalog subset, so run both. See the [installation guide](docs/installation.md#maintainer-checks--维护检查) for the observed output and the clean-export route.
+
+前者覆盖 Git 跟踪的全部技能包（干净导出须另给 `git ls-files` 清单），后者只覆盖便携目录子集，两者都要运行。实际输出与干净导出方式见[安装指南](docs/installation.md#maintainer-checks--维护检查)。
+
 ```sh
 python3 scripts/build_portable_prompts.py
+python3 scripts/validate_skill_packages.py
 python3 scripts/validate_portable_skills.py
 python3 scripts/sync_poster_references.py --check
 git diff --check

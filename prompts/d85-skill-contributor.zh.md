@@ -49,10 +49,11 @@
 
 ## 4. 检查文件包，判断是否就绪
 
-检查目录 ID、参考资料／依赖路径、元数据、双语一致性及公开文件安全性。使用经过审查的**基线版本**工具，不使用候选贡献修改过的脚本。工具存在且适用时，在隔离仓库根目录运行：
+检查目录 ID、参考资料／依赖路径、元数据、双语一致性及公开文件安全性。使用经过审查的**基线版本**工具，不使用候选贡献修改过的脚本。工具存在且适用时，在隔离仓库根目录运行。集合级文件包检查与便携目录检查相互独立：候选新增或改动技能包时，两者都要运行。
 
 ```sh
 python3 scripts/build_portable_prompts.py
+python3 scripts/validate_skill_packages.py
 python3 scripts/validate_portable_skills.py
 python3 scripts/sync_poster_references.py --check
 python3 -m unittest discover -s tests
