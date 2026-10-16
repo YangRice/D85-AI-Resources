@@ -201,6 +201,40 @@
         "en": "Use a suitable built-in canvas when available and chosen; its capabilities depend on the host. The Method Draw route requires the installed skill package, Python 3.10+, a local browser/server, and a verified cache or first-use network access. Text-only chats can prepare a manual handoff but cannot launch an editor.",
         "zh": "可用且用户选择时使用宿主内置画布，能力依宿主而定。Method Draw 路线需要完整技能包、Python 3.10+、本地浏览器及服务、已验证缓存或首次联网。纯文字聊天只能准备手动交接，不能启动编辑器。"
       }
+    },
+    {
+      "id": "d85-skill-contributor",
+      "type": "journey",
+      "version": "0.1.0",
+      "resource_page": "d85-skill-contributor",
+      "requires": [],
+      "recommends": [],
+      "actions": [],
+      "portable_references": [
+        "contribution-rules.{lang}.md"
+      ],
+      "compatibility": {
+        "en": "Text-only assistants can guide tests and prepare copyable contribution material. Inspecting local files and creating an actual GitHub PR require file access, Git/GitHub tools, network access, and the contributor's signed-in account. State unavailable checks and capabilities honestly; a handoff is not a submitted PR. This skill ends at submission; team review, merge, and website publication happen separately.",
+        "zh": "纯文字助手可以引导测试并整理可复制的投稿材料。检查本地文件和实际创建 GitHub PR 需要文件访问、Git/GitHub 工具、网络及已登录的贡献者账号。缺少的检查或能力必须如实说明；准备材料不等于已提交 PR。本技能以投稿为终点，团队审核、合并和网站发布另行进行。"
+      },
+      "input_fields": {
+        "en": [
+          "Local skill files or prompt text I can share:",
+          "Who it helps and what it should accomplish:",
+          "New skill or improvement to an existing one:",
+          "Tests I have actually tried and their results:",
+          "My AI platform and GitHub access, if known:",
+          "Preferred response language:"
+        ],
+        "zh": [
+          "我可以分享的本地技能文件或提示词：",
+          "适用对象与希望完成的任务：",
+          "新增技能或改进已有技能：",
+          "我实际做过的测试与结果：",
+          "我使用的 AI 平台与 GitHub 访问条件（如已知）：",
+          "回复语言偏好："
+        ]
+      }
     }
   ]
 }

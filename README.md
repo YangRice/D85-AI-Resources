@@ -327,9 +327,17 @@ This is part of the **D85 AI Empowerment OKR** initiative. As a public resource,
 
 Feel free to open issues or PRs for improvements, new skills, or bug fixes.
 
+**No coding or Git knowledge required:** use [D85 Skill Contributor](skills/d85-skill-contributor/SKILL.md) to prepare a local skill or prompt, walk through two small tests, and submit a GitHub PR when tools and authentication allow. Text-only assistants provide an explicitly unsubmitted handoff. See the [contribution guide](CONTRIBUTING.md) and [portable English prompt](prompts/d85-skill-contributor.en.md).
+
+The skill explains the full journey but ends at PR submission. Submission is only the first step toward acceptance; the D85 team handles review, approval, merge, and any website publication.
+
 本仓库是 **D85 AI 赋能 OKR** 项目的一部分。作为公开资源，其设计目标是**换屆免疫**——知识与工作流程沉淀于此，而非任何个人脑中。
 
 欢迎提交 Issue 或 PR 来改进、添加新技能或修复问题。
+
+**不懂编程或 Git 也可以贡献：**使用 [D85 技能贡献者](skills/d85-skill-contributor/SKILL.zh.md)，整理本地技能或提示词、完成两个小测试，并在工具与登录条件允许时提交 GitHub PR。纯文字助手提供明确标注为尚未提交的交接材料。参阅[贡献指南](CONTRIBUTING.md)与[中文便携提示词](prompts/d85-skill-contributor.zh.md)。
+
+该技能说明完整流程，但以提交 PR 为终点。投稿只是接纳流程的第一步，后续审核、批准、合并及网站发布由 D85 团队处理。
 
 ---
 

@@ -1,0 +1,4 @@
+interface:
+  display_name: "D85 Skill Contributor"
+  short_description: "Prepare, test, and submit a D85 skill contribution"
+  default_prompt: "Use $d85-skill-contributor to help me prepare and test my local skill or prompt, then guide an authorized GitHub PR submission or an honest unsubmitted handoff."

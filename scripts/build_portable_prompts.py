@@ -133,6 +133,17 @@ def build_prompt(item: dict, lang: str = "en") -> str | None:
 
     meta = LANG[lang]
     dependencies = item.get("requires", []) + item.get("recommends", [])
+    overrides = item.get("input_fields", {})
+    if not isinstance(overrides, dict):
+        raise ValueError(f"{skill_id}: input_fields must be a language mapping")
+    fields = TOOL_FINDER_FIELDS[lang] if skill_id == "find-tmcompanion-tool" else meta["fields"]
+    if lang in overrides:
+        fields = overrides[lang]
+        if not isinstance(fields, list) or not fields or any(
+            not isinstance(field, str) or not field.strip() or field.splitlines() != [field]
+            for field in fields
+        ):
+            raise ValueError(f"{skill_id}: input_fields.{lang} must be a nonempty list of single-line labels")
 
     sections = [
         f"# {skill_id} — {meta['header']}",
@@ -176,7 +187,7 @@ def build_prompt(item: dict, lang: str = "en") -> str | None:
             "```text",
         ]
     )
-    sections.extend(TOOL_FINDER_FIELDS[lang] if skill_id == "find-tmcompanion-tool" else meta["fields"])
+    sections.extend(fields)
     sections.extend(
         [
             "```",
