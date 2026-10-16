@@ -1,0 +1,33 @@
+name: Skill LLM security scan
+
+on:
+  push:
+    branches: [main]
+    paths: ["skills/**"]
+  pull_request:
+    paths: ["skills/**"]
+  workflow_dispatch:
+
+jobs:
+  skill-scanner:
+    name: Skill Scanner (Cisco AI Defense)
+    # Fork PRs never receive repository secrets, so the LLM judge cannot run
+    # there; skip them (the static scan in skill-pr-dry-run.yml still covers
+    # every PR). Same-repo PRs and pushes to main run the full scan.
+    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
+    permissions:
+      security-events: write
+      contents: read
+      actions: read
+    uses: cisco-ai-defense/skill-scanner/.github/workflows/scan-skills.yml@2.2.2
+    with:
+      scanner_version: "2.2.2"
+      skill_path: skills
+      scan_mode: scan-all
+      policy: balanced
+      fail_on_severity: high
+      use_llm: true
+      llm_model: gemini/gemini-3.8-flash
+      use_behavioral: true
+    secrets:
+      llm_api_key: ${{ secrets.SKILL_SCANNER_LLM_API_KEY }}

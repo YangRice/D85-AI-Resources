@@ -5,6 +5,11 @@ automated gate: unresolved secrets, private material, and symlinks block
 uploads — including draft PRs. Network-capable scripts, binary files, and
 generic credential-looking assignments are flagged for human review.
 
+An LLM-assisted review runs separately via the Cisco AI Defense
+skill-scanner reusable workflow (.github/workflows/skill-llm-security.yml,
+LLM judge + behavioral analysis, SARIF upload) when the repository secret
+SKILL_SCANNER_LLM_API_KEY is configured; fork PRs are static-scan only.
+
 Heuristics only: a clean scan is not a guarantee, per the rules.
 
 Usage (CI and harness):
@@ -13,7 +18,7 @@ Scans files changed between BASE_SHA and HEAD, prints ::error:: / ::warning::
 annotations, and exits 1 if any blocking finding exists.
 
 Core logic lives in scan_text()/scan_bytes() so the test suite can exercise
-it directly; main() is the git/CI wrapper.
+them directly; main() is the git/CI wrapper.
 """
 
 import os
