@@ -1,4 +1,4 @@
-name: Skill PR dry-run checks
+name: Skill PR checks
 
 on:
   pull_request:
@@ -23,7 +23,6 @@ jobs:
         run: |
           set -euo pipefail
           BASE="${BASE_SHA:-origin/main}"
-          git fetch origin "$BASE" --quiet
           python3 scripts/build_portable_prompts.py
           if [ -n "$(git status --porcelain)" ]; then
             echo "::error::build_portable_prompts.py regenerated files - generated prompts in this change are out of date"
@@ -46,18 +45,6 @@ jobs:
           echo "Paths outside skills/, prompts/, catalog/, .github/, docs/, design/ need human review."
         env:
           BASE_SHA: ${{ github.event.pull_request.base.sha }}
-
-  pr-evidence:
-    name: PR evidence structure check
-    runs-on: ubuntu-latest
-    if: github.event_name == 'pull_request'
-    steps:
-      - uses: actions/checkout@v4
-      - name: Check trial evidence in PR body
-        run: python3 .github/scripts/check_pr_evidence.py
-        env:
-          PR_BODY: ${{ github.event.pull_request.body }}
-          PR_DRAFT: ${{ github.event.pull_request.draft }}
 
   skill-safety-scan:
     name: Skill safety scan (best-effort)

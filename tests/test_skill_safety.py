@@ -40,6 +40,11 @@ class SkillSafetyScanner(unittest.TestCase):
     def test_env_file_name_blocked(self):
         self.assertTrue(blocks("anything", relpath="skills/demo/.env"))
 
+    def test_credential_extensions_blocked(self):
+        for name in ("service-account.key", "certificate.pem"):
+            with self.subTest(name=name):
+                self.assertTrue(blocks("anything", relpath="skills/demo/" + name))
+
     def test_macos_private_path_blocked(self):
         self.assertTrue(blocks("read /Users/" + "alice" + "/Documents/private.txt"))
 

@@ -1,18 +1,15 @@
 """Best-effort safety scan for PR content (skill packages and other files).
 
 Implements the contribution rules' public-safety requirements as a static,
-automated gate: unresolved secrets, private material, and symlinks block
-uploads — including draft PRs. Network-capable scripts, binary files, and
+automated CI gate: detected secrets, private user paths, credential files,
+and symlinks fail the check — including on draft PRs. Network-capable scripts, binary files, and
 generic credential-looking assignments are flagged for human review.
 
-An LLM-assisted review runs separately via the Cisco AI Defense
-skill-scanner reusable workflow (.github/workflows/skill-llm-security.yml,
-LLM judge + behavioral analysis, SARIF upload) when the repository secret
-SKILL_SCANNER_LLM_API_KEY is configured; fork PRs are static-scan only.
+Trial evidence and skill behavior are reviewed by the D85 team.
 
 Heuristics only: a clean scan is not a guarantee, per the rules.
 
-Usage (CI and harness):
+Usage (CI or local checkout):
     BASE_SHA=<base> python3 scripts/scan_skill_safety.py
 Scans files changed between BASE_SHA and HEAD, prints ::error:: / ::warning::
 annotations, and exits 1 if any blocking finding exists.
@@ -37,7 +34,7 @@ BLOCK_PATTERNS = [
 
 # File names that must never become public.
 BLOCK_FILENAMES = re.compile(
-    r"(^|/)(\.env(\.\w+)?|id_rsa|id_ed25519|\.pem|\.key|credentials(\.\w+)?)$"
+    r"(^|/)(\.env(\.\w+)?|id_rsa|id_ed25519|[^/]*\.(pem|key)|credentials(\.\w+)?)$"
 )
 
 # Specific-user home paths (macOS and Windows): personal material, block.

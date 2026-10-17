@@ -120,7 +120,9 @@ These rules cover preparation and GitHub submission to `https://github.com/YangR
 
 ## Automated PR checks
 
-The upstream repository runs applicable package checks and an evidence-structure check on every pull request, plus a best-effort safety scan over the changed files: unresolved secret patterns, private user paths, or symlinks fail the scan and block uploads, including draft PRs. When the repository key is available, a dedicated workflow also runs Cisco's skill-scanner (rules, LLM judge, and behavioral analysis) over the skill tree with findings as Code Scanning annotations. Both walkthrough rows must contain expected and observed results, an explicit PASS / FAIL / NOT RUN verdict, and an evidence label saying 'observed' or 'contributor-reported'. Generated prompt editions must match canonical regeneration exactly; regenerate instead of hand-editing. A draft PR may leave evidence incomplete — the check then warns instead of failing — but a draft is never ready for acceptance.
+The upstream repository runs two required PR checks: deterministic package validation (including generated-prompt parity and repository tests) and a best-effort basic safety scan of changed files. Secret patterns, private user paths, credential files, or symlinks fail the safety check, including on draft PRs. CI runs after upload; it does not replace the public-file and history inspection required before any upload. Generated prompts must match canonical regeneration exactly; regenerate instead of hand-editing.
+
+The D85 team reviews trial evidence and relevant skill behavior. CI does not parse the evidence table or use an LLM security judge. For skill changes, include the realistic-task and missing-input/capability trials described above, with expected and actual outcomes, a PASS / FAIL / NOT RUN verdict, and evidence provenance. For documentation or tooling changes, report applicable validation and mark skill trials not applicable with a reason. A public-safe draft PR may request help with incomplete or failed checks; it is not ready for acceptance and required CI checks must pass before merging.
 
 ## Git and submission boundaries
 
