@@ -27,6 +27,7 @@ import sys
 BLOCK_PATTERNS = [
     (re.compile(r"\bAKIA[0-9A-Z]{16}\b"), "AWS access key pattern"),
     (re.compile(r"\bgh[pousr]_[A-Za-z0-9]{36,}\b"), "GitHub token pattern"),
+    (re.compile(r"\bgithub_pat_[A-Za-z0-9_]{22,}\b"), "GitHub fine-grained token pattern"),
     (re.compile(r"-----BEGIN( [A-Z ]+)?PRIVATE KEY-----"), "private key block"),
     (re.compile(r"\bxox[baprs]-[A-Za-z0-9-]{10,}\b"), "Slack token pattern"),
     (re.compile(r"\bsk-[A-Za-z0-9_-]{20,}\b"), "API key pattern (sk-)"),
@@ -104,21 +105,21 @@ def main():
     base = os.environ.get("BASE_SHA") or "origin/main"
     try:
         names = subprocess.run(
-            ["git", "diff", "--name-only", base, "HEAD"],
-            capture_output=True, text=True, check=True,
-        ).stdout.splitlines()
-        summary = subprocess.run(
-            ["git", "diff", "--summary", base, "HEAD"],
-            capture_output=True, text=True, check=True,
-        ).stdout
+            ["git", "diff", "--name-only", "--diff-filter=d", "-z", base, "HEAD"],
+            capture_output=True, check=True,
+        ).stdout.split(b"\0")
     except subprocess.CalledProcessError as exc:
         print(f"::error::could not compute PR diff: {exc}")
         return 1
 
     blocks = 0
     for name in names:
-        relpath = name.strip()
+        relpath = os.fsdecode(name)
         if not relpath:
+            continue
+        if os.path.islink(relpath):
+            print(f"::error::{relpath}: symlink — rules reject symlinks in public files")
+            blocks += 1
             continue
         data = b""
         try:
@@ -139,12 +140,6 @@ def main():
             print(f"::{annotation}::{relpath}: {message}")
             if level == "block":
                 blocks += 1
-
-    for line in summary.splitlines():
-        if "mode 120000" in line:
-            path = line.rsplit(" ", 1)[-1]
-            print(f"::error::{path}: symlink — rules reject symlinks in public files")
-            blocks += 1
 
     if blocks:
         print(
