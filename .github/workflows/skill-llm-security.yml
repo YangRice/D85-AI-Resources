@@ -31,7 +31,8 @@ jobs:
           # Deliberately NOT exporting SKILL_SCANNER_LLM_PROVIDER: the analyzer
           # treats an empty value as an explicit invalid provider (the reusable
           # workflow upstream always exports it, which breaks the gemini path).
-          # The CLI infers Google AI Studio from the gemini/ model prefix.
+          # Google AI Studio judge: gemini/gemini-3.8-flash via the gemini/
+          # model prefix (provider is inferred from the prefix).
           SKILL_SCANNER_LLM_MODEL: gemini/gemini-3.8-flash
           SKILL_SCANNER_LLM_API_KEY: ${{ secrets.SKILL_SCANNER_LLM_API_KEY }}
           # Plain JSON mode: Gemini's structured-output schema includes keys
