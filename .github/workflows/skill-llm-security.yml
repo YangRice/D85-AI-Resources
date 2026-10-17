@@ -24,8 +24,11 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+      # Omit [google]: in 2.3.0 the direct Google SDK path ignores plain JSON
+      # mode and rejects the scanner's evidence_ids.uniqueItems schema field.
+      # Without google-genai, Gemini uses the base LiteLLM dependency instead.
       - name: Install cisco-ai-skill-scanner
-        run: pip install "cisco-ai-skill-scanner[google]==2.3.0"
+        run: pip install "cisco-ai-skill-scanner==2.3.0"
       - name: Run scan
         env:
           # Deliberately NOT exporting SKILL_SCANNER_LLM_PROVIDER: the analyzer
@@ -35,8 +38,8 @@ jobs:
           # model prefix (provider is inferred from the prefix).
           SKILL_SCANNER_LLM_MODEL: gemini/gemini-3.8-flash
           SKILL_SCANNER_LLM_API_KEY: ${{ secrets.SKILL_SCANNER_LLM_API_KEY }}
-          # Plain JSON mode: Gemini's structured-output schema includes keys
-          # (uniqueItems) that the scanner's strict schema parser rejects.
+          # LiteLLM embeds the schema in the prompt and requests plain JSON,
+          # keeping unsupported schema fields out of Gemini's API config.
           SKILL_SCANNER_LLM_FORCE_JSON_OBJECT: "true"
         run: |
           skill-scanner scan-all skills --format sarif --policy balanced \
