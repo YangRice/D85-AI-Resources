@@ -36,7 +36,7 @@ jobs:
           # keeping unsupported schema fields out of the API config.
           SKILL_SCANNER_LLM_FORCE_JSON_OBJECT: "true"
         run: |
-          skill-scanner scan-all skills --format sarif --policy balanced \
+          skill-scanner scan-all skills --format sarif --policy .github/skill-scanner-policy.yml \
             --recursive --check-overlap --use-llm --use-behavioral \
             --output results.sarif --fail-on-severity high
       - name: Upload SARIF to Code Scanning
