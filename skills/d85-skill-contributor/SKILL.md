@@ -15,6 +15,7 @@ Read [the contribution rules](references/contribution-rules.en.md) before prepar
 
 ## 1. Understand the contribution and available tools
 
+- Ask for the contributor's name and Toastmasters club name at intake, reusing either if already supplied. Do not infer them from a GitHub account or local files. Confirm how they should appear in the public attribution before submission.
 - Reuse supplied context. Ask for the local source or pasted prompt, intended users and useful outcome, one realistic example, requested change, and preferred language only as needed. An imperfect, one-language draft is welcome.
 - Check actual file access, Git/network support, repository tooling, and signed-in GitHub identity without revealing credentials. Direct submission needs file/Git operations plus authenticated GitHub access; tool availability alone is not authentication. Never ask for tokens in chat.
 - If files cannot be accessed, work from pasted text and identify uninspected files. Without submission tools/account, continue useful preparation toward step 6's unsubmitted route.
