@@ -1,0 +1,58 @@
+name: DeepSeek PR review (advisory)
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize, ready_for_review]
+  pull_request_target:
+    types: [opened, reopened, synchronize, ready_for_review]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deepseek-review-${{ github.event_name }}-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  review:
+    name: DeepSeek advisory review
+    # Use pull_request for same-repository PRs, including initial workflow testing.
+    # Forks use the default branch's trusted pull_request_target workflow after merge.
+    # No checkout: PR-Agent reads the diff via GitHub's API and never runs PR code.
+    if: >-
+      !github.event.pull_request.draft &&
+      github.event.sender.type != 'Bot' &&
+      ((github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository) ||
+       (github.event_name == 'pull_request_target' && github.event.pull_request.head.repo.full_name != github.repository))
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      pull-requests: write
+    steps:
+      - name: Review changed files with DeepSeek
+        # PR-Agent github_action runtime, pinned independently of its rolling tag.
+        # Source: https://github.com/The-PR-Agent/pr-agent
+        uses: docker://pragent/pr-agent@sha256:80edef71baa3df28c129d858d4b53784abfc14704c235efb32b6c461d5399a6d
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          DEEPSEEK.KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+          config.model: deepseek/deepseek-flash
+          config.fallback_models: '["deepseek/deepseek-flash"]'
+          config.custom_model_max_tokens: "128000"
+          config.max_model_tokens: "16000"
+          config.enable_auto_approval: "false"
+          # Keep provider routing and review-only controls in this trusted workflow.
+          config.use_repo_settings_file: "false"
+          config.use_global_settings_file: "false"
+          github_action_config.auto_review: "true"
+          github_action_config.auto_describe: "false"
+          github_action_config.auto_improve: "false"
+          github_action_config.pr_actions: '["opened", "reopened", "synchronize", "ready_for_review"]'
+          github_action_config.handle_push_trigger: "false"
+          pr_reviewer.extra_instructions: >-
+            Review only changes introduced by this PR. Report concrete bugs,
+            unsafe behavior, broken package/reference links, generated-prompt drift,
+            and meaningful English/Chinese inconsistencies. Prioritize actionable
+            findings with file locations; avoid cosmetic nitpicks. Feedback is
+            advisory: human reviewers judge trial evidence and acceptance.

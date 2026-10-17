@@ -1,0 +1,48 @@
+name: Skill LLM security scan (advisory)
+
+on:
+  push:
+    branches: [main]
+    paths: ["skills/**", ".github/skill-scanner-policy.yml", ".github/workflows/skill-llm-security.yml"]
+  pull_request:
+    paths: ["skills/**", ".github/skill-scanner-policy.yml", ".github/workflows/skill-llm-security.yml"]
+  workflow_dispatch:
+
+jobs:
+  # Advisory: only package validation and basic safety are required by branch rules.
+  skill-scanner:
+    name: Skill Scanner (Cisco AI Defense)
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    # Fork PRs never receive repository secrets, so the LLM judge cannot run
+    # there; skip them (the static scan in skill-pr-dry-run.yml still covers
+    # every PR). Same-repo PRs and pushes to main run the full scan.
+    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
+    permissions:
+      contents: read
+      security-events: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      # The base package includes LiteLLM's DeepSeek provider.
+      - name: Install cisco-ai-skill-scanner
+        run: pip install "cisco-ai-skill-scanner==2.3.0"
+      - name: Run scan
+        env:
+          # LiteLLM infers the provider from the deepseek/ model prefix.
+          SKILL_SCANNER_LLM_MODEL: deepseek/deepseek-flash
+          SKILL_SCANNER_LLM_API_KEY: ${{ secrets.SKILL_SCANNER_LLM_API_KEY }}
+          # LiteLLM embeds the schema in the prompt and requests plain JSON,
+          # keeping unsupported schema fields out of the API config.
+          SKILL_SCANNER_LLM_FORCE_JSON_OBJECT: "true"
+        run: |
+          skill-scanner scan-all skills --format sarif --policy .github/skill-scanner-policy.yml \
+            --recursive --check-overlap --use-llm --use-behavioral \
+            --output results.sarif --fail-on-severity high
+      - name: Upload SARIF to Code Scanning
+        if: always() && hashFiles('results.sarif') != ''
+        uses: github/codeql-action/upload-sarif@v4
+        with:
+          sarif_file: results.sarif
