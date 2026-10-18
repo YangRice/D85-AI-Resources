@@ -14,6 +14,8 @@ Text-only tools can prepare briefs and handoffs. Poster production requires imag
 
 Create Toastmasters posters through **intermediate layout → image-model rendering → exact overlays → independent review**. Never present a layout, raw generated image, or self-reviewed composite as the finished poster. Cover posters only, not certificates, merchandise, websites or videos.
 
+**Every editable SVG poster delivery must proactively tell the user we have a visual editor and include its working entrance link alongside the poster in the same response. The user must not need to ask.** Follow the required delivery format below.
+
 ## When the user wants to edit a poster
 
 For “I want to edit the poster”, “let me change it myself”, “I want to edit it manually”, or “I want to change the text or move the photo myself”, find the latest editable design in this task. Users do not need to name SVG, Method Draw, or a skill. A downloadable SVG or an editing guide alone does not fulfill a request for hands-on editing. For a specific edit the user wants the agent to make, such as “change the title to X”, make that edit directly instead of opening a canvas automatically.
@@ -79,7 +81,25 @@ Invoke a separate agent/session using `toastmasters-poster-reviewer` with actual
 
 Revise overlays first for text, spacing, logos and QR defects; keep accepted background hash unchanged. Rerender only defects in the artwork. Every candidate change invalidates prior approvals; obtain a fresh review on the new checksum. The ordinary production default is three unsuccessful review cycles; an explicit user instruction to refine until a visual benchmark is met authorizes further creative iterations. Continue within that scope, switching rendering routes if progress stalls, and never invent acceptance.
 
+## Deliver the poster with its editor entrance
+
 Deliver the accepted PNG, editable composite SVG, intermediate layout/manifest, rendering instructions and reviewer report. Recompute candidate checksum before handoff. Report design compliance separately from required external authorization; do not imply Brand Team approval or publication. Never send approval requests, publish, globally install skills, or push changes automatically.
+
+**Required delivery item — working editor link:** Whenever handing over a poster, including a draft, proactively prepare its visual editing entrance and include a clickable **Edit this poster** link in the delivery message, even if the user has not asked about editing. An SVG download, skill-directory link, generic editor homepage, or “say you want to edit” invitation alone does not satisfy this requirement.
+
+Required user-facing delivery format (replace every placeholder with the actual artifact path or generated editor URL):
+
+> Your poster: [PNG](<actual PNG path>) · [Editable SVG](<actual SVG path>)
+>
+> We have a visual editor so you can change the text and move elements yourself: [Edit this poster](<actual editor_url>).
+
+Include both lines in the same response whenever an editable SVG poster is delivered, including revised versions. Add draft status or known runtime limitations when applicable; never omit the editor information merely because the user did not ask.
+
+For this poster-delivery handoff, use [edit-svg-canvas](../edit-svg-canvas/SKILL.md) to launch a persistent session with the latest editable composite and use the launcher's actual `editor_url` as the link target. Preparing this entrance is part of delivery; do not wait for another editing request or another editor-choice question. Honor an editor preference already established by the user: if they chose a suitable built-in canvas, provide that actual editable canvas entrance instead. This delivery-specific route takes precedence over the editor-selection question above and in `edit-svg-canvas`; ordinary later editing requests still follow that workflow.
+
+Open and inspect the generated entrance before delivery: confirm the correct poster loaded, text and assets survived import, and editing is enabled without compatibility errors. For Method Draw, keep the session alive, retain `session_json`, and explain: “Open **Edit this poster** to change text or move elements. Click **Save and finish**, then return here and say continue.” Let the user perform edits and finish; do not save on their behalf. On return from Method Draw, verify the completion record and render/review their exact saved state as described above. For a built-in canvas, use its native save/export controls and capture the exact saved/exported state instead; do not require Method Draw session records or buttons. Raster artwork remains raster.
+
+Prepare an editor-compatible composite during production. If conversion is needed, preserve the original, make a separate copy, preserve approved copy and protected materials, and inspect its rendered/imported appearance; a changed candidate needs fresh review. Do not bypass the editor's import-integrity checks. If the executable skill, runtime, or host capability is unavailable, or import fails, state that no working editor link could be prepared and offer a concrete manual handoff; never invent a URL or present a failed session as usable. A text-only portable prompt must disclose that the installed `edit-svg-canvas` package and runtime are needed to generate this link.
 
 # Toastmasters poster brand rules
 
