@@ -23,6 +23,9 @@ LINK_RE = re.compile(r"\[[^\]]*\]\(([^\s)]+)\)")
 # raster text. Check distribution availability, not whether a task needs it.
 NATIVE_COMPANIONS = {
     "powerpoint-translation-redesign": ("poster-image-translation-redesign",),
+    "poster-image-translation-redesign": (
+        "toastmasters-poster-maker", "toastmasters-poster-reviewer", "edit-svg-canvas",
+    ),
 }
 
 

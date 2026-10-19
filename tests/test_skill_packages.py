@@ -110,6 +110,16 @@ class SkillPackages(unittest.TestCase):
         result = self.run_check()
         self.assertEqual(result.returncode, 0, result.stdout)
 
+    def test_native_poster_workflow_requires_its_collection_companions(self):
+        self.write("skills/poster-image-translation-redesign/SKILL.md", "---\nname: poster-image-translation-redesign\ndescription: Translate posters.\n---\n")
+        result = self.run_check()
+        self.assertEqual(result.returncode, 1)
+        for companion in ("toastmasters-poster-maker", "toastmasters-poster-reviewer", "edit-svg-canvas"):
+            self.assertIn(companion, result.stdout)
+            self.write(f"skills/{companion}/SKILL.md", f"---\nname: {companion}\ndescription: Companion.\n---\n")
+        result = self.run_check()
+        self.assertEqual(result.returncode, 0, result.stdout)
+
     @unittest.skipUnless((ROOT / ".git").exists(), "checkout discovery needs Git metadata; export checks use an explicit manifest")
     def test_untracked_artifacts_are_ignored_in_checkout(self):
         result = subprocess.run([sys.executable, str(SCRIPT), "--root", str(ROOT)], capture_output=True, text=True)

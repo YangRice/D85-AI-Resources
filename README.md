@@ -110,16 +110,16 @@ Translate and localize existing PowerPoint PPTX decks while preserving slide dim
 
 #### 2. Poster Image Translation Redesign
 
-**Edit raster images embedded in PPTX slides — translate and replace inline text**
-编辑 PPTX 幻灯片中的栅格图片——翻译并替换内嵌文字
+**Translate existing posters and text-bearing slide images**
+翻译现有海报及幻灯片中的含文字图片
 
 - **Path:** `skills/poster-image-translation-redesign/`
 - **Agent config:** `agents/openai.yaml`
 - **Terminology reference:** `references/toastmasters-terminology.md`
 
-Extract, translate, and reinsert images containing text within PowerPoint slides. Preserve the asset frame, crop, position, and dimensions exactly. Supports mask-based text isolation and pixel-level QA. Referenced as a preprocessing step by the PowerPoint Translation Redesign skill.
+Translate an existing poster into the requested language (default Simplified Chinese), preserving its design. Also supports raster assets extracted by the PowerPoint workflow. Reuses poster-maker production/editor handoff, Toastmasters-only poster-reviewer checks, and installed `gpt-taste` static visual guidance. Install `toastmasters-poster-maker`, `toastmasters-poster-reviewer`, and `edit-svg-canvas` alongside it; `gpt-taste` is an external prerequisite. One independent translation/visual review round; failed checks return a draft and findings without automatic iteration. Deliver PNG, editable SVG and a tested **Edit this poster** link together; disclose unavailable capabilities.
 
-提取、翻译并重新插入 PPTX 幻灯片中包含文字的栅格图片。精确保留图片的框架、裁切、位置和尺寸。支持基于遮罩的文字隔离与像素级质量校验。此技能作为 PowerPoint 翻译重设计流程的预处理环节被引用。
+按指定语言翻译现有海报（默认简体中文），保留原设计；也可处理 PowerPoint 流程提取的栅格图片。需同时安装上述三个配套技能及外部 `gpt-taste`，仅采用其静态视觉原则。独立翻译和视觉评审各一次，未通过则交付草稿及问题，不自动循环。PNG、可编辑 SVG 与已测试的编辑入口须一起提供；能力缺失须如实说明。
 
 ---
 
