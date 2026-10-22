@@ -164,8 +164,8 @@
         "creative-quality.{lang}.md"
       ],
       "compatibility": {
-        "en": "Text-only tools can prepare briefs and handoffs. Poster production requires image generation, layout/compositing, rendering and image inspection; QR verification needs a decoder. Final approval requires a separate reviewer agent/session. State missing capabilities; never claim an unrendered or unverified poster is finished.",
-        "zh": "纯文字工具可准备简报和交接；海报制作需要图像生成、布局/合成、渲染和图片查看，二维码验证需要解码器。最终通过须独立评审代理/会话；缺能力须说明，不得称未渲染或未验证海报为完成。"
+        "en": "Text-only tools can prepare briefs and handoffs. New artwork requires image generation; image-to-editable-SVG reconstruction requires component decomposition, layout/compositing, rendering and image inspection; QR verification needs a decoder. Final approval requires a separate reviewer agent/session. State missing capabilities; never claim an unrendered or unverified poster is finished.",
+        "zh": "纯文字工具可准备简报和交接；新画作需要图像生成；图片转可编辑 SVG 需要组件拆解、布局/合成、渲染和图片查看，二维码验证需要解码器。最终通过须独立评审代理/会话；缺能力须说明，不得称未渲染或未验证海报为完成。"
       }
     },
     {
