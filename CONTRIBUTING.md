@@ -63,3 +63,15 @@ Maintainers run relevant controlled tests, including `python3 -m unittest discov
 The README currently declares MIT, but this checkout has no tracked full repository license file. Maintainers need to clarify that text and attribution terms; this guide does not create a CLA or new license terms. Share only original or authorized material, disclose sources and existing licenses, and preserve third-party notices. If rights for submitted material are uncertain, resolve them with the team before uploading that material.
 
 README 当前声明 MIT，但本仓库尚未跟踪完整的仓库许可证文件，需由维护者明确许可文本与署名约定；本指南不建立 CLA 或新许可条款。只分享原创或已获授权的材料，说明来源与既有许可，并保留第三方声明。投稿材料的权利若不明确，应先与团队确认，再上传相关材料。
+
+## Assistant review before pushing | AI 助手推送前审核
+
+Repository assistants follow [AGENTS.md](AGENTS.md): review the exact public
+skill/prompt diff and outgoing history, run applicable checks, and present the
+changes, behavioral evidence, and any gaps before uploading. No local hook
+installation is needed. Existing PR CI checks remain the shared automated
+checks; assistant instructions and passing CI do not certify skill behavior.
+
+仓库中的 AI 助手遵循 [AGENTS.md](AGENTS.md)：在上传前检查将公开的技能和
+提示词差异及提交历史，运行适用检查，并向用户展示变更、行为测试证据与未完成项。
+无需安装本地钩子。PR CI 继续提供共享自动检查；助手指令和 CI 通过不代表技能行为正确。
