@@ -152,6 +152,12 @@ PASS要求查看实际图且无未解决的必要检查；REVISE指已证实且�
 
 固定坐标前可用松散艺术指导图，或从已授权原始素材单次生成完整效果稿建立构图，再记录选定设计的布局文件。完成样例默认只作质量证据，不送入生成模型，不照搬其空间骨架。每个输出尺寸均从保存的二维码原件直接放置，避免对已经缩放的合成二维码再次缩放；包括手机衍生图在内逐一解码。抠图须在实际底图上检查边缘，去除舞台/讲台残留及突兀透明度边界，不重建脸部/身体。
 
+## 图片还原证据
+
+制作技能的图片输入路线扩展 `tm-poster-layout/v1`，不改变既有必需字段。新增 `input_image`，含 `path`、`sha256`、`width_px`、`height_px` 及 `mode: "reconstruction"`。每个拆解图层除既有 ID／类型／边界框外，记录 `z_index`、`group_id`、`representation`（`text`、`vector` 或 `raster`）、`editable_properties`、`source_bounds`、`confidence` 和 `limitations`。未知证据用 null，不猜测来源。记录 OCR 不确定性、字体替代、素材提取／修复及原件／衍生哈希。在 `reconstruction-report.md` 记录原图到 SVG 的差异，以及临时修改／导出／重开测试。
+
+还原可直接使用来源画作，无需强制图像模型渲染；未用生成时标记不适用。既有布局／引导图、最终 PNG／SVG、原件完整性、编辑器交付及评审要求仍适用。评审同时核对视觉还原及可编辑结构：可见文案必须是真实文字，可重建形状须为独立矢量对象，保留位图不能重复已替换文字或前景组件。区分可移动位图素材与可编辑矢量内容。原件缺失或文字不可读仍属明确证据缺口；还原相似不能凌驾品牌规则或成为虚假通过的理由。
+
 # 官方来源与私有素材
 
 优先使用已有且已核实的本地素材或下方已保存官方链接，无须打开PDF或执行必需脚本。仓库入口：`materials/toastmasters-brand/README.md`；完整已保存链接目录：`materials/toastmasters-brand/sources.json`；可复用下载及来源：`materials/toastmasters-brand/local/`和`local/inventory.json`。新克隆可能只有链接。独立技能用户可直接打开同一批链接或提供有权使用的素材；普通浏览器下载同样支持。原生制作包的`scripts/fetch_brand_assets.py`仅为自动化、检查更新或选择照片成员的可选工具，评审包不需要它。有合适且已核实的本地文件时不要重复下载。

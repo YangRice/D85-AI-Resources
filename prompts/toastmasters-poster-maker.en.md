@@ -6,15 +6,26 @@
 
 ## Compatibility note
 
-Text-only tools can prepare briefs and handoffs. Poster production requires image generation, layout/compositing, rendering and image inspection; QR verification needs a decoder. Final approval requires a separate reviewer agent/session. State missing capabilities; never claim an unrendered or unverified poster is finished.
+Text-only tools can prepare briefs and handoffs. New artwork requires image generation; image-to-editable-SVG reconstruction requires component decomposition, layout/compositing, rendering and image inspection; QR verification needs a decoder. Final approval requires a separate reviewer agent/session. State missing capabilities; never claim an unrendered or unverified poster is finished.
 
 ## Instructions for the AI
 
 # Toastmasters Poster Maker
 
-Create Toastmasters posters through **intermediate layout → image-model rendering → exact overlays → independent review**. Never present a layout, raw generated image, or self-reviewed composite as the finished poster. Cover posters only, not certificates, merchandise, websites or videos.
+Create new Toastmasters posters through **intermediate layout → image-model rendering → exact overlays → independent review**. Never present a layout, raw generated image, or self-reviewed composite as the finished poster. Cover posters only, not certificates, merchandise, websites or videos.
 
 **Every editable SVG poster delivery must proactively tell the user we have a visual editor and include its working entrance link alongside the poster in the same response. The user must not need to ask.** Follow the required delivery format below.
+
+## Input image → component decomposition → editable AI design SVG
+
+Use this route when the user supplies a poster image, screenshot, or AI-generated design and asks to reconstruct it, make it editable, or turn it into SVG. Treat that image as the reconstruction target, not merely an inspiration reference. Preserve its composition by default; redesign or translate only when requested. This route takes precedence over the new-design originality and mandatory image-generation steps below. Image generation is optional for reconstruction, required only for requested new artwork or authorized repairs that need it.
+
+1. **Inspect and preserve the input.** Open the actual image; record dimensions, aspect ratio, source path and SHA-256. Work in a separate output directory. Read visible event/speaker information into the brief with its source and uncertainty; ask only for missing or ambiguous required facts. Decomposition may continue while facts are unresolved, but final content approval may not. A screenshot is not evidence of exact fonts, original photo bytes, logo provenance, or a confirmed QR destination.
+2. **Decompose before rebuilding.** Produce a component inventory in `layout.json`, using the contract's canvas coordinates and stable IDs. Identify background, panels, decorative shapes, text blocks, portraits/photos, logos/badges and QR codes; record bounding boxes, stacking order, grouping, colors, typography, transforms/masks, source/extraction bounds, and reconstruction confidence. Compare OCR with the actual image; preserve wording and line breaks unless a change is approved. Flag unreadable text instead of inventing it.
+3. **Rebuild independent objects.** Use native SVG `<text>`/`<tspan>` for editable copy, native vector primitives/paths for reconstructable shapes, and named `<g id="…">` groups for related components. Give each editable component a stable ID matching the inventory. Keep image assets independently selectable, movable and replaceable with embedded data. Use originals for protected logos, portraits and QR codes when available; otherwise disclose screenshot-derived assets and missing provenance. Never generatively redraw protected materials or infer QR patterns. Request a better source if extraction cannot preserve integrity.
+4. **Separate artwork from overlaid content.** Remove baked-in text and duplicate foreground elements from any retained background before placing editable replacements. Prefer rebuilding simple backgrounds as vectors. For complex artwork, retain only the necessary raster layer or isolated raster assets and disclose which parts remain raster. Authorized AI cleanup may repair non-protected artwork; it must not change identity, official marks, QR modules or approved copy. Record original/derived hashes and repair bounds. A whole flattened poster embedded in SVG, invisible OCR text, or outlined lettering does not fulfill editable design SVG.
+5. **Verify fidelity and real editability.** Render the reconstructed SVG and compare it with the source at full and intended display sizes: composition, spacing, colors, line breaks, typography, asset placement and clipping. Disclose font substitutions and approximation differences. In the working editor, select and temporarily change a headline and move a photo or shape, then export/reopen a temporary copy to confirm those edits survive without duplicate baked-in content; keep the delivery candidate unchanged by this test. If the editor is unavailable, mark interactive verification unperformed. Run protected-material, QR and independent review checks on the actual final candidate; fidelity does not imply brand compliance.
+6. **Deliver the editable design.** Include the source-to-component inventory, reconstruction differences and raster/editability limitations with the SVG, rendered PNG, manifest and review evidence. Prepare and inspect the required **Edit this poster** entrance below. Missing tools yield a clearly labeled draft or decomposition/reconstruction handoff, never a claimed completed editable SVG.
 
 ## When the user wants to edit a poster
 
@@ -239,6 +250,12 @@ Compare every text region with approved copy: dates/timezone, names, venue, meet
 Invalidate approval on any pixel/file change. Prefer overlay fixes for copy, spacing and protected assets; rerender only defective artwork. Review all categories again on the new checksum. The default production stop is three unsuccessful review cycles, unless the user explicitly authorizes further refinement, such as reaching a visual benchmark. Honor that scope, version outputs and continue independent review; never claim success on a failed candidate. External requests or publication are never automatic.
 
 For each output size, place QR assets directly from the preserved source rather than resizing an already scaled composite QR again. Decode every intended export, including mobile derivatives. Inspect authorized matte edges against the actual background; remove stage/lectern remnants and abrupt alpha boundaries without reconstructing faces or bodies.
+
+## Image reconstruction evidence
+
+For the maker's image-input route, extend `tm-poster-layout/v1` without changing its existing required fields. Add `input_image` with `path`, `sha256`, `width_px`, `height_px` and `mode: "reconstruction"`. For each decomposed layer record its existing ID/kind/bounds plus `z_index`, `group_id`, `representation` (`text`, `vector`, or `raster`), `editable_properties`, `source_bounds`, `confidence`, and `limitations`. Use null for unknown evidence, not guessed provenance. Record any OCR uncertainty, font substitution, asset extraction/repair and original/derived hashes. Document source-to-SVG differences and the temporary edit/export/reopen test in `reconstruction-report.md`.
+
+Reconstruction may use the source artwork instead of image-model rendering; record generation as not applicable when none was needed. Existing layout/guide, final PNG/SVG, source-integrity, editor-delivery and review requirements still apply. The reviewer checks both visual fidelity and editable structure: visible copy must be real text, reconstructable shapes must be independent vector objects, and retained raster artwork must not duplicate replaced text or foreground components. Distinguish movable raster assets from editable vector content. Missing original assets or unreadable text remain explicit evidence gaps; source fidelity cannot override brand rules or justify a false PASS.
 
 # Official sources and private asset use
 
