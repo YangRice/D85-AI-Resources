@@ -1,0 +1,4 @@
+interface:
+  display_name: "Build Speech Slide Outline"
+  short_description: "Plan speech slides with notes and a clear timing budget"
+  default_prompt: "Use $build-speech-slide-outline to turn my speech material into a slide-by-slide outline with speaker notes and timing."
