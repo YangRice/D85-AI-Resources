@@ -126,7 +126,7 @@ Use warm, clear, respectful, professional, succinct, internationally friendly co
 
 ## B02 — All (pp. 8–12)
 
-Use official full-color, grayscale or white logos and official wordmarks/lockups. Never redraw, recolor, distort, rotate into perspective, alter proportions, place on busy backgrounds or patterns, overlap with copy/slogans/symbols/images, or add patterned glow. Do not use the pre-2011 emblem in ordinary promotional materials (p.43).
+Use official assets in their documented variants: TI logo full-color/grayscale/white (p.8), wordmark full-color/black/white (p.9), Pathways full-color/grayscale/white (p.21), and supplied official lockups/badges. Gavel variants are Loyal Blue/True Maroon/black (p.40). Never redraw, recolor, distort, rotate into perspective, alter proportions, place on busy backgrounds or patterns, overlap with copy/slogans/symbols/images, or add patterned glow. Do not use the pre-2011 emblem in ordinary promotional materials (p.43).
 
 ## B03 — Logos (pp. 8–9,21)
 
@@ -372,6 +372,12 @@ PASS requires actual-image inspection and no unresolved required design checks. 
 Report external authorization independently: not applicable, evidenced, required/pending or unknown. A conference design may visually pass while its required Brand Team approval is pending; it cannot be called release-authorized. Local PASS is never official TI approval. Preserve missing-approval evidence rather than automatically emailing anyone.
 
 Recommend overlay corrections for copy, spacing, official assets and QR issues before artwork regeneration. Any candidate change invalidates the old verdict and requires full-category review on its new checksum. The default is to stop after three unsuccessful maker review cycles with the latest draft/hash and unresolved issues; honor explicit user authorization to refine beyond that default, keeping changed candidates versioned and independently re-reviewed. The maker must recompute the accepted checksum at delivery.
+
+## Executable objective brand checks
+
+When local Python 3.10+ and Pillow are available, use `python scripts/check_brand.py --template` from the reviewer skill directory, fill the v2 specification from actual source/layout evidence, then run `python scripts/check_brand.py --candidate poster.png --spec brand-check.json`. `--rules` lists the verified manual facts and page references. Follow `scripts/README.md` for schemas and `scripts/brand-requirements.md` for complete manual coverage. V2 measures colors/gradient geometry/blending/gray opacity and coverage, source swatch formulations, logo source/proportions/size/clear space/transforms/overlaps, font roles/effects, tagline/marketing phrases, and corporate/Gavel/conference restrictions. Font-file checks optionally use fontTools. All inventories and source assertions need independent verification; exact JPEG color mismatches require a lossless original before declaring a violation. Contrast and primary-color area are reported without invented numerical thresholds. Manual 70% transparency treatments and corner placement are examples/preferences, not universal mandates. Missing evidence blocks the affected check; bounding-box overlaps need ink/mask inspection. Each export needs its own checksum-bound specification. A scoped PASS never establishes complete brand compliance or release authorization. Without execution/dependencies, report NOT RUN and hand off inputs, never an automated PASS.
+
+Where available, pass a neutral local evidence bundle with `--evidence evidence.json`. Font and copy declarations require corroboration against actual image pixels: source font/glyph rendering recipes can establish visual consistency, and optional local OCR (with a supplied language model when needed) can corroborate copy only. A claimed family name, effect list or renderer-log assertion alone is not verification. Keep declared and observed results separate; record missing capability as BLOCKED. Evaluate per-feature findings and the tested entity/scope, retaining demonstrated defects even if other checks abstain. Benchmark samples and reviewer judgments must be independent; never infer correctness from a matching overall BLOCKED result or call measured agreement universal model/platform reliability.
 
 ## End of instructions
 

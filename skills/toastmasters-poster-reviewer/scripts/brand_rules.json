@@ -1,0 +1,295 @@
+{
+  "rule_set": "tm-poster-brand-2026-08-v1",
+  "manual": {
+    "url": "https://content.toastmasters.org/image/upload/02330-001-0001-brand-manual.pdf",
+    "version": "2.0 – Rev. 08/2026",
+    "sha256": "929dec65bdfbb43e27c306e5d3c9ab6bd955d0c0b55256960d51f64509cedbe4",
+    "reviewed_date": "2026-10-24"
+  },
+  "colors": {
+    "004165": {
+      "name": "Loyal Blue",
+      "cmyk": [
+        100,
+        43,
+        12,
+        56
+      ],
+      "pantone": "302",
+      "role": "primary"
+    },
+    "772432": {
+      "name": "True Maroon",
+      "cmyk": [
+        12,
+        95,
+        59,
+        54
+      ],
+      "pantone": "188",
+      "role": "primary"
+    },
+    "A9B2B1": {
+      "name": "Cool Gray",
+      "cmyk": [
+        23,
+        7,
+        12,
+        18
+      ],
+      "pantone": "442",
+      "role": "secondary"
+    },
+    "F2DF74": {
+      "name": "Happy Yellow",
+      "cmyk": [
+        0,
+        5,
+        57,
+        0
+      ],
+      "pantone": "127",
+      "role": "secondary"
+    }
+  },
+  "gradients": [
+    [
+      "004165",
+      "006094"
+    ],
+    [
+      "3B0104",
+      "781327"
+    ],
+    [
+      "A9B2B1",
+      "F5F5F5"
+    ]
+  ],
+  "headline_fonts": [
+    "Gotham",
+    "Gotham Condensed",
+    "Montserrat"
+  ],
+  "body_fonts": [
+    "Myriad Pro",
+    "Myriad Pro Condensed",
+    "Myriad Pro SemiCondensed",
+    "Myriad Pro SemiExtended",
+    "Source Sans 3",
+    "Source Sans Pro",
+    "Arial",
+    "Segoe UI"
+  ],
+  "special_event_fonts": [
+    "Corinthia",
+    "Luxurious Script"
+  ],
+  "taglines": [
+    "Where Leaders Are Made",
+    "WHERE LEADERS ARE MADE"
+  ],
+  "phrases": [
+    "Find Your Voice",
+    "Relax, present confidently.",
+    "Relax, speak confidently.",
+    "Communicate Confidently®",
+    "More than 100 Years of Confident Voices",
+    "Over a Century of Communication Excellence",
+    "Find your confidence",
+    "Become a better leader",
+    "Invest in a Brighter Future"
+  ],
+  "checks": {
+    "palette": {
+      "pages": [
+        14,
+        15,
+        43
+      ],
+      "rule": "B05"
+    },
+    "color_formulations": {
+      "pages": [
+        14
+      ],
+      "rule": "B05"
+    },
+    "color_coverage": {
+      "pages": [
+        14,
+        15
+      ],
+      "rule": "B05"
+    },
+    "color_dominance": {
+      "pages": [
+        15
+      ],
+      "rule": "B05"
+    },
+    "gradient": {
+      "pages": [
+        16,
+        17,
+        18,
+        20
+      ],
+      "rule": "B06"
+    },
+    "gray_opacity": {
+      "pages": [
+        18
+      ],
+      "rule": "B06"
+    },
+    "transparency": {
+      "pages": [
+        19,
+        20
+      ],
+      "rule": "B06"
+    },
+    "contrast": {
+      "pages": [
+        19,
+        28,
+        29
+      ],
+      "rule": "B10"
+    },
+    "logo_source": {
+      "pages": [
+        8,
+        9,
+        10,
+        12,
+        21,
+        40,
+        43,
+        44
+      ],
+      "rule": "B02"
+    },
+    "logo_proportions": {
+      "pages": [
+        12
+      ],
+      "rule": "B02"
+    },
+    "logo_size": {
+      "pages": [
+        8,
+        9,
+        13,
+        21,
+        40
+      ],
+      "rule": "B03"
+    },
+    "logo_clear_space": {
+      "pages": [
+        8,
+        9,
+        13,
+        21,
+        28,
+        40
+      ],
+      "rule": "B03"
+    },
+    "logo_overlap": {
+      "pages": [
+        12,
+        28
+      ],
+      "rule": "B02"
+    },
+    "logo_transform": {
+      "pages": [
+        12
+      ],
+      "rule": "B02"
+    },
+    "logo_effects": {
+      "pages": [
+        12
+      ],
+      "rule": "B02"
+    },
+    "identity": {
+      "pages": [
+        11,
+        12,
+        40,
+        41,
+        43
+      ],
+      "rule": "B04"
+    },
+    "badge_relevance": {
+      "pages": [
+        22
+      ],
+      "rule": "B07"
+    },
+    "font_family": {
+      "pages": [
+        23,
+        24,
+        25
+      ],
+      "rule": "B08"
+    },
+    "font_effects": {
+      "pages": [
+        23
+      ],
+      "rule": "B08"
+    },
+    "face_overlap": {
+      "pages": [
+        28,
+        29
+      ],
+      "rule": "B10"
+    },
+    "tagline": {
+      "pages": [
+        29
+      ],
+      "rule": "B11"
+    },
+    "marketing_phrases": {
+      "pages": [
+        29
+      ],
+      "rule": "B11"
+    },
+    "corporate_placement": {
+      "pages": [
+        39
+      ],
+      "rule": "B13"
+    },
+    "gavel_identity": {
+      "pages": [
+        40
+      ],
+      "rule": "B14"
+    },
+    "conference": {
+      "pages": [
+        41,
+        43
+      ],
+      "rule": "B15"
+    },
+    "sponsor_placement": {
+      "pages": [
+        41
+      ],
+      "rule": "B15"
+    }
+  }
+}

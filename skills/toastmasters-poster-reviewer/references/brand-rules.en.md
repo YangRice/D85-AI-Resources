@@ -12,7 +12,7 @@ Use warm, clear, respectful, professional, succinct, internationally friendly co
 
 ## B02 — All (pp. 8–12)
 
-Use official full-color, grayscale or white logos and official wordmarks/lockups. Never redraw, recolor, distort, rotate into perspective, alter proportions, place on busy backgrounds or patterns, overlap with copy/slogans/symbols/images, or add patterned glow. Do not use the pre-2011 emblem in ordinary promotional materials (p.43).
+Use official assets in their documented variants: TI logo full-color/grayscale/white (p.8), wordmark full-color/black/white (p.9), Pathways full-color/grayscale/white (p.21), and supplied official lockups/badges. Gavel variants are Loyal Blue/True Maroon/black (p.40). Never redraw, recolor, distort, rotate into perspective, alter proportions, place on busy backgrounds or patterns, overlap with copy/slogans/symbols/images, or add patterned glow. Do not use the pre-2011 emblem in ordinary promotional materials (p.43).
 
 ## B03 — Logos (pp. 8–9,21)
 
