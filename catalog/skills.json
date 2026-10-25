@@ -239,6 +239,33 @@
           "回复语言偏好："
         ]
       }
+    },
+    {
+      "id": "build-speech-slide-outline",
+      "type": "atomic",
+      "version": "0.1.0",
+      "resource_page": "plan-your-speech-slides",
+      "requires": [],
+      "recommends": [],
+      "actions": [],
+      "compatibility": {
+        "en": "Text chat is sufficient for slide copy, visual suggestions, speaker notes and timing. This skill does not create PPTX files or require scripts, web access, presentation software or paid services.",
+        "zh": "文字聊天即可规划页面文案、视觉建议、讲者备注和时间；不生成 PPTX 文件，无需脚本、联网、演示软件或付费服务。"
+      },
+      "input_fields": {
+        "en": [
+          "My topic and source material:",
+          "Audience and intended takeaway:",
+          "Speaking duration and slide count:",
+          "Language and design constraints:"
+        ],
+        "zh": [
+          "主题与源材料：",
+          "受众与希望听众记住的信息：",
+          "演讲时长与目标页数：",
+          "语言与设计限制："
+        ]
+      }
     }
   ]
 }
