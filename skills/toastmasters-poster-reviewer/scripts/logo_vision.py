@@ -322,18 +322,23 @@ def _clear_space(poster, alpha, matrix, quad, observation):
     localization=max(1.5,artwork_width*.008)
     x0,y0=quad.min(axis=0);x1,y1=quad.max(axis=0)
     gaps=np.array([x0,y0,w-x1,h-y1])
-    boundary='REVISE' if min(gaps)<margin-localization else ('BLOCKED' if min(gaps)<margin+localization else 'PASS')
     projected_ring=np.zeros((h,w),np.uint8)
     expanded=_project([[-ratio*alpha.shape[1],-ratio*alpha.shape[1]],
                         [(1+ratio)*alpha.shape[1],-ratio*alpha.shape[1]],
                         [(1+ratio)*alpha.shape[1],alpha.shape[0]+ratio*alpha.shape[1]],
                         [-ratio*alpha.shape[1],alpha.shape[0]+ratio*alpha.shape[1]]],matrix)
+    # Project the source-space margin before assessing canvas or foreground
+    # clearance. A rotated corner can extend beyond an axis-aligned margin.
+    ex0,ey0=expanded.min(axis=0);ex1,ey1=expanded.max(axis=0)
+    expanded_gaps=np.array([ex0,ey0,w-ex1,h-ey1])
+    boundary=('REVISE' if min(expanded_gaps)<-localization else
+              'BLOCKED' if min(expanded_gaps)<localization else 'PASS')
     cv2.fillConvexPoly(projected_ring,np.round(expanded).astype(np.int32),1)
     cv2.fillConvexPoly(projected_ring,np.round(quad).astype(np.int32),0)
     intruders=[];uncertain_intruders=[]
     for index,bounds in enumerate(observation.get('foreground_regions',[])):
         x,y,rw,rh=_box(bounds,(w,h))
-        if max(x,x0-margin)<min(x+rw,x1+margin) and max(y,y0-margin)<min(y+rh,y1+margin):
+        if max(x,ex0)<min(x+rw,ex1) and max(y,ey0)<min(y+rh,ey1):
             # Bounds alone may contain whitespace. Require visible local ink;
             # nonuniform/photo backgrounds cannot be judged as intruders here.
             patch=poster[y:y+rh,x:x+rw]
@@ -360,6 +365,7 @@ def _clear_space(poster, alpha, matrix, quad, observation):
     if status=='PASS' and uncertain_intruders:status='BLOCKED'
     space=_result(status,'Canvas-edge gaps and supplied foreground regions; textures alone are not violations',
         required_margin_px=margin,localization_allowance_px=localization,canvas_gaps_px=gaps.tolist(),
+        expanded_canvas_gaps_px=expanded_gaps.tolist(),
         confirmed_foreground_regions=intruders,uncertain_foreground_regions=uncertain_intruders,
         foreground_inventory_asserted=observation.get('foreground_complete') is True or
             observation.get('foreground_inventory_complete') is True,

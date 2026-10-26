@@ -195,6 +195,34 @@ class LogoVision(unittest.TestCase):
         result=self.check()
         self.assertEqual(result['clear_space']['status'],'REVISE',result)
 
+    def test_rotated_clear_space_uses_projected_margin_at_canvas_edge(self):
+        # A 20px source margin rotates to 28.28px at the leftmost corner.
+        # The artwork has a 22px gap, so the margin crosses the canvas by 6.28px.
+        cosine = 2 ** -.5
+        matrix = np.array([[cosine, -cosine, 92.71067811865476],
+                           [cosine, cosine, 90], [0, 0, 1.]])
+        quad = np.array([[92.710678, 90], [163.421356, 160.710678],
+                         [92.710678, 231.421356], [22, 160.710678]])
+        space, _ = vision._clear_space(np.zeros((400, 400, 3), np.uint8),
+            np.full((100, 100), 255, np.uint8), matrix, quad,
+            dict(wordmark_height_ratio=.2, foreground_inventory_complete=True))
+        self.assertEqual(space['status'], 'REVISE', space)
+
+    def test_rotated_clear_space_checks_ink_in_projected_corner(self):
+        cosine = 2 ** -.5
+        matrix = np.array([[cosine, -cosine, 150],
+                           [cosine, cosine, 150], [0, 0, 1.]])
+        quad = np.array([[150, 150], [220.710678, 220.710678],
+                         [150, 291.421356], [79.289322, 220.710678]])
+        poster = np.zeros((400, 400, 3), np.uint8)
+        poster[218:223, 54:58] = 255
+        space, _ = vision._clear_space(poster,
+            np.full((100, 100), 255, np.uint8), matrix, quad,
+            dict(wordmark_height_ratio=.2, foreground_inventory_complete=True,
+                 background='#000000', foreground_regions=[[54, 218, 4, 5]]))
+        self.assertEqual(space['status'], 'REVISE', space)
+        self.assertEqual(space['confirmed_foreground_regions'], [0])
+
     def test_blank_image_cannot_match(self):
         result=self.check(Image.new('RGB',(600,700),'#004165'))
         self.assertEqual(result['detection']['status'],'BLOCKED',result)

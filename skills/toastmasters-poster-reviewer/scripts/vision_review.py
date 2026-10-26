@@ -1,7 +1,7 @@
 """Model-fed visual measurements. No OCR, external model or network calls.
 
-This route measures selected logo/color/copy features. The strict v1/v2 source
-audit keeps its original contract; a visual-scope PASS is not whole-brand PASS.
+The checker measures selected logo/color/copy features from image observations.
+A selected-scope PASS is not whole-brand PASS.
 """
 import hashlib
 import importlib.util
@@ -165,10 +165,9 @@ def inspect(image, spec, root, candidate):
         candidate_sha256=sha(candidate),dimensions=list(image.size),
         producer=spec.get('producer'),requested_checks=requested,findings=findings,
         feature_results=features,scoped_verdict=verdict,
-        visual_brand_verdict='NOT_ASSESSED',full_brand_verdict='NOT_ASSESSED',
-        source_audit_verdict='NOT_REQUESTED',logo_measurements=details,color_measurement=color_result,
+        logo_measurements=details,color_measurement=color_result,
         reference_file_sha256=evidence,
-        scope='Only requested image measurements and model-read copy; not all 26 brand requirements',
+        scope='Only requested image measurements and model-read copy; not all manual requirements',
         limitations=['Model region/copy semantics are not independently established',
                      'Engineering thresholds are disclosed screening choices, not official brand exemptions',
                      'No external OCR, model call or source-audit prerequisite in this route'])

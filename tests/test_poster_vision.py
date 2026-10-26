@@ -86,8 +86,8 @@ class VisualRoute(unittest.TestCase):
         with patch('subprocess.run',side_effect=AssertionError('OCR must not run')):
             result=self.module.inspect(self.image,self.spec,self.root)
         self.assertEqual(result['scoped_verdict'],'PASS')
-        self.assertEqual(result['full_brand_verdict'],'NOT_ASSESSED')
-        self.assertEqual(result['source_audit_verdict'],'NOT_REQUESTED')
+        self.assertNotIn('full_brand_verdict',result)
+        self.assertNotIn('visual_brand_verdict',result)
 
     def test_wrong_candidate_invalid_checks_and_duplicate_entities_rejected(self):
         self.spec['candidate_sha256']='wrong'
@@ -121,6 +121,31 @@ class VisualRoute(unittest.TestCase):
                                '--observations',str(path)],capture_output=True,text=True)
         self.assertEqual(result.returncode,0,result.stdout+result.stderr)
         self.assertEqual(json.loads(result.stdout)['scoped_verdict'],'PASS')
+
+    def test_exported_template_runs_through_the_only_cli_input(self):
+        exported = subprocess.run([sys.executable, str(FOLDER/'check_brand.py'), '--template'],
+                                  capture_output=True, text=True)
+        self.assertEqual(exported.returncode, 0, exported.stdout + exported.stderr)
+        observation = json.loads(exported.stdout)
+        # Keep the exported format/rule identifier, then supply actual observations.
+        observation.update(candidate_sha256=self.spec['candidate_sha256'],
+                           requested_checks=['design_palette'], colors=self.spec['colors'])
+        path = self.root/'from-template.json'
+        path.write_text(json.dumps(observation))
+        result = subprocess.run([sys.executable, str(FOLDER/'check_brand.py'),
+                                 '--candidate', str(self.image), '--observations', str(path)],
+                                capture_output=True, text=True)
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        self.assertEqual(json.loads(result.stdout)['scoped_verdict'], 'PASS')
+
+    def test_invalid_exports_are_rejected_before_measurement(self):
+        transparent = self.root/'transparent.png'
+        Image.new('RGBA', (30, 30), (0, 65, 101, 0)).save(transparent)
+        animation = self.root/'poster.gif'
+        Image.new('RGB', (30, 30), '#004165').save(animation)
+        for candidate in (transparent, animation):
+            with self.subTest(candidate=candidate.name), self.assertRaises(ValueError):
+                self.module.inspect(candidate, self.spec, self.root)
 
     def test_missing_cv_dependency_does_not_fabricate_measurements(self):
         with patch.dict(sys.modules,{'cv2':None}):

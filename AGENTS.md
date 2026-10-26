@@ -80,3 +80,12 @@ Report command results and limitations honestly; missing tools mean NOT RUN.
 Existing PR workflows provide shared automated validation without local setup.
 Keep them in place. These instructions guide assistants; they are not a Git
 execution gate or a replacement for CI and human review.
+
+## Poster reviewer validation freshness
+
+After changing poster-reviewer code, instructions, shared review references or
+bundled prompts, refresh `design/poster-vision-validation.md` as a current
+candidate snapshot: record its content fingerprint, actual checks/trials and
+remaining gaps. Rerun affected behavioral scenarios after policy changes.
+Replace superseded results rather than appending a development history; mark
+checks NOT RUN until they have executed on the current candidate.
