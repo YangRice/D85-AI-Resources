@@ -1,5 +1,65 @@
 # Poster benchmark fixture generation
 
+## Vision-measurement adapter
+
+`build_poster_vision_cases.py` adapts the existing private manifests to
+`tm-poster-vision-check/v1` observations without importing the production checker
+or reading predictions/reviewer judgments. It supplies loose logo search ROIs,
+alpha-trimmed local reference images, foreground regions and actual prepared
+design-region polygons. These inputs are explicitly `fixture-source-derived`;
+their results test computer-vision measurements, not a model's ability to
+discover regions from a new poster.
+
+Run it with repeated `--manifest` arguments, `--assets` for the already prepared
+private asset directory, and a fresh `--output` directory. Optional
+`--real-images FIRST SECOND THIRD` adds three visually inspected calibration
+layouts in this order: AI project-management, District poster-design training,
+coaching case discussion. Those rough model masks are layout-specific; they must
+not be applied to arbitrary posters. Their provenance and uncertainties are
+recorded separately. The adapter does not download, publish or alter the input
+posters. Derived official references stay inside private output.
+
+The six historical manifests plus these three inputs produce 63 cases. Only 42
+have targets that map to the new logo/color scope; 21 have original typography,
+context or other targets that this pipeline does not assess. Empty target sets
+must be reported as untested rather than successes. The original five-positive /
+five-negative balance of each historical round does not imply the same balance
+for the reduced vision scope. Original labels cannot be reused as new ground
+truth without independent per-feature review.
+
+Vision adapter versions v1/v2 used pixel-center rectangle corners, which
+collapsed one-pixel-wide source partitions into zero-area polygons. Version v3
+uses continuous pixel-edge corners (`x+w`, `y+h`); rasterization and uncertain
+boundary handling belong to the measurement layer. Earlier inputs stay frozen.
+This is an adapter-coordinate repair on the same images, not a new holdout.
+Version v4 additionally preserves the actual source `background` as an engine-
+verified hypothesis, maps artwork overlap to appearance as well as clear space,
+and retains an explicit effects target for old effects cases. Real-image
+observations do not invent a background value. This target-scope repair is
+reported separately from the earlier version's results and is not a new holdout.
+
+The reference-selection repair prepares all four permitted TI globe PNGs from
+`logo.zip` for each real globe-logo observation, preserving their official
+filenames. It includes `ToastmastersLogo3Color.png`, which earlier real inputs
+omitted by supplying only `ti.png` (`ToastmastersLogoColor.png`). Source-derived
+synthetic fixtures retain their known source references. This is a correction
+on reused images, not a new holdout. Missing required archive variants fail
+preparation instead of silently narrowing coverage. Extra ZIP entries are ignored.
+The training poster similarly receives all four standalone wordmark variants
+from `wordmark.zip`; its X/width is measured directly from each source's tight
+alpha bounds.
+Precomputed X/width ratios are attached to individual reference entries and
+bound to the exact source-file hashes. Changed downloads need new measurements;
+they cannot inherit a different variant's ratio. Hashes identify local source
+assets, not visual matches to a compressed poster.
+
+The available prior three real-poster files were 720×1280, 719×1280 and 720×1280.
+The later higher-resolution versions shown in chat were not present in the local
+attachment directory during this adaptation; results on the available bytes
+must not be represented as tests of those later exports. User acceptance is a
+calibration label, not a waiver of actual logo size/clear-space requirements or
+an independently confirmed whole-brand approval.
+
 `build_poster_benchmark.py` creates two rounds of ten actual poster images,
 each with five intended positive and five intended negative samples for the
 declared objective feature scope. Independent review must verify those intended

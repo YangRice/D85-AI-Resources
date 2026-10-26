@@ -1,5 +1,116 @@
 # Executable poster brand requirements / 可执行海报品牌检查
 
+## Image-based visual measurements (model-fed, no OCR)
+
+For flattened posters, an optional route now accepts model-supplied logo search
+regions, design-color polygons and copy observations. It does not require
+renderer logs or font files for logo/color measurements and never invokes OCR.
+Install `opencv-python-headless==4.13.0.92` alongside Pillow (numpy is a dependency).
+The strict v1/v2 audit below retains its original behavior.
+
+```sh
+python scripts/check_brand.py --vision-template > observations.json
+python scripts/check_brand.py --candidate poster.jpg --observations observations.json
+```
+
+Set `format` to `tm-poster-vision-check/v1`, the existing `rule_set`, and the
+actual `candidate_sha256`. A hash binds observations to a file, not logo
+correctness. `producer` records the actual observation method/model; fixture
+inventories must be labeled source-derived rather than model-read.
+
+`requested_checks` selects from `logo_detection`, `logo_geometry`,
+`logo_appearance`, `logo_clear_space`, `logo_effects`, `logo_size`,
+`design_palette`, `tagline`, `marketing_phrases`. An empty scope cannot pass.
+These are measurement names for existing requirements, not nine new brand rules.
+
+Each `logos` entry needs a unique `id` and `reference` path (or `references`
+list of up to 12 permitted variants). Supply every permitted variant in the
+applicable asset family, not just the model's first guess. The checker tries all
+supplied references, selects the best visually consistent match, and retains
+every hypothesis with its filename, file hash and measured residuals. It does
+not discover or download references omitted from the input. The private real-case
+adapter prepares all four PNG variants from the official `logo.zip`, including
+`ToastmastersLogo3Color.png`; it fails if a required archive entry is missing.
+Standalone wordmarks similarly use all four PNG variants from `wordmark.zip`.
+Among hypotheses with the same detection/appearance status, distributed SIFT
+support (inlier count × source hull coverage) precedes mean Lab error. This
+prevents sparse transparent artwork from winning solely because it compares
+fewer opaque pixels. The ranking and all competing hypotheses remain visible;
+the chosen filename is a best-supported candidate, not proof of file provenance.
+
+`references` also accepts variant objects such as
+`{"path":"ToastmastersLogo3Color.png","wordmark_height_ratio":0.2246932515}`.
+Each object uses its own independently measured X/width ratio; an omitted ratio
+leaves clear space unmeasured, rather than inheriting another variant's ratio.
+Legacy string entries continue to use the logo-level ratio, so use that form
+only when the measurement applies to all listed references. The adapter binds
+its precomputed ratios to exact official source-file hashes; an unfamiliar
+revision needs a new measurement. These hashes never compare poster pixels.
+For standalone wordmarks, the adapter computes X/width directly from each
+downloaded source's alpha-tight height and width.
+
+Optional `roi` and `bounds` are integer
+`[x,y,width,height]` search hints, not detection answers. SIFT descriptors and
+RANSAC estimate a homography; distributed inliers, reprojection error and
+projected geometry gate the match. A bounded multiscale edge-template fallback
+supports sparse wordmarks. Appearance matching never authenticates provenance.
+Distortion is measured in original coordinates before rectification. Spatial
+Lab residuals drive appearance screening; histograms and residual PCA are
+diagnostics. Coherent local alterations are checked independently of mean error.
+Enclosed transparent interiors are checked separately, so unchanged white
+outline ink cannot conceal a recolored fill. A consistent locally uniform
+backdrop supports the match; a varied or unavailable backdrop leaves these
+interiors uncertain. Conflicts BLOCK unless `background_uniform_across_logo:
+true` and the supplied `background` color corroborate a uniform backdrop across
+the logo; only then can strong coherent extra content REVISE. This explicit
+model/source assertion remains distinct from measured exterior uniformity:
+photography confined to transparent interiors is not itself a brand violation.
+
+`wordmark_height_ratio` is the applicable manual X height divided by the tight
+reference artwork width, independently measured from the correct asset.
+`foreground_regions` lists nearby text/symbol/object boxes, with optional
+`foreground_inventory_complete` recording a model inspection assertion.
+Clear-space calculations expose margins, detected polygons, edge gaps and
+localization uncertainty. Nonuniform photography is not automatically a defect;
+unknown foreground classification remains reviewable. Optional `background`
+`#RRGGBB` enables corroborated exterior-ink screening; extra ink is not itself
+proof of a particular authoring effect. Supply intended `target_width_px` to
+check the 72px digital minimum; missing scale leaves that selected check BLOCKED.
+
+`colors` contains `include` and `exclude` polygon lists. Every region needs a
+`reason`; exclude entries should also record semantic `kind`. Polygon points
+are finite original-image x/y coordinates; continuous edges may reach canvas
+width/height. The script reports covered, excluded, unclassified, uncertain
+boundary and high-variation detail pixels. The model's mask semantics are not
+independently proven. Flat fill and smooth gradient interiors are clustered in
+Lab using deterministic k-means, with full-mask assignments and independent
+spatial color-bucket checks. Cluster averaging cannot hide a coherent wrong-color
+patch. Thin antialias/compression details are counted as unmeasured; isolated
+outliers are disclosed. Moderate coherent differences BLOCK; strong coherent
+off-palette areas REVISE. Empty masks BLOCK. `requested_k` may be 1–12 (default6).
+Primary-color fraction is a metric, never an invented brand percentage gate.
+Permitted gradient/blend color membership does not prove spatial recipes.
+
+For copy checks, supply model-read `text_runs` with `text`, `role` (`tagline`
+or `marketing-phrase`) and `readability: "clear"` or an uncertainty value.
+`text_inventory_complete` is an explicit model assertion; an empty/partial
+inventory cannot establish a poster-wide marketing-phrase count PASS. Readable
+defects remain REVISE even when other requested checks BLOCK. Copy findings
+retain their model-observation evidence basis and do not prove a font family.
+
+Results expose per-feature findings and `scoped_verdict`. Full/visual whole-brand
+verdicts remain NOT_ASSESSED because these measurements do not cover all26
+registered features; source audit is NOT_REQUESTED. Missing dependencies or weak
+matches abstain. All numerical vision tolerances are disclosed engineering
+settings, not exemptions in the manual. No universal model/platform parity is
+claimed, and the pipeline does not call a model to construct its own observations.
+
+From the repository root, `tests/build_poster_vision_cases.py` adapts existing
+private cases. `scripts/benchmark_poster_vision.py --manifest manifest.json
+--out fresh-report.json --artifacts fresh-crops-directory` runs applicable scopes,
+freezes input/code identities and saves logo-plus-clear-space crops. Unsupported
+original target categories are counted as untested, not as passing cases.
+
 Python 3.10+, Pillow 10+. Optional font-file verification requires fontTools.
 For reproducible rendering, use the same versions on each machine; validated
 locally with Python 3.12.14, Pillow 12.3.0 and fontTools 4.61.1. No network/model

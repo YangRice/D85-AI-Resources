@@ -104,8 +104,8 @@ def gradient_distance(pixel, start, end):
 
 def inspect(candidate, spec, root):
     from PIL import Image
-    if not isinstance(spec, dict) or spec.get('format') not in ('tm-poster-brand-check/v1', 'tm-poster-brand-check/v2'):
-        raise ValueError('Expected tm-poster-brand-check/v1 or v2 specification')
+    if not isinstance(spec, dict) or spec.get('format') not in ('tm-poster-brand-check/v1', 'tm-poster-brand-check/v2', 'tm-poster-vision-check/v1'):
+        raise ValueError('Expected a supported brand-check or vision-check specification')
     if spec.get('rule_set') != RULE_SET:
         raise ValueError('Unsupported rule_set')
     with Image.open(candidate) as opened:
@@ -120,6 +120,12 @@ def inspect(candidate, spec, root):
     if rgba.getextrema()[3] != (255, 255):
         raise ValueError('Final candidate must be opaque; flatten against intended background first')
     image = rgba.convert('RGB')
+    if spec['format'] == 'tm-poster-vision-check/v1':
+        path = Path(__file__).with_name('vision_review.py')
+        loaded = importlib.util.spec_from_file_location('tm_vision_review', path)
+        module = importlib.util.module_from_spec(loaded)
+        loaded.loader.exec_module(module)
+        return module.inspect(image, spec, root, candidate)
     if spec['format'] == 'tm-poster-brand-check/v2':
         module = extended_module()
         scoped_spec = dict(spec, _candidate=candidate)
@@ -244,18 +250,29 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--candidate', type=Path)
     parser.add_argument('--spec', type=Path)
+    parser.add_argument('--observations',type=Path,help='Model-fed visual measurement specification; no OCR')
+    parser.add_argument('--vision-template',action='store_true',help='Print incomplete model-fed vision specification')
     parser.add_argument('--evidence',type=Path,help='Optional neutral local evidence bundle (renderer_log/font/source paths)')
     parser.add_argument('--template', action='store_true', help='Print an incomplete v2 specification')
     parser.add_argument('--rules', action='store_true', help='Print manual facts and check/page inventory')
     args = parser.parse_args()
+    if args.vision_template:
+        path = Path(__file__).with_name('vision_review.py')
+        loaded = importlib.util.spec_from_file_location('tm_vision_template',path)
+        module = importlib.util.module_from_spec(loaded);loaded.loader.exec_module(module)
+        print(json.dumps(module.template(),indent=2));return 0
     if args.template:
         print(json.dumps(template(), indent=2))
         return 0
     if args.rules:
         print(json.dumps(extended_module().RULES, indent=2))
         return 0
+    if args.spec is not None and args.observations is not None:
+        parser.error('Use either --spec or --observations')
+    if args.observations is not None:
+        args.spec = args.observations
     if args.candidate is None or args.spec is None:
-        parser.error('--candidate and --spec are required unless using --template or --rules')
+        parser.error('--candidate and --spec or --observations are required unless exporting a template/rules')
     try:
         spec = json.loads(args.spec.read_text(encoding='utf-8'))
         if args.evidence:

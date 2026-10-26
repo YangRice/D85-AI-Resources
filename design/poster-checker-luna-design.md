@@ -1,10 +1,17 @@
 # Poster brand checker: model observations and deterministic rules
 
 Design date: 2026-10-25 (Asia/Shanghai).
+Visual-review policy revision: 2026-10-26 (Asia/Shanghai), following three
+user-accepted real poster references. Section 11 supersedes the earlier policy
+where missing production evidence would block an ordinary visual review.
+Implementation update, 2026-10-26: section 12 records the implemented optional
+vision route. Earlier proposed-interface/status statements describe the preceding
+design revision; the new route implements a limited measurement subset.
 
-This document describes the existing checker and the requested model-fed
-workflow. **The model-observation adapter below is a proposed interface, not an
-implemented feature. GPT-5.6 Luna end-to-end execution has not been tested.**
+This document describes the checker and the requested model-fed workflow.
+Sections 1–10 retain the original proposed interface; section 12 documents the
+implemented `tm-poster-vision-check/v1` subset. **GPT-5.6 Luna end-to-end execution
+has not been tested.**
 The exact requested model was unavailable in this session. Its image-input and
 tool capabilities must be established before running this workflow.
 
@@ -242,3 +249,144 @@ This document is a design handoff. No executable behavior was changed in the
 documentation turn. The next implementation must add the observation adapter,
 explicitly disable external OCR for this route, retain evidence distinctions,
 and test the complete image-to-report path with the actual requested model.
+
+## 11. Revision: practical visual review versus source audit
+
+### Problem exposed by real posters
+
+The supplied-inventory benchmark assumed rich source evidence. Ordinary users
+upload flattened posters. The prior ten-poster runs largely reported that an
+inventory was missing; they did not complete a useful visual brand assessment.
+Missing evidence is not a demonstrated design defect. A checker can be strict
+about documented requirements without requiring every poster author to supply
+font files, renderer logs and a complete editable-layer manifest.
+
+The product should default to **visual brand review**. A separate **source
+audit** can be requested when exact font identity, production colors, asset
+provenance or source preservation must be verified. This is a proposed change
+to workflow and result policy; the existing CLI still implements its v2 behavior.
+
+| Question | Default visual review | Optional source audit |
+|---|---|---|
+| Is an appropriate logo/wordmark visible, legible and apparently undistorted? | Model inspection with image/crop measurements when supported | Compare trusted original artwork and source transforms |
+| Does the design use the brand palette? | Inspect design fills, text and accents; measure suitable actual regions; account for JPEG/export uncertainty | Verify source swatches, formulations and gradient recipes |
+| Does typography have an apparent brand conflict? | Inspect hierarchy, visible styles and effects; qualify exact family as unverified | Verify font files and actual glyph rendering |
+| Is clear space sufficient? | Inspect nearby ink and canvas edges; measure where localization supports it | Verify source geometry and applicable X measurement |
+| Is the picture permitted and appropriate? | Assess visible relevance and prominence | Verify permissions separately from visual compliance |
+| Are all production layers available? | Not required for image review; model must inspect the full image and relevant crops | Required only where the requested audit depends on them |
+
+Visual review does not report an exact font PASS merely because a typeface looks
+similar. It can report overall visual PASS with a note that exact font identity
+was not verified. Missing evidence for a source-only property does not veto that
+separate visual verdict. Conversely, a readable visible defect remains REVISE
+even if sources were never supplied.
+
+### Verdict contract
+
+Proposed output separates `visual_brand_verdict` from `source_audit_verdict`.
+The source audit defaults to NOT_REQUESTED. Source-only facts may be recorded as
+NOT_VERIFIED without creating a visual defect. Keep `full_brand_verdict` separate;
+visual review is not official approval or release authorization.
+
+For the visual verdict:
+
+1. REVISE when an applicable mandatory visual requirement has a supported
+   violation. Preserve this result even when other items need review.
+2. BLOCKED when no demonstrated violation is available but a necessary visual
+   decision cannot be made: image unavailable, logo unreadable, relevant text
+   ambiguous, material region uninspected, or contextual ambiguity that changes
+   a mandatory rule. List the specific unresolved question.
+3. PASS when applicable visual checks were actually inspected with adequate
+   evidence and no supported violation or blocking visual uncertainty remains.
+   State the review scope and source-only facts not verified.
+
+PASS cannot be inferred solely from an empty defect list. Record an explicit
+inspection result for each applicable visual category, including applicability
+and the regions supporting it. An empty/partial text inventory cannot establish
+absence of prohibited phrases. Model observations are accepted as model evidence,
+not mislabeled as independently verified pixels or source facts. The report must
+make clear which decisions depend on them.
+
+Recommended user-facing wording: “PASS — visual brand review. Exact font identity
+and original-asset provenance were not verified.” Reserve blocking questions for
+facts necessary to decide the visible requirement; do not ask for every source
+file as a default intake checklist.
+
+### Calibration from the three user-accepted examples
+
+These are user-provided acceptance references, not independently established
+officially approved examples. Retain the expected positive label and any actual
+rule disagreement separately. Do not hard-code image hashes, club names, labels
+or special exceptions to make these specific images pass. Uploaded images stay
+private; this document records only general design characteristics.
+
+| Reference | What a practical visual review should recognize | What it must not infer |
+|---|---|---|
+| Blue/maroon AI project-management poster | Recognizable globe logo, primary-color layout, yellow accents, a relevant speaker portrait and clear information hierarchy | Missing font files do not prove a typeface violation; photographic colors do not constitute off-palette design colors; the three-line benefits copy is not automatically three official marketing phrases |
+| Blue District poster-design training poster | Official wordmark is a valid alternative to the globe; white/gray/yellow support the primary blue; speaker photography is relevant | Do not require a globe in addition to the wordmark. Classify “EVERYONE CAN GLOW” before deciding whether it is an event slogan or prohibited custom District identity; an unresolved material classification must be disclosed |
+| Blue coaching case-discussion poster | Recognizable globe logo, restrained brand colors, readable Chinese copy and a topic illustration inside the case panel | The manual supplies no Chinese-font whitelist. Architecture/family illustrations should be assessed in their supporting meeting-topic role, not treated automatically as prohibited photography subjects |
+
+These observations explain why missing sources alone should not reject the
+examples. They are not final pixel-measured verdicts for the new uploads. For
+example, logo clear space near a canvas edge still needs inspection against the
+applicable rule; a user-accepted label cannot override a demonstrated shortfall.
+
+### Guardrails against making the checker indiscriminately permissive
+
+Pair each accepted reference with negative controls: an obviously distorted or
+recolored logo, an obscured wordmark, a measured insufficient margin, a large
+off-palette design fill, a genuinely altered official tagline, or an unreadable
+critical region. Keep correct photographs, allowed wordmarks, secondary
+illustrations and unspecified Chinese fonts as positive controls. Changed logo
+appearance and topic-versus-identity classification require their own evidence.
+
+Evaluate both false rejection of acceptable designs and false acceptance of
+actual violations. Unresolved disagreements with the user's labels must remain
+visible. Three accepted references are development cases; use new unseen posters
+to assess generalization. Do not loosen a numeric brand requirement or invent
+a blanket color tolerance simply to improve this small set's score.
+
+### Implementation consequences
+
+The next code change should add the model-observation adapter and explicit
+visual/source review scope together. The model supplies transcriptions and region
+classifications; the script validates the schema, applies rules and performs
+supported measurements. External OCR is not required for that route. Keep the
+existing strict v2 source/layout path available as an audit, rather than silently
+changing what its old PASS results meant.
+
+This revision changes the local design document only. It does not implement the
+adapter, rerun the new uploads, certify Luna 5.6 behavior or update the existing PR.
+
+## 12. Implemented optional image-measurement route (2026-10-26)
+
+`check_brand.py --observations` now accepts `tm-poster-vision-check/v1` inputs.
+The actual format and commands are documented in the script README. New modules
+are `vision_review.py` (model-input adapter/result policy), `logo_vision.py`
+(SIFT/RANSAC, template fallback, transform/clear-space/appearance measurements),
+and `color_vision.py` (polygon masks, deterministic Lab k-means and spatial
+color-residual analysis). OpenCV is optional; legacy v1/v2 behavior is retained.
+
+The new route uses model-supplied search regions, masks and readable copy,
+without external OCR or model API calls. Logo matching needs a suitable reference
+asset, not proof of the poster's original authoring file. It preserves original
+geometry before rectification, evaluates localized alterations separately from
+average residuals, and reports histograms/PCA as diagnostics. Coarse masks have
+explicit unclassified/boundary/detail accounting. Small isolated color outliers
+are disclosed without pretending they are independent design swatches; coherent
+wrong-color regions remain defects. Gradient/blend membership is not recipe proof.
+
+The route supports nine selected measurement names for existing requirements:
+logo detection, geometry, appearance, clear space, effects and size, design
+palette, tagline and marketing phrases. It does not cover all 26 registered
+requirements or all model-semantic questions. Consequently `scoped_verdict` is
+the operative output, while whole-brand and whole-visual verdicts remain
+NOT_ASSESSED. An optional source audit remains separate. This implements a
+useful subset of section 11, not its entire future product workflow.
+
+`tests/build_poster_vision_cases.py` adapts existing private fixtures; their source
+regions are explicitly not model-extraction evidence. Actual available exports
+of the three real designs use visually prepared model observations. Their newer
+high-resolution chat versions were unavailable as local files. Frozen-run results,
+test counts, false-pass correction and remaining gaps belong in
+`design/poster-vision-validation.md`. Exact Luna 5.6 execution remains NOT RUN.
