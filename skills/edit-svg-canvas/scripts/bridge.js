@@ -23,10 +23,93 @@
   const imageAttributes = new Map();
   const fingerprint = doc => {
     const images = [...doc.querySelectorAll('image')].map(n => n.getAttribute('href') || n.getAttributeNS('http://www.w3.org/1999/xlink', 'href')).sort();
-    const texts = [...doc.querySelectorAll('text')].map(n => n.textContent).sort();
+    // Method Draw re-serializes multi-line <text> children with its own
+    // indentation, and the source may join <tspan> lines without any space.
+    // Compare the actual characters so indentation alone is not a mismatch.
+    const textValue = node => {
+      const children = [...node.childNodes];
+      const hasElements = children.some(child => child.nodeType === 1);
+      return (hasElements
+        ? children.map(child => child.nodeType === 3 && !child.nodeValue.trim() ? '' : child.textContent).join('')
+        : node.textContent
+      ).replace(/\u00a0/g, ' ');
+    };
+    // Method Draw may flatten line tspans and add indentation whitespace;
+    // compare glyph content here. Literal spaces are separately marked with
+    // xml:space in the normalized text runs and covered by the browser regression.
+    const texts = [...doc.querySelectorAll('text')].map(n => textValue(n).replace(/\s+/g, '')).sort();
     return JSON.stringify({images, texts});
   };
   const parse = text => new DOMParser().parseFromString(text, 'image/svg+xml');
+  // Method Draw's sanitizer whitelist rejects `letter-spacing` on <text>, so the
+  // import fails closed even though the appearance is reproducible. <tspan>
+  // accepts `dx`, therefore letter-spacing is converted to one dx per glyph,
+  // keeping the line editable as text (each glyph stays a real character).
+  // A middle-anchored chunk is centred on its advance width; since dx extends
+  // that advance, the pen x moves left by half of the total added tracking and
+  // the anchor switches to start. End/start anchors need no correction.
+  const normalizeLetterSpacing = doc => {
+    let converted = 0;
+    for (const node of doc.querySelectorAll('text')) {
+      const styleAttr = node.getAttribute('style') || '';
+      let raw = node.getAttribute('letter-spacing');
+      if (raw == null) {
+        const m = styleAttr.match(/(?:^|;)\s*letter-spacing\s*:\s*([-+0-9.]+)\s*(?:px)?\s*(?:;|$)/i);
+        if (m) raw = m[1];
+      }
+      if (raw == null) continue;
+      const value = String(raw).trim();
+      const valueMatch = value.match(/^([-+]?(?:\d+(?:\.\d*)?|\.\d+))\s*(?:px)?$/i);
+      if (!valueMatch) throw new Error('Unsupported letter-spacing value; use a unitless or px value');
+      const amount = Number(valueMatch[1]);
+      node.removeAttribute('letter-spacing');
+      if (styleAttr) {
+        const cleaned = styleAttr.replace(/(?:^|;)\s*letter-spacing\s*:[^;]*/gi, '').replace(/^;+|;+$/g, '');
+        if (cleaned) node.setAttribute('style', cleaned); else node.removeAttribute('style');
+      }
+      if (!isFinite(amount) || amount === 0) continue;
+
+      const anchor = () => (node.getAttribute('text-anchor') || 'start').toLowerCase();
+      const shiftFor = text => (anchor() === 'middle' && text.length > 1 ? -(text.length - 1) * amount / 2 : 0);
+      const wrap = (run, text) => {
+        run.textContent = '';
+        [...text].forEach((ch, i) => {
+          const tspan = doc.createElementNS('http://www.w3.org/2000/svg', 'tspan');
+          if (i) tspan.setAttribute('dx', String(amount));
+          if (/\s/.test(ch)) tspan.setAttribute('xml:space', 'preserve');
+          // Mark whitespace explicitly. Method Draw may normalize the
+          // whitespace-only text during export, but retains this preservation
+          // marker while the text remains editable in the canvas.
+          tspan.textContent = ch === ' ' ? '\u00a0' : ch;
+          run.append(tspan);
+        });
+      };
+      const shiftX = (target, shift) => {
+        if (!shift) return;
+        const base = parseFloat(target.getAttribute('x') ?? node.getAttribute('x') ?? '0') || 0;
+        target.setAttribute('x', String(Math.round((base + shift) * 10) / 10));
+      };
+
+      const lines = [...node.querySelectorAll('tspan')].filter(t => !t.querySelector('tspan'));
+      if (lines.length) {
+        for (const line of lines) {
+          const text = line.textContent;
+          if (!text) continue;
+          shiftX(line, shiftFor(text));
+          wrap(line, text);
+        }
+      } else {
+        const text = node.textContent;
+        if (text) {
+          shiftX(node, shiftFor(text));
+          wrap(node, text);
+        }
+      }
+      if (anchor() === 'middle') node.setAttribute('text-anchor', 'start');
+      converted++;
+    }
+    return converted;
+  };
   const current = () => {
     const doc = parse(svgCanvas.getSvgString());
     for (const image of doc.querySelectorAll('image')) {
@@ -51,6 +134,12 @@
     const original = await response.text();
     const originalDoc = parse(original);
     const workingDoc = parse(original);
+    // Unsupported-but-lossless styling is normalized before the whitelist check
+    // below (which stays fail-closed for everything else).
+    const letterSpacingConverted = normalizeLetterSpacing(workingDoc);
+    if (letterSpacingConverted) {
+      console.info(`bridge: letter-spacing normalized to tspan dx on ${letterSpacingConverted} text node(s)`);
+    }
     // Fail closed before upstream sanitization can discard styling. Use the
     // pinned editor's own per-element attribute support rather than maintaining
     // a second list. Inline CSS is normalized to presentation attributes only

@@ -13,16 +13,42 @@ async function start(input,out){return await new Promise((resolve,reject)=>{
 (async()=>{
  const browser=await chromium.launch({headless:true,executablePath:process.env.SVG_EDITOR_BROWSER || undefined,args:['--disable-background-networking']});const results=[];
  try{
+ // Numeric letter-spacing is normalized to editable tspan dx values before
+ // Method Draw's sanitizer sees it. Verify both supported spellings survive
+ // import and save without leaving the unsupported property behind.
+ for (const [kind,markup] of [
+  ['inline-spacing','<text x="20" y="70" style="letter-spacing:12px">SCAN TO JOIN US</text>'],
+  ['attribute-spacing','<text x="20" y="70" letter-spacing="12">SCAN TO JOIN US</text>'],
+ ]) {
+  const input=path.join(reportDir,kind+'.svg');
+  const original='<svg xmlns="http://www.w3.org/2000/svg" width="300" height="200">'+markup+'</svg>';
+  fs.writeFileSync(input,original);
+  console.log('Checking',kind);
+  const run=await start(input,path.join(reportDir,kind));const page=await browser.newPage();
+  try {
+   await page.goto(run.session.editor_url);
+   await page.waitForSelector('body[data-svg-editor-ready="true"]',{timeout:30000});
+   if(await page.locator('body').getAttribute('data-svg-editor-error'))throw Error(kind+': safe spacing import failed');
+   if((await page.locator('#svgcontent text').innerText())!=='SCAN TO JOIN US')throw Error(kind+': text content changed');
+   await page.locator('#save-and-finish').click();
+   await page.waitForSelector('body[data-svg-editor-finished="true"]',{timeout:30000});
+   const completed=JSON.parse(fs.readFileSync(run.session.session_json,'utf8'));
+   const saved=fs.readFileSync(completed.saved_path,'utf8');
+   if(saved.includes('letter-spacing'))throw Error(kind+': unsupported property leaked into saved SVG');
+   if(!saved.includes('dx="12"'))throw Error(kind+': spacing offsets missing from saved SVG');
+   if(!saved.includes('xml:space="preserve"'))throw Error(kind+': literal spaces were not marked for preservation');
+   if(crypto.createHash('sha256').update(saved).digest('hex')!==completed.saved_sha256)throw Error(kind+': hash mismatch');
+   results.push({kind,passed:true,saved_path:completed.saved_path,sha256:completed.saved_sha256});
+  }catch(error){const importError=await page.locator('body').getAttribute('data-svg-editor-error');throw new Error(error.message+(importError?' · Import error: '+importError:''));}finally{await page.close();run.process.kill('SIGINT')}
+ }
  // Unsupported styling must fail before the canvas is enabled or a revision
- // can be saved. Exercise inline CSS, presentation attributes, and stylesheet
- // cascade separately; all have silently changed in upstream imports.
+ // can be saved. Stylesheet cascade and unsafe inline syntax remain rejected.
  for (const [kind,markup,property] of [
-  ['inline-spacing','<text x="20" y="70" style="letter-spacing:12px">Spaced</text>','letter-spacing'],
-  ['attribute-spacing','<text x="20" y="70" letter-spacing="12">Spaced</text>','letter-spacing'],
   ['stylesheet','<style>text {letter-spacing:12px}</style><text x="20" y="70">Spaced</text>','stylesheet'],
   ['css-transform','<text x="20" y="70" style="transform:translate(10px,20px)">Moved</text>','transform'],
   ['css-comments','<text x="20" y="70" style="fill:r/**/ed">Styled</text>','CSS comments'],
   ['important','<text x="20" y="70" style="fill:red!important">Styled</text>','inline CSS'],
+  ['text-decoration','<text x="20" y="70" text-decoration="underline">Underlined</text>','text-decoration'],
  ]) {
   const input=path.join(reportDir,kind+'.svg');
   const original='<svg xmlns="http://www.w3.org/2000/svg" width="300" height="200">'+markup+'</svg>';
@@ -41,6 +67,18 @@ async function start(input,out){return await new Promise((resolve,reject)=>{
    results.push({kind,passed:true,rejected:true,error});
   } finally {await page.close();run.process.kill('SIGINT')}
  }
+ const common=path.join(reportDir,'common.svg');
+ fs.writeFileSync(common,`<svg xmlns="http://www.w3.org/2000/svg" width="800" height="520" viewBox="0 0 800 520"><defs><linearGradient id="grad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#114488"/><stop offset="1" stop-color="#e7b84b"/></linearGradient><clipPath id="clip"><circle cx="675" cy="125" r="70"/></clipPath></defs><rect width="800" height="520" fill="#f6f2e9"/><g transform="translate(75 70) rotate(-5 170 80)" opacity="0.92"><rect width="340" height="160" rx="18" fill="url(#grad)" stroke="#114488" stroke-width="6"/><text x="24" y="70" font-family="sans-serif" font-size="36" font-weight="700" fill="#fff">TRANSFORM</text></g><path d="M80 310 C180 245 280 375 380 310" fill="none" stroke="#bb3254" stroke-width="12" stroke-linecap="round" stroke-dasharray="18 10"/><circle cx="675" cy="125" r="98" fill="#bb3254" clip-path="url(#clip)"/><text x="470" y="300" font-family="sans-serif" font-size="30" fill="#114488"><tspan x="470" dy="0">LINE ONE</tspan><tspan x="470" dy="38">LINE TWO</tspan></text><rect x="470" y="350" width="220" height="90" fill="#e7b84b" fill-opacity="0.45" stroke="#114488" stroke-opacity="0.7" stroke-width="4"/><image x="720" y="360" width="50" height="50" href="data:image/png;base64,YWJj"/></svg>`);
+ console.log('Checking common');
+ const commonRun=await start(common,path.join(reportDir,'common'));const commonPage=await browser.newPage();
+ try {
+  await commonPage.goto(commonRun.session.editor_url);await commonPage.waitForSelector('body[data-svg-editor-ready="true"]',{timeout:30000});
+  await commonPage.locator('#save-and-finish').click();await commonPage.waitForSelector('body[data-svg-editor-finished="true"]',{timeout:30000});
+  const completed=JSON.parse(fs.readFileSync(commonRun.session.session_json,'utf8'));const saved=fs.readFileSync(completed.saved_path,'utf8');
+  for (const marker of ['transform="matrix(', 'linearGradient', 'clip-path="url(#clip)"', 'stroke-dasharray', 'fill-opacity', 'stroke-opacity', '<tspan', '<image']) if(!saved.includes(marker)) throw Error('common: missing '+marker);
+  if(crypto.createHash('sha256').update(saved).digest('hex')!==completed.saved_sha256)throw Error('common: hash mismatch');
+  results.push({kind:'common',passed:true,saved_path:completed.saved_path,sha256:completed.saved_sha256});
+ } finally {await commonPage.close();commonRun.process.kill('SIGINT')}
  const fixture=path.join(root,'output/svg-editor-qa/simple.svg');
  fs.mkdirSync(path.dirname(fixture),{recursive:true});
  fs.writeFileSync(fixture,'<svg xmlns="http://www.w3.org/2000/svg" width="600" height="400"><rect width="600" height="400" fill="#e7eef5"/><text id="headline" x="30" y="80" font-family="sans-serif" font-size="32" style="fill:#114488;font-weight:700">Hello design</text><g fill-opacity="0.3" stroke-width="10"><rect id="explicit-default" x="250" y="140" width="100" height="90" fill="#ffcc00" style="fill-opacity:1;stroke-width:1"/></g><rect id="material" x="80" y="140" width="100" height="90" fill="#bb3254"/></svg>');
