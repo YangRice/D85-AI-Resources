@@ -34,7 +34,6 @@ The linked skill contracts are authoritative. Check the capabilities needed for 
 | [Meeting agenda team](../skills/toastmasters-meeting-agenda-team/SKILL.md) / 议程团队 | Three independent agents, source-format editing, text/native-structure extraction, full rendering and visual inspection. Stop if three agents are unavailable. Preserve a non-PDF source type; PDF source produces DOCX; packaged DOCX fallback only when no source is supplied. / 三个独立代理、源格式编辑、文字及原生结构提取、完整渲染和视觉检查。无三个独立代理须停止。非 PDF 保留源格式，PDF 转 DOCX，仅无源文件时用内置 DOCX。 |
 | [PPTX translation](../skills/powerpoint-translation-redesign/SKILL.md) / PPTX 翻译 | Separately installed external `presentations` skill plus compatible inspection/editing/rendering tools and three independent agents. Stop without required independence or when fidelity/verification cannot be met. Bundled audit uses Python stdlib ZIP/XML, **not `python-pptx`**; passing audit is only triage. / 须另装外部 `presentations` 技能，具备检查／编辑／渲染工具和三个独立代理。独立性或设计保真／验证不满足时须停止。内置审计仅用 Python 标准库 ZIP/XML，无须 `python-pptx`；审计通过只是初筛。 |
 | [Raster poster translation](../skills/poster-image-translation-redesign/SKILL.md) / 栅格海报翻译 | Three independent agents, pixel-mask editing/comparison, actual-image inspection and QR decoding when present. Missing required capability or reviewer acceptance blocks final delivery. / 三个独立代理、像素蒙版编辑／比对、实际图片查看，以及有二维码时的解码。缺必需能力或评审未接受会阻止最终交付。 |
-| [Poster maker](../skills/toastmasters-poster-maker/SKILL.md) and [reviewer](../skills/toastmasters-poster-reviewer/SKILL.md) / 海报制作与评审 | Image generation, layout/compositing, rendering, actual-image inspection, exact protected-asset overlays and QR decoding when present. Maker needs a separate reviewer agent/session; without independent review return only an explicitly unreviewed draft. No image inspection means BLOCKED image review, preliminary findings only. / 须图像生成、布局合成、渲染、实际图像查看、受保护素材的精确叠加及有二维码时的解码。制作须独立评审代理／会话；缺独立评审只能交明确标注的未经评审草稿。无法查看图片时，图像评审为 BLOCKED，仅提供初步发现。 |
 | [Visual editing](../skills/edit-svg-canvas/SKILL.md) / 可视化编辑 | Suitable built-in canvas when available and chosen. Method Draw route needs complete package, Python 3.10+, loopback server/browser and verified cache or first-use network access; no Node runtime needed by the editor. Text-only chat can prepare a manual handoff, not launch it. / 可用且用户选择时用合适的内置画布。Method Draw 须完整技能包、Python 3.10+、本地服务／浏览器及已验证缓存或首次联网；编辑器无需 Node。纯文字聊天只能准备手动交接，不能启动编辑器。 |
 | [PDF translation](../skills/translate-pdf/SKILL.md) / PDF 翻译 | Python/PyMuPDF, document/font inspection, rendering and every-page visual review. D85 provides companion guardrails, **not the upstream implementation**: separately acquire and inspect [upstream code](https://github.com/wshuyi/translate-pdf-skill) before using it. Use an independent reviewer when available; otherwise explicit self-review with the same content/visual checks and correction loop. Missing inspection is BLOCKED, not approval. / 须 Python/PyMuPDF、文档／字体检查、渲染及逐页视觉审核。D85 仅提供配套约束，并未内置上游代码；使用前须另行获取并检查[上游实现](https://github.com/wshuyi/translate-pdf-skill)。可用时用独立评审，否则明确标注自审，仍须同等内容／视觉检查及修正循环。无法检查是 BLOCKED，不是通过。 |
 
@@ -44,11 +43,14 @@ Native packages preserve instructions and bundled files; they do not automatical
 
 ## Selective installs and materials | 选择安装与素材
 
+The poster maker and reviewer are retired. Keep `edit-svg-canvas` for independent visual editing. Existing installed copies are not automatically removed; use the scoped removal process below for each retired ID if desired.
+
+海报制作与评审技能已退役；独立可视化编辑请使用 `edit-svg-canvas`。已安装旧副本不会自动移除；如需移除，请逐个指定退役技能 ID 并按下述范围操作。
+
 Install-all remains the default. For a selective install, read `requires`/`recommends` in the [portable catalog](../catalog/skills.json) and the native skill's own contract. Do not assume the external CLI resolves D85 catalog dependencies.
 
 默认仍为全部安装。选择安装时，请阅读[便携目录](../catalog/skills.json)的 `requires`／`recommends` 和原生技能契约；不要假定外部 CLI 会自动解析 D85 的依赖关系。
 
-- Poster maker needs `toastmasters-poster-reviewer`; add `edit-svg-canvas` if Method Draw is chosen or a suitable built-in canvas is unavailable. / 制作须配套 `toastmasters-poster-reviewer`；选择 Method Draw 或无合适内置画布时加装 `edit-svg-canvas`。
 - PPTX translation needs the external `presentations` skill; also install `poster-image-translation-redesign` when embedded raster text needs translation. Finish its independent reviews before the PPTX team runs. / PPTX 翻译须外部 `presentations`；若内嵌栅格文字须翻译，还须 `poster-image-translation-redesign`，先完成其独立评审再运行 PPTX 团队。
 - PDF's local shared glossary is in the raster-translation package; its bundled terminology note also links to the same online glossary. Either accessible copy is sufficient. The implementation remains external. / PDF 的本地共享术语表位于栅格翻译包；内置术语说明也链接同一在线表，任选可访问的一份即可。实现代码仍须另取。
 
@@ -94,9 +96,9 @@ npx skills@1.7.2 remove build-speech-outline --global --agent codex --yes
 
 `update` 无客户端过滤参数：同一 ID 装于多个客户端时，须确认其目标。不指定名称可能更新其他已跟踪技能；仅用于安装器跟踪支持的来源，本地目录来源可能须按原范围重跑 `add`。此版本 `skills check` 共用更新处理器，不可作为只读诊断。**每次更新／移除后**须重跑相应范围的 `list`，检查实际文件／链接目标，并在新对话确认客户端可见性。成功退出不证明已更新或移除：按客户端移除后，共用的规范副本可能仍可访问。跟踪无法更新时，先预览来源，再按原范围、指定 ID／客户端重跑 `add` 并检查结果。安装器清单与客户端加载仍须分开；见 [CLI 发布包文档](https://www.npmjs.com/package/skills/v/1.7.2)。
 
-If you intentionally want to remove one named skill from **all clients in the current project**, omit the agent filter: `npx skills@1.7.2 remove toastmasters-poster-maker --yes`. This broadens the client scope, so use it only for that intent and repeat the postchecks. Do not use `--agent '*'`: the tested release rejects it. To remove across all global clients, the analogous scope is `--global`; that global removal route is documented, not sandbox-verified here.
+If you intentionally want to remove one named skill from **all clients in the current project**, omit the agent filter: `npx skills@1.7.2 remove build-speech-outline --yes`. This broadens the client scope, so use it only for that intent and repeat the postchecks. Do not use `--agent '*'`: the tested release rejects it. To remove across all global clients, the analogous scope is `--global`; that global removal route is documented, not sandbox-verified here.
 
-若明确要从**当前项目的所有客户端**移除同一个指定技能，可省略客户端过滤：`npx skills@1.7.2 remove toastmasters-poster-maker --yes`。这会扩大客户端范围，只能在意图相符时使用，并须重做后验检查。不要使用 `--agent '*'`，受测发布版会拒绝该值。跨所有全局客户端移除时，相应范围参数为 `--global`；此全局移除路线仅有文档说明，本次未在沙盒验证。
+若明确要从**当前项目的所有客户端**移除同一个指定技能，可省略客户端过滤：`npx skills@1.7.2 remove build-speech-outline --yes`。这会扩大客户端范围，只能在意图相符时使用，并须重做后验检查。不要使用 `--agent '*'`，受测发布版会拒绝该值。跨所有全局客户端移除时，相应范围参数为 `--global`；此全局移除路线仅有文档说明，本次未在沙盒验证。
 
 If the **client cannot discover/load** a package, compare the chosen client and scope with the reported active path; check complete folder/frontmatter, permissions and link targets, then follow that client's reload guidance. If it **loads but cannot complete a task**, identify the missing tool, companion or review role in the requirements table and exact skill contract. Report blocked/unverified checks; use only that skill's permitted draft or handoff mode. Do not “fix” loading by installing every runtime dependency or claim a failed workflow passed.
 
@@ -116,9 +118,9 @@ python3 -m unittest discover -s tests
 git diff --check
 ```
 
-The portable validator remains separate: the reviewed baseline `1af81e05` had 18 catalog entries with a different scope from its 23 tracked packages, and at the revision that adds this guide there are 19 catalog entries and 24 tracked packages. The same five officer/translation packages remain outside that catalog and remain installable; this difference does not mean the installer lost them or that prompts must be generated for them. Observed counts and command output for this revision are in the [re-check record](../design/skills-installation-recheck-2026-10-16.md).
+The portable validator remains separate: the reviewed baseline `1af81e05` had 18 catalog entries with a different scope from its 23 tracked packages, and after retiring the poster maker/reviewer there are 17 catalog entries and 22 tracked packages. The same five officer/translation packages remain outside that catalog and remain installable; this difference does not mean the installer lost them or that prompts must be generated for them. Historical counts and command output before retirement are in the [re-check record](../design/skills-installation-recheck-2026-10-16.md).
 
-便携检查器保持独立：受审基线 `1af81e05` 有 18 个便携条目，与当时 23 个跟踪包的范围不同；加入本指南的版本为 19 个便携条目与 24 个跟踪包。目录外仍是同样的五个干部／翻译包，仍可安装；数量差异不代表安装器漏装，也不要求为其生成新便携提示词。本版本的计数与命令输出见[复查记录](../design/skills-installation-recheck-2026-10-16.md)。
+便携检查器保持独立：受审基线 `1af81e05` 有 18 个便携条目，与当时 23 个跟踪包的范围不同；海报制作／评审退役后为 17 个便携条目与 22 个跟踪包。目录外仍是同样的五个干部／翻译包，仍可安装；数量差异不代表安装器漏装，也不要求为其生成新便携提示词。退役前的历史计数与命令输出见[复查记录](../design/skills-installation-recheck-2026-10-16.md)。
 
 For a clean export without `.git`, first capture a source manifest using `git ls-files > /tmp/d85-tracked-files.txt`, export the same tracked revision, then run the current checker against the export:
 

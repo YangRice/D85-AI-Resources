@@ -1,6 +1,6 @@
 # 官方来源与私有素材
 
-优先使用已有且已核实的本地素材或下方已保存官方链接，无须打开PDF或执行必需脚本。仓库入口：`materials/toastmasters-brand/README.md`；完整已保存链接目录：`materials/toastmasters-brand/sources.json`；可复用下载及来源：`materials/toastmasters-brand/local/`和`local/inventory.json`。新克隆可能只有链接。独立技能用户可直接打开同一批链接或提供有权使用的素材；普通浏览器下载同样支持。原生制作包的`scripts/fetch_brand_assets.py`仅为自动化、检查更新或选择照片成员的可选工具，评审包不需要它。有合适且已核实的本地文件时不要重复下载。
+优先使用有权使用的本地原件或下方官方链接。本集合的海报制作、评审技能及下载脚本已退役。仓库入口：`materials/toastmasters-brand/README.md`；官方链接目录：`materials/toastmasters-brand/sources.json`。这些资料为保存的指导快照，不代表持续维护的合规检查或官方批准。已有合适且已核实的素材时不要重复下载。
 
 原始下载保持私有并被Git忽略，不属于仓库MIT素材。字体网页不等于已安装字体或许可证据，实际字体应配套保留许可。需登录或无法访问时明确记录缺口。
 

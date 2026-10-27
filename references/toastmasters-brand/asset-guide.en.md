@@ -1,6 +1,6 @@
 # Official sources and private asset use
 
-Start with existing verified local materials or the saved official links below, not the PDF or a required script. Repository entry point: `materials/toastmasters-brand/README.md`; complete saved URL catalog: `materials/toastmasters-brand/sources.json`; reusable downloads and provenance: `materials/toastmasters-brand/local/` and `local/inventory.json`. A fresh clone may contain only the links. Standalone skill users can open the same links directly or provide authorized local assets. Ordinary browser downloads are supported. The native maker's `scripts/fetch_brand_assets.py` is optional, for automation, refresh checks or selecting individual photo members; the reviewer does not need it. Do not download again if suitable verified materials already exist.
+Use authorized local originals or the official links below. The poster maker, reviewer and download helper have been retired from this collection. Repository entry point: `materials/toastmasters-brand/README.md`; saved official URL catalog: `materials/toastmasters-brand/sources.json`. These saved references are guidance snapshots, not a maintained compliance checker or official approval. Do not download again when suitable verified materials already exist.
 
 Original downloads are private and Git-ignored, not MIT-licensed repository assets. Font-page HTML is not an installed font or proof of licensing; keep actual font files with their licenses. Login or unavailable resources remain explicit gaps.
 

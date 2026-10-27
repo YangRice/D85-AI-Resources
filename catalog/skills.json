@@ -148,45 +148,6 @@
       "actions": ["topics", "timer"]
     },
     {
-      "id": "toastmasters-poster-maker",
-      "type": "journey",
-      "version": "0.1.0",
-      "resource_page": "make-a-toastmasters-poster",
-      "requires": [
-        "toastmasters-poster-reviewer"
-      ],
-      "recommends": [],
-      "actions": [],
-      "portable_references": [
-        "brand-rules.{lang}.md",
-        "production-contract.{lang}.md",
-        "asset-guide.{lang}.md",
-        "creative-quality.{lang}.md"
-      ],
-      "compatibility": {
-        "en": "Text-only tools can prepare briefs and handoffs. New artwork requires image generation; image-to-editable-SVG reconstruction requires component decomposition, layout/compositing, rendering and image inspection; QR verification needs a decoder. Final approval requires a separate reviewer agent/session. State missing capabilities; never claim an unrendered or unverified poster is finished.",
-        "zh": "纯文字工具可准备简报和交接；新画作需要图像生成；图片转可编辑 SVG 需要组件拆解、布局/合成、渲染和图片查看，二维码验证需要解码器。最终通过须独立评审代理/会话；缺能力须说明，不得称未渲染或未验证海报为完成。"
-      }
-    },
-    {
-      "id": "toastmasters-poster-reviewer",
-      "type": "atomic",
-      "version": "0.1.0",
-      "resource_page": "review-a-toastmasters-poster",
-      "requires": [],
-      "recommends": [],
-      "actions": [],
-      "portable_references": [
-        "brand-rules.{lang}.md",
-        "production-contract.{lang}.md",
-        "asset-guide.{lang}.md"
-      ],
-      "compatibility": {
-        "en": "Text-only tools can provide preliminary findings. Full review requires inspecting the actual image, evidence for exact checks, and a decoder when QR codes are present. A separate agent/session is required for reviewing maker output. Report missing evidence and capabilities; never invent PASS or official approval.",
-        "zh": "纯文字工具可提供初步发现。完整评审须查看实际图片、取得准确检查所需证据；有二维码时需要解码器。审核制作流程输出须独立代理/会话。缺证据或能力须说明，不得虚构PASS或官方批准。"
-      }
-    },
-    {
       "id": "edit-svg-canvas",
       "type": "atomic",
       "version": "0.1.0",

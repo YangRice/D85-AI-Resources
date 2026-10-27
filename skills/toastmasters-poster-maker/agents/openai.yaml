@@ -1,4 +1,0 @@
-interface:
-  display_name: "Toastmasters Poster Maker"
-  short_description: "Create posters or rebuild images as editable SVG designs"
-  default_prompt: "Use $toastmasters-poster-maker to create a poster from my brief or decompose my input image into an editable SVG design, with exact components, a working editor entrance and independent review."
