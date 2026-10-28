@@ -24,7 +24,7 @@ LINK_RE = re.compile(r"\[[^\]]*\]\(([^\s)]+)\)")
 NATIVE_COMPANIONS = {
     "powerpoint-translation-redesign": ("poster-image-translation-redesign",),
     "poster-image-translation-redesign": (
-        "toastmasters-poster-maker", "toastmasters-poster-reviewer", "edit-svg-canvas",
+        "edit-svg-canvas",
     ),
 }
 
