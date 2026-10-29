@@ -204,17 +204,19 @@
     {
       "id": "prepare-poster-materials",
       "type": "journey",
-      "version": "0.1.0",
+      "version": "0.2.0",
       "resource_page": "prepare-poster-materials",
       "requires": [],
       "recommends": [],
       "actions": [],
       "portable_references": [
-        "visual-recipes.{lang}.md"
+        "visual-recipes.{lang}.md",
+        "resource-playbooks.{lang}.md",
+        "platform-setup.{lang}.md"
       ],
       "compatibility": {
-        "en": "Text chat supports clarification, specifications and manual guidance. Actual image creation/editing, SVG handling and live design changes require suitable host tools and access; unavailable operations must be disclosed. No mandatory Canva or WorkBuddy connection.",
-        "zh": "文字聊天可用于厘清需求、准备规格和手动指导。实际生图、修图、SVG 处理及在线设计修改需要平台具备相应工具和权限；不可用的操作必须如实说明。不强制连接 Canva 或 WorkBuddy。"
+        "en": "Text chat supports clarification and manual guidance. Actual image creation, cutout, rendering, SVG editing and live design access require suitable tools and inputs. Optional resource guides are bundled; third-party packages/models are not. Discover actual availability before setup.",
+        "zh": "文字聊天可厘清需求及手动指导；实际生图、抠图、渲染、SVG 编辑及在线设计访问需要合适工具和输入。已内嵌可选资源指引，不包含第三方包或模型；设置前核实真实可用性。"
       },
       "input_fields": {
         "en": [
