@@ -200,6 +200,36 @@
           "回复语言偏好："
         ]
       }
+    },
+    {
+      "id": "prepare-poster-materials",
+      "type": "journey",
+      "version": "0.2.0",
+      "resource_page": "prepare-poster-materials",
+      "requires": [],
+      "recommends": [],
+      "actions": [],
+      "portable_references": [
+        "visual-recipes.{lang}.md",
+        "resource-playbooks.{lang}.md",
+        "platform-setup.{lang}.md"
+      ],
+      "compatibility": {
+        "en": "Text chat supports clarification and manual guidance. Actual image creation, cutout, rendering, SVG editing and live design access require suitable tools and inputs. Optional resource guides are bundled; third-party packages/models are not. Discover actual availability before setup.",
+        "zh": "文字聊天可厘清需求及手动指导；实际生图、抠图、渲染、SVG 编辑及在线设计访问需要合适工具和输入。已内嵌可选资源指引，不包含第三方包或模型；设置前核实真实可用性。"
+      },
+      "input_fields": {
+        "en": [
+          "My intended visual result:",
+          "What I already have or want changed:",
+          "Constraints or material to preserve (if relevant):"
+        ],
+        "zh": [
+          "我想得到的视觉成果：",
+          "已有材料或想修改的部分：",
+          "相关约束或需保留的材料："
+        ]
+      }
     }
   ]
 }
