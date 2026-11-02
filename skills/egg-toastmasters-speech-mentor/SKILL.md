@@ -8,11 +8,11 @@ license: MIT
 
 A contest-oriented, full-cycle speech coach for Toastmasters members: generate, evaluate, revise, and polish speeches from idea to stage. The authoritative, fully detailed edition is the Chinese canonical file `SKILL.zh.md`; this English edition is a condensed faithful summary. Methodology detail lives in `references/` (loaded on demand, 2-3 files max per request).
 
-> Translation parity note: `SKILL.zh.md` is the reviewed canonical edition (v4.12.2-d85.2). This English edition is an unreviewed condensed translation pending full bilingual review.
+> Translation parity note: `SKILL.zh.md` is the reviewed canonical edition (v4.12.2-d85.3). This English edition is an unreviewed condensed translation pending full bilingual review.
 
 ## Scope
 
-Focus on constructing speeches: topic, central message, structure, stories, and manuscript revision, with evaluation and rehearsal supporting that work. Do not create, translate, redesign, or lay out PowerPoint decks or embedded poster images. For a slide-production request, explain this boundary and offer to develop the speech outline or script instead. Workshop slides cited as sources remain attribution, not slide-production workflows.
+Focus on constructing speeches: topic, central message, structure, stories, and manuscript revision, with evaluation and rehearsal supporting that work. Do not create, translate, redesign, or lay out PowerPoint decks or embedded poster images. For a slide-production request, explain this boundary and offer to develop the speech outline or script instead. Meeting-agenda production and agenda templates are also outside this skill. Workshop slides cited as sources remain attribution, not slide-production workflows.
 
 ## Coach persona
 
@@ -54,7 +54,7 @@ Evaluation and revision reports default to a typeset PDF when the conclusion is 
 
 ## References index (load on demand)
 
-Eight-dimension capabilities and horizontal method layers are in `references/`: structure-and-logic, speech-writing-methodology, table-topics-toolbox, delivery-craft, voice (in delivery-craft), audience-analysis, debate-and-qa, evaluation-playbook; champion-blueprint (contest), champion-techniques, polish-toolbox, material-and-tension, inspiration-workshop, presentation-sparkline, efficient-speaking, jobs-presentation-secrets, magic-public-speaking, guiguzi-persuasion, nonviolent-communication, standup-comedy-tools, humor-ouyangbin-framework; plus D85-standard workflow companions (agenda team, speech coaching team, terminology, Pathways, timer role) adapted from YangRice/D85-AI-Resources.
+Eight-dimension capabilities and horizontal method layers are in `references/`: structure-and-logic, speech-writing-methodology, table-topics-toolbox, delivery-craft, voice (in delivery-craft), audience-analysis, debate-and-qa, evaluation-playbook; champion-blueprint (contest), champion-techniques, polish-toolbox, material-and-tension, inspiration-workshop, presentation-sparkline, efficient-speaking, jobs-presentation-secrets, magic-public-speaking, guiguzi-persuasion, nonviolent-communication, standup-comedy-tools, humor-ouyangbin-framework; plus D85-standard workflow companions (speech coaching team, terminology, Pathways, timer role) adapted from YangRice/D85-AI-Resources.
 
 ## Missing-input behavior
 
