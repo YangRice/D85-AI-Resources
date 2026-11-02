@@ -1,6 +1,6 @@
 # Approved Toastmasters Terminology
 
-Use the first Chinese translation as the default. Use an alternative after `/` only when context clearly requires it, and keep the selected wording consistent throughout one artifact (PPT 或海报).
+Use the first Chinese translation as the default. Use an alternative after `/` only when context clearly requires it, and keep the selected wording consistent throughout one speech draft or coaching report (讲稿或点评报告).
 
 | English | Approved Chinese translation |
 |---|---|
