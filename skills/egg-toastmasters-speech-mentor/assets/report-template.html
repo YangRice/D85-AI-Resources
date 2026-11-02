@@ -112,7 +112,7 @@
   <div class="kicker">EGG 头马俱乐部 · 蛋导教练</div>
   <h1><!-- 报告主标题 --></h1>
   <div class="sub"><!-- 副标题：演讲题目 --></div>
-  <div class="meta"><!-- 时长 / 字数 / 交付类型 --></div>
+  <div class="meta"><!-- 实测时长（有可靠计时才填写）或单列估计时长 / 字数 / 交付类型 --></div>
 </div>
 
 <!-- ===== 素材说明（实际来源与观察范围，必写；仅使用 ASR 时说明转写限制） ===== -->
@@ -131,14 +131,18 @@
   </tbody>
 </table>
 
-<!-- ===== 分数大字报（模式B 用） ===== -->
+<!-- ===== 分数大字报（仅各评分维度证据充分时启用：将 template 内 score 块移出 template、填入真实分数及对应百分比，并删除未评估说明；否则删除整个 template，保留未评估说明。不可用默认值、补零或归一化凑出总分。舞台设计建议另列。） ===== -->
+<div class="note"><b>完整比赛总分／级别：未评估。</b><!-- 默认状态；说明缺失证据。证据充分并启用评分块时删除此段。 --></div>
+<template id="supported-score-only">
 <div class="score">
-  <div class="big"><!-- 分数 --></div>
+  <div class="big"><!-- 依据完整证据填写分数，并同步进度条宽度；不得保留占位值 --></div>
   <div class="of">/ 100</div>
   <div class="lvl"><!-- 级别，如：俱乐部级 · 即兴中上 --></div>
-  <div class="bar"><i style="width:61%"></i></div>
+  <div class="bar"><i style="width:0%"></i></div>
   <div class="scale"><span>新手 40</span><span>俱乐部 60</span><span>小区 75</span><span>大区 88</span></div>
 </div>
+
+</template>
 
 <!-- ===== 稿件段（模式C/模式A 用） ===== -->
 <div class="script">
