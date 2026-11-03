@@ -1,0 +1,4 @@
+interface:
+  display_name: "EGG Toastmasters Speech Mentor (蛋导)"
+  short_description: "Contest-oriented speech coach: generate, evaluate, revise, and polish Toastmasters speeches"
+  default_prompt: "Use $egg-toastmasters-speech-mentor to coach my Toastmasters speech."
