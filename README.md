@@ -17,7 +17,7 @@ This repository contains reusable skill definitions designed for **AI coding age
 
 ### Visual editing | 手动编辑设计
 
-- [`edit-svg-canvas`](skills/edit-svg-canvas/SKILL.md): say “let me edit this design myself” or “我要自己改文字／調整位置” to choose a suitable built-in canvas or the local Method Draw editor. Method Draw uses **Save and finish** to return a new SVG revision and requires Python 3.10+ and local browser/server access. Install this standalone package alongside poster-maker when the SVG editor is needed.
+- [`edit-svg-canvas`](skills/edit-svg-canvas/SKILL.md): say “let me edit this design myself” or “我要自己改文字／調整位置” to choose a suitable built-in canvas or the local Method Draw editor. Method Draw uses **Save and finish** to return a new SVG revision and requires Python 3.10+ and local browser/server access. This standalone package works independently of poster production or brand review.
 
 - 独立通用技能，不限于海报。完整复制 `skills/edit-svg-canvas/`（包括 `scripts/`），仅复制提示词无法运行；安装后可通过自然语言调用，无需用户知道 SVG 或编辑器名称。
 
@@ -77,17 +77,15 @@ skills/{answer-table-topics-question, build-speech-outline, …}/SKILL.md + agen
 
 ---
 
-### Toastmasters Poster Production | 头马海报制作与评审
+### Poster skills retired | 海报技能退役
 
-- [Poster Maker / 海报制作](skills/toastmasters-poster-maker/SKILL.md) · [中文](skills/toastmasters-poster-maker/SKILL.zh.md): New designs: intermediate layout → image-model rendering → exact overlays → independent review. Also supports input image → component decomposition → editable AI design SVG, with editable text/vector shapes, separate image assets and a tested editor entrance. Supplied portraits, documentary photos and QR codes are placed directly, outside generative rendering.
-- [Poster Reviewer / 海报评审](skills/toastmasters-poster-reviewer/SKILL.md) · [中文](skills/toastmasters-poster-reviewer/SKILL.zh.md): standalone or maker quality gate; checks brand, copy, visual quality, protected materials and QR payloads. Design compliance and external authorization are separate.
-- [Maker EN](prompts/toastmasters-poster-maker.en.md) · [制作中文](prompts/toastmasters-poster-maker.zh.md) · [Reviewer EN](prompts/toastmasters-poster-reviewer.en.md) · [评审中文](prompts/toastmasters-poster-reviewer.zh.md). Text-only tools provide briefs/handoffs; production and visual approval require the stated tools and a separate review session.
-- **[Poster materials / 海报素材](materials/toastmasters-brand/README.md)**: direct official links and a saved [URL catalog](materials/toastmasters-brand/sources.json), so users never need to re-extract links from the PDF. Reuse existing local downloads first; browser downloads and supplied assets are supported. The fetch script is optional.
-- [Canonical brand references](references/toastmasters-brand/) use the August 2026 manual. Original files can be reused from the private, Git-ignored `materials/toastmasters-brand/local/` folder; official rights are not covered by the repository MIT license.
+`toastmasters-poster-maker` and `toastmasters-poster-reviewer` are retired from this collection, including their generated prompts. D85 cannot consistently substantiate the brand-compliance assurance implied by these workflows. Use [official resources and templates](materials/toastmasters-brand/README.md) for brand guidance; saved references are historical guidance snapshots, not official approval or a maintained compliance service. Previous implementations remain in Git history.
 
-素材保持私有，不重托管官方文件；两技能支持普通俱乐部/区域/中区/大区、企业俱乐部、Gavel及年度大会。可编辑SVG中的文字、素材及位置可调整，生成背景仍是栅格层。没有独立评审时仅交未经评审草稿，不自动申请批准或发布。
+本集合已移除海报制作与评审技能及其生成提示词：D85 无法持续为这些流程所暗示的品牌合规保证提供充分依据。品牌指导请使用[官方资源与模板](materials/toastmasters-brand/README.md)；保存资料为历史指导快照，不代表官方批准或持续维护的合规服务。旧实现保留在 Git 历史中。
 
-Maintain canonical references, then run `python3 scripts/sync_poster_references.py`, `python3 scripts/build_portable_prompts.py`, `python3 scripts/validate_portable_skills.py`, `python3 scripts/sync_poster_references.py --check`, and `python3 -m unittest discover -s tests`. Do not hand-edit generated prompt/reference copies.
+The independent [SVG editor](skills/edit-svg-canvas/SKILL.md) remains available. Retirement does not uninstall existing local copies; remove retired IDs deliberately at their recorded installation scope if desired.
+
+独立的 [SVG 编辑器](skills/edit-svg-canvas/SKILL.md)继续保留。退役不会自动卸载本地旧副本；如需移除，请按记录的安装位置与范围操作。
 
 ---
 
@@ -117,9 +115,9 @@ Translate and localize existing PowerPoint PPTX decks while preserving slide dim
 - **Agent config:** `agents/openai.yaml`
 - **Terminology reference:** `references/toastmasters-terminology.md`
 
-Translate an existing poster into the requested language (default Simplified Chinese), preserving its design. Also supports raster assets extracted by the PowerPoint workflow. Reuses poster-maker production/editor handoff, Toastmasters-only poster-reviewer checks, and installed `gpt-taste` static visual guidance. Install `toastmasters-poster-maker`, `toastmasters-poster-reviewer`, and `edit-svg-canvas` alongside it; `gpt-taste` is an external prerequisite. One independent translation/visual review round; failed checks return a draft and findings without automatic iteration. Deliver PNG, editable SVG and a tested **Edit this poster** link together; disclose unavailable capabilities.
+Translate an existing poster into the requested language (default Simplified Chinese), preserving its design. Also supports raster assets extracted by the PowerPoint workflow. Uses its own source-preservation and editable-output instructions, the independent `edit-svg-canvas` package, and installed `gpt-taste` static visual guidance. It does not assess or certify Toastmasters brand compliance; `gpt-taste` is an external prerequisite. One independent translation/visual review round; failed checks return a draft and findings without automatic iteration. Deliver PNG, editable SVG and a tested **Edit this poster** link together; disclose unavailable capabilities.
 
-按指定语言翻译现有海报（默认简体中文），保留原设计；也可处理 PowerPoint 流程提取的栅格图片。需同时安装上述三个配套技能及外部 `gpt-taste`，仅采用其静态视觉原则。独立翻译和视觉评审各一次，未通过则交付草稿及问题，不自动循环。PNG、可编辑 SVG 与已测试的编辑入口须一起提供；能力缺失须如实说明。
+按指定语言翻译现有海报（默认简体中文），保留原设计；也可处理 PowerPoint 流程提取的栅格图片。需安装独立 `edit-svg-canvas` 及外部 `gpt-taste`；本流程不评定或保证头马品牌合规，仅采用其静态视觉原则。独立翻译和视觉评审各一次，未通过则交付草稿及问题，不自动循环。PNG、可编辑 SVG 与已测试的编辑入口须一起提供；能力缺失须如实说明。
 
 ---
 
@@ -333,7 +331,7 @@ Text guidance and universal prompts need a capable text-chat AI; they do not uni
 
 Maintainers / 维护者：`python3 scripts/validate_skill_packages.py` checks every tracked package; `python3 scripts/validate_portable_skills.py` separately checks the portable catalog. The reviewed baseline `1af81e05` had 23 packages with 18 portable entries; this revision has 24 packages and 19 entries, and the same five packages remain outside the catalog as distributed skills. Both commands are local static validation, not client or workflow certification. See the [guide](docs/installation.md#maintainer-checks--维护检查) for clean-export checks and the [re-check record](design/skills-installation-recheck-2026-10-16.md) for the counts and outputs observed at this revision.
 
-前者覆盖所有 Git 跟踪技能包，后者单独检查便携目录。受审基线 `1af81e05` 有 23 个包、18 个便携条目；本版本为 24 个包、19 个便携条目，目录外的仍是同样五个技能，仍会分发。两者均为本地静态检查，不证明客户端加载或完整工作流成功。干净导出的检查方式见[指南](docs/installation.md#maintainer-checks--维护检查)，本版本的计数与输出见[复查记录](design/skills-installation-recheck-2026-10-16.md)。
+前者覆盖所有 Git 跟踪技能包，后者单独检查便携目录。受审基线 `1af81e05` 有 23 个包、18 个便携条目；退役后为 22 个包、17 个便携条目，目录外的仍是同样五个技能，仍会分发。两者均为本地静态检查，不证明客户端加载或完整工作流成功。干净导出的检查方式见[指南](docs/installation.md#maintainer-checks--维护检查)，本版本的计数与输出见[复查记录](design/skills-installation-recheck-2026-10-16.md)。
 
 ---
 

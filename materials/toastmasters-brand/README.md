@@ -1,8 +1,8 @@
 # Toastmasters poster materials | 头马海报素材
 
-Start here; you do not need to reopen the Brand Manual or run a script to find materials. Use existing [local files](local/) first, or click an official link below and download with your browser. The download helper is optional.
+Start here; you do not need to reopen the Brand Manual or run a script to find materials. Use existing [local files](local/) first, or click an official link below and download with your browser. The poster maker and reviewer are retired; use official resources and templates for brand guidance.
 
-从这里开始，无须重新打开品牌手册，也无须执行脚本查找素材。优先使用已有[本地文件](local/)，或点击下方官方链接通过浏览器下载。下载脚本只是可选工具。
+从这里开始，无须重新打开品牌手册，也无须执行脚本查找素材。优先使用已有[本地文件](local/)，或点击下方官方链接通过浏览器下载。海报制作与评审技能已退役；品牌指导请使用官方资源与模板。
 
 The local folder is private and Git-ignored; it may be absent in a fresh clone. This repository saves the complete [URL catalog](sources.json), source pages, inspection status, formats and checksums. Original Toastmasters assets are not covered by the repository MIT license and are not publicly rehosted here.
 
@@ -71,8 +71,8 @@ Already downloaded originals can be stored under `local/<asset-id>/`; keep an in
 
 已下载原件可放在`local/<asset-id>/`，并在`local/inventory.json`记录来源链接、文件名及哈希。有合适且已核实的本地文件时不要重复下载；用户提供的素材和普通浏览器下载同样可用。
 
-The photo archive is about 503 MB. Reuse the saved local sample or choose individual members with the optional helper; downloading the entire archive is unnecessary. Font links are official source pages; obtain actual font files and their licenses rather than treating HTML as installed fonts. The Brand Portal may require sign-in.
+The photo archive is about 503 MB. Reuse authorized local files or obtain the needed assets through the official links; downloading the entire archive is unnecessary. Font links are official source pages; obtain actual font files and their licenses rather than treating HTML as installed fonts. The Brand Portal may require sign-in.
 
-照片压缩包约503 MB，可复用本地样片，或用可选脚本选择单个文件，不必下载整个包。字体链接是官方来源页面，需取得实际字体及许可，不能把网页当作已安装字体。品牌门户可能需要登录。
+照片压缩包约503 MB，可复用有权使用的本地文件，或从官方链接获取所需素材，不必下载整个包。字体链接是官方来源页面，需取得实际字体及许可，不能把网页当作已安装字体。品牌门户可能需要登录。
 
-Optional helper / 可选工具: [fetch_brand_assets.py](../../skills/toastmasters-poster-maker/scripts/fetch_brand_assets.py). Canonical inventory / 规范来源目录: [asset-sources.json](../../references/toastmasters-brand/asset-sources.json).
+Canonical inventory / 规范来源目录: [asset-sources.json](../../references/toastmasters-brand/asset-sources.json).

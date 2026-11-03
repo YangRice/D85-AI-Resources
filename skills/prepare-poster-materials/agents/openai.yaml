@@ -1,0 +1,4 @@
+interface:
+  display_name: "Prepare Poster Materials"
+  short_description: "Create or revise posters and individual visual assets"
+  default_prompt: "Use $prepare-poster-materials to help with my poster or visual asset, starting from my intended result and what I already have."

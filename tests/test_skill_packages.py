@@ -114,7 +114,7 @@ class SkillPackages(unittest.TestCase):
         self.write("skills/poster-image-translation-redesign/SKILL.md", "---\nname: poster-image-translation-redesign\ndescription: Translate posters.\n---\n")
         result = self.run_check()
         self.assertEqual(result.returncode, 1)
-        for companion in ("toastmasters-poster-maker", "toastmasters-poster-reviewer", "edit-svg-canvas"):
+        for companion in ("edit-svg-canvas",):
             self.assertIn(companion, result.stdout)
             self.write(f"skills/{companion}/SKILL.md", f"---\nname: {companion}\ndescription: Companion.\n---\n")
         result = self.run_check()
