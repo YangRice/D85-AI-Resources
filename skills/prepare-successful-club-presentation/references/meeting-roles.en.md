@@ -1,0 +1,42 @@
+# Meeting Roles and Responsibilities
+
+Source: [official resource](https://www.toastmasters.org/resources/meeting-roles-and-responsibilities), manual **295A**, printed pp. 5–7 (outline), p. 8 (Evaluation Guide). This is an original coaching summary. Apply the shared source and privacy boundaries.
+
+## Purpose and coverage
+
+Teach how participants and officers work together to create a smooth, engaging meeting. The source is an **overview**, not training in only one role or a set of universal local scripts. Cover:
+
+- **Assigned meeting participants:** Toastmaster, Topicsmaster, speakers, General Evaluator, speech evaluators, Timer, Grammarian and Ah-Counter. Explain their purposes and handoffs, including how evaluation/reporting supports learning.
+- **Additional local roles:** ask what the club actually uses and briefly explain those duties. The manual gives examples such as Jokemaster, Vote Counter and Parliamentarian; their appearance in a source does not make them mandatory everywhere.
+- **Officers' contributions:** Sergeant at Arms (venue/setup), President (leadership and coordination), VPE (learning needs and meeting assignments), VPPR (public communication), VPM (membership and guest experience), Secretary (records), Treasurer (financial administration). Distinguish these officer functions from meeting assignments; use current official guidance before turning operational examples into instructions.
+- **Teamwork:** show how preparation and communication connect roles. Do not imply that one club's agenda, reporting order, terminology or attendance practice is universal.
+
+The source suggests A Toastmaster Wears Many Hats and Master Your Meetings for deeper study; these are optional follow-up sources, not required installations or automatic uploads.
+
+## Knowledge notes and printed-page index
+
+Use these selective notes for explanations and draft corrections, not as a complete role manual. Coaching implications are separate from the source description; check current guidance before turning an older operational example into a rule.
+
+| Source location | What the source helps explain | Coaching use / avoid this misreading |
+|---|---|---|
+| 295A p. 5 | The Toastmaster checks the agenda and talks with participants about introductions before the meeting. | Show preparation and transitions, not merely announcing names on stage. |
+| 295A p. 5 | The Topicsmaster uses the agenda to prioritize members without assigned roles. Guests are offered participation and speak if they agree. | Correct a draft that prioritizes only experienced members or pressures guests to speak; invite rather than compel. |
+| 295A p. 6 | The General Evaluator coordinates the evaluation segment and evaluates the meeting; speech evaluators focus on individual speeches. | Explain the different objects of feedback. The club's exact report order still needs confirmation. |
+| 295A p. 6 | Speech evaluation includes the project's evaluation form and spoken strengths and improvements. | Explain why filling in a form alone is not the whole feedback contribution; keep private completed forms out of AI. |
+| 295A p. 6 | Timing builds concise expression; language and filler-word observation builds awareness. | Present these roles as learning support, not punishment or a public error ranking. |
+| 295A pp. 6–7 | Officer support extends beyond stage time: the Sergeant at Arms cares for the venue and restoration; the VPE attends to progress and learning needs as well as assignments. | Connect roles to who benefits. Do not convert examples such as attendance sheets or payment methods into universal current requirements. |
+| 295A pp. 3, 5–6 | Hybrid guidance includes checking remote visibility; the presenter also invites audience comments and explains actual extra local roles. | Ask for local arrangements, offer voluntary participation and a no-visual fallback; do not invent a required role list. |
+
+## Source-specific facilitation
+
+Invite audience comments about selected participants' roles and responsibilities, as the manual directs. Ask which extra roles the club actually has, without collecting a member roster. For remote participation, invite voluntary chat or spoken responses; guests are not forced to speak.
+
+A useful AI-designed addition is a fictional handoff problem: a speaker finishes, but no one knows who calls the next report. Let the audience explain the club's actual agreed handoff. Label this as a supplemental exercise and do not invent the club's protocol.
+
+## Output and boundary
+
+Speaker cues can follow title → core participants → local additions → officer support → teamwork conclusion. Give a compact purpose-and-handoff map, audience questions, confirmed local variations and questions still for the VPE.
+
+If the requester only wants to be a Timer or Toastmaster next week, route to ordinary role preparation. Performing that role does not itself constitute this education presentation or satisfy its separate credit requirement. If the member is presenting this session, keep the full overview even when they are particularly interested in one role.
+
+After delivery, ask what the audience clarified and one teamwork improvement they would discuss with the club. Do not assign duties, contact role holders or claim changes were adopted.
