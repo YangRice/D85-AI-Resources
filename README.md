@@ -77,6 +77,19 @@ skills/{answer-table-topics-question, build-speech-outline, …}/SKILL.md + agen
 
 ---
 
+### Successful Club Series presentation coach | 成功俱樂部系列分享教練
+
+- [Skill](skills/prepare-successful-club-presentation/SKILL.md) / [中文技能](skills/prepare-successful-club-presentation/SKILL.zh.md)
+- [Portable English prompt](prompts/prepare-successful-club-presentation.en.md) / [中文可攜提示詞](prompts/prepare-successful-club-presentation.zh.md)
+
+One entry, four topic modules: **Creating the Best Club Climate**, **Meeting Roles and Responsibilities**, **Keeping the Commitment**, and **Going Beyond Our Club**. Choose one, adapt the official outline in your own words, prepare speaker notes and topic-specific activities, rehearse, and record actual delivery and feedback. Text-only use works without installing other skills. Current Pathways applicability is checked only when credit matters; preparation is not delivery or approval. Public links and original summaries are bundled, not official PDFs/PPTs or logos.
+
+單一入口、四個題目模組，陪會員選一題，用自己的話準備官方內容、講者筆記與題目特有活動，排練後記錄實際發表及回饋。純文字可獨立使用；需要認列時才查核現行 Pathways 適用性，準備好不等於已發表或已核准。內含公開連結與原創摘要，不打包官方 PDF／PPT 或標誌；中文為輔助說明，非官方核准譯本。
+
+Example / 例句：`Help me prepare Creating the Best Club Climate for a 12-minute club education session.` / 「請幫我準備 12 分鐘的 Creating the Best Club Climate 教育分享。」
+
+---
+
 ### Poster skills retired | 海报技能退役
 
 `toastmasters-poster-maker` and `toastmasters-poster-reviewer` are retired from this collection, including their generated prompts. D85 cannot consistently substantiate the brand-compliance assurance implied by these workflows. Use [official resources and templates](materials/toastmasters-brand/README.md) for brand guidance; saved references are historical guidance snapshots, not official approval or a maintained compliance service. Previous implementations remain in Git history.
