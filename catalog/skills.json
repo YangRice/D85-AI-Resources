@@ -3,6 +3,40 @@
   "version": "0.1.0",
   "skills": [
     {
+      "id": "prepare-successful-club-presentation",
+      "type": "journey",
+      "version": "0.2.0",
+      "resource_page": "prepare-a-successful-club-presentation",
+      "requires": [],
+      "recommends": [],
+      "actions": [],
+      "portable_references": [
+        "sources-and-boundaries.{lang}.md",
+        "club-climate.{lang}.md",
+        "meeting-roles.{lang}.md",
+        "keeping-commitment.{lang}.md",
+        "going-beyond.{lang}.md"
+      ],
+      "compatibility": {
+        "en": "Text-only coaching with four bundled topic summaries and public source links. Browsing, files, media, slides and other installed skills are optional. Current credit requirements and local opportunities need verification; this guide cannot deliver a presentation, submit records or approve completion for the member.",
+        "zh": "文字教練內嵌四題摘要與公開來源連結；瀏覽、檔案、媒體、投影片及其他已安裝技能皆為選用。現行認列要求與本地機會須查證；本指南不能代會員發表、提交紀錄或核准完成。"
+      },
+      "input_fields": {
+        "en": [
+          "Chosen topic or club learning need:",
+          "Current stage, audience and meeting format:",
+          "Presentation language, date and allocated time:",
+          "My own non-sensitive notes or anonymized example (optional):"
+        ],
+        "zh": [
+          "已選題目或俱樂部學習需求：",
+          "目前階段、聽眾與會議形式：",
+          "分享語言、日期與可用時間：",
+          "自寫且不敏感的筆記或匿名例子（選填）："
+        ]
+      }
+    },
+    {
       "id": "find-tmcompanion-tool",
       "type": "atomic",
       "version": "0.1.0",
