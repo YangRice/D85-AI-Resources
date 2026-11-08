@@ -77,16 +77,16 @@ skills/{answer-table-topics-question, build-speech-outline, …}/SKILL.md + agen
 
 ---
 
-### Successful Club Series presentation coach | 成功俱樂部系列分享教練
+### Successful Club Series presentation coach | 成功俱乐部系列分享教练
 
 - [Skill](skills/prepare-successful-club-presentation/SKILL.md) / [中文技能](skills/prepare-successful-club-presentation/SKILL.zh.md)
-- [Portable English prompt](prompts/prepare-successful-club-presentation.en.md) / [中文可攜提示詞](prompts/prepare-successful-club-presentation.zh.md)
+- [Portable English prompt](prompts/prepare-successful-club-presentation.en.md) / [中文便携提示词](prompts/prepare-successful-club-presentation.zh.md)
 
 One entry, four topic modules: **Creating the Best Club Climate**, **Meeting Roles and Responsibilities**, **Keeping the Commitment**, and **Going Beyond Our Club**. Choose one, adapt the official outline in your own words, prepare speaker notes and topic-specific activities, rehearse, and record actual delivery and feedback. Text-only use works without installing other skills. Current Pathways applicability is checked only when credit matters; preparation is not delivery or approval. Public links and original summaries are bundled, not official PDFs/PPTs or logos.
 
-單一入口、四個題目模組，陪會員選一題，用自己的話準備官方內容、講者筆記與題目特有活動，排練後記錄實際發表及回饋。純文字可獨立使用；需要認列時才查核現行 Pathways 適用性，準備好不等於已發表或已核准。內含公開連結與原創摘要，不打包官方 PDF／PPT 或標誌；中文為輔助說明，非官方核准譯本。
+单一入口、四个题目模块，陪会员选一题，用自己的话准备官方内容、讲者笔记与题目特有活动，排练后记录实际发表及反馈。纯文字可独立使用；需要认定时才查核现行 Pathways 适用性，准备好不等于已发表或已核准。内含公开链接与原创摘要，不打包官方 PDF／PPT 或标志；中文为辅助说明，非官方核准译本。
 
-Example / 例句：`Help me prepare Creating the Best Club Climate for a 12-minute club education session.` / 「請幫我準備 12 分鐘的 Creating the Best Club Climate 教育分享。」
+Example / 例句：`Help me prepare Creating the Best Club Climate for a 12-minute club education session.` / 「请帮我准备 12 分钟的 Creating the Best Club Climate 教育分享。」
 
 ---
 

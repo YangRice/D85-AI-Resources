@@ -19,7 +19,7 @@
       ],
       "compatibility": {
         "en": "Text-only coaching with four bundled topic summaries and public source links. Browsing, files, media, slides and other installed skills are optional. Current credit requirements and local opportunities need verification; this guide cannot deliver a presentation, submit records or approve completion for the member.",
-        "zh": "文字教練內嵌四題摘要與公開來源連結；瀏覽、檔案、媒體、投影片及其他已安裝技能皆為選用。現行認列要求與本地機會須查證；本指南不能代會員發表、提交紀錄或核准完成。"
+        "zh": "文字教练内嵌四题摘要与公开来源链接；浏览、文件、媒体、幻灯片及其他已安装技能皆为选用。现行认定要求与本地机会须查证；本指南不能代会员发表、提交记录或核准完成。"
       },
       "input_fields": {
         "en": [
@@ -29,10 +29,10 @@
           "My own non-sensitive notes or anonymized example (optional):"
         ],
         "zh": [
-          "已選題目或俱樂部學習需求：",
-          "目前階段、聽眾與會議形式：",
-          "分享語言、日期與可用時間：",
-          "自寫且不敏感的筆記或匿名例子（選填）："
+          "已选题目或俱乐部学习需求：",
+          "目前阶段、听众与会议形式：",
+          "分享语言、日期与可用时间：",
+          "自写且不敏感的笔记或匿名例子（选填）："
         ]
       }
     },
