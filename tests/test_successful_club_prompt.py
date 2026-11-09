@@ -195,6 +195,65 @@ def parse_topic_register(path: Path) -> tuple[list[str], dict[str, dict[str, str
 
 
 class SuccessfulClubPortablePackage(unittest.TestCase):
+    def test_level4_modules_have_matching_bilingual_metadata_and_locator_sets(self):
+        folder = ROOT / "skills" / SKILL_ID / "references"
+        topics = {
+            "finding-new-members": ("finding-new-members", ["291A p. 5", "291A p. 6"]),
+            "closing-the-sale": (
+                "closing-the-sale",
+                [
+                    "293A p. 5",
+                    "293A p. 6",
+                    "293A p. 7",
+                    "293A p. 8",
+                    "293A p. 9",
+                    "293A p. 10",
+                ],
+            ),
+            "distinguished-club": (
+                "distinguished-club",
+                ["299A p. 5", "299A p. 6", "299A p. 7"],
+            ),
+            "education-program": (
+                "education-program",
+                [
+                    "300A p. 5",
+                    "300A p. 6",
+                    "300A p. 7",
+                    "300A p. 8",
+                    "300A p. 9",
+                    "300A p. 10",
+                ],
+            ),
+        }
+        _, register = parse_topic_register(folder / "topic-register.en.md")
+        for stem, (topic_id, expected_locators) in topics.items():
+            facts = register[topic_id]
+            self.assertEqual(facts["level"], "4")
+            pair_locators = {}
+            for lang in ("en", "zh"):
+                with self.subTest(topic=stem, lang=lang):
+                    path = folder / f"{stem}.{lang}.md"
+                    text = path.read_text(encoding="utf-8")
+                    self.assertIn(f"Official item: **{facts['item']}**", text)
+                    self.assertIn("Pathways enhancement level: **4**", text)
+                    self.assertIn(facts["canonical_url"], text)
+                    self.assertIn(facts["supplied_lms_url"], text)
+                    self.assertIn(f"Printed core outline: **{facts['printed_locators']}**", text)
+                    pair_locators[lang] = re.findall(
+                        r"^\| (\d{3}A p\. \d+) \|", text, re.MULTILINE
+                    )
+                    self.assertEqual(pair_locators[lang], expected_locators)
+                    if lang == "zh":
+                        self.assertTrue(text.startswith(f"# {facts['official_title']}｜辅助说明："))
+            self.assertEqual(pair_locators["en"], pair_locators["zh"])
+
+        official_asset_suffixes = {".pdf", ".ppt", ".pptx"}
+        self.assertEqual(
+            [path for path in (ROOT / "skills" / SKILL_ID).rglob("*") if path.suffix.lower() in official_asset_suffixes],
+            [],
+        )
+
     def test_topic_register_has_exact_schema_and_level_item_url_duration_mapping(self):
         folder = ROOT / "skills" / SKILL_ID / "references"
         for lang in ("en", "zh"):
