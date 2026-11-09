@@ -200,12 +200,18 @@ For best results, paste only the reusable instruction section identified in each
 
 为获得更稳定的效果，请仅复制每个文件中标明的可复用指令部分，再按照示例格式添加自己的材料。
 
-Portable Toastmasters prompts under [`prompts/`](prompts/) are generated from the canonical skill catalog. Portability is a repository-wide promise, so generated and manually authored prompts share this folder. Generated files identify themselves in their headers and should not be edited manually. Regenerate and validate them with:
+Portable Toastmasters prompts under [`prompts/`](prompts/) are generated from the canonical skill catalog. Portability is a repository-wide promise, so generated and manually authored prompts share this folder. Generated files identify themselves in their headers and should not be edited manually. Regenerate first, then validate the generated result with:
 
 ```bash
-python3 scripts/validate_portable_skills.py
 python3 scripts/build_portable_prompts.py
+python3 scripts/validate_skill_packages.py
+python3 scripts/validate_portable_skills.py
+python3 scripts/sync_poster_references.py --check
+python3 -m unittest discover -s tests
+git diff --check
 ```
+
+For changed skill behavior, also run fresh realistic and missing-input or missing-capability trials after static review and record revision-specific expected/observed evidence in the PR, following [CONTRIBUTING.md](CONTRIBUTING.md). Generated equality and static checks do not substitute for behavioral evidence. / 修改技能行为时，还要在静态审查后用新对话运行真实任务与缺少输入或能力的情境，并按照 [CONTRIBUTING.md](CONTRIBUTING.md) 在 PR 中记录对应 revision 的预期、实际结果与证据；生成一致性和静态检查不能代替行为验证。
 
 ### Agent Skills
 

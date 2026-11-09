@@ -311,6 +311,22 @@ class SuccessfulClubPortablePackage(unittest.TestCase):
                 for phrase in maintainer_phrases[lang]:
                     self.assertNotIn(phrase, output)
 
+    def test_readme_builds_before_validation_and_routes_behavioral_evidence(self):
+        readme = (ROOT / "README.md").read_text(encoding="utf-8")
+        section = readme.split("### Universal Chat Prompts", 1)[1].split("### Agent Skills", 1)[0]
+        commands = (
+            "python3 scripts/build_portable_prompts.py",
+            "python3 scripts/validate_skill_packages.py",
+            "python3 scripts/validate_portable_skills.py",
+            "python3 scripts/sync_poster_references.py --check",
+            "python3 -m unittest discover -s tests",
+            "git diff --check",
+        )
+        positions = [section.index(command) for command in commands]
+        self.assertEqual(positions, sorted(positions))
+        self.assertIn("fresh realistic and missing-input or missing-capability trials", section)
+        self.assertIn("[CONTRIBUTING.md](CONTRIBUTING.md)", section)
+
     def test_instruction_contract_covers_level_and_mentoring_decisions(self):
         contracts = {
             "en": (
