@@ -195,6 +195,60 @@ def parse_topic_register(path: Path) -> tuple[list[str], dict[str, dict[str, str
 
 
 class SuccessfulClubPortablePackage(unittest.TestCase):
+    def test_level5_modules_have_matching_bilingual_metadata_and_locator_sets(self):
+        folder = ROOT / "skills" / SKILL_ID / "references"
+        topics = {
+            "moments-of-truth": [
+                "290A p. 5",
+                "290A p. 6",
+                "290A p. 7",
+                "290A p. 8",
+                "290A p. 9",
+                "290A p. 10",
+                "290A p. 11",
+            ],
+            "evaluate-to-motivate": ["292A p. 5", "292A p. 6"],
+            "mentoring": [
+                "296A p. 5",
+                "296A p. 6",
+                "296A p. 7",
+                "296A p. 8",
+                "296A p. 9",
+            ],
+        }
+        _, register = parse_topic_register(folder / "topic-register.en.md")
+        for stem, expected_locators in topics.items():
+            facts = register[stem]
+            self.assertEqual(facts["level"], "5")
+            pair_locators = {}
+            for lang in ("en", "zh"):
+                with self.subTest(topic=stem, lang=lang):
+                    path = folder / f"{stem}.{lang}.md"
+                    text = path.read_text(encoding="utf-8")
+                    self.assertIn(f"Official item: **{facts['item']}**", text)
+                    self.assertIn("Pathways enhancement level: **5**", text)
+                    self.assertIn(facts["canonical_url"], text)
+                    self.assertIn(facts["supplied_lms_url"], text)
+                    self.assertIn(f"Duration: **{facts['duration']}**", text)
+                    self.assertIn(f"Printed core outline: **{facts['printed_locators']}**", text)
+                    pair_locators[lang] = re.findall(
+                        r"^\| (\d{3}A p\. \d+) \|", text, re.MULTILINE
+                    )
+                    self.assertEqual(pair_locators[lang], expected_locators)
+                    if lang == "zh":
+                        self.assertTrue(text.startswith(f"# {facts['official_title']}｜辅助说明："))
+                    if stem == "moments-of-truth":
+                        self.assertIn("Duration: **60-90 minutes**", text)
+                        self.assertIn(
+                            "Facilitated assessment structure: **six moments; team work; ratings; recommendations; notetaker handoff; follow-through**",
+                            text,
+                        )
+                        self.assertIn(
+                            "Official-handout boundary: **retrieve the official handout and chart; do not reconstruct or label an AI form official**",
+                            text,
+                        )
+            self.assertEqual(pair_locators["en"], pair_locators["zh"])
+
     def test_level4_modules_have_matching_bilingual_metadata_and_locator_sets(self):
         folder = ROOT / "skills" / SKILL_ID / "references"
         topics = {
