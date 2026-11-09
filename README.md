@@ -105,7 +105,7 @@ Atomic IDs / 原子技能：
 - Officer / 官员：`serve-club-president`, `serve-club-vpe`, `serve-club-vpm`, `serve-club-vppr`, `serve-club-secretary`, `serve-club-treasurer`, `serve-club-saa`.
 - Mentoring / 导师：`establish-mentoring-agreement`, `coach-mentee-practice`, `practice-mentoring-conversation`, `review-mentoring-relationship`.
 
-Each has EN/ZH instructions and generated portable prompts. Source-linked original summaries preserve official/local/optional distinctions. TMCompanion remains optional; website pages, official approval and member records are not created by these skills. See [architecture](design/club-service-skills.md). The earlier [500-answer baseline report](docs/testing/club-service-skills-2026-11-09.md) tested the pre-refactor candidate, **not this new architecture**.
+Each has EN/ZH instructions and generated portable prompts. Source-linked original summaries preserve official/local/optional distinctions. TMCompanion remains optional; website pages, official approval and member records are not created by these skills.
 
 ### 🛠️ Officer Tools | 幹部工具
 
