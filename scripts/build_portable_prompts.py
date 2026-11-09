@@ -37,6 +37,7 @@ LANG = {
         "bundled_note": "Use this capability only when the current journey stage requires it. Do not announce internal composition unless the user asks.",
         "end": "End of instructions",
         "input_label": "Suggested user input",
+        "native_detail": "detailed notes are not bundled here; use the verified topic summary and official source below",
         "fields": [
             "My goal or assigned role:",
             "My current stage:",
@@ -59,6 +60,7 @@ LANG = {
         "bundled_note": "仅在当前旅程阶段需要时使用此能力。除非用户询问，否则不要透露内部组合方式。",
         "end": "指令结束",
         "input_label": "建议用户输入格式",
+        "native_detail": "此处不内嵌详细笔记；请使用下方已核实的主题摘要与官方来源",
         "fields": [
             "我的目标或角色：",
             "当前阶段：",
@@ -127,6 +129,25 @@ def portable_body(item: dict, lang: str, included_refs: set[str] | None = None) 
         if reference not in included_refs:
             body += "\n\n" + reference
             included_refs.add(reference)
+
+    native_only = item.get("native_only_references", [])
+    if not isinstance(native_only, list):
+        raise ValueError(f"{item['id']}: native_only_references must be a list")
+    directory = (ROOT / "skills" / item["id"] / "references").resolve()
+    for template in native_only:
+        if not isinstance(template, str) or not template:
+            raise ValueError(f"{item['id']}: invalid native_only_references template {template!r}")
+        filename = template.format(lang=lang)
+        path = (directory / filename).resolve()
+        if not path.is_relative_to(directory):
+            raise ValueError(f"{item['id']}: native_only_references template {template!r} escapes the reference directory")
+        if not path.is_file():
+            raise ValueError(f"{item['id']}: native_only_references template {template!r} is missing {filename}")
+        body = re.sub(
+            r"\[([^\]]+)\]\(references/" + re.escape(filename) + r"\)",
+            rf"\1 ({LANG[lang]['native_detail']})",
+            body,
+        )
     # Asset catalogs are supporting native data, not a portable chat prerequisite.
     if item.get("portable_references"):
         body = re.sub(r"\[([^\]]+)\]\(references/asset-sources\.json\)", r"\1 (official asset links in the bundled rules)", body)

@@ -15,10 +15,111 @@ SPEC = importlib.util.spec_from_file_location(
 )
 BUILDER = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(BUILDER)
+VALIDATOR_SPEC = importlib.util.spec_from_file_location(
+    "portable_skill_validator", ROOT / "scripts/validate_portable_skills.py"
+)
+VALIDATOR = importlib.util.module_from_spec(VALIDATOR_SPEC)
+VALIDATOR_SPEC.loader.exec_module(VALIDATOR)
 ITEM = next(item for item in BUILDER.CATALOG["skills"] if item["id"] == SKILL_ID)
 
 
 class SuccessfulClubPortablePackage(unittest.TestCase):
+    def test_native_only_reference_paths_are_validated_and_rewritten(self):
+        with tempfile.TemporaryDirectory() as temp:
+            isolated = Path(temp)
+            skill = isolated / "skills" / "fixture"
+            references = skill / "references"
+            references.mkdir(parents=True)
+            item = {
+                "id": "fixture",
+                "portable_references": ["bundle.{lang}.md"],
+                "native_only_references": ["detail.{lang}.md"],
+            }
+            labels = {
+                "en": "detailed notes are not bundled here; use the verified topic summary and official source below",
+                "zh": "此处不内嵌详细笔记；请使用下方已核实的主题摘要与官方来源",
+            }
+            for lang, skill_file in (("en", "SKILL.md"), ("zh", "SKILL.zh.md")):
+                (skill / skill_file).write_text(
+                    "---\nname: fixture\ndescription: fixture\n---\n\n"
+                    f"[Body detail](references/detail.{lang}.md)",
+                    encoding="utf-8",
+                )
+                (references / f"bundle.{lang}.md").write_text(
+                    f"# Bundle\n\n[Bundled detail](references/detail.{lang}.md)",
+                    encoding="utf-8",
+                )
+                (references / f"detail.{lang}.md").write_text(
+                    "NATIVE DETAIL BODY MUST NOT BE EMBEDDED",
+                    encoding="utf-8",
+                )
+
+            with patch.object(BUILDER, "ROOT", isolated):
+                for lang, expected_label in labels.items():
+                    with self.subTest(lang=lang):
+                        output = BUILDER.portable_body(item, lang)
+                        self.assertEqual(output.count(expected_label), 2)
+                        self.assertNotIn("NATIVE DETAIL BODY MUST NOT BE EMBEDDED", output)
+                        self.assertNotRegex(output, r"\]\(references/[^)]+\)")
+
+                for template in ("missing.{lang}.md", "../escape.{lang}.md"):
+                    with self.subTest(template=template):
+                        invalid = {**item, "native_only_references": [template]}
+                        with self.assertRaisesRegex(ValueError, rf"fixture.*{re.escape(template)}"):
+                            BUILDER.portable_body(invalid, "en")
+
+    def test_skill_without_native_only_references_keeps_existing_output(self):
+        for item in BUILDER.CATALOG["skills"]:
+            if "native_only_references" in item:
+                continue
+            for lang in ("en", "zh"):
+                path = ROOT / "prompts" / f"{item['id']}.{lang}.md"
+                if not path.exists():
+                    continue
+                with self.subTest(skill=item["id"], lang=lang):
+                    self.assertEqual(BUILDER.build_prompt(item, lang), path.read_text(encoding="utf-8"))
+
+    def test_reference_template_validator_rejects_invalid_contracts(self):
+        with tempfile.TemporaryDirectory() as temp:
+            skill = Path(temp) / "fixture"
+            references = skill / "references"
+            references.mkdir(parents=True)
+            for name in ("bundle.en.md", "bundle.zh.md", "detail.en.md", "detail.zh.md"):
+                (references / name).write_text(name, encoding="utf-8")
+
+            cases = {
+                "not-list": {
+                    "id": "fixture",
+                    "portable_references": ["bundle.{lang}.md"],
+                    "native_only_references": "detail.{lang}.md",
+                },
+                "duplicate": {
+                    "id": "fixture",
+                    "portable_references": ["bundle.{lang}.md"],
+                    "native_only_references": ["detail.{lang}.md", "detail.{lang}.md"],
+                },
+                "overlap": {
+                    "id": "fixture",
+                    "portable_references": ["bundle.{lang}.md"],
+                    "native_only_references": ["bundle.{lang}.md"],
+                },
+                "missing-language": {
+                    "id": "fixture",
+                    "portable_references": ["missing.{lang}.md"],
+                    "native_only_references": [],
+                },
+                "escape": {
+                    "id": "fixture",
+                    "portable_references": ["bundle.{lang}.md"],
+                    "native_only_references": ["../escape.{lang}.md"],
+                },
+            }
+            for label, item in cases.items():
+                with self.subTest(case=label):
+                    errors = VALIDATOR.validate_reference_templates(item, skill)
+                    self.assertTrue(errors)
+                    self.assertTrue(all("fixture" in error for error in errors))
+
     def test_each_language_bundles_every_declared_reference_once(self):
         for lang in ("en", "zh"):
             with self.subTest(lang=lang):
