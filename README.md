@@ -82,11 +82,14 @@ skills/{answer-table-topics-question, build-speech-outline, …}/SKILL.md + agen
 - [Skill](skills/prepare-successful-club-presentation/SKILL.md) / [中文技能](skills/prepare-successful-club-presentation/SKILL.zh.md)
 - [Portable English prompt](prompts/prepare-successful-club-presentation.en.md) / [中文便携提示词](prompts/prepare-successful-club-presentation.zh.md)
 
-One entry, four topic modules: **Creating the Best Club Climate**, **Meeting Roles and Responsibilities**, **Keeping the Commitment**, and **Going Beyond Our Club**. Choose one, adapt the official outline in your own words, prepare speaker notes and topic-specific activities, rehearse, and record actual delivery and feedback. Text-only use works without installing other skills. Current Pathways applicability is checked only when credit matters; preparation is not delivery or approval. Public links and original summaries are bundled, not official PDFs/PPTs or logos.
+One entry covers all eleven Successful Club Series topics assigned across Pathways Levels 3-5. When current credit matters, it routes within the member's level; with no Pathways level constraint, it chooses by the club's learning need. Native use loads one detailed topic module, while the portable prompt carries a compact verified source register. Preparation is not delivery or approval, and current-sensitive facts still require an official check.
 
-单一入口、四个题目模块，陪会员选一题，用自己的话准备官方内容、讲者笔记与题目特有活动，排练后记录实际发表及反馈。纯文字可独立使用；需要认定时才查核现行 Pathways 适用性，准备好不等于已发表或已核准。内含公开链接与原创摘要，不打包官方 PDF／PPT 或标志；中文为辅助说明，非官方核准译本。
+单一入口覆盖 Pathways Levels 3-5 对应的 11 个 Successful Club Series 主题。涉及当前学分时按会员所在 level 选题；没有等级限制时按俱乐部学习需求选择。原生技能只读取一份详细主题模块，便携提示词使用精简且已核对的来源登记。准备不等于发表或批准，会变化的信息仍需查看官方来源。
 
-Example / 例句：`Help me prepare Creating the Best Club Climate for a 12-minute club education session.` / 「请帮我准备 12 分钟的 Creating the Best Club Climate 教育分享。」
+Examples / 例句：
+
+- `Help me prepare Mentoring as club education; I am not seeking Pathways credit and have no Pathways level constraint.` / 「请帮我准备 Mentoring 俱乐部教育分享；我不申请 Pathways 学分，也没有等级限制。」
+- `Help me facilitate Moments of Truth as the official 60-90 minutes club assessment.` / 「请帮我按官方 60-90 分钟形式引导 Moments of Truth 俱乐部自评。」
 
 ---
 

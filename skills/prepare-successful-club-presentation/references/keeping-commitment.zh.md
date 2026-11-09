@@ -1,5 +1,14 @@
 # Keeping the Commitment｜实践会员承诺
 
+Official item: **297A**
+Pathways enhancement level: **3**
+Official resource: https://www.toastmasters.org/resources/keeping-the-commitment
+Supplied LMS URL: **NOT SUPPLIED**
+Official package: https://content.toastmasters.org/raw/upload/297-keeping-the-commitment.zip
+Duration: **10-15 minutes**
+Research date: **2026-11-10**
+Printed core outline: **297A p. 5; 297A p. 6**
+
 来源：[官方资源](https://www.toastmasters.org/resources/keeping-the-commitment)，手册 **297A**，印刷第 5–6 页提纲、第 7 页 Evaluation Guide。需要现行原文时查公开的 [A Toastmaster's Promise](https://www.toastmasters.org/en-us/about/toastmasters-promise)。以下是原创辅助摘要，不是替代承诺，适用共同来源与隐私边界。
 
 ## 目的与内容

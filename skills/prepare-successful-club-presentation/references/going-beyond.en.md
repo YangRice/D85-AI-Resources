@@ -1,5 +1,14 @@
 # Going Beyond Our Club
 
+Official item: **298A**
+Pathways enhancement level: **3**
+Official resource: https://www.toastmasters.org/resources/going-beyond-our-club
+Supplied LMS URL: **NOT SUPPLIED**
+Official package: https://content.toastmasters.org/raw/upload/298-going-beyond-our-club.zip
+Duration: **10-15 minutes**
+Research date: **2026-11-10**
+Printed core outline: **298A p. 5; 298A p. 6**
+
 Source: [official resource](https://www.toastmasters.org/resources/going-beyond-our-club), manual **298A**, printed pp. 5–6 (outline), p. 7 (Evaluation Guide). This is an original coaching summary. Apply the shared source and privacy boundaries.
 
 ## Purpose and coverage

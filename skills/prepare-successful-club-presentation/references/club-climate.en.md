@@ -1,5 +1,14 @@
 # Creating the Best Club Climate
 
+Official item: **294A**
+Pathways enhancement level: **3**
+Official resource: https://www.toastmasters.org/resources/creating-the-best-club-climate
+Supplied LMS URL: **NOT SUPPLIED**
+Official package: https://content.toastmasters.org/raw/upload/294-creating-best-club-climate.zip
+Duration: **10-15 minutes**
+Research date: **2026-11-10**
+Printed core outline: **294A p. 5; 294A p. 6; 294A pp. 7-8**
+
 Source: [official resource](https://www.toastmasters.org/resources/creating-the-best-club-climate), manual **294A**, printed pp. 5–7 (outline), p. 8 (Model Club Checklist), p. 9 (Evaluation Guide). This is an original coaching summary. Apply the shared source and privacy boundaries.
 
 ## Purpose and coverage

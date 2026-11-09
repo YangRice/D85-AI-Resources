@@ -1,5 +1,14 @@
 # Creating the Best Club Climate｜营造良好俱乐部氛围
 
+Official item: **294A**
+Pathways enhancement level: **3**
+Official resource: https://www.toastmasters.org/resources/creating-the-best-club-climate
+Supplied LMS URL: **NOT SUPPLIED**
+Official package: https://content.toastmasters.org/raw/upload/294-creating-best-club-climate.zip
+Duration: **10-15 minutes**
+Research date: **2026-11-10**
+Printed core outline: **294A p. 5; 294A p. 6; 294A pp. 7-8**
+
 来源：[官方资源](https://www.toastmasters.org/resources/creating-the-best-club-climate)，手册 **294A**，印刷第 5–7 页提纲、第 8 页 Model Club Checklist、第 9 页 Evaluation Guide。以下是原创辅助摘要，适用共同来源与隐私边界。
 
 ## 目的与内容

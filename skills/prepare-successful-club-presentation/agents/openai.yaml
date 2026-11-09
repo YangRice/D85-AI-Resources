@@ -1,4 +1,4 @@
 interface:
   display_name: "Successful Club Series Coach"
-  short_description: "Prepare one of four club education presentations"
-  default_prompt: "Use $prepare-successful-club-presentation to help me prepare one Successful Club Series education presentation in my own words."
+  short_description: "Coach 11 Successful Club topics across Levels 3-5"
+  default_prompt: "Use $prepare-successful-club-presentation to help me choose and prepare one of the 11 Successful Club Series presentations."

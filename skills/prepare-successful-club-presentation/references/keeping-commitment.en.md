@@ -1,5 +1,14 @@
 # Keeping the Commitment
 
+Official item: **297A**
+Pathways enhancement level: **3**
+Official resource: https://www.toastmasters.org/resources/keeping-the-commitment
+Supplied LMS URL: **NOT SUPPLIED**
+Official package: https://content.toastmasters.org/raw/upload/297-keeping-the-commitment.zip
+Duration: **10-15 minutes**
+Research date: **2026-11-10**
+Printed core outline: **297A p. 5; 297A p. 6**
+
 Source: [official resource](https://www.toastmasters.org/resources/keeping-the-commitment), manual **297A**, printed pp. 5–6 (outline), p. 7 (Evaluation Guide). Use the public [A Toastmaster's Promise](https://www.toastmasters.org/en-us/about/toastmasters-promise) for exact current wording. This is an original coaching summary, not a replacement Promise. Apply the shared source and privacy boundaries.
 
 ## Purpose and coverage

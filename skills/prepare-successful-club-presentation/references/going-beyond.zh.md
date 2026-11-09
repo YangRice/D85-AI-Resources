@@ -1,4 +1,13 @@
-# Going Beyond Our Club｜走出本会拓展学习
+# Going Beyond Our Club｜走出本俱乐部
+
+Official item: **298A**
+Pathways enhancement level: **3**
+Official resource: https://www.toastmasters.org/resources/going-beyond-our-club
+Supplied LMS URL: **NOT SUPPLIED**
+Official package: https://content.toastmasters.org/raw/upload/298-going-beyond-our-club.zip
+Duration: **10-15 minutes**
+Research date: **2026-11-10**
+Printed core outline: **298A p. 5; 298A p. 6**
 
 来源：[官方资源](https://www.toastmasters.org/resources/going-beyond-our-club)，手册 **298A**，印刷第 5–6 页提纲、第 7 页 Evaluation Guide。以下是原创辅助摘要，适用共同来源与隐私边界。
 

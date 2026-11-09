@@ -1,5 +1,14 @@
 # Meeting Roles and Responsibilities｜会议角色与责任
 
+Official item: **295A**
+Pathways enhancement level: **3**
+Official resource: https://www.toastmasters.org/resources/meeting-roles-and-responsibilities
+Supplied LMS URL: **NOT SUPPLIED**
+Official package: https://content.toastmasters.org/raw/upload/295-meeting-roles-and-responsibilities.zip
+Duration: **10-15 minutes**
+Research date: **2026-11-10**
+Printed core outline: **295A p. 5; 295A p. 6; 295A p. 7**
+
 来源：[官方资源](https://www.toastmasters.org/resources/meeting-roles-and-responsibilities)，手册 **295A**，印刷第 5–7 页提纲、第 8 页 Evaluation Guide。以下是原创辅助摘要，适用共同来源与隐私边界。
 
 ## 目的与内容

@@ -1,5 +1,14 @@
 # Meeting Roles and Responsibilities
 
+Official item: **295A**
+Pathways enhancement level: **3**
+Official resource: https://www.toastmasters.org/resources/meeting-roles-and-responsibilities
+Supplied LMS URL: **NOT SUPPLIED**
+Official package: https://content.toastmasters.org/raw/upload/295-meeting-roles-and-responsibilities.zip
+Duration: **10-15 minutes**
+Research date: **2026-11-10**
+Printed core outline: **295A p. 5; 295A p. 6; 295A p. 7**
+
 Source: [official resource](https://www.toastmasters.org/resources/meeting-roles-and-responsibilities), manual **295A**, printed pp. 5–7 (outline), p. 8 (Evaluation Guide). This is an original coaching summary. Apply the shared source and privacy boundaries.
 
 ## Purpose and coverage

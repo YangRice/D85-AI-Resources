@@ -170,6 +170,19 @@ REGISTER_FACTS = {
         "https://www.toastmasters.org/EducationProgramFAQ; https://www.toastmasters.org/resources/club-leadership-handbook",
     ),
 }
+ALL_TOPIC_STEMS = {
+    "club-climate",
+    "meeting-roles",
+    "keeping-commitment",
+    "going-beyond",
+    "finding-new-members",
+    "closing-the-sale",
+    "distinguished-club",
+    "education-program",
+    "moments-of-truth",
+    "evaluate-to-motivate",
+    "mentoring",
+}
 
 
 def parse_topic_register(path: Path) -> tuple[list[str], dict[str, dict[str, str]]]:
@@ -195,6 +208,150 @@ def parse_topic_register(path: Path) -> tuple[list[str], dict[str, dict[str, str
 
 
 class SuccessfulClubPortablePackage(unittest.TestCase):
+    def test_catalog_declares_eleven_native_topic_modules_and_two_portable_references(self):
+        self.assertEqual(ITEM["version"], "0.3.0")
+        self.assertEqual(
+            ITEM["portable_references"],
+            ["sources-and-boundaries.{lang}.md", "topic-register.{lang}.md"],
+        )
+        self.assertEqual(
+            set(ITEM["native_only_references"]),
+            {f"{stem}.{{lang}}.md" for stem in ALL_TOPIC_STEMS},
+        )
+        self.assertEqual(len(ITEM["native_only_references"]), 11)
+        self.assertIn("eleven", ITEM["compatibility"]["en"].lower())
+        self.assertIn("11 个主题", ITEM["compatibility"]["zh"])
+
+        agent = (ROOT / "skills" / SKILL_ID / "agents/openai.yaml").read_text(encoding="utf-8")
+        self.assertRegex(agent, r'short_description: "[^"]*(11|Levels 3-5)[^"]*"')
+        self.assertIn("$prepare-successful-club-presentation", agent)
+
+        readme = (ROOT / "README.md").read_text(encoding="utf-8")
+        section = readme.split("### Successful Club Series presentation coach", 1)[1].split(
+            "\n---\n", 1
+        )[0]
+        self.assertIn("Mentoring", section)
+        self.assertIn("no Pathways level", section)
+        self.assertIn("Moments of Truth", section)
+        self.assertIn("60-90 minutes", section)
+
+    def test_all_eleven_modules_match_register_metadata_and_locator_sets(self):
+        folder = ROOT / "skills" / SKILL_ID / "references"
+        _, register = parse_topic_register(folder / "topic-register.en.md")
+        self.assertEqual(set(register), ALL_TOPIC_STEMS)
+        for stem in sorted(ALL_TOPIC_STEMS):
+            facts = register[stem]
+            locators = {}
+            urls = {}
+            for lang in ("en", "zh"):
+                with self.subTest(topic=stem, lang=lang):
+                    text = (folder / f"{stem}.{lang}.md").read_text(encoding="utf-8")
+                    self.assertIn(f"Official item: **{facts['item']}**", text)
+                    self.assertIn(
+                        f"Pathways enhancement level: **{facts['level']}**", text
+                    )
+                    self.assertIn(facts["canonical_url"], text)
+                    if facts["supplied_lms_url"] == "NOT SUPPLIED":
+                        self.assertIn("Supplied LMS URL: **NOT SUPPLIED**", text)
+                    else:
+                        self.assertIn(facts["supplied_lms_url"], text)
+                    self.assertIn(f"Duration: **{facts['duration']}**", text)
+                    self.assertIn(f"Research date: **{facts['research_date']}**", text)
+                    self.assertIn(facts["package_url"], text)
+                    self.assertIn(f"Printed core outline: **{facts['printed_locators']}**", text)
+                    locators[lang] = re.findall(
+                        rf"^\| ({facts['item']} p\. \d+) \|", text, re.MULTILINE
+                    )
+                    self.assertGreaterEqual(len(locators[lang]), 2)
+                    urls[lang] = set(re.findall(r"https://[^\s)\]|]+", text))
+            self.assertEqual(locators["en"], locators["zh"])
+            self.assertEqual(urls["en"], urls["zh"])
+
+    def test_portable_prompt_bundles_register_not_detailed_modules(self):
+        folder = ROOT / "skills" / SKILL_ID / "references"
+        body_markers = {
+            "en": ("## Knowledge notes and printed-page index", "## Source-specific facilitation"),
+            "zh": ("## 知识笔记与印刷页码", "## 主题专属引导"),
+        }
+        for lang in ("en", "zh"):
+            with self.subTest(lang=lang):
+                output = BUILDER.build_prompt(ITEM, lang)
+                register = (folder / f"topic-register.{lang}.md").read_text(encoding="utf-8").strip()
+                self.assertEqual(output.count(register), 1)
+                for marker in body_markers[lang]:
+                    self.assertNotIn(marker, output)
+                for stem in ALL_TOPIC_STEMS:
+                    detailed = (folder / f"{stem}.{lang}.md").read_text(encoding="utf-8").strip()
+                    self.assertNotIn(detailed, output)
+                self.assertNotRegex(output, r"\]\(references/[^)]+\)")
+
+    def test_instruction_contract_covers_level_and_mentoring_decisions(self):
+        contracts = {
+            "en": (
+                "No level constraint",
+                "one question at a time",
+                "voluntary or future-level",
+                "Which goal is the priority: current Level 3 credit or the mentoring need?",
+                "does not guarantee current or later credit",
+                "topic-specific duration",
+            ),
+            "zh": (
+                "没有等级限制",
+                "一次只问一个问题",
+                "自愿或未来等级",
+                "你现在更优先的是 Level 3 学分，还是 mentoring 学习需求？",
+                "不能保证当前或以后获得学分",
+                "按主题查找时长",
+            ),
+        }
+        for lang, phrases in contracts.items():
+            skill_file = "SKILL.md" if lang == "en" else "SKILL.zh.md"
+            text = (ROOT / "skills" / SKILL_ID / skill_file).read_text(encoding="utf-8")
+            portable = BUILDER.build_prompt(ITEM, lang)
+            for phrase in phrases:
+                with self.subTest(lang=lang, phrase=phrase):
+                    self.assertIn(phrase, text)
+                    self.assertIn(phrase, portable)
+            for level in ("Level 3", "Level 4", "Level 5"):
+                self.assertIn(level, text)
+            self.assertIn("Mentoring", text)
+            self.assertIn("Keeping the Commitment", text)
+
+    def test_instruction_contract_covers_moments_of_truth_duration_exception(self):
+        phrases = {
+            "en": (
+                "60-90-minute facilitated",
+                "10-15-minute request",
+                "adapted overview",
+                "organizer or VPE confirmation",
+            ),
+            "zh": (
+                "60-90 分钟引导式",
+                "10-15 分钟请求",
+                "改编概览",
+                "组织者或 VPE 确认",
+            ),
+        }
+        for lang, required in phrases.items():
+            skill_file = "SKILL.md" if lang == "en" else "SKILL.zh.md"
+            text = (ROOT / "skills" / SKILL_ID / skill_file).read_text(encoding="utf-8")
+            portable = BUILDER.build_prompt(ITEM, lang)
+            for phrase in required:
+                with self.subTest(lang=lang, phrase=phrase):
+                    self.assertIn(phrase, text)
+                    self.assertIn(phrase, portable)
+
+    def test_portable_prompts_respect_compact_size_budget(self):
+        limits = {"en": 30000, "zh": 18000}
+        for lang, limit in limits.items():
+            with self.subTest(lang=lang):
+                output = BUILDER.build_prompt(ITEM, lang)
+                tracked = (ROOT / "prompts" / f"{SKILL_ID}.{lang}.md").read_text(
+                    encoding="utf-8"
+                )
+                self.assertEqual(output, tracked)
+                self.assertLessEqual(len(output), limit)
+
     def test_level5_modules_have_matching_bilingual_metadata_and_locator_sets(self):
         folder = ROOT / "skills" / SKILL_ID / "references"
         topics = {
