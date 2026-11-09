@@ -6,7 +6,7 @@
 
 **Current package:** `skills/prepare-successful-club-presentation/`
 
-**Current revision reviewed:** `64fd305`
+**Current revision reviewed:** `904d469` (Simplified Chinese baseline)
 
 ## Problem
 
