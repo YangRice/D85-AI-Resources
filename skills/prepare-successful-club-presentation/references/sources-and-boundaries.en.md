@@ -4,7 +4,7 @@ Research baseline: 2026-11-10. These are original coaching summaries, not offici
 
 ## Source hierarchy and retrieval
 
-Use the compact [topic register](topic-register.en.md) for all eleven official titles, assigned levels, items, canonical and supplied LMS URLs, durations, package links, printed locators and mutable authorities. The official manual/package is the content baseline. The current [Education Programs FAQ](https://www.toastmasters.org/EducationProgramFAQ) governs Pathways enhancement scope, level mapping and credit decisions. The [Successful Club Series shop](https://www.toastmasters.org/shop/members/manuals-and-programs/the-successful-club-series) is the duration authority, including the `Moments of Truth` exception. The [governing documents](https://www.toastmasters.org/membership/leadership/governing-documents) govern language, translation and AI boundaries.
+Use the compact topic register bundled with this guidance for all eleven official titles, assigned levels, items, canonical and supplied LMS URLs, durations, package links, printed locators and mutable authorities. The official manual/package is the content baseline. The current [Education Programs FAQ](https://www.toastmasters.org/EducationProgramFAQ) governs Pathways enhancement scope, level mapping and credit decisions. The [Successful Club Series shop](https://www.toastmasters.org/shop/members/manuals-and-programs/the-successful-club-series) is the duration authority, including the `Moments of Truth` exception. The [governing documents](https://www.toastmasters.org/membership/leadership/governing-documents) govern language, translation and AI boundaries.
 
 Topic notes are selective original explanations, not full-text archives. For a source-specific correction, give the item and printed page. If the original was not reopened in the current conversation, say the locator comes from the dated notes. Never reconstruct a complete official checklist, chart, evaluation form, slide deck or quotation from memory.
 
@@ -52,5 +52,3 @@ Neither edition has automatic memory, automatic source synchronization, guarante
 ## Maintenance and evidence
 
 Repository maintainers own source refresh. Trigger review when an official link/source changes or breaks, before current-sensitive guidance is used, or when a conflict is reported. Reopen sources, update only supported claims and dates, preserve URL provenance, review English/Simplified Chinese equivalence, regenerate portable prompts and rerun static plus behavioral checks. This process has no automatic upstream synchronization or live-status guarantee.
-
-`design/successful-club-presentation-validation.md` remains historical v0.1/v0.2 evidence; it is not v0.3 behavioral proof. New validation belongs in the current ignored review record and PR summary unless maintainers deliberately publish a new evidence artifact.

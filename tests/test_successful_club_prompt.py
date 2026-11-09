@@ -285,6 +285,20 @@ class SuccessfulClubPortablePackage(unittest.TestCase):
                     self.assertNotIn(detailed, output)
                 self.assertNotRegex(output, r"\]\(references/[^)]+\)")
 
+    def test_portable_prompts_have_no_local_links_or_maintainer_paths(self):
+        for lang in ("en", "zh"):
+            with self.subTest(lang=lang):
+                output = BUILDER.build_prompt(ITEM, lang)
+                markdown_targets = re.findall(r"\[[^\]]*\]\(([^)]+)\)", output)
+                local_targets = [
+                    target
+                    for target in markdown_targets
+                    if not target.startswith(("https://", "http://", "#", "mailto:"))
+                ]
+                self.assertEqual(local_targets, [])
+                self.assertNotIn("design/successful-club-presentation-validation.md", output)
+                self.assertNotIn(".superpowers/", output)
+
     def test_instruction_contract_covers_level_and_mentoring_decisions(self):
         contracts = {
             "en": (

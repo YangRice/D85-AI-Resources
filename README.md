@@ -91,6 +91,8 @@ Examples / 例句：
 - `Help me prepare Mentoring as club education; I am not seeking Pathways credit and have no Pathways level constraint.` / 「请帮我准备 Mentoring 俱乐部教育分享；我不申请 Pathways 学分，也没有等级限制。」
 - `Help me facilitate Moments of Truth as the official 60-90 minutes club assessment.` / 「请帮我按官方 60-90 分钟形式引导 Moments of Truth 俱乐部自评。」
 
+Validation note / 验证说明：[`design/successful-club-presentation-validation.md`](design/successful-club-presentation-validation.md) only records v0.1/v0.2 evidence and is not v0.3 behavioral proof. / 该文件只记录 v0.1/v0.2 证据，不是 v0.3 行为证明。
+
 ---
 
 ### Poster skills retired | 海报技能退役

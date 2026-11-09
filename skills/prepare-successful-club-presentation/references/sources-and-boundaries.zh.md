@@ -4,7 +4,7 @@
 
 ## 来源层级与原文获取
 
-使用精简[主题登记](topic-register.zh.md)查看 11 个官方题目、所属 level、编号、canonical 和用户提供的 LMS URL、时长、材料包、印刷页码与会变化的权威来源。官方手册或材料包是内容基准。当前 [Education Programs FAQ](https://www.toastmasters.org/EducationProgramFAQ) 决定 Pathways enhancements 的适用范围、等级分组与学分判断。[Successful Club Series shop](https://www.toastmasters.org/shop/members/manuals-and-programs/the-successful-club-series) 是时长权威，包含 `Moments of Truth` 例外。[Governing documents](https://www.toastmasters.org/membership/leadership/governing-documents) 决定语言、翻译与 AI 边界。
+使用本指引内附的精简主题登记查看 11 个官方题目、所属 level、编号、canonical 和用户提供的 LMS URL、时长、材料包、印刷页码与会变化的权威来源。官方手册或材料包是内容基准。当前 [Education Programs FAQ](https://www.toastmasters.org/EducationProgramFAQ) 决定 Pathways enhancements 的适用范围、等级分组与学分判断。[Successful Club Series shop](https://www.toastmasters.org/shop/members/manuals-and-programs/the-successful-club-series) 是时长权威，包含 `Moments of Truth` 例外。[Governing documents](https://www.toastmasters.org/membership/leadership/governing-documents) 决定语言、翻译与 AI 边界。
 
 主题笔记是选择性原创解释，不是全文库。特定来源修正要给编号与印刷页码；当前对话没有重新打开原文时，要说明定位来自有日期的笔记。不从记忆重建完整官方检查表、chart、评估表、简报或引文。
 
@@ -52,5 +52,3 @@ FAQ 在适用的 Level 3、4、5 各要求一项 Successful Club Series 分享�
 ## 维护与证据
 
 仓库维护者负责来源更新。官方链接或来源变化、失效、出现冲突，或准备使用即时指引前，都触发复查。重新打开来源，只更新有证据支持的内容和日期，保留 URL 出处，检查英文与简体中文一致性，重新生成便携提示词，并运行静态与行为检查。本流程没有自动上游同步或即时状态保证。
-
-`design/successful-club-presentation-validation.md` 保持为 v0.1/v0.2 历史证据，不是 v0.3 行为证明。新的验证保存在当前被忽略的审查记录和 PR 摘要，除非维护者明确决定发布新的证据文件。
