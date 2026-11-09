@@ -4,7 +4,7 @@
 
 ## 来源层级与原文获取
 
-使用本指引内附的精简主题登记查看 11 个官方题目、所属 level、编号、canonical 和用户提供的 LMS URL、时长、材料包、印刷页码与会变化的权威来源。官方手册或材料包是内容基准。当前 [Education Programs FAQ](https://www.toastmasters.org/EducationProgramFAQ) 决定 Pathways enhancements 的适用范围、等级分组与学分判断。[Successful Club Series shop](https://www.toastmasters.org/shop/members/manuals-and-programs/the-successful-club-series) 是时长权威，包含 `Moments of Truth` 例外。[Governing documents](https://www.toastmasters.org/membership/leadership/governing-documents) 决定语言、翻译与 AI 边界。
+使用本指引内附的精简主题登记查看 11 个官方题目、所属 level、编号、canonical 和用户提供的 LMS URL、时长、材料包、印刷页码与会变化的权威来源。官方手册或材料包是内容基准。当前 [Education Programs FAQ](https://www.toastmasters.org/EducationProgramFAQ) 决定 Pathways enhancements 的适用范围、等级分组与学分判断。[Successful Club Series shop](https://shop.toastmasters.org/shop/education/programs-and-modules/the-successful-club-series) 是时长权威，包含 `Moments of Truth` 例外。[Governing documents](https://www.toastmasters.org/membership/leadership/governing-documents) 决定语言、翻译与 AI 边界。
 
 主题笔记是选择性原创解释，不是全文库。特定来源修正要给编号与印刷页码；当前对话没有重新打开原文时，要说明定位来自有日期的笔记。不从记忆重建完整官方检查表、chart、评估表、简报或引文。
 

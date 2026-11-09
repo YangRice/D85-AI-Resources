@@ -683,6 +683,27 @@ class SuccessfulClubPortablePackage(unittest.TestCase):
                     urls((folder / template.format(lang="zh")).read_text(encoding="utf-8")),
                 )
 
+    def test_duration_authority_uses_current_shop_url(self):
+        current_url = (
+            "https://shop.toastmasters.org/shop/education/programs-and-modules/"
+            "the-successful-club-series"
+        )
+        retired_url = (
+            "https://www.toastmasters.org/shop/members/manuals-and-programs/"
+            "the-successful-club-series"
+        )
+        folder = ROOT / "skills" / SKILL_ID / "references"
+        for lang in ("en", "zh"):
+            with self.subTest(lang=lang):
+                boundary = (folder / f"sources-and-boundaries.{lang}.md").read_text(
+                    encoding="utf-8"
+                )
+                portable = BUILDER.build_prompt(ITEM, lang)
+                self.assertIn(current_url, boundary)
+                self.assertIn(current_url, portable)
+                self.assertNotIn(retired_url, boundary)
+                self.assertNotIn(retired_url, portable)
+
 
     def test_simplified_chinese_content_does_not_reintroduce_converted_variants(self):
         # Scoped regression guard for the variants removed from this package.
