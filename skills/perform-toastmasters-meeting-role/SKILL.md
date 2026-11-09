@@ -1,54 +1,35 @@
 ---
 name: perform-toastmasters-meeting-role
-description: Guide a Toastmasters member through preparing, performing, reporting, and reflecting on a club meeting role. Use when a member is assigned Timer, Speech Evaluator, General Evaluator, Topicsmaster, Grammarian, Word Master, Ah-Counter, Toastmaster of the Day, or another meeting role and wants stage-appropriate guidance, a reporting script, practice, or the relevant optional TMCompanion tool.
+description: Prepare and perform a Toastmasters meeting role, including SAA, Topicsmaster (TTM), Table Topics Evaluator (TTE), Ah-Counter, Grammarian, host, Timer and evaluators; provide role cards, rehearsal and factual reports.
 ---
 
-# Perform Toastmasters Meeting Role
+# Meeting Role Journey
 
-Help the member succeed in one real meeting role without overwhelming them with every role or tool.
+This aggregate selects and coordinates the role-specific atomic skills below. Do not reproduce every role's instructions or expose internal skill IDs unless asked.
 
-## Establish the Assignment
+## Route the current assignment
+Use known role, language, format and available time. TTM usually means Topicsmaster, but honor an explicit local meaning; clarify only if consequential. SAA for tonight's logistics differs from elected officer service. For an imminent meeting, give the next usable step before an intake interview.
 
-Ask for the role, meeting format, club-specific expectations, timing rules if relevant, and how soon the meeting starts. Treat the club agenda, role holder, VPE, or official Toastmasters material as authoritative when instructions differ.
+| Assignment | Atomic skill |
+|---|---|
+| SAA: meeting logistics / 当次会务 | `prepare-saa-meeting-role` |
+| Topicsmaster / 即兴主持 TTM | `prepare-topicsmaster-role` |
+| Table Topics Evaluator / 即兴点评 TTE | `prepare-table-topics-evaluation` |
+| Ah-Counter / 哼哈官 | `prepare-ah-counter-role` |
+| Grammarian or Word Master / 语言官 | `prepare-grammarian-role` |
+| Toastmaster of the Day / 大会主持 | `prepare-toastmaster-role` |
+| General Evaluator / 总评 | `prepare-general-evaluator-role` |
+| Timer / 计时 | `prepare-timer-role` |
+| Individual Speech Evaluator / 个评 | `prepare-speech-evaluation` |
 
-## Use the Shared Role Journey
+Load only the selected atomic skill and its relevant references in a native environment. In portable text, use the matching bundled capability below and ignore unrelated sections. For several roles, prepare separate small action cards and coordinate handoffs rather than mixing responsibilities. If the atomic package is unavailable, say so; provide a minimal text checklist using confirmed facts, ask for the package or local role instructions, and do not pretend its detailed procedure was loaded.
 
-1. **Understand:** explain the role's purpose and how it supports other members.
-2. **Prepare:** produce a short before-meeting checklist and questions to confirm.
-3. **Perform:** give a compact during-meeting checklist.
-4. **Report:** help prepare a concise factual report or transition.
-5. **Reflect:** capture one strength, one difficulty, and one improvement for the next role.
+## Coordinate the journey
+1. Understand the selected role's purpose and confirmed local expectations.
+2. Use its atomic skill for preparation, performance and factual reporting; honor the user's requested stage, language and format.
+3. Rehearse only when useful. Keep simulated examples distinct from actual meeting observations.
+4. Reflect from evidence. A strength is optional: when only problems are observed, give improvements without fabricating praise.
 
-## Route by Role
+Current TI requirements outrank conflicting local customs; optional meeting arrangements belong to the club. Do not apply contest rules automatically. Keep records/counts/quotations unknown when unsupported, preserve whether evidence came from notes, memory or transcript, and avoid false tool/storage/completion claims. Each atomic supplies its optional tools and no-tool fallback.
 
-| Role | Reusable capability | Optional action |
-|---|---|---|
-| Timer | `prepare-timer-role` | `action:timer` |
-| Speech Evaluator | `prepare-speech-evaluation` | `action:evaluate` |
-| General Evaluator | Whole-meeting observation and report checklist | `action:general-evaluator` |
-| Topicsmaster | Prompt preparation, facilitation, and timing | `action:topics` |
-| Grammarian or Word Master | Language observation and Word of the Day preparation | `action:word-of-the-day` |
-| Ah-Counter | Club-approved filler categories, factual tally, concise report | manual fallback |
-| Toastmaster of the Day | Agenda, introductions, transitions, and contingency plan | manual fallback |
-
-Do not claim unsupported role rules are universal. Ask the member to confirm signals, report format, names, pronunciation, timing, and club conventions.
-
-## Portable Behavior
-
-- Provide essential guidance in chat even if links cannot open.
-- Use one role and one stage at a time.
-- Never invent observations or counts after the meeting.
-- Do not expose atomic-skill names unless the member asks how the system works.
-
-## Handoff
-
-```text
-Role:
-Meeting format and date:
-Expectations confirmed:
-Before-meeting checklist:
-During-meeting checklist:
-Report structure:
-Question still to confirm:
-Next action:
-```
+For elected SAA term planning, route to serve-toastmasters-club-officer if available. Finish with the next owned action and any consequential unresolved question.

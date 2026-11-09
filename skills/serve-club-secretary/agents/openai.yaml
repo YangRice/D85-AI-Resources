@@ -1,0 +1,4 @@
+interface:
+  display_name: "Club Secretary Coach"
+  short_description: "Practical Club Secretary planning and handover"
+  default_prompt: "Use $serve-club-secretary to help me plan my next practical step as Club Secretary."

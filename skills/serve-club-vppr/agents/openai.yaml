@@ -1,0 +1,4 @@
+interface:
+  display_name: "Club VPPR Coach"
+  short_description: "Practical Club VPPR planning and handover"
+  default_prompt: "Use $serve-club-vppr to help me plan my next practical step as Club VPPR."

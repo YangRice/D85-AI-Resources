@@ -1,0 +1,4 @@
+interface:
+  display_name: "Practice a Mentoring Conversation"
+  short_description: "Rehearse mentoring one exchange at a time"
+  default_prompt: "Use $practice-mentoring-conversation to help me take this mentoring step while preserving the member's choices."

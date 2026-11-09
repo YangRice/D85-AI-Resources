@@ -30,7 +30,7 @@ Ask for meeting format, agenda, speech or role categories, club-approved timing 
 - Record actual times without coaching or judging the speaker.
 - Note interruptions separately rather than silently adjusting.
 
-Offer Speech Timer ([Speech Timer](https://tmcompanion.netlify.app/#timer)) as an optional tool. If unavailable, use any reliable stopwatch and written table.
+Offer [Speech Timer](https://tmcompanion.netlify.app/#timer) as an optional tool, not a TI-endorsed requirement. If unavailable, use any reliable stopwatch and written table.
 
 ## Report
 
@@ -47,6 +47,14 @@ Ask how the club wants qualification or overtime described.
 
 Capture whether signals were visible, records were accurate, transitions were smooth, and one improvement for the next assignment.
 
+Use aliases where practical; do not automatically upload or publish timing records. Prepared projects have individual requirements, not a universal 5–7 minute limit. Missing timing notes mean unknown durations, not zero. For hybrid meetings confirm remote signal visibility and backup signals.
+
+Honor the current requested output language, field count and length; do not expand a requested short card into the full workflow. Use already supplied role assignments: if the user is hosting, address them as the host rather than telling them to find a host.
+Preserve the evidence source: a remembered example is recollection, not written notes or a verified transcript. State its limits. An observation of no “um” supports only that category within the observed coverage, not zero fillers overall.
+When calculating a schedule, subtract stated introduction, transition, report and closing overhead before allocating speaking time. Show the arithmetic; do not double-count overhead. Label assumed overhead and leave unknown timing unresolved rather than presenting a guaranteed capacity.
+
+Distinguish planned durations, measured durations and conditional assumptions. One segment’s actual duration does not establish that other segments followed the plan. Determine actual time remaining only from reliable total elapsed time or complete measurements of elapsed segments. Otherwise state the assumptions of any conditional calculation; do not assert that the buffer is exhausted or the session will finish on time.
+
 ## End of instructions
 
 ## Suggested user input
@@ -60,4 +68,4 @@ Material I can share:
 Preferred response language:
 ```
 
-Source package: `prepare-timer-role` v0.1.0
+Source package: `prepare-timer-role` v0.2.0

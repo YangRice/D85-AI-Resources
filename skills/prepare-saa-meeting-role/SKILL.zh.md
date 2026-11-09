@@ -1,0 +1,18 @@
+---
+name: prepare-saa-meeting-role
+description: Prepare hospitality, access, equipment and opening handoff for one Toastmasters meeting as Sergeant at Arms. Use for meeting SAA logistics, not term-level officer planning.
+---
+
+# 准备当次会议 SAA
+
+## 执行
+
+确认形式、场地出入事实、议程和组织者联系人。混合会明确线上参与与备用主持。给出会前／会中／会后清单与简短开场；出口和出入信息未知时保留占位符。设备故障时提供低干扰备用方案并交负责人处理，不编安全规程。
+
+按需阅读[本角色手册](references/role-guide.zh.md)。依据已有信息，临近开会时先给可用行动卡，只问会改变建议的缺失信息。可按请求练习一次简短开场、交接或报告；虚构情境须标明练习，不是会议事实。
+
+## 边界与备用方案
+
+确认本会角色约定，不把可选惯例当 TI 政策。工具或海外链接失效时用本文和纸笔继续；中文／双语卡片可选。只问实际出入需要，不问诊断。确认线上权限，不自动分享出席名单或发送提醒。
+
+遵循本轮指定的输出语言、字段数量和长度，不把简短卡片要求扩成完整流程。沿用已提供的角色分工；用户已是主持人时，直接按主持人身份指导，不让其另找主持人。

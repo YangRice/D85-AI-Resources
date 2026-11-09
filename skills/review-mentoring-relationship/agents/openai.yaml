@@ -1,0 +1,4 @@
+interface:
+  display_name: "Review a Mentoring Relationship"
+  short_description: "Review support and choose a respectful next step"
+  default_prompt: "Use $review-mentoring-relationship to help me take this mentoring step while preserving the member's choices."

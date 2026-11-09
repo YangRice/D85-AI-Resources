@@ -1,0 +1,4 @@
+interface:
+  display_name: "Club VPE Coach"
+  short_description: "Practical Club VPE planning and handover"
+  default_prompt: "Use $serve-club-vpe to help me plan my next practical step as Club VPE."

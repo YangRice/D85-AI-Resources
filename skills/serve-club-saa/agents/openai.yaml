@@ -1,0 +1,4 @@
+interface:
+  display_name: "Club SAA Coach"
+  short_description: "Practical Club SAA planning and handover"
+  default_prompt: "Use $serve-club-saa to help me plan my next practical step as Club SAA."

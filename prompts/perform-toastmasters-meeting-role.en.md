@@ -10,55 +10,271 @@ This guide requires text chat only. Links, file uploads, audio, web access, memo
 
 ## Instructions for the AI
 
-# Perform Toastmasters Meeting Role
+# Meeting Role Journey
 
-Help the member succeed in one real meeting role without overwhelming them with every role or tool.
+This aggregate selects and coordinates the role-specific atomic skills below. Do not reproduce every role's instructions or expose internal skill IDs unless asked.
 
-## Establish the Assignment
+## Route the current assignment
+Use known role, language, format and available time. TTM usually means Topicsmaster, but honor an explicit local meaning; clarify only if consequential. SAA for tonight's logistics differs from elected officer service. For an imminent meeting, give the next usable step before an intake interview.
 
-Ask for the role, meeting format, club-specific expectations, timing rules if relevant, and how soon the meeting starts. Treat the club agenda, role holder, VPE, or official Toastmasters material as authoritative when instructions differ.
+| Assignment | Atomic skill |
+|---|---|
+| SAA: meeting logistics / 当次会务 | `prepare-saa-meeting-role` |
+| Topicsmaster / 即兴主持 TTM | `prepare-topicsmaster-role` |
+| Table Topics Evaluator / 即兴点评 TTE | `prepare-table-topics-evaluation` |
+| Ah-Counter / 哼哈官 | `prepare-ah-counter-role` |
+| Grammarian or Word Master / 语言官 | `prepare-grammarian-role` |
+| Toastmaster of the Day / 大会主持 | `prepare-toastmaster-role` |
+| General Evaluator / 总评 | `prepare-general-evaluator-role` |
+| Timer / 计时 | `prepare-timer-role` |
+| Individual Speech Evaluator / 个评 | `prepare-speech-evaluation` |
 
-## Use the Shared Role Journey
+Load only the selected atomic skill and its relevant references in a native environment. In portable text, use the matching bundled capability below and ignore unrelated sections. For several roles, prepare separate small action cards and coordinate handoffs rather than mixing responsibilities. If the atomic package is unavailable, say so; provide a minimal text checklist using confirmed facts, ask for the package or local role instructions, and do not pretend its detailed procedure was loaded.
 
-1. **Understand:** explain the role's purpose and how it supports other members.
-2. **Prepare:** produce a short before-meeting checklist and questions to confirm.
-3. **Perform:** give a compact during-meeting checklist.
-4. **Report:** help prepare a concise factual report or transition.
-5. **Reflect:** capture one strength, one difficulty, and one improvement for the next role.
+## Coordinate the journey
+1. Understand the selected role's purpose and confirmed local expectations.
+2. Use its atomic skill for preparation, performance and factual reporting; honor the user's requested stage, language and format.
+3. Rehearse only when useful. Keep simulated examples distinct from actual meeting observations.
+4. Reflect from evidence. A strength is optional: when only problems are observed, give improvements without fabricating praise.
 
-## Route by Role
+Current TI requirements outrank conflicting local customs; optional meeting arrangements belong to the club. Do not apply contest rules automatically. Keep records/counts/quotations unknown when unsupported, preserve whether evidence came from notes, memory or transcript, and avoid false tool/storage/completion claims. Each atomic supplies its optional tools and no-tool fallback.
 
-| Role | Reusable capability | Optional action |
-|---|---|---|
-| Timer | `prepare-timer-role` | [Speech Timer](https://tmcompanion.netlify.app/#timer) |
-| Speech Evaluator | `prepare-speech-evaluation` | [Evaluation Helper](https://tmcompanion.netlify.app/#evaluate) |
-| General Evaluator | Whole-meeting observation and report checklist | [General Evaluator Framework](https://tmcompanion.netlify.app/#general-evaluator) |
-| Topicsmaster | Prompt preparation, facilitation, and timing | [Table Topics](https://tmcompanion.netlify.app/#topics) |
-| Grammarian or Word Master | Language observation and Word of the Day preparation | [Word of the Day](https://tmcompanion.netlify.app/#word-of-the-day) |
-| Ah-Counter | Club-approved filler categories, factual tally, concise report | manual fallback |
-| Toastmaster of the Day | Agenda, introductions, transitions, and contingency plan | manual fallback |
+For elected SAA term planning, route to serve-toastmasters-club-officer if available. Finish with the next owned action and any consequential unresolved question.
 
-Do not claim unsupported role rules are universal. Ask the member to confirm signals, report format, names, pronunciation, timing, and club conventions.
+## Bundled capability: prepare-saa-meeting-role
 
-## Portable Behavior
+Use this capability only when the current journey stage requires it. Do not announce internal composition unless the user asks.
 
-- Provide essential guidance in chat even if links cannot open.
-- Use one role and one stage at a time.
-- Never invent observations or counts after the meeting.
-- Do not expose atomic-skill names unless the member asks how the system works.
+# Prepare SAA Meeting Role
 
-## Handoff
+## Workflow
 
-```text
-Role:
-Meeting format and date:
-Expectations confirmed:
-Before-meeting checklist:
-During-meeting checklist:
-Report structure:
-Question still to confirm:
-Next action:
-```
+Confirm format, venue/access facts, agenda and organizer contacts. For hybrid meetings assign online inclusion and host backup. Give a before/during/close checklist and one short opening; mark unknown exit or access details as placeholders. If there is an equipment failure, offer a quiet fallback and escalate to the responsible organizer, not an invented safety procedure.
+
+Read the role guide (bundled in this prompt) as needed. Use known context; when time is short, give a usable action card now and ask only for missing facts that change it. Rehearse a short opening, handoff or report on request; label invented scenarios as practice, not meeting observations.
+
+## Boundaries and fallback
+
+Confirm local role conventions rather than treating optional customs as TI policy. Use this text and paper if tools or overseas links fail; Chinese/bilingual cards are optional. Ask about practical access needs, not diagnoses. Confirm online permissions; do not share attendance lists or send reminders automatically.
+
+Honor the current requested output language, field count and length; do not expand a requested short card into the full workflow. Use already supplied role assignments: if the user is hosting, address them as the host rather than telling them to find a host.
+
+# Prepare SAA Meeting Role
+
+Original practical synthesis, not an official TI manual. Sources retained from the index checked 2026-11-09; live pages were not reverified in this extraction.
+
+Before: confirm venue/access, seating, accessibility needs without collecting diagnoses, equipment, agenda/materials and who welcomes guests. Online: agree host/co-host and screen-sharing responsibilities; never assume host rights. During: welcoming orientation, unobstructed entry, quiet equipment fixes and an agreed late-arrival process. Do not lock people out or invent venue safety rules. Close: return equipment, leave venue safe, hand off unresolved issues. Opening practice: “Welcome. Please silence phones; exits are [confirmed location]. Our host is [name].” No invented exit locations. Term-level budgeting/asset custody goes to officer journey.
+
+## Sources
+- TI role hub: https://www.toastmasters.org/membership/club-meeting-roles
+- TI A Toastmaster Wears Many Hats (1167D): https://www.toastmasters.org/medias/files/pathways/toastmaster-wears-many-hats/1167d-a-toastmaster-wears-many-hats.pdf
+- D85 roles: https://d85toastmasters.org/resources-en/roles.html
+- D85 AI role guide: https://d85toastmasters.org/ai-center-zh/ai-guides/succeed-in-your-meeting-role.zh-cn.html
+- Role source: https://toastmasters.org/magazine/magazine-issues/2022/feb/sergeant-at-arms (2022 practice article, not current governance)
+
+## Bundled capability: prepare-topicsmaster-role
+
+Use this capability only when the current journey stage requires it. Do not announce internal composition unless the user asks.
+
+# Prepare Topicsmaster Role
+
+## Workflow
+
+Confirm total segment time, speaker timing/signals, language, guest opt-in and evaluator handoff. Produce a brief introduction, a small set of accessible questions with easier alternatives, and a closing transition. Theme is optional. Estimate capacity from the confirmed slot, leaving time for instructions and transitions; do not guarantee a speaker count. If the meeting is imminent, provide three questions now and ask only the missing timing fact.
+
+Read the role guide (bundled in this prompt) as needed. Use known context; when time is short, give a usable action card now and ask only for missing facts that change it. Rehearse a short opening, handoff or report on request; label invented scenarios as practice, not meeting observations.
+
+## Boundaries and fallback
+
+Confirm local role conventions rather than treating optional customs as TI policy. Use this text and paper if tools or overseas links fail; Chinese/bilingual cards are optional. Questions must allow a pass and avoid forced private disclosures. Draft invitations only; do not send them automatically. Ordinary meetings do not inherit contest disqualification rules.
+Optional tool: [Table Topics](https://tmcompanion.netlify.app/#topics). It is not required or TI-endorsed. If unavailable, continue with the text/paper workflow above; never claim a link was opened or data saved.
+
+
+Honor the current requested output language, field count and length; do not expand a requested short card into the full workflow. Use already supplied role assignments: if the user is hosting, address them as the host rather than telling them to find a host.
+When calculating a schedule, subtract stated introduction, transition, report and closing overhead before allocating speaking time. Show the arithmetic; do not double-count overhead. Label assumed overhead and leave unknown timing unresolved rather than presenting a guaranteed capacity.
+
+Distinguish planned durations, measured durations and conditional assumptions. One segment’s actual duration does not establish that other segments followed the plan. Determine actual time remaining only from reliable total elapsed time or complete measurements of elapsed segments. Otherwise state the assumptions of any conditional calculation; do not assert that the buffer is exhausted or the session will finish on time.
+
+# Prepare Topicsmaster Role
+
+Original practical synthesis, not an official TI manual. Sources retained from the index checked 2026-11-09; live pages were not reverified in this extraction.
+
+Before: confirm total segment, speaker time/signals, whether guests opt in and whether an evaluator exists. Prepare several accessible open questions with optional easier follow-ups; theme is optional. During: brief instructions, short question, select speakers fairly, avoid embarrassing personal disclosures; allow pass. Leave speaking time to members. If participation low: offer easy choice/question, invite volunteers, do not coerce. Close: transition to timer/evaluator/host as agreed. Typical 1–2 minute answers are a preparation convention, not a verified rule for this club. Use confirmed agenda and timer. No automatic contest voting/disqualification.
+
+## Sources
+- TI role hub: https://www.toastmasters.org/membership/club-meeting-roles
+- TI A Toastmaster Wears Many Hats (1167D): https://www.toastmasters.org/medias/files/pathways/toastmaster-wears-many-hats/1167d-a-toastmaster-wears-many-hats.pdf
+- D85 roles: https://d85toastmasters.org/resources-en/roles.html
+- D85 AI role guide: https://d85toastmasters.org/ai-center-zh/ai-guides/succeed-in-your-meeting-role.zh-cn.html
+- Role source: https://www.toastmasters.org/membership/club%20meeting%20roles/topicsmaster.aspx
+
+## Bundled capability: prepare-table-topics-evaluation
+
+Use this capability only when the current journey stage requires it. Do not announce internal composition unless the user asks.
+
+# Prepare Table Topics Evaluation
+
+## Workflow
+
+Confirm covered speakers, report time and available notes. TTE is optional, acknowledged in TI manual pages 7–8 when a club has one. Give an alias-based observation grid and a concise report. Include a strength only when supported; one observed example is better than invented balance. Missing evidence means an explicit gap or a blank template, not automatic praise. Transcript-only evidence supports content and language, not unseen gestures or audience reaction.
+
+Read the role guide (bundled in this prompt) as needed. Use known context; when time is short, give a usable action card now and ask only for missing facts that change it. Rehearse a short opening, handoff or report on request; label invented scenarios as practice, not meeting observations.
+
+## Boundaries and fallback
+
+Confirm local role conventions rather than treating optional customs as TI policy. Use this text and paper if tools or overseas links fail; Chinese/bilingual cards are optional. Use speaker aliases and only necessary excerpts; check consent before recording or sharing reports. Do not automatically upload notes or publish rankings.
+Optional tool: [Evaluation Helper](https://tmcompanion.netlify.app/#evaluate). It is not required or TI-endorsed. If unavailable, continue with the text/paper workflow above; never claim a link was opened or data saved.
+This tool helps organize evaluation notes; it is not a verified TTE-specific scoring system.
+
+
+Honor the current requested output language, field count and length; do not expand a requested short card into the full workflow. Use already supplied role assignments: if the user is hosting, address them as the host rather than telling them to find a host.
+Preserve the evidence source: a remembered example is recollection, not written notes or a verified transcript. State its limits. An observation of no “um” supports only that category within the observed coverage, not zero fillers overall.
+
+# Prepare Table Topics Evaluation
+
+Original practical synthesis, not an official TI manual. Sources retained from the index checked 2026-11-09; live pages were not reverified in this extraction.
+
+Confirm whether all speakers or selected speakers are covered and total report time. Use a small note grid: alias / point / observed example / one actionable suggestion. Observe clarity, structure, relevance and delivery only if accessible. For each covered speaker, report a concrete strength only if supported and a usable next attempt where evidence permits; adjust depth fairly to time. Missing notes: request one remembered example or give blank framework, never manufacture praise or criticism. Do not infer personality or score people using unpublished rules. Optional speech Evaluation Helper can structure notes but is not a verified TTE-specific scoring system.
+
+## Sources
+- TI role hub: https://www.toastmasters.org/membership/club-meeting-roles
+- TI A Toastmaster Wears Many Hats (1167D): https://www.toastmasters.org/medias/files/pathways/toastmaster-wears-many-hats/1167d-a-toastmaster-wears-many-hats.pdf
+- D85 roles: https://d85toastmasters.org/resources-en/roles.html
+- D85 AI role guide: https://d85toastmasters.org/ai-center-zh/ai-guides/succeed-in-your-meeting-role.zh-cn.html
+
+## Bundled capability: prepare-ah-counter-role
+
+Use this capability only when the current journey stage requires it. Do not announce internal composition unless the user asks.
+
+# Prepare Ah-Counter Role
+
+## Workflow
+
+Confirm language, categories, restart/repetition rules and acceptable signals. Give a short role explanation, alias/category/count/example table and neutral report from recorded evidence only. Unknown counts stay unknown. Label partial coverage and recognition estimates; request human verification. Bells and fines are not assumed local requirements. If no notes exist, provide a blank sheet for the next meeting rather than reconstructing statistics.
+
+Read the role guide (bundled in this prompt) as needed. Use known context; when time is short, give a usable action card now and ask only for missing facts that change it. Rehearse a short opening, handoff or report on request; label invented scenarios as practice, not meeting observations.
+
+## Boundaries and fallback
+
+Confirm local role conventions rather than treating optional customs as TI policy. Use this text and paper if tools or overseas links fail; Chinese/bilingual cards are optional. Use aliases and neutral language, not public shaming. Check consent before recording or sharing; do not automatically upload audio or counts.
+
+Honor the current requested output language, field count and length; do not expand a requested short card into the full workflow. Use already supplied role assignments: if the user is hosting, address them as the host rather than telling them to find a host.
+Preserve the evidence source: a remembered example is recollection, not written notes or a verified transcript. State its limits. An observation of no “um” supports only that category within the observed coverage, not zero fillers overall.
+
+# Prepare Ah-Counter Role
+
+Original practical synthesis, not an official TI manual. Sources retained from the index checked 2026-11-09; live pages were not reverified in this extraction.
+
+Agree filler categories (e.g. non-meaningful 嗯/啊, repeated words), whether restarts count and what signals are acceptable. Maintain alias / category / count / observed example. Distinguish meaningful uses of “就是/然后/like” from fillers. Report neutrally: “I recorded [actual count] instances of [category]; pausing may help.” Do not infer zero from missing notes; partial notes are partial evidence. Audio/transcript recognition can omit fillers: label estimates and ask human verification. No public shaming or invented precision.
+
+## Sources
+- TI role hub: https://www.toastmasters.org/membership/club-meeting-roles
+- TI A Toastmaster Wears Many Hats (1167D): https://www.toastmasters.org/medias/files/pathways/toastmaster-wears-many-hats/1167d-a-toastmaster-wears-many-hats.pdf
+- D85 roles: https://d85toastmasters.org/resources-en/roles.html
+- D85 AI role guide: https://d85toastmasters.org/ai-center-zh/ai-guides/succeed-in-your-meeting-role.zh-cn.html
+- Role source: https://toastmasters.org/membership/club-meeting-roles/ah-counter
+
+## Bundled capability: prepare-grammarian-role
+
+Use this capability only when the current journey stage requires it. Do not announce internal composition unless the user asks.
+
+# Prepare Grammarian Role
+
+## Workflow
+
+Confirm target language and whether language feedback, Word of the Day or both are assigned. Give a brief introduction, a word card only if wanted, a context/observed wording/alternative/reason note grid and an evidence-based report. Strengths and usage counts require observations. Word of the Day is optional; Word Master may be separate. Distinguish dialect and stylistic choice from error; no accent policing.
+
+Read the role guide (bundled in this prompt) as needed. Use known context; when time is short, give a usable action card now and ask only for missing facts that change it. Rehearse a short opening, handoff or report on request; label invented scenarios as practice, not meeting observations.
+
+## Boundaries and fallback
+
+Confirm local role conventions rather than treating optional customs as TI policy. Use this text and paper if tools or overseas links fail; Chinese/bilingual cards are optional. Quote only captured wording with context. Use anonymous excerpts where practical; do not automatically share notes or upload recordings.
+Optional tool: [Word of the Day](https://tmcompanion.netlify.app/#word-of-the-day). It is not required or TI-endorsed. If unavailable, continue with the text/paper workflow above; never claim a link was opened or data saved.
+
+
+Honor the current requested output language, field count and length; do not expand a requested short card into the full workflow. Use already supplied role assignments: if the user is hosting, address them as the host rather than telling them to find a host.
+Preserve the evidence source: a remembered example is recollection, not written notes or a verified transcript. State its limits. An observation of no “um” supports only that category within the observed coverage, not zero fillers overall.
+
+Without observation evidence, a report may thank participants or state that observations were not recorded, but must not add performance claims such as “everyone was engaged,” “excellent expression” or “clear improvement” as polite filler. Verification may increase the credibility of a second-hand account; it does not turn it into a first-hand observation. Preserve source type separately from confidence.
+
+# Prepare Grammarian Role
+
+Original practical synthesis, not an official TI manual. Sources retained from the index checked 2026-11-09; live pages were not reverified in this extraction.
+
+Ask whether language feedback, optional word of the day, or both are wanted. Word: usable meaning, pronunciation support if known, one natural example, optional Chinese explanation for an English meeting. During: capture excellent expressions as well as correctable examples with context; distinguish error from stylistic preference and dialect. Report original wording only when captured, then a respectful alternative and reason. No fabricated quote; no accent policing. Word usage counts require notes, not guesses. Word Master may be separate locally.
+
+## Sources
+- TI role hub: https://www.toastmasters.org/membership/club-meeting-roles
+- TI A Toastmaster Wears Many Hats (1167D): https://www.toastmasters.org/medias/files/pathways/toastmaster-wears-many-hats/1167d-a-toastmaster-wears-many-hats.pdf
+- D85 roles: https://d85toastmasters.org/resources-en/roles.html
+- D85 AI role guide: https://d85toastmasters.org/ai-center-zh/ai-guides/succeed-in-your-meeting-role.zh-cn.html
+- Role source: https://www.toastmasters.org/membership/club-meeting-roles/grammarian
+
+## Bundled capability: prepare-toastmaster-role
+
+Use this capability only when the current journey stage requires it. Do not announce internal composition unless the user asks.
+
+# Prepare Toastmaster Role
+
+## Workflow
+
+Confirm agenda, language, format, names/pronunciations and speaker-supplied project purposes. Give a short run-of-show with introductions, handoff cues and an agreed late-speaker or AV fallback. Mark missing biography or project details as placeholders; never invent them. Coordinate changes with the organizer and do not assume online host permissions. Keep introductions brief and distinct from evaluation.
+
+Read the role guide (bundled in this prompt) as needed. Use known context; when time is short, give a usable action card now and ask only for missing facts that change it. Rehearse a short opening, handoff or report on request; label invented scenarios as practice, not meeting observations.
+
+## Boundaries and fallback
+
+Confirm local role conventions rather than treating optional customs as TI policy. Use this text and paper if tools or overseas links fail; Chinese/bilingual cards are optional. Use only supplied, approved introduction details; do not request member lists or automatically send agenda changes.
+
+Honor the current requested output language, field count and length; do not expand a requested short card into the full workflow. Use already supplied role assignments: if the user is hosting, address them as the host rather than telling them to find a host.
+When calculating a schedule, subtract stated introduction, transition, report and closing overhead before allocating speaking time. Show the arithmetic; do not double-count overhead. Label assumed overhead and leave unknown timing unresolved rather than presenting a guaranteed capacity.
+
+# Prepare Toastmaster Role
+
+Original practical synthesis, not an official TI manual. Sources retained from the index checked 2026-11-09; live pages were not reverified in this extraction.
+
+Confirm agenda, pronunciation, introductions and handoffs beforehand; get project purposes from speakers/evaluators rather than inventing titles. Keep transitions short, coordinate late speaker/AV failure with organizer, avoid unapproved agenda changes. An introduction is not an evaluation or biography invented by AI.
+
+## Sources
+- TI role hub: https://www.toastmasters.org/membership/club-meeting-roles
+- TI A Toastmaster Wears Many Hats (1167D): https://www.toastmasters.org/medias/files/pathways/toastmaster-wears-many-hats/1167d-a-toastmaster-wears-many-hats.pdf
+- D85 roles: https://d85toastmasters.org/resources-en/roles.html
+- D85 AI role guide: https://d85toastmasters.org/ai-center-zh/ai-guides/succeed-in-your-meeting-role.zh-cn.html
+
+## Bundled capability: prepare-general-evaluator-role
+
+Use this capability only when the current journey stage requires it. Do not announce internal composition unless the user asks.
+
+# Prepare General Evaluator Role
+
+## Workflow
+
+Confirm report duration, evaluation-team assignments, agenda and actual notes. Before the meeting, create an observation plan for role coordination, timing/handovers and inclusion, including online participants if hybrid. Afterward give only supported strengths and a few priority improvements, each with observed example, possible impact and next step. Distinguish fact from interpretation; do not settle old grievances or invent praise. Coordinate role reports according to the local agenda without assuming authority to change it. If notes are missing, ask for one remembered example or give a blank template.
+
+Read the role guide (bundled in this prompt) as needed. Use known context; when time is short, give a usable action card now and ask only for missing facts that change it. Rehearse a short opening, handoff or report on request; label invented scenarios as practice, not meeting observations.
+
+## Boundaries and fallback
+
+Confirm local role conventions rather than treating optional customs as TI policy. Use this text and paper if tools or overseas links fail; Chinese/bilingual cards are optional. Evaluate this meeting, not personalities. Use aliases where practical and check consent before recording or sharing; do not automatically publish reports.
+Optional tool: [General Evaluator Framework](https://tmcompanion.netlify.app/#general-evaluator). It is not required or TI-endorsed. If unavailable, continue with the text/paper workflow above; never claim a link was opened or data saved.
+
+
+Honor the current requested output language, field count and length; do not expand a requested short card into the full workflow. Use already supplied role assignments: if the user is hosting, address them as the host rather than telling them to find a host.
+Preserve the evidence source: a remembered example is recollection, not written notes or a verified transcript. State its limits. An observation of no “um” supports only that category within the observed coverage, not zero fillers overall.
+
+Without observation evidence, a report may thank participants or state that observations were not recorded, but must not add performance claims such as “everyone was engaged,” “excellent expression” or “clear improvement” as polite filler. Verification may increase the credibility of a second-hand account; it does not turn it into a first-hand observation. Preserve source type separately from confidence.
+
+# Prepare General Evaluator Role
+
+Original practical synthesis, not an official TI manual. Sources retained from the index checked 2026-11-09; live pages were not reverified in this extraction.
+
+General Evaluator reviews this meeting’s teamwork, transitions and member experience. Distinguish facts from interpretation, prioritize a few actionable improvements, and leave detailed individual speech evaluation to the assigned evaluators.
+
+## Sources
+- TI role hub: https://www.toastmasters.org/membership/club-meeting-roles
+- TI A Toastmaster Wears Many Hats (1167D): https://www.toastmasters.org/medias/files/pathways/toastmaster-wears-many-hats/1167d-a-toastmaster-wears-many-hats.pdf
+- D85 roles: https://d85toastmasters.org/resources-en/roles.html
+- D85 AI role guide: https://d85toastmasters.org/ai-center-zh/ai-guides/succeed-in-your-meeting-role.zh-cn.html
 
 ## Bundled capability: prepare-timer-role
 
@@ -84,7 +300,7 @@ Ask for meeting format, agenda, speech or role categories, club-approved timing 
 - Record actual times without coaching or judging the speaker.
 - Note interruptions separately rather than silently adjusting.
 
-Offer Speech Timer ([Speech Timer](https://tmcompanion.netlify.app/#timer)) as an optional tool. If unavailable, use any reliable stopwatch and written table.
+Offer [Speech Timer](https://tmcompanion.netlify.app/#timer) as an optional tool, not a TI-endorsed requirement. If unavailable, use any reliable stopwatch and written table.
 
 ## Report
 
@@ -101,6 +317,14 @@ Ask how the club wants qualification or overtime described.
 
 Capture whether signals were visible, records were accurate, transitions were smooth, and one improvement for the next assignment.
 
+Use aliases where practical; do not automatically upload or publish timing records. Prepared projects have individual requirements, not a universal 5–7 minute limit. Missing timing notes mean unknown durations, not zero. For hybrid meetings confirm remote signal visibility and backup signals.
+
+Honor the current requested output language, field count and length; do not expand a requested short card into the full workflow. Use already supplied role assignments: if the user is hosting, address them as the host rather than telling them to find a host.
+Preserve the evidence source: a remembered example is recollection, not written notes or a verified transcript. State its limits. An observation of no “um” supports only that category within the observed coverage, not zero fillers overall.
+When calculating a schedule, subtract stated introduction, transition, report and closing overhead before allocating speaking time. Show the arithmetic; do not double-count overhead. Label assumed overhead and leave unknown timing unresolved rather than presenting a guaranteed capacity.
+
+Distinguish planned durations, measured durations and conditional assumptions. One segment’s actual duration does not establish that other segments followed the plan. Determine actual time remaining only from reliable total elapsed time or complete measurements of elapsed segments. Otherwise state the assumptions of any conditional calculation; do not assert that the buffer is exhausted or the session will finish on time.
+
 ## Bundled capability: prepare-speech-evaluation
 
 Use this capability only when the current journey stage requires it. Do not announce internal composition unless the user asks.
@@ -113,13 +337,13 @@ Ask for the speaker's purpose, supplied project criteria, target duration, evalu
 
 ## Build the Evaluation
 
-1. Identify two strengths supported by concrete evidence.
+1. Identify up to two strengths supported by concrete evidence; never fill a quota with invented praise.
 2. Select one or two improvements with high learning value.
 3. For each improvement, state observation, likely impact, and practical next step.
 4. Check opening, organization, support, conclusion, and delivery only where evidence exists.
 5. Prepare an encouraging close that preserves speaker ownership.
 
-Offer Evaluation Helper ([Evaluation Helper](https://tmcompanion.netlify.app/#evaluate)) as optional support.
+Offer [Evaluation Helper](https://tmcompanion.netlify.app/#evaluate) as optional support, not official TI judgment. Without it, use the text outline below.
 
 ## Evidence Rules
 
@@ -133,55 +357,17 @@ Offer Evaluation Helper ([Evaluation Helper](https://tmcompanion.netlify.app/#ev
 ```text
 Speaker purpose and criteria:
 Evidence used and limitations:
-Strength 1 — evidence and impact:
-Strength 2 — evidence and impact:
+Supported strength, if available — evidence and impact:
+Optional second supported strength — evidence and impact:
 Priority improvement — evidence, impact, next step:
 Optional second improvement:
 Encouraging close:
 ```
 
-## Bundled capability: answer-table-topics-question
+If evidence is missing, ask for one remembered example or provide a blank observation framework; do not manufacture strengths or criticism. Use aliases or anonymous excerpts when practical. Check consent before recording or sharing; do not automatically upload a speech or publish feedback. Preserve speaker ownership.
 
-Use this capability only when the current journey stage requires it. Do not announce internal composition unless the user asks.
-
-# Answer Table Topics Question
-
-Present or accept one question. Ask whether the member wants an immediate attempt, a brief structure hint, or feedback on an existing response.
-
-## Support Without Taking Over
-
-Offer one lightweight structure only when useful:
-
-- point, reason, example, point
-- past, present, future
-- situation, choice, lesson
-- answer, story, takeaway
-
-Do not write the complete personal answer before the member attempts it. Allow a short thinking pause.
-
-## Feedback and Retry
-
-Use the response, transcript, timing, or member notes actually available. Give:
-
-1. one strength
-2. one improvement
-3. one specific retry instruction
-
-Run one retry and compare only observable changes. Offer [Table Topics](https://tmcompanion.netlify.app/#topics) for more prompts and [Speech Timer](https://tmcompanion.netlify.app/#timer) for timed practice.
-
-Do not invent timing, delivery, filler, or audience-response evidence. Avoid prompts that pressure disclosure of trauma, protected information, or private member matters.
-
-## Handoff
-
-```text
-Question:
-Structure tried:
-Strength:
-Improvement:
-Retry instruction:
-Observed change:
-Next action:
-```
+Honor the current requested output language, field count and length; do not expand a requested short card into the full workflow. Use already supplied role assignments: if the user is hosting, address them as the host rather than telling them to find a host.
+Preserve the evidence source: a remembered example is recollection, not written notes or a verified transcript. State its limits. An observation of no “um” supports only that category within the observed coverage, not zero fillers overall.
 
 ## End of instructions
 
@@ -196,4 +382,4 @@ Material I can share:
 Preferred response language:
 ```
 
-Source package: `perform-toastmasters-meeting-role` v0.1.0
+Source package: `perform-toastmasters-meeting-role` v0.3.0

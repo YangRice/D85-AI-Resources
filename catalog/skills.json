@@ -9,23 +9,40 @@
       "resource_page": "find-your-tmcompanion-tool",
       "requires": [],
       "recommends": [],
-      "actions": ["planner", "coach", "timer", "topics", "evaluate", "speech-builder", "pathways", "general-evaluator", "word-of-the-day"]
+      "actions": [
+        "planner",
+        "coach",
+        "timer",
+        "topics",
+        "evaluate",
+        "speech-builder",
+        "pathways",
+        "general-evaluator",
+        "word-of-the-day"
+      ]
     },
     {
       "id": "navigate-pathways-learning",
       "type": "journey",
       "version": "0.1.0",
       "resource_page": "plan-your-pathways-journey",
-      "requires": ["understand-pathways-project"],
+      "requires": [
+        "understand-pathways-project"
+      ],
       "recommends": [],
-      "actions": ["pathways", "planner"]
+      "actions": [
+        "pathways",
+        "planner"
+      ]
     },
     {
       "id": "prepare-toastmasters-speech",
       "type": "journey",
       "version": "0.1.0",
       "resource_page": "prepare-and-improve-a-pathways-speech",
-      "requires": ["understand-pathways-project"],
+      "requires": [
+        "understand-pathways-project"
+      ],
       "recommends": [
         "choose-speech-topic",
         "build-speech-outline",
@@ -33,20 +50,30 @@
         "rehearse-toastmasters-speech",
         "turn-feedback-into-practice"
       ],
-      "actions": ["speech-builder", "coach", "timer"]
+      "actions": [
+        "speech-builder",
+        "coach",
+        "timer"
+      ]
     },
     {
       "id": "perform-toastmasters-meeting-role",
       "type": "journey",
-      "version": "0.1.0",
+      "version": "0.3.0",
       "resource_page": "succeed-in-your-meeting-role",
       "requires": [],
       "recommends": [
+        "prepare-saa-meeting-role",
+        "prepare-topicsmaster-role",
+        "prepare-table-topics-evaluation",
+        "prepare-ah-counter-role",
+        "prepare-grammarian-role",
+        "prepare-toastmaster-role",
+        "prepare-general-evaluator-role",
         "prepare-timer-role",
-        "prepare-speech-evaluation",
-        "answer-table-topics-question"
+        "prepare-speech-evaluation"
       ],
-      "actions": ["timer", "evaluate", "general-evaluator", "topics", "word-of-the-day"]
+      "actions": []
     },
     {
       "id": "give-and-apply-toastmasters-feedback",
@@ -54,17 +81,28 @@
       "version": "0.1.0",
       "resource_page": "give-and-apply-useful-feedback",
       "requires": [],
-      "recommends": ["prepare-speech-evaluation", "turn-feedback-into-practice"],
-      "actions": ["evaluate", "coach"]
+      "recommends": [
+        "prepare-speech-evaluation",
+        "turn-feedback-into-practice"
+      ],
+      "actions": [
+        "evaluate",
+        "coach"
+      ]
     },
     {
       "id": "practice-toastmasters-table-topics",
       "type": "journey",
       "version": "0.1.0",
       "resource_page": "build-impromptu-speaking-confidence",
-      "requires": ["answer-table-topics-question"],
+      "requires": [
+        "answer-table-topics-question"
+      ],
       "recommends": [],
-      "actions": ["topics", "timer"]
+      "actions": [
+        "topics",
+        "timer"
+      ]
     },
     {
       "id": "understand-pathways-project",
@@ -73,7 +111,9 @@
       "resource_page": "understand-a-pathways-project",
       "requires": [],
       "recommends": [],
-      "actions": ["pathways"]
+      "actions": [
+        "pathways"
+      ]
     },
     {
       "id": "choose-speech-topic",
@@ -91,7 +131,9 @@
       "resource_page": "build-a-speech-outline",
       "requires": [],
       "recommends": [],
-      "actions": ["speech-builder"]
+      "actions": [
+        "speech-builder"
+      ]
     },
     {
       "id": "review-speech-draft",
@@ -100,7 +142,9 @@
       "resource_page": "review-a-speech-draft",
       "requires": [],
       "recommends": [],
-      "actions": ["coach"]
+      "actions": [
+        "coach"
+      ]
     },
     {
       "id": "rehearse-toastmasters-speech",
@@ -109,25 +153,32 @@
       "resource_page": "rehearse-a-toastmasters-speech",
       "requires": [],
       "recommends": [],
-      "actions": ["coach", "timer"]
+      "actions": [
+        "coach",
+        "timer"
+      ]
     },
     {
       "id": "prepare-timer-role",
       "type": "atomic",
-      "version": "0.1.0",
+      "version": "0.2.0",
       "resource_page": "prepare-for-the-timer-role",
       "requires": [],
       "recommends": [],
-      "actions": ["timer"]
+      "actions": [
+        "timer"
+      ]
     },
     {
       "id": "prepare-speech-evaluation",
       "type": "atomic",
-      "version": "0.1.0",
+      "version": "0.2.0",
       "resource_page": "prepare-a-speech-evaluation",
       "requires": [],
       "recommends": [],
-      "actions": ["evaluate"]
+      "actions": [
+        "evaluate"
+      ]
     },
     {
       "id": "turn-feedback-into-practice",
@@ -136,7 +187,9 @@
       "resource_page": "turn-feedback-into-practice",
       "requires": [],
       "recommends": [],
-      "actions": ["coach"]
+      "actions": [
+        "coach"
+      ]
     },
     {
       "id": "answer-table-topics-question",
@@ -145,7 +198,10 @@
       "resource_page": "answer-a-table-topics-question",
       "requires": [],
       "recommends": [],
-      "actions": ["topics", "timer"]
+      "actions": [
+        "topics",
+        "timer"
+      ]
     },
     {
       "id": "edit-svg-canvas",
@@ -230,6 +286,271 @@
           "相关约束或需保留的材料："
         ]
       }
+    },
+    {
+      "id": "serve-toastmasters-club-officer",
+      "input_fields": {
+        "en": [
+          "My officer role:",
+          "My immediate challenge and term:",
+          "Confirmed club arrangements:",
+          "Preferred language:"
+        ],
+        "zh": [
+          "我的官员角色：",
+          "当前难题与任期：",
+          "本会已确认的安排：",
+          "回复语言："
+        ]
+      },
+      "type": "journey",
+      "version": "0.2.0",
+      "resource_page": "serve-as-a-club-officer",
+      "requires": [],
+      "recommends": [
+        "serve-club-president",
+        "serve-club-vpe",
+        "serve-club-vpm",
+        "serve-club-vppr",
+        "serve-club-secretary",
+        "serve-club-treasurer",
+        "serve-club-saa"
+      ],
+      "actions": []
+    },
+    {
+      "id": "mentor-toastmasters-member",
+      "input_fields": {
+        "en": [
+          "I am a mentor or mentee:",
+          "My goal and current stage:",
+          "An anonymous example I can share:",
+          "Preferred language:"
+        ],
+        "zh": [
+          "我是导师还是学员：",
+          "目标与当前阶段：",
+          "可分享的匿名例子：",
+          "回复语言："
+        ]
+      },
+      "type": "journey",
+      "version": "0.2.0",
+      "resource_page": "mentor-a-member",
+      "requires": [],
+      "recommends": [
+        "establish-mentoring-agreement",
+        "coach-mentee-practice",
+        "practice-mentoring-conversation",
+        "review-mentoring-relationship"
+      ],
+      "actions": []
+    },
+    {
+      "id": "prepare-saa-meeting-role",
+      "type": "atomic",
+      "version": "0.1.0",
+      "resource_page": "prepare-saa-meeting-role",
+      "requires": [],
+      "recommends": [],
+      "actions": [],
+      "portable_references": [
+        "role-guide.{lang}.md"
+      ]
+    },
+    {
+      "id": "prepare-topicsmaster-role",
+      "type": "atomic",
+      "version": "0.1.0",
+      "resource_page": "prepare-topicsmaster-role",
+      "requires": [],
+      "recommends": [],
+      "actions": [
+        "topics"
+      ],
+      "portable_references": [
+        "role-guide.{lang}.md"
+      ]
+    },
+    {
+      "id": "prepare-table-topics-evaluation",
+      "type": "atomic",
+      "version": "0.1.0",
+      "resource_page": "prepare-table-topics-evaluation",
+      "requires": [],
+      "recommends": [],
+      "actions": [
+        "evaluate"
+      ],
+      "portable_references": [
+        "role-guide.{lang}.md"
+      ]
+    },
+    {
+      "id": "prepare-ah-counter-role",
+      "type": "atomic",
+      "version": "0.1.0",
+      "resource_page": "prepare-ah-counter-role",
+      "requires": [],
+      "recommends": [],
+      "actions": [],
+      "portable_references": [
+        "role-guide.{lang}.md"
+      ]
+    },
+    {
+      "id": "prepare-grammarian-role",
+      "type": "atomic",
+      "version": "0.1.0",
+      "resource_page": "prepare-grammarian-role",
+      "requires": [],
+      "recommends": [],
+      "actions": [
+        "word-of-the-day"
+      ],
+      "portable_references": [
+        "role-guide.{lang}.md"
+      ]
+    },
+    {
+      "id": "prepare-toastmaster-role",
+      "type": "atomic",
+      "version": "0.1.0",
+      "resource_page": "prepare-toastmaster-role",
+      "requires": [],
+      "recommends": [],
+      "actions": [],
+      "portable_references": [
+        "role-guide.{lang}.md"
+      ]
+    },
+    {
+      "id": "prepare-general-evaluator-role",
+      "type": "atomic",
+      "version": "0.1.0",
+      "resource_page": "prepare-general-evaluator-role",
+      "requires": [],
+      "recommends": [],
+      "actions": [
+        "general-evaluator"
+      ],
+      "portable_references": [
+        "role-guide.{lang}.md"
+      ]
+    },
+    {
+      "id": "serve-club-president",
+      "type": "atomic",
+      "version": "0.1.0",
+      "resource_page": "serve-club-president",
+      "requires": [],
+      "recommends": [],
+      "actions": []
+    },
+    {
+      "id": "serve-club-vpe",
+      "type": "atomic",
+      "version": "0.1.0",
+      "resource_page": "serve-club-vpe",
+      "requires": [],
+      "recommends": [],
+      "actions": [
+        "planner",
+        "pathways"
+      ]
+    },
+    {
+      "id": "serve-club-vpm",
+      "type": "atomic",
+      "version": "0.1.0",
+      "resource_page": "serve-club-vpm",
+      "requires": [],
+      "recommends": [],
+      "actions": []
+    },
+    {
+      "id": "serve-club-vppr",
+      "type": "atomic",
+      "version": "0.1.0",
+      "resource_page": "serve-club-vppr",
+      "requires": [],
+      "recommends": [],
+      "actions": []
+    },
+    {
+      "id": "serve-club-secretary",
+      "type": "atomic",
+      "version": "0.1.0",
+      "resource_page": "serve-club-secretary",
+      "requires": [],
+      "recommends": [],
+      "actions": []
+    },
+    {
+      "id": "serve-club-treasurer",
+      "type": "atomic",
+      "version": "0.1.0",
+      "resource_page": "serve-club-treasurer",
+      "requires": [],
+      "recommends": [],
+      "actions": []
+    },
+    {
+      "id": "serve-club-saa",
+      "type": "atomic",
+      "version": "0.1.0",
+      "resource_page": "serve-club-saa",
+      "requires": [],
+      "recommends": [],
+      "actions": []
+    },
+    {
+      "id": "establish-mentoring-agreement",
+      "type": "atomic",
+      "version": "0.1.0",
+      "resource_page": "establish-mentoring-agreement",
+      "requires": [],
+      "recommends": [],
+      "actions": [],
+      "portable_references": [
+        "agreement.{lang}.md"
+      ]
+    },
+    {
+      "id": "coach-mentee-practice",
+      "type": "atomic",
+      "version": "0.1.0",
+      "resource_page": "coach-mentee-practice",
+      "requires": [],
+      "recommends": [],
+      "actions": [],
+      "portable_references": [
+        "practice.{lang}.md"
+      ]
+    },
+    {
+      "id": "practice-mentoring-conversation",
+      "type": "atomic",
+      "version": "0.1.0",
+      "resource_page": "practice-mentoring-conversation",
+      "requires": [],
+      "recommends": [],
+      "actions": [],
+      "portable_references": [
+        "conversation.{lang}.md"
+      ]
+    },
+    {
+      "id": "review-mentoring-relationship",
+      "type": "atomic",
+      "version": "0.1.0",
+      "resource_page": "review-mentoring-relationship",
+      "requires": [],
+      "recommends": [],
+      "actions": [],
+      "portable_references": [
+        "relationship-review.{lang}.md"
+      ]
     }
   ]
 }
