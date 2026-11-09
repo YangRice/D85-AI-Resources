@@ -148,10 +148,6 @@ Native sessions load only the selected detailed module. The portable prompt cont
 
 Neither edition has automatic memory, automatic source synchronization, guaranteed browser/file/media access, delivery authority or completion authority. Keep states evidence-based: prepared, rehearsed, delivered, recorded and approved are different.
 
-## Maintenance and evidence
-
-Repository maintainers own source refresh. Trigger review when an official link/source changes or breaks, before current-sensitive guidance is used, or when a conflict is reported. Reopen sources, update only supported claims and dates, preserve URL provenance, review English/Simplified Chinese equivalence, regenerate portable prompts and rerun static plus behavioral checks. This process has no automatic upstream synchronization or live-status guarantee.
-
 # Successful Club Series topic register
 
 Research baseline: 2026-11-10. This compact register contains original summaries and verified locators, not the official manuals. Use the listed live authorities for current-sensitive claims and the official package for final preparation.

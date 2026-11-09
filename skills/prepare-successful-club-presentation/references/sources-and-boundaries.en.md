@@ -48,7 +48,3 @@ Official logos, forms, charts, manuals and decks are not repository assets or AI
 Native sessions load only the selected detailed module. The portable prompt contains this boundary file and the compact register, not eleven detailed modules. A portable answer must disclose that limit without internal filenames, still offer a provisional outline/activity, provide the official URL and printed locator, and identify the exact detail to verify before final use.
 
 Neither edition has automatic memory, automatic source synchronization, guaranteed browser/file/media access, delivery authority or completion authority. Keep states evidence-based: prepared, rehearsed, delivered, recorded and approved are different.
-
-## Maintenance and evidence
-
-Repository maintainers own source refresh. Trigger review when an official link/source changes or breaks, before current-sensitive guidance is used, or when a conflict is reported. Reopen sources, update only supported claims and dates, preserve URL provenance, review English/Simplified Chinese equivalence, regenerate portable prompts and rerun static plus behavioral checks. This process has no automatic upstream synchronization or live-status guarantee.

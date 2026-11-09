@@ -298,6 +298,18 @@ class SuccessfulClubPortablePackage(unittest.TestCase):
                 self.assertEqual(local_targets, [])
                 self.assertNotIn("design/successful-club-presentation-validation.md", output)
                 self.assertNotIn(".superpowers/", output)
+                maintainer_phrases = {
+                    "en": (
+                        "Repository maintainers own source refresh",
+                        "regenerate portable prompts",
+                    ),
+                    "zh": (
+                        "仓库维护者负责来源更新",
+                        "重新生成便携提示词",
+                    ),
+                }
+                for phrase in maintainer_phrases[lang]:
+                    self.assertNotIn(phrase, output)
 
     def test_instruction_contract_covers_level_and_mentoring_decisions(self):
         contracts = {
