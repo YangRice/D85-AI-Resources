@@ -22,8 +22,219 @@ VALIDATOR = importlib.util.module_from_spec(VALIDATOR_SPEC)
 VALIDATOR_SPEC.loader.exec_module(VALIDATOR)
 ITEM = next(item for item in BUILDER.CATALOG["skills"] if item["id"] == SKILL_ID)
 
+REGISTER_COLUMNS = (
+    "topic_id",
+    "official_title",
+    "level",
+    "item",
+    "canonical_url",
+    "supplied_lms_url",
+    "duration",
+    "research_date",
+    "package_url",
+    "printed_locators",
+    "mutable_authorities",
+    "brief_summary",
+)
+REGISTER_FACTS = {
+    "club-climate": (
+        "Creating the Best Club Climate",
+        "3",
+        "294A",
+        "https://www.toastmasters.org/resources/creating-the-best-club-climate",
+        "NOT SUPPLIED",
+        "10-15 minutes",
+        "2026-11-10",
+        "https://content.toastmasters.org/raw/upload/294-creating-best-club-climate.zip",
+        "294A p. 5; 294A p. 6; 294A pp. 7-8",
+        "https://www.toastmasters.org/EducationProgramFAQ; https://toastmasters.org/resources/1111-distinguished-club-program",
+    ),
+    "meeting-roles": (
+        "Meeting Roles and Responsibilities",
+        "3",
+        "295A",
+        "https://www.toastmasters.org/resources/meeting-roles-and-responsibilities",
+        "NOT SUPPLIED",
+        "10-15 minutes",
+        "2026-11-10",
+        "https://content.toastmasters.org/raw/upload/295-meeting-roles-and-responsibilities.zip",
+        "295A p. 5; 295A p. 6; 295A p. 7",
+        "https://www.toastmasters.org/EducationProgramFAQ; https://www.toastmasters.org/resources/club-leadership-handbook",
+    ),
+    "keeping-commitment": (
+        "Keeping the Commitment",
+        "3",
+        "297A",
+        "https://www.toastmasters.org/resources/keeping-the-commitment",
+        "NOT SUPPLIED",
+        "10-15 minutes",
+        "2026-11-10",
+        "https://content.toastmasters.org/raw/upload/297-keeping-the-commitment.zip",
+        "297A p. 5; 297A p. 6",
+        "https://www.toastmasters.org/EducationProgramFAQ; https://content.toastmasters.org/image/upload/1111-distinguished-club-program.pdf",
+    ),
+    "going-beyond": (
+        "Going Beyond Our Club",
+        "3",
+        "298A",
+        "https://www.toastmasters.org/resources/going-beyond-our-club",
+        "NOT SUPPLIED",
+        "10-15 minutes",
+        "2026-11-10",
+        "https://content.toastmasters.org/raw/upload/298-going-beyond-our-club.zip",
+        "298A p. 5; 298A p. 6",
+        "https://www.toastmasters.org/EducationProgramFAQ; https://www.toastmasters.org/resources/2026-2027-speech-contest-rulebook",
+    ),
+    "finding-new-members": (
+        "Finding New Members for Your Club",
+        "4",
+        "291A",
+        "https://www.toastmasters.org/resources/finding-new-members-for-your-club",
+        "https://www.toastmasters.org/resources/finding-new-members-for-your-club?utm_source=lms&utm_medium=path&utm_campaign=pathways-enhancements",
+        "10-15 minutes",
+        "2026-11-10",
+        "https://content.toastmasters.org/raw/upload/291-finding-new-members.zip",
+        "291A p. 5; 291A p. 6",
+        "https://www.toastmasters.org/EducationProgramFAQ; https://www.toastmasters.org/membership/leadership/club-officer-tools/membership-building",
+    ),
+    "closing-the-sale": (
+        "Closing the Sale",
+        "4",
+        "293A",
+        "https://www.toastmasters.org/resources/closing-the-sale",
+        "https://www.toastmasters.org/resources/closing-the-sale?utm_source=lms&utm_medium=path&utm_campaign=pathways-enhancements",
+        "10-15 minutes",
+        "2026-11-10",
+        "https://content.toastmasters.org/raw/upload/293-closing-the-sale.zip",
+        "293A p. 5; 293A pp. 6-7; 293A p. 8; 293A pp. 9-10",
+        "https://www.toastmasters.org/EducationProgramFAQ; https://www.toastmasters.org/footer/faq/Membership-Dues-and-Payments; https://www.toastmasters.org/resources/membership-application; https://www.toastmasters.org/membership/how-to-join.aspx",
+    ),
+    "distinguished-club": (
+        "How to Be a Distinguished Club",
+        "4",
+        "299A",
+        "https://www.toastmasters.org/resources/how-to-be-a-distinguished-club",
+        "https://www.toastmasters.org/resources/how-to-be-a-distinguished-club?utm_source=lms&utm_medium=path&utm_campaign=pathways-enhancements",
+        "10-15 minutes",
+        "2026-11-10",
+        "https://content.toastmasters.org/raw/upload/299-how-to-be-a-distinguished-club.zip",
+        "299A p. 5; 299A p. 6; 299A p. 7",
+        "https://www.toastmasters.org/EducationProgramFAQ; https://content.toastmasters.org/image/upload/1111-distinguished-club-program.pdf",
+    ),
+    "education-program": (
+        "Toastmasters Educational Program",
+        "4",
+        "300A",
+        "https://www.toastmasters.org/resources/toastmasters-educational-program",
+        "https://toastmasters.org/resources/toastmasters-educational-program?utm_source=lms&utm_medium=path&utm_campaign=pathways-enhancements",
+        "10-15 minutes",
+        "2026-11-10",
+        "https://content.toastmasters.org/raw/upload/300-toastmasters-education-program.zip",
+        "300A pp. 5-6; 300A pp. 7-8; 300A p. 9; 300A p. 10",
+        "https://www.toastmasters.org/EducationProgramFAQ",
+    ),
+    "moments-of-truth": (
+        "Moments of Truth",
+        "5",
+        "290A",
+        "https://www.toastmasters.org/resources/moments-of-truth",
+        "https://www.toastmasters.org/resources/moments-of-truth?utm_source=lms&utm_medium=path&utm_campaign=pathways-enhancements",
+        "60-90 minutes",
+        "2026-11-10",
+        "https://content.toastmasters.org/raw/upload/290-moments-of-truth.zip",
+        "290A p. 5; 290A pp. 6-8; 290A pp. 8-9; 290A pp. 10-11",
+        "https://www.toastmasters.org/EducationProgramFAQ; https://toastmasters.org/resources/1111-distinguished-club-program",
+    ),
+    "evaluate-to-motivate": (
+        "Evaluate to Motivate",
+        "5",
+        "292A",
+        "https://www.toastmasters.org/resources/evaluate-to-motivate",
+        "https://www.toastmasters.org/resources/evaluate-to-motivate?utm_source=lms&utm_medium=path&utm_campaign=pathways-enhancements",
+        "10-15 minutes",
+        "2026-11-10",
+        "https://content.toastmasters.org/raw/upload/292-evaluate-to-motivate.zip",
+        "292A p. 5; 292A p. 6",
+        "https://www.toastmasters.org/EducationProgramFAQ",
+    ),
+    "mentoring": (
+        "Mentoring",
+        "5",
+        "296A",
+        "https://www.toastmasters.org/resources/mentoring",
+        "https://www.toastmasters.org/resources/mentoring?utm_source=lms&utm_medium=path&utm_campaign=pathways-enhancements",
+        "10-15 minutes",
+        "2026-11-10",
+        "https://content.toastmasters.org/raw/upload/296-mentoring.zip",
+        "296A p. 5; 296A p. 6; 296A p. 7; 296A p. 8; 296A p. 9",
+        "https://www.toastmasters.org/EducationProgramFAQ; https://www.toastmasters.org/resources/club-leadership-handbook",
+    ),
+}
+
+
+def parse_topic_register(path: Path) -> tuple[list[str], dict[str, dict[str, str]]]:
+    text = path.read_text(encoding="utf-8")
+    table_lines = [line for line in text.splitlines() if line.startswith("|")]
+    if len(table_lines) < 3:
+        raise AssertionError(f"{path}: missing register table")
+    columns = [cell.strip() for cell in table_lines[0].strip("|").split("|")]
+    if tuple(columns) != REGISTER_COLUMNS:
+        raise AssertionError(f"{path}: unexpected columns {columns!r}")
+    rows = {}
+    for line in table_lines[2:]:
+        if line.count("|") != len(REGISTER_COLUMNS) + 1:
+            raise AssertionError(f"{path}: unescaped pipe or missing cell in {line!r}")
+        cells = [cell.strip() for cell in line.strip("|").split("|")]
+        if len(cells) != len(REGISTER_COLUMNS) or any("\n" in cell or not cell for cell in cells):
+            raise AssertionError(f"{path}: invalid row {line!r}")
+        row = dict(zip(REGISTER_COLUMNS, cells))
+        if row["topic_id"] in rows:
+            raise AssertionError(f"{path}: duplicate topic ID {row['topic_id']}")
+        rows[row["topic_id"]] = row
+    return table_lines, rows
+
 
 class SuccessfulClubPortablePackage(unittest.TestCase):
+    def test_topic_register_has_exact_schema_and_level_item_url_duration_mapping(self):
+        folder = ROOT / "skills" / SKILL_ID / "references"
+        for lang in ("en", "zh"):
+            with self.subTest(lang=lang):
+                _, rows = parse_topic_register(folder / f"topic-register.{lang}.md")
+                self.assertEqual(set(rows), set(REGISTER_FACTS))
+                for topic_id, expected in REGISTER_FACTS.items():
+                    actual = tuple(rows[topic_id][column] for column in REGISTER_COLUMNS[1:-1])
+                    self.assertEqual(actual, expected)
+                    self.assertTrue(rows[topic_id]["brief_summary"])
+                self.assertEqual(rows["moments-of-truth"]["duration"], "60-90 minutes")
+                self.assertEqual(
+                    {row["duration"] for topic_id, row in rows.items() if topic_id != "moments-of-truth"},
+                    {"10-15 minutes"},
+                )
+
+    def test_topic_register_language_pairs_preserve_authorities_and_provenance(self):
+        folder = ROOT / "skills" / SKILL_ID / "references"
+        texts = {}
+        rows = {}
+        for lang in ("en", "zh"):
+            path = folder / f"topic-register.{lang}.md"
+            texts[lang] = path.read_text(encoding="utf-8")
+            _, rows[lang] = parse_topic_register(path)
+
+        for topic_id in REGISTER_FACTS:
+            with self.subTest(topic=topic_id):
+                for column in REGISTER_COLUMNS[:-1]:
+                    self.assertEqual(rows["en"][topic_id][column], rows["zh"][topic_id][column])
+                self.assertNotEqual(
+                    rows["en"][topic_id]["brief_summary"],
+                    rows["zh"][topic_id]["brief_summary"],
+                )
+        supplied_urls = {facts[4] for facts in REGISTER_FACTS.values()} - {"NOT SUPPLIED"}
+        self.assertEqual(len(supplied_urls), 7)
+        for url in supplied_urls:
+            with self.subTest(url=url):
+                self.assertIn(url, texts["en"])
+                self.assertIn(url, texts["zh"])
+
     def test_native_only_reference_paths_are_validated_and_rewritten(self):
         with tempfile.TemporaryDirectory() as temp:
             isolated = Path(temp)
