@@ -652,6 +652,16 @@ class SuccessfulClubPortablePackage(unittest.TestCase):
                 self.assertIn(url, texts["en"])
                 self.assertIn(url, texts["zh"])
 
+    def test_meeting_roles_zh_uses_canonical_officer_term(self):
+        folder = ROOT / "skills" / SKILL_ID / "references"
+        _, rows = parse_topic_register(folder / "topic-register.zh.md")
+        canonical_term = "干事"
+        self.assertIn(canonical_term, rows["meeting-roles"]["brief_summary"])
+
+        module = (folder / "meeting-roles.zh.md").read_text(encoding="utf-8")
+        self.assertIn(canonical_term, module)
+        self.assertNotIn("干部", module)
+
     def test_native_only_reference_paths_are_validated_and_rewritten(self):
         with tempfile.TemporaryDirectory() as temp:
             isolated = Path(temp)
@@ -747,6 +757,46 @@ class SuccessfulClubPortablePackage(unittest.TestCase):
                     errors = VALIDATOR.validate_reference_templates(item, skill)
                     self.assertTrue(errors)
                     self.assertTrue(all("fixture" in error for error in errors))
+
+    def test_reference_template_validator_reports_malformed_values_without_crashing(self):
+        with tempfile.TemporaryDirectory() as temp:
+            skill = Path(temp) / "fixture"
+            references = skill / "references"
+            references.mkdir(parents=True)
+            for name in ("shared.en.md", "shared.zh.md"):
+                (references / name).write_text(name, encoding="utf-8")
+
+            cases = {
+                "unhashable": (
+                    {
+                        "id": "fixture",
+                        "portable_references": [{"path": "rules.md"}],
+                        "native_only_references": [],
+                    },
+                    ("invalid portable_references template",),
+                ),
+                "mixed-overlap": (
+                    {
+                        "id": "fixture",
+                        "portable_references": [1, "shared.{lang}.md"],
+                        "native_only_references": [1, "shared.{lang}.md"],
+                    },
+                    (
+                        "invalid portable_references template 1",
+                        "invalid native_only_references template 1",
+                        "appears in both manifests",
+                    ),
+                ),
+            }
+            for label, (item, expected) in cases.items():
+                with self.subTest(case=label):
+                    try:
+                        errors = VALIDATOR.validate_reference_templates(item, skill)
+                    except Exception as exc:
+                        self.fail(f"validator crashed instead of returning diagnostics: {exc}")
+                    diagnostics = "\n".join(errors)
+                    for marker in expected:
+                        self.assertIn(marker, diagnostics)
 
     def test_each_language_bundles_every_declared_reference_once(self):
         for lang in ("en", "zh"):

@@ -55,12 +55,13 @@ def validate_reference_templates(
             errors.append(f"{skill_id}: {field} must be a list, got {templates!r}")
             manifests[field] = []
             continue
-        manifests[field] = templates
+        manifests[field] = []
         seen: set[str] = set()
         for template in templates:
             if not isinstance(template, str) or not template:
                 errors.append(f"{skill_id}: invalid {field} template {template!r}")
                 continue
+            manifests[field].append(template)
             if template in seen:
                 errors.append(f"{skill_id}: duplicate {field} template {template!r}")
             seen.add(template)
