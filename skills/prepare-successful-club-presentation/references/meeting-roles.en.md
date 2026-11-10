@@ -15,7 +15,9 @@ Source: [official resource](https://www.toastmasters.org/resources/meeting-roles
 
 Teach how participants and officers work together to create a smooth, engaging meeting. The source is an **overview**, not training in only one role or a set of universal local scripts. Cover:
 
-In a requested role list, Evaluator = 点评人 and General Evaluator = 总评. An individual or speech evaluator may be labeled 个人点评人 or 演讲点评人 when that scope is explicit; never silently reinterpret a generic Evaluator as General Evaluator because the manual describes that role. Keep unconfirmed local roles and reporting order explicitly unknown.
+In a requested role list, Evaluator = 点评人; Individual Evaluator = 个人点评人; General Evaluator = 总评. An individual or speech evaluator may be labeled 个人点评人 or 演讲点评人 when that scope is explicit; never silently reinterpret a generic Evaluator as General Evaluator because the manual describes that role. Keep unconfirmed local roles and reporting order explicitly unknown.
+
+For Chinese output, pair each English role title with its canonical Chinese name at first use, then use Chinese role labels thereafter in the outline, activity and handout. English titles may accompany Chinese for lookup. Never use a bare English role title as the Chinese deliverable's label.
 
 - **Assigned meeting participants:** Toastmaster, Topicsmaster, speakers, General Evaluator, speech evaluators, Timer, Grammarian and Ah-Counter. Explain their purposes and handoffs, including how evaluation/reporting supports learning.
 - **Additional local roles:** ask what the club actually uses and briefly explain those duties. The manual gives examples such as Jokemaster, Vote Counter and Parliamentarian; their appearance in a source does not make them mandatory everywhere.
@@ -47,6 +49,8 @@ A useful AI-designed addition is a fictional handoff problem: a speaker finishes
 ## Output and boundary
 
 Speaker cues can follow title → core participants → local additions → officer support → teamwork conclusion. Give a compact purpose-and-handoff map, audience questions, confirmed local variations and questions still for the VPE.
+
+For a formal or full Meeting Roles and Responsibilities pack, the source note and live-evaluator brief must name item **295A**, **Evaluation Guide, printed p. 8**, and the official resource link. If not reopened, attribute this locator to the 2026-11-10 notes and mark current availability unverified; do not reproduce the form or substitute only a generic official-material pointer. This applies to voluntary education packs too, even without a credit request.
 
 If the requester only wants to be a Timer or Toastmaster next week, route to ordinary role preparation. Performing that role does not itself constitute this education presentation or satisfy its separate credit requirement. If the member is presenting this session, keep the full overview even when they are particularly interested in one role.
 

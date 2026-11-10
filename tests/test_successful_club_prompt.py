@@ -682,6 +682,64 @@ class SuccessfulClubPortablePackage(unittest.TestCase):
                 self.assertIn("| Club Officer | 俱乐部官员 |", instructions)
                 self.assertNotRegex(instructions, r'Club Officer\s+译为[“"]俱乐部官员[”"]')
 
+    def test_full_meeting_roles_delivery_names_its_official_evaluation_guide(self):
+        for lang, skill_file, delivery_heading, module_heading, required in (
+            ("en", "SKILL.md", "## Deliver useful work without overstating capability",
+             "## Output and boundary", (
+                 "formal or full Meeting Roles and Responsibilities pack",
+                 "live-evaluator brief must name item **295A**",
+                 "**Evaluation Guide, printed p. 8**",
+                 "official resource link", "2026-11-10 notes",
+                 "current availability unverified", "do not reproduce the form",
+             )),
+            ("zh", "SKILL.zh.md", "## 如实交付", "## 交付与边界", (
+                 "正式或完整的 Meeting Roles and Responsibilities 准备包",
+                 "现场点评简报必须注明编号 **295A**",
+                 "**Evaluation Guide（点评指引），印刷第 8 页**",
+                 "官方资源链接", "2026-11-10 的笔记",
+                 "当前可用性未核实", "不复制或重建表单",
+             )),
+        ):
+            folder = ROOT / "skills" / SKILL_ID
+            surfaces = {
+                "native": ((folder / skill_file).read_text(encoding="utf-8"), delivery_heading),
+                "module": ((folder / "references" / f"meeting-roles.{lang}.md").read_text(encoding="utf-8"), module_heading),
+                "portable": (BUILDER.build_prompt(ITEM, lang), delivery_heading),
+            }
+            for surface, (text, heading) in surfaces.items():
+                section = text.split(heading, 1)[1].split("\n## ", 1)[0]
+                for phrase in required:
+                    with self.subTest(lang=lang, surface=surface, phrase=phrase):
+                        self.assertIn(phrase, section)
+
+    def test_chinese_role_labels_cover_first_use_and_every_package_surface(self):
+        for lang, skill_file, required in (
+            ("en", "SKILL.md", (
+                "pair each English role title with its canonical Chinese name at first use",
+                "use Chinese role labels thereafter in the outline, activity and handout",
+                "Never use a bare English role title as the Chinese deliverable's label",
+            )),
+            ("zh", "SKILL.zh.md", (
+                "英文角色名首次出现时必须与规范中文配对",
+                "此后在提纲、活动和讲义中使用中文角色标签",
+                "不得让裸英文角色名充当中文交付物的标签",
+            )),
+        ):
+            folder = ROOT / "skills" / SKILL_ID
+            surfaces = {
+                "native": (folder / skill_file).read_text(encoding="utf-8"),
+                "module": (folder / "references" / f"meeting-roles.{lang}.md").read_text(encoding="utf-8"),
+                "portable": BUILDER.build_prompt(ITEM, lang),
+            }
+            for surface, text in surfaces.items():
+                for phrase in required:
+                    with self.subTest(lang=lang, surface=surface, phrase=phrase):
+                        self.assertIn(phrase, text)
+                for preserved in ("Evaluator = 点评人", "General Evaluator = 总评", "个人点评人",
+                                  "unconfirmed local roles" if lang == "en" else "未确认的本地角色"):
+                    with self.subTest(lang=lang, surface=surface, preserved=preserved):
+                        self.assertIn(preserved, text)
+
     def test_native_only_reference_paths_are_validated_and_rewritten(self):
         with tempfile.TemporaryDirectory() as temp:
             isolated = Path(temp)

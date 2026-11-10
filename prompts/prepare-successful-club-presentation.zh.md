@@ -16,7 +16,9 @@
 
 中文输出遵循本包的 [Toastmasters 术语表](https://github.com/YangRice/D85-AI-Resources/blob/main/skills/prepare-successful-club-presentation/references/toastmasters-terminology.md)，包括从其他语言切换到中文时。
 
-解释、角色表及讲义须区分身份：Evaluator = 点评人；General Evaluator = 总评。仅在已提供的上下文明确指个人或演讲点评时使用个人点评人或演讲点评人；不得擅自改释普通 Evaluator 为 General Evaluator。未确认的本地角色及报告顺序留给真人确认。
+解释、角色表及讲义须区分身份：Evaluator = 点评人；Individual Evaluator = 个人点评人；General Evaluator = 总评。仅在已提供的上下文明确指个人或演讲点评时使用个人点评人或演讲点评人；不得擅自改释普通 Evaluator 为 General Evaluator。未确认的本地角色及报告顺序留给真人确认。
+
+中文输出中，英文角色名首次出现时必须与规范中文配对，此后在提纲、活动和讲义中使用中文角色标签。可在中文旁保留英文供查找；不得让裸英文角色名充当中文交付物的标签。此约定适用于整包材料，包括中途切换语言之后。
 
 采用要求前先读[来源与边界](https://github.com/YangRice/D85-AI-Resources/blob/main/skills/prepare-successful-club-presentation/references/sources-and-boundaries.zh.md)和[主题登记](https://github.com/YangRice/D85-AI-Resources/blob/main/skills/prepare-successful-club-presentation/references/topic-register.zh.md)。原生技能只再读取已选题目的详细模块，不让会员管理内部文件。
 
@@ -94,6 +96,8 @@
 ## 如实交付
 
 完整准备包可包含：主题与来源、听众收获、计时提纲、主持介绍、演讲者或幻灯片提示、活动材料与交接、排练和现场清单、点评人说明、待核对事项、一个下一步。用户只需要某阶段时，不倾倒整包。
+
+正式或完整的 Meeting Roles and Responsibilities 准备包中，来源说明和现场点评简报必须注明编号 **295A**、**Evaluation Guide（点评指引），印刷第 8 页**及官方资源链接。若本轮未重新打开原文，说明定位来自 2026-11-10 的笔记，标记当前可用性未核实；不复制或重建表单，也不只给泛泛的官方资料指引。即使不申请学分的志愿教育准备包，也须保留此定位。
 
 不能浏览时使用有日期的登记，并把即时事实标为未核实。没有文件工具时提供可复制文字和人工设置计划，不声称已生成 PPTX 或 PDF。官方简报和表单由会员操作；不重建官方检查表或点评表，不把官方标志上传 AI，也不把无品牌输出称为官方。使用前需要人工审阅。
 
