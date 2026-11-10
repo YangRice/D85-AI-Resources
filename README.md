@@ -89,6 +89,24 @@ The independent [SVG editor](skills/edit-svg-canvas/SKILL.md) remains available.
 
 ---
 
+### Club service coaching | 俱乐部服务教练
+
+Three aggregate journeys select independently usable atomic skills. Native agents load the relevant child; generated journey prompts include their child capabilities for text-only use. A known role can use the shorter atomic prompt directly.
+
+三条聚合旅程负责路由与协调，原子技能负责实际任务；已知角色可直接使用对应原子，不必从聚合入口开始。原生环境按需加载，纯文字版自动内嵌子技能。
+
+- [Meeting Role Journey](skills/perform-toastmasters-meeting-role/SKILL.md) / [中文](skills/perform-toastmasters-meeting-role/SKILL.zh.md): SAA, TTM, TTE, Ah-Counter, Grammarian, meeting host, General Evaluator; **reuses existing** Timer and speech-evaluation atomics.
+- [Club Officer Journey](skills/serve-toastmasters-club-officer/SKILL.md) / [中文](skills/serve-toastmasters-club-officer/SKILL.zh.md): President, VPE, VPM, VPPR, Secretary, Treasurer, SAA.
+- [Mentoring Journey](skills/mentor-toastmasters-member/SKILL.md) / [中文](skills/mentor-toastmasters-member/SKILL.zh.md): agreement, actual practice, simulated mentoring conversation, relationship review.
+
+Atomic IDs / 原子技能：
+
+- Meeting / 会议：`prepare-saa-meeting-role`, `prepare-topicsmaster-role`, `prepare-table-topics-evaluation`, `prepare-ah-counter-role`, `prepare-grammarian-role`, `prepare-toastmaster-role`, `prepare-general-evaluator-role`, `prepare-timer-role`, `prepare-speech-evaluation`.
+- Officer / 官员：`serve-club-president`, `serve-club-vpe`, `serve-club-vpm`, `serve-club-vppr`, `serve-club-secretary`, `serve-club-treasurer`, `serve-club-saa`.
+- Mentoring / 导师：`establish-mentoring-agreement`, `coach-mentee-practice`, `practice-mentoring-conversation`, `review-mentoring-relationship`.
+
+Each has EN/ZH instructions and generated portable prompts. Source-linked original summaries preserve official/local/optional distinctions. TMCompanion remains optional; website pages, official approval and member records are not created by these skills.
+
 ### 🛠️ Officer Tools | 幹部工具
 
 #### 1. PowerPoint Translation Redesign

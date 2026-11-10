@@ -1,0 +1,4 @@
+interface:
+  display_name: "Member Mentoring Coach"
+  short_description: "Practical club guidance with verified boundaries"
+  default_prompt: "Use $mentor-toastmasters-member to help me take my next practical step."

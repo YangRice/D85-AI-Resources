@@ -1,0 +1,4 @@
+interface:
+  display_name: "Prepare Table Topics Evaluation"
+  short_description: "Prepare and perform this meeting role"
+  default_prompt: "Use $prepare-table-topics-evaluation to help me prepare my Toastmasters meeting role using confirmed details and actual observations."

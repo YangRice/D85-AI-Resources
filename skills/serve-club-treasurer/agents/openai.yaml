@@ -1,0 +1,4 @@
+interface:
+  display_name: "Club Treasurer Coach"
+  short_description: "Practical Club Treasurer planning and handover"
+  default_prompt: "Use $serve-club-treasurer to help me plan my next practical step as Club Treasurer."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Establish a Mentoring Agreement"
+  short_description: "Agree member-led goals and practical boundaries"
+  default_prompt: "Use $establish-mentoring-agreement to help me take this mentoring step while preserving the member's choices."

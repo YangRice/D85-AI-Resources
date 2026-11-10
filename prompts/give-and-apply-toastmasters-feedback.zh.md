@@ -66,13 +66,13 @@ Next action:
 
 ## Build the Evaluation（构建点评内容）
 
-1. 找出两个有具体证据支持的优点。
+1. 找出最多两个有具体证据支持的优点；不为凑数量编造赞扬。
 2. 选择一到两个学习价值高的改进点。
 3. 针对每个改进点，陈述观察结果、可能的影响以及可行的下一步。
 4. 仅在存在证据的情况下，检查开场、组织、支撑、结论和表达方面。
 5. 准备一个鼓励性的结尾，保留演讲者的主动权。
 
-提供点评助手（[Evaluation Helper](https://tmcompanion.netlify.app/#evaluate)）作为可选支持。
+提供[点评助手](https://tmcompanion.netlify.app/#evaluate)作为可选支持，不代表 TI 官方判断。没有工具时使用下方文字提纲。
 
 ## Evidence Rules（证据规则）
 
@@ -86,12 +86,17 @@ Next action:
 ```text
 演讲者目的与标准（Speaker purpose and criteria）：
 所用证据及其局限性（Evidence used and limitations）：
-优点 1 —— 证据与影响（Strength 1 — evidence and impact）：
-优点 2 —— 证据与影响（Strength 2 — evidence and impact）：
+有证据的优点（如有）—— 证据与影响：
+可选第二个有证据的优点 —— 证据与影响：
 优先改进项 —— 证据、影响、下一步（Priority improvement — evidence, impact, next step）：
 可选的第二个改进点（Optional second improvement）：
 鼓励性结尾（Encouraging close）：
 ```
+
+缺少证据时，请补一个记得的例子或给空白观察框架，不编优点或批评。可行时用代号或匿名片段。录音或分享前核实同意，不自动上传演讲或发布点评，尊重讲者内容所有权。
+
+遵循本轮指定的输出语言、字段数量和长度，不把简短卡片要求扩成完整流程。沿用已提供的角色分工；用户已是主持人时，直接按主持人身份指导，不让其另找主持人。
+保留证据来源：回忆的例子是回忆，不改称书面笔记或已核实转录，并说明局限。未观察到“um”只支持该类别及观察范围内的结论，不代表所有填充词均为零。
 
 ## 内置能力：turn-feedback-into-practice
 

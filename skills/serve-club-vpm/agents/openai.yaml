@@ -1,0 +1,4 @@
+interface:
+  display_name: "Club VPM Coach"
+  short_description: "Practical Club VPM planning and handover"
+  default_prompt: "Use $serve-club-vpm to help me plan my next practical step as Club VPM."

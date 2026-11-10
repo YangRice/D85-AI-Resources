@@ -1,0 +1,4 @@
+interface:
+  display_name: "Club Officer Coach"
+  short_description: "Practical club guidance with verified boundaries"
+  default_prompt: "Use $serve-toastmasters-club-officer to help me take my next practical step."

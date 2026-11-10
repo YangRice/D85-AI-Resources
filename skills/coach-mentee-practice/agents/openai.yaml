@@ -1,0 +1,4 @@
+interface:
+  display_name: "Coach Mentee Practice"
+  short_description: "Guide one focused practice and evidence-based retry"
+  default_prompt: "Use $coach-mentee-practice to help me take this mentoring step while preserving the member's choices."
