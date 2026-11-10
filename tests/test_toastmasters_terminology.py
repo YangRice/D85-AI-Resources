@@ -443,3 +443,30 @@ class ChineseTerminologyContracts(unittest.TestCase):
             ("institution named in CRC attribution", "egg-toastmasters-speech-mentor/references/evaluation-playbook.md",
              "**CRC**（Commend-Recommend-Commend） | 表扬 → 建议 → 表扬 | 国际头马官方体系，英文俱乐部常用"),
         ))
+
+    def test_egg_nvc_capability_names_the_formal_evaluation_context(self):
+        egg = "egg-toastmasters-speech-mentor"
+        self.assert_phrases("skills", (
+            ("formal evaluation in NVC capability map", f"{egg}/SKILL.zh.md",
+             "点评 / 临场 / 冲突题材 | `references/nonviolent-communication.md`"),
+            ("generic evaluation in NVC conflict principle", f"{egg}/references/nonviolent-communication.md",
+             "评估、反馈、冲突场景里默认对方"),
+        ))
+
+    def test_egg_championship_example_names_the_speech_giver(self):
+        self.assert_phrases("skills", (
+            ("speaker in championship coaching analysis",
+             "egg-toastmasters-speech-mentor/references/champion-techniques.md",
+             "让天真之口说出深刻之理，比演讲者自说更有说服力"),
+        ))
+
+    def test_egg_speech_contest_tables_name_the_formal_setting(self):
+        references = "egg-toastmasters-speech-mentor/references"
+        self.assert_phrases("skills", (
+            ("D85 contest scenario", f"{references}/structure-and-logic.md",
+             "| 头马演讲比赛（小区/中区/大区 D85） |"),
+            ("contest in prop guidance", f"{references}/jobs-presentation-secrets.md",
+             "头马演讲比赛通常**不允许道具**"),
+            ("later contest shorthand", f"{references}/jobs-presentation-secrets.md",
+             "但**头马比赛通常不允许道具**"),
+        ))

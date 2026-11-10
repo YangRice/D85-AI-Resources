@@ -149,7 +149,7 @@ trigger: ["改稿", "磨稿", "备稿", "逐字稿", "演讲稿修改", "头马�
 | **横切** | **准备与状态（高效演讲）** | 给其余八维提供**靶心与内在状态** | 构思（最前置）/ 临场 | `references/efficient-speaking.md` |
 | **横切** | **画面工艺（魔力公众演讲）** | 给其余八维提供**场景还原与句子级血肉** | 撰写 / 演练 | `references/magic-public-speaking.md` |
 | **横切** | **起伏编排（心跳线）** | 给其余八维提供**全场高低变化** | 撰写 / 改稿 | `references/presentation-sparkline.md` |
-| **横切** | **冲突语言（非暴力沟通 NVC）** | 给其余八维提供**冲突与反馈场景的句子级语言工艺** | 评估 / 临场 / 冲突题材 | `references/nonviolent-communication.md` |
+| **横切** | **冲突语言（非暴力沟通 NVC）** | 给其余八维提供**冲突与反馈场景的句子级语言工艺** | 点评 / 临场 / 冲突题材 | `references/nonviolent-communication.md` |
 | **横切** | **脱口秀喜剧技法（SRC-011）+ 欧阳斌幽默工作坊框架（SRC-011d）+ D85 幽默工作坊官方讲义（SRC-011e）** | 给其余八维提供**笑话拆解工程 + 喜感人物弧光 + 真诚写稿纪律 + 幽默三原理 + 吐槽段子工作表 + 故事挖笑点方法论 + 建预期/破预期 + 语义·语境·状态三破框 + 说书人vs角色 + 台词与对话 + 加料三步法** | 撰写 / 改稿 / 故事段 | `references/standup-comedy-tools.md`（§13 = D85 讲义）+ `references/humor-ouyangbin-framework.md` |
 
 **排序逻辑**：先补最大空白 → 再补最高杠杆 → 最后加厚存量。
