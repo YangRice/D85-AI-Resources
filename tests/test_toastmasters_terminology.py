@@ -1,3 +1,5 @@
+import re
+import shutil
 import tempfile
 import unittest
 from pathlib import Path
@@ -11,6 +13,9 @@ SOURCE = Path("references/toastmasters-terminology.md")
 POSTER = "skills/poster-image-translation-redesign/references/toastmasters-terminology.md"
 POWERPOINT = "skills/powerpoint-translation-redesign/references/toastmasters-terminology.md"
 MENTOR = "skills/egg-toastmasters-speech-mentor/references/d85-toastmasters-terminology.md"
+PDF = "skills/translate-pdf/references/toastmasters-terminology.md"
+PDF_PATHWAYS = "skills/translate-pdf/references/pathways-terminology.md"
+CONSUMERS = (POSTER, POWERPOINT, MENTOR, PDF)
 SAMPLE = "# Glossary\n\n| Club Officer | 俱乐部官员 |\n"
 
 
@@ -24,7 +29,9 @@ class ToastmastersTerminology(unittest.TestCase):
         return root
 
     def assert_mirror(self, root, mirror, canonical):
-        notice, body = (root / mirror).read_bytes().split(b"\n\n", 1)
+        path = root / mirror
+        self.assertTrue(path.is_file(), mirror)
+        notice, body = path.read_bytes().split(b"\n\n", 1)
         self.assertIn(SOURCE.as_posix().encode(), notice)
         self.assertIn(b"do not edit", notice.lower())
         self.assertEqual(body, canonical)
@@ -32,9 +39,48 @@ class ToastmastersTerminology(unittest.TestCase):
     def test_checked_in_mirrors_match_canonical(self):
         self.assertEqual(terminology.sync(ROOT, check=True), [])
         canonical = (ROOT / SOURCE).read_bytes()
-        for mirror in (POSTER, POWERPOINT, MENTOR):
+        for mirror in CONSUMERS:
             with self.subTest(mirror=mirror):
                 self.assert_mirror(ROOT, mirror, canonical)
+
+    def test_every_core_glossary_consumer_is_synchronized(self):
+        self.assertCountEqual(terminology.MIRRORS, map(Path, CONSUMERS))
+
+    def test_translation_glossary_links_work_in_independent_packages(self):
+        glossary = "references/toastmasters-terminology.md"
+        for mirror in (POSTER, POWERPOINT, PDF):
+            source = ROOT / Path(mirror).parents[1]
+            with self.subTest(skill=source.name), tempfile.TemporaryDirectory() as temp:
+                package = Path(temp) / source.name
+                shutil.copytree(source, package, symlinks=True)
+                instruction = (package / "SKILL.md").read_text(encoding="utf-8")
+                expected = [glossary]
+                if mirror == PDF:
+                    expected.append("references/pathways-terminology.md")
+                targets = re.findall(r"\]\(([^)]*terminology\.md)\)", instruction)
+                self.assertCountEqual(targets, expected)
+                for target in targets:
+                    file = (package / target).resolve()
+                    self.assertTrue(file.is_relative_to(package.resolve()))
+                    self.assertTrue(file.is_file(), target)
+                self.assert_mirror(Path(temp), f"{source.name}/{glossary}", (ROOT / SOURCE).read_bytes())
+
+    def test_pdf_pathways_aliases_are_separate_from_core_glossary(self):
+        supplement = ROOT / PDF_PATHWAYS
+        self.assertTrue(supplement.is_file(), PDF_PATHWAYS)
+        pathways = supplement.read_text(encoding="utf-8")
+        core = (ROOT / PDF).read_text(encoding="utf-8")
+        for alias in (
+            "必修 = Required",
+            "掌握基础 = Mastering Fundamentals",
+            "动态领导 = Dynamic Leadership",
+            "初试啼声 = Ice Breaker",
+            "反思你的学习路径 = Reflect on Your Path",
+            "杰出会员 = Distinguished Toastmaster (DTM)",
+        ):
+            with self.subTest(alias=alias):
+                self.assertIn(alias, pathways)
+                self.assertNotIn(alias, core)
 
     def test_sync_repairs_drift(self):
         root = self.make_repo()
@@ -45,7 +91,7 @@ class ToastmastersTerminology(unittest.TestCase):
         self.assertEqual(terminology.sync(root, check=False), [])
 
         self.assertEqual((root / SOURCE).read_bytes(), SAMPLE.encode())
-        for mirror in (POSTER, POWERPOINT, MENTOR):
+        for mirror in CONSUMERS:
             with self.subTest(mirror=mirror):
                 self.assert_mirror(root, mirror, SAMPLE.encode())
 
@@ -56,12 +102,12 @@ class ToastmastersTerminology(unittest.TestCase):
         poster.write_text("stale", encoding="utf-8")
         modified = poster.stat().st_mtime_ns
 
-        self.assertCountEqual(terminology.sync(root, check=True), [POSTER, POWERPOINT, MENTOR])
+        self.assertCountEqual(terminology.sync(root, check=True), CONSUMERS)
 
         self.assertEqual(poster.read_bytes(), b"stale")
         self.assertEqual(poster.stat().st_mtime_ns, modified)
-        self.assertFalse((root / POWERPOINT).parent.exists())
-        self.assertFalse((root / MENTOR).parent.exists())
+        for mirror in (POWERPOINT, MENTOR, PDF):
+            self.assertFalse((root / mirror).parent.exists())
         self.assertEqual((root / SOURCE).read_bytes(), SAMPLE.encode())
 
     def test_sync_rejects_symlink_destination(self):

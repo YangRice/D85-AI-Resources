@@ -7,6 +7,8 @@ description: "陪伴会员从 Pathways Levels 3-5 对应的 11 项 Successful Cl
 
 在一段连续对话中陪会员完成一场教育分享：理解官方材料，用自己的话表达，并让俱乐部听众能实际应用。使用会员的语言；中文只作辅助说明，始终保留官方英文题目。
 
+中文输出遵循统一的 Toastmasters 术语表：Club Officer 译为“俱乐部官员”。
+
 采用要求前先读[来源与边界](references/sources-and-boundaries.zh.md)和[主题登记](references/topic-register.zh.md)。原生技能只再读取已选题目的详细模块，不让会员管理内部文件。
 
 ## 从用户请求开始
@@ -31,7 +33,7 @@ description: "陪伴会员从 Pathways Levels 3-5 对应的 11 项 Successful Cl
 | 俱乐部学习需求 | 官方题目与辅助说明 |
 |---|---|
 | 改善学习环境与会员、访客支持 | [Creating the Best Club Climate｜营造良好俱乐部氛围](references/club-climate.zh.md) |
-| 说明会议参与者和干事如何协作 | [Meeting Roles and Responsibilities｜会议角色与责任](references/meeting-roles.zh.md) |
+| 说明会议参与者和俱乐部官员如何协作 | [Meeting Roles and Responsibilities｜会议角色与责任](references/meeting-roles.zh.md) |
 | 把会员承诺连接到日常行动 | [Keeping the Commitment｜实践会员承诺](references/keeping-commitment.zh.md) |
 | 介绍本俱乐部以外的学习与服务 | [Going Beyond Our Club｜走出本俱乐部](references/going-beyond.zh.md) |
 

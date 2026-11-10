@@ -14,6 +14,8 @@
 
 在一段连续对话中陪会员完成一场教育分享：理解官方材料，用自己的话表达，并让俱乐部听众能实际应用。使用会员的语言；中文只作辅助说明，始终保留官方英文题目。
 
+中文输出遵循统一的 Toastmasters 术语表：Club Officer 译为“俱乐部官员”。
+
 采用要求前先读[来源与边界](https://github.com/YangRice/D85-AI-Resources/blob/main/skills/prepare-successful-club-presentation/references/sources-and-boundaries.zh.md)和[主题登记](https://github.com/YangRice/D85-AI-Resources/blob/main/skills/prepare-successful-club-presentation/references/topic-register.zh.md)。原生技能只再读取已选题目的详细模块，不让会员管理内部文件。
 
 ## 从用户请求开始
@@ -38,7 +40,7 @@
 | 俱乐部学习需求 | 官方题目与辅助说明 |
 |---|---|
 | 改善学习环境与会员、访客支持 | Creating the Best Club Climate｜营造良好俱乐部氛围 (此处不内嵌详细笔记；请使用下方已核实的主题摘要与官方来源) |
-| 说明会议参与者和干事如何协作 | Meeting Roles and Responsibilities｜会议角色与责任 (此处不内嵌详细笔记；请使用下方已核实的主题摘要与官方来源) |
+| 说明会议参与者和俱乐部官员如何协作 | Meeting Roles and Responsibilities｜会议角色与责任 (此处不内嵌详细笔记；请使用下方已核实的主题摘要与官方来源) |
 | 把会员承诺连接到日常行动 | Keeping the Commitment｜实践会员承诺 (此处不内嵌详细笔记；请使用下方已核实的主题摘要与官方来源) |
 | 介绍本俱乐部以外的学习与服务 | Going Beyond Our Club｜走出本俱乐部 (此处不内嵌详细笔记；请使用下方已核实的主题摘要与官方来源) |
 
@@ -155,7 +157,7 @@ FAQ 在适用的 Level 3、4、5 各要求一项 Successful Club Series 分享�
 | topic_id | official_title | level | item | canonical_url | supplied_lms_url | duration | research_date | package_url | printed_locators | mutable_authorities | conflict_or_uncertainty | brief_summary |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
 | club-climate | Creating the Best Club Climate | 3 | 294A | https://www.toastmasters.org/resources/creating-the-best-club-climate | NOT SUPPLIED | 10-15 minutes | 2026-11-10 | https://content.toastmasters.org/raw/upload/294-creating-best-club-climate.zip | 294A p. 5; 294A p. 6; 294A pp. 7-8 | https://www.toastmasters.org/EducationProgramFAQ; https://toastmasters.org/resources/1111-distinguished-club-program | 未发现来源冲突；当前 checklist 是否可取得及本地回收方式仍需确认。 | 营造友好、有序、重视成长的俱乐部环境，并使用官方 Model Club Checklist 开展评估。 |
-| meeting-roles | Meeting Roles and Responsibilities | 3 | 295A | https://www.toastmasters.org/resources/meeting-roles-and-responsibilities | NOT SUPPLIED | 10-15 minutes | 2026-11-10 | https://content.toastmasters.org/raw/upload/295-meeting-roles-and-responsibilities.zip | 295A p. 5; 295A p. 6; 295A p. 7 | https://www.toastmasters.org/EducationProgramFAQ; https://www.toastmasters.org/resources/club-leadership-handbook | 未发现来源冲突；本地角色及混合会议交接必须由俱乐部确认。 | 说明会议参与者、评估团队、会议主持人与干事如何协作，形成有价值的会议。 |
+| meeting-roles | Meeting Roles and Responsibilities | 3 | 295A | https://www.toastmasters.org/resources/meeting-roles-and-responsibilities | NOT SUPPLIED | 10-15 minutes | 2026-11-10 | https://content.toastmasters.org/raw/upload/295-meeting-roles-and-responsibilities.zip | 295A p. 5; 295A p. 6; 295A p. 7 | https://www.toastmasters.org/EducationProgramFAQ; https://www.toastmasters.org/resources/club-leadership-handbook | 未发现来源冲突；本地角色及混合会议交接必须由俱乐部确认。 | 说明会议参与者、评估团队、会议主持人与俱乐部官员如何协作，形成有价值的会议。 |
 | keeping-commitment | Keeping the Commitment | 3 | 297A | https://www.toastmasters.org/resources/keeping-the-commitment | NOT SUPPLIED | 10-15 minutes | 2026-11-10 | https://content.toastmasters.org/raw/upload/297-keeping-the-commitment.zip | 297A p. 5; 297A p. 6 | https://www.toastmasters.org/EducationProgramFAQ; https://content.toastmasters.org/image/upload/1111-distinguished-club-program.pdf | 未发现来源冲突；当前 Promise 原文及项目规则必须即时核实。 | 把 A Toastmaster's Promise 联系到可靠准备、出席、尊重支持与俱乐部共同责任。 |
 | going-beyond | Going Beyond Our Club | 3 | 298A | https://www.toastmasters.org/resources/going-beyond-our-club | NOT SUPPLIED | 10-15 minutes | 2026-11-10 | https://content.toastmasters.org/raw/upload/298-going-beyond-our-club.zip | 298A p. 5; 298A p. 6 | https://www.toastmasters.org/EducationProgramFAQ; https://www.toastmasters.org/resources/2026-2027-speech-contest-rulebook | 本地机会、日期、资格和规则在即时核实前均属未确认。 | 介绍俱乐部以外的比赛、服务、培训、会议与领导机会。 |
 | finding-new-members | Finding New Members for Your Club | 4 | 291A | https://www.toastmasters.org/resources/finding-new-members-for-your-club | https://www.toastmasters.org/resources/finding-new-members-for-your-club?utm_source=lms&utm_medium=path&utm_campaign=pathways-enhancements | 10-15 minutes | 2026-11-10 | https://content.toastmasters.org/raw/upload/291-finding-new-members.zip | 291A p. 5; 291A p. 6 | https://www.toastmasters.org/EducationProgramFAQ; https://www.toastmasters.org/membership/leadership/club-officer-tools/membership-building | 会员发展活动和认可项目会变化，使用前必须即时核实。 | 让发展新会员成为全体会员共同关心的事，并改善访客接待、再次来访与加入邀请。 |

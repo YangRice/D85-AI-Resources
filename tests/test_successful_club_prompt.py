@@ -80,7 +80,7 @@ MODULE_CONTRACT_MARKERS = {
         "mentoring": ("support-or-takeover", "four-stage relationship map", "VPE"),
     },
     "zh": {
-        "club-climate": ("官方 Model Club Checklist", "干事"),
+        "club-climate": ("官方 Model Club Checklist", "俱乐部官员"),
         "meeting-roles": ("目的与交接图", "VPE"),
         "keeping-commitment": ("Toastmaster's Promise", "私下反思"),
         "going-beyond": ("已核实的公开本地例子", "报名"),
@@ -652,15 +652,26 @@ class SuccessfulClubPortablePackage(unittest.TestCase):
                 self.assertIn(url, texts["en"])
                 self.assertIn(url, texts["zh"])
 
-    def test_meeting_roles_zh_uses_canonical_officer_term(self):
-        folder = ROOT / "skills" / SKILL_ID / "references"
-        _, rows = parse_topic_register(folder / "topic-register.zh.md")
-        canonical_term = "干事"
-        self.assertIn(canonical_term, rows["meeting-roles"]["brief_summary"])
+    def test_chinese_sources_use_canonical_club_officer_term(self):
+        folder = ROOT / "skills" / SKILL_ID
+        paths = (
+            "SKILL.zh.md",
+            "references/topic-register.zh.md",
+            *(f"references/{stem}.zh.md" for stem in (
+                "club-climate", "closing-the-sale", "distinguished-club", "education-program",
+                "going-beyond", "keeping-commitment", "meeting-roles", "mentoring", "moments-of-truth",
+            )),
+        )
+        for path in paths:
+            with self.subTest(source=path):
+                contents = (folder / path).read_text(encoding="utf-8")
+                self.assertIn("俱乐部官员", contents)
+                self.assertNotRegex(contents, r"干部|干事")
 
-        module = (folder / "meeting-roles.zh.md").read_text(encoding="utf-8")
-        self.assertIn(canonical_term, module)
-        self.assertNotIn("干部", module)
+    def test_chinese_portable_prompt_supplies_club_officer_term_offline(self):
+        output = (ROOT / "prompts" / f"{SKILL_ID}.zh.md").read_text(encoding="utf-8")
+        self.assertRegex(output, r"Club Officer\s+译为[“\"]俱乐部官员[”\"]")
+        self.assertNotRegex(output, r"干部|干事")
 
     def test_native_only_reference_paths_are_validated_and_rewritten(self):
         with tempfile.TemporaryDirectory() as temp:

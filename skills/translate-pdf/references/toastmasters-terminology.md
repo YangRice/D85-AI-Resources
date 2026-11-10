@@ -1,17 +1,47 @@
-# Toastmasters terminology for PDF translation
+<!-- Generated from references/toastmasters-terminology.md. Do not edit this mirror manually. -->
 
-Read the [shared Toastmasters glossary](https://github.com/YangRice/D85-AI-Resources/blob/main/skills/poster-image-translation-redesign/references/toastmasters-terminology.md) for meeting roles and general terminology. In a full repository checkout, the same file is available at [the local shared glossary](../../poster-image-translation-redesign/references/toastmasters-terminology.md). Use either accessible copy; do not require both.
+# Approved Toastmasters Terminology
 
-The shared glossary is written primarily for English-to-Chinese translation. For English output, use the English column; for Chinese output, follow its Chinese wording and context rules. The supplement below provides Pathways names and source aliases that are not all covered there. It supplements, rather than updates, the source program requirements.
+Use the first Chinese translation as the default. Use an alternative after `/` only when context clearly requires it, and keep the selected wording consistent throughout each translated deliverable.
 
-## Pathways supplement
-
-For Toastmasters material translated into English, use these established terms consistently. Apply them only where the corresponding source content occurs; do not add absent projects or change the source program version. For other target languages, use the appropriate established terminology rather than forcing English.
-
-- 必修 = Required; 选修 = Elective; 学习路径 = path; 项目 = project.
-- 掌握基础 = Mastering Fundamentals; 了解风格 = Learning Your Style; 增长知识 = Increasing Knowledge; 培养技能 = Building Skills; 展示专业 = Demonstrating Expertise.
-- 动态领导 = Dynamic Leadership; 愿景沟通 = Visionary Communication; 激励策略 = Motivational Strategies; 有说服力的影响 = Persuasive Influence; 精通演讲 = Presentation Mastery; 运用幽默 = Engaging Humor.
-- 初试啼声 = Ice Breaker; 撰写带有目的性的演讲稿 = Writing a Speech with Purpose; 声音与肢体语言 = Introduction to Vocal Variety and Body Language; 评估与反馈 = Evaluation and Feedback.
-- 了解你的领导风格 = Understanding Your Leadership Style; 了解你的沟通风格 = Understanding Your Communication Style; Toastmasters 导师计划 = Introduction to Toastmasters Mentoring; 反思你的学习路径 = Reflect on Your Path; 杰出会员 = Distinguished Toastmaster (DTM).
-
-Preserve source acronyms such as TI, VPE, VPM, VPPR, SAA, TMoD, TTM, GE, DTM, and path codes. For unlisted projects, use the official target-language title when reliably established; otherwise translate consistently and flag unverified terminology in the delivery note. Never use terminology lookup to silently update source requirements.
+| English | Approved Chinese translation |
+|---|---|
+| Toastmasters International (TI) | 国际头马 / Toastmasters 国际演讲会 |
+| Toastmasters Club | 演讲俱乐部 / 头马俱乐部（“头马”是会员圈常用简称） |
+| Club Meeting | 俱乐部会议 |
+| Meeting Role | 会议角色 |
+| Club Officer | 俱乐部官员 |
+| Club President | 主席 |
+| Vice President Education (VPE) | 教育副主席 |
+| Vice President Membership (VPM) | 会员副主席 |
+| Vice President Public Relations (VPPR) | 公关副主席 |
+| Secretary | 秘书长 |
+| Treasurer | 财务 / 财务官 |
+| Sergeant at Arms (SAA) | 接待官 |
+| Toastmaster of the Day (TMoD / Toastmaster) | 会议主持人 / 当日主持 |
+| General Evaluator (GE) | 总评 |
+| Evaluator | 点评人 |
+| Individual Evaluator | 个人点评人 |
+| Speech Evaluator | 演讲点评人 / 个人点评人 |
+| Prepared Speech | 备稿演讲 |
+| Speaker | 演讲者 / 演讲人 |
+| Table Topics | 即兴演讲 |
+| Table Topics Master (TTM) | 即兴演讲主持人 |
+| Timer | 时间官 |
+| Grammarian | 语言官（中文俱乐部常用译法） |
+| Ah-Counter | 哼哈官 |
+| Word of the Day | 每日一词 |
+| Guest | 来宾 |
+| New Member | 新会员 |
+| Induction | 入会仪式 |
+| Ice Breaker Speech | 破冰演讲 |
+| Pathways | 学习路径 |
+| Project | 项目 |
+| Level | 阶段 |
+| Evaluation | 点评 |
+| Feedback | 反馈 |
+| Contest | 演讲比赛 |
+| International Speech Contest | 国际演讲比赛 |
+| Humorous Speech Contest | 幽默演讲比赛 |
+| Table Topics Contest | 即兴演讲比赛 |
+| Distinguished Toastmaster (DTM) | 杰出演讲会会员（DTM） |
