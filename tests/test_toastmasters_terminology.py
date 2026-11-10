@@ -345,3 +345,64 @@ class ChineseTerminologyContracts(unittest.TestCase):
             ("C13/C16 speech ownership", "give-and-apply-toastmasters-feedback.zh.md", "发布反馈，尊重演讲者内容所有权"),
             ("C16 Pathways navigation", "navigate-pathways-learning.zh.md", "领导力、研究、辅导、反馈"),
         ))
+
+    def test_egg_formal_evaluation_and_scored_diagnostics_keep_distinct_labels(self):
+        egg = "egg-toastmasters-speech-mentor"
+        router = f"{egg}/SKILL.zh.md"
+        playbook = f"{egg}/references/evaluation-playbook.md"
+        cases = f"{egg}/references/case-study-and-peer-eval.md"
+        nvc = f"{egg}/references/nonviolent-communication.md"
+        persuasion = f"{egg}/references/guiguzi-persuasion.md"
+        self.assert_phrases("skills", (
+            ("weekly formal evaluation capability", router, "点评技巧排最后但频次最高"),
+            ("weekly formal evaluation practice", router, "会员每周例会都在做点评"),
+            ("evaluation workshop route", router, "**点评工坊**（独立支线）"),
+            ("speaking feedback example", playbook, "这本身就是最好的点评"),
+            ("formal evaluation red lines", playbook, "## 8. 点评的禁忌与红线"),
+            ("formal evaluation structure", nvc, "点评的结构、时间分配与角色流程"),
+            ("timed General Evaluator structure", nvc, "不能替代点评结构（总评仍按 2.5 分钟"),
+            ("assigned evaluation role", f"{egg}/references/jobs-presentation-secrets.md", "点评角色比演讲者低调半档"),
+            ("individual evaluator's opening", persuasion, "个评怎么开口 | 点评 | `evaluation-playbook.md`"),
+            ("numeric diagnostic library index", router, "三明治法、真实评估定级案例库"),
+            ("numeric diagnostic library cross-reference", playbook, "**真实评估定级案例库**（《旧木箱》78 分"),
+            ("numeric diagnostic library contents", cases, "③真实评估定级案例库"),
+            ("numeric diagnostic library section", cases, "## 三、真实评估定级案例库"),
+            ("Mode B prepared-speech rubric", playbook, "模式 B 的备稿演讲七维诊断表"),
+            ("formal individual evaluation technique", cases, "点评三明治法（用户担任个人点评人时使用）"),
+            ("NVC concept", nvc, "评论（Evaluations）"),
+        ))
+
+    def test_egg_names_assigned_people_in_meeting_reports_and_speech_guidance(self):
+        egg = "egg-toastmasters-speech-mentor"
+        router = f"{egg}/SKILL.zh.md"
+        playbook = f"{egg}/references/evaluation-playbook.md"
+        persuasion = f"{egg}/references/guiguzi-persuasion.md"
+        self.assert_phrases("skills", (
+            ("assigned individual evaluators", playbook, "个人点评人是否都守时、结构是否完整？"),
+            ("whole-meeting host transitions", playbook, "会议主持人串场是否流畅"),
+            ("whole-meeting host index", router, "会议角色（总评/语言官/哼哈官/会议主持人等）"),
+            ("speaker guiding delivery", router, "鬼谷子留给演讲者的东西"),
+            ("speaker practice section", persuasion, "本经阴符七术：演讲者的内功"),
+            ("speaker practice abilities", persuasion, "| 演讲者的什么能力 |"),
+        ))
+
+    def test_official_pathways_authority_is_named_in_tool_finder(self):
+        phrase = "Pathways 项目要求和完成认定以国际头马的官方资料及俱乐部指导为准"
+        self.assert_phrases("skills", (
+            ("official Toastmasters authority", "find-tmcompanion-tool/SKILL.zh.md", phrase),
+        ))
+        self.assert_phrases("prompts", (
+            ("official Toastmasters authority", "find-tmcompanion-tool.zh.md", phrase),
+        ))
+
+    def test_meeting_role_guides_name_the_people_receiving_evaluation_or_handoff(self):
+        handoff = "结束时按议程交接给时间官、即兴演讲点评人或会议主持人"
+        self.assert_phrases("skills", (
+            ("speaker receiving official evaluation", "prepare-successful-club-presentation/references/meeting-roles.zh.md",
+             "适用于演讲者的正确官方点评资料"),
+            ("Topicsmaster's handoff recipients", "prepare-topicsmaster-role/references/role-guide.zh.md", handoff),
+        ))
+        self.assert_phrases("prompts", (
+            ("Topicsmaster's handoff recipients", "prepare-topicsmaster-role.zh.md", handoff),
+            ("aggregate handoff recipients", "perform-toastmasters-meeting-role.zh.md", handoff),
+        ))
