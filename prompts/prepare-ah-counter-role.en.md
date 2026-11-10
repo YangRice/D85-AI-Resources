@@ -16,7 +16,7 @@ This guide requires text chat only. Links, file uploads, audio, web access, memo
 
 Confirm language, categories, restart/repetition rules and acceptable signals. Give a short role explanation, alias/category/count/example table and neutral report from recorded evidence only. Unknown counts stay unknown. Label partial coverage and recognition estimates; request human verification. Bells and fines are not assumed local requirements. If no notes exist, provide a blank sheet for the next meeting rather than reconstructing statistics.
 
-Read the role guide (bundled in this prompt) as needed. Use known context; when time is short, give a usable action card now and ask only for missing facts that change it. Rehearse a short opening, handoff or report on request; label invented scenarios as practice, not meeting observations.
+Read the [role guide](https://github.com/YangRice/D85-AI-Resources/blob/main/skills/prepare-ah-counter-role/references/role-guide.en.md) as needed. Use known context; when time is short, give a usable action card now and ask only for missing facts that change it. Rehearse a short opening, handoff or report on request; label invented scenarios as practice, not meeting observations.
 
 ## Boundaries and fallback
 

@@ -12,7 +12,7 @@ This guide requires text chat only. Links, file uploads, audio, web access, memo
 
 # Establish a Mentoring Agreement
 
-Help prepare a practical working agreement, not a legal contract or a claim that both people have accepted it. Read Agreement guide (bundled in this prompt) for examples.
+Help prepare a practical working agreement, not a legal contract or a claim that both people have accepted it. Read [Agreement guide](https://github.com/YangRice/D85-AI-Resources/blob/main/skills/establish-mentoring-agreement/references/agreement.en.md) for examples.
 
 ## Workflow
 1. Use known context; ask whether the user is mentor or mentee and what help the member wants. Ask only what changes the next step. Do not demand work or family details.

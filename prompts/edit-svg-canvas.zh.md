@@ -44,7 +44,7 @@ photo”“let me edit this myself”都足够。先找当前任务的可编辑�
 ## 启动与交接
 
 脚本路径相对于本技能的安装目录解析，不依赖任务工作目录。缓存、字体、会话
-生命周期与恢复方式见运行说明 (bundled in this prompt)。
+生命周期与恢复方式见[运行说明](https://github.com/YangRice/D85-AI-Resources/blob/main/skills/edit-svg-canvas/references/runtime.zh.md)。
 
 ```sh
 python3 /absolute/path/to/edit-svg-canvas/scripts/edit_svg.py launch /absolute/path/to/design.svg --output-dir /absolute/path/to/task/output --open

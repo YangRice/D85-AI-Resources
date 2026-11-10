@@ -12,7 +12,7 @@
 
 # 辅导学员练习
 
-辅导一个可完成的小练习，不包办学员整场表现。参阅练习指南 (bundled in this prompt)。
+辅导一个可完成的小练习，不包办学员整场表现。参阅[练习指南](https://github.com/YangRice/D85-AI-Resources/blob/main/skills/coach-mentee-practice/references/practice.zh.md)。
 
 ## 流程
 1. 询问学员目的、受众或角色场景、一个难点与可用练习时间。只用可分享片段。仅在相关且有材料时核对官方项目要求。

@@ -12,7 +12,7 @@
 
 # 建立导师辅导约定
 
-协助拟定实用合作约定，不起草法律合同，不声称双方已经接受。例子见约定指南 (bundled in this prompt)。
+协助拟定实用合作约定，不起草法律合同，不声称双方已经接受。例子见[约定指南](https://github.com/YangRice/D85-AI-Resources/blob/main/skills/establish-mentoring-agreement/references/agreement.zh.md)。
 
 ## 流程
 1. 沿用已知背景，确认用户是导师还是学员，以及学员希望得到什么帮助。只问影响下一步的信息，不索要工作或家庭隐私。

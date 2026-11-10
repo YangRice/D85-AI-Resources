@@ -11,6 +11,7 @@ from __future__ import annotations
 import json
 import re
 from pathlib import Path
+from urllib.parse import quote
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -21,6 +22,7 @@ INTEGRATIONS = json.loads(
 OUT_DIR = ROOT / "prompts"
 FRONTMATTER_RE = re.compile(r"^---\n.*?\n---\n", re.DOTALL)
 ACTION_RE = re.compile(r"`action:([a-z0-9-]+)`")
+REFERENCE_BLOB_BASE = "https://github.com/YangRice/D85-AI-Resources/blob/main"
 
 LANG = {
     "en": {
@@ -114,7 +116,14 @@ def portable_body(item: dict, lang: str, included_refs: set[str] | None = None) 
         if not path.is_relative_to(directory):
             raise ValueError(f"Reference escapes skill package: {filename}")
         reference = path.read_text(encoding="utf-8").strip()
-        body = re.sub(r"\[([^\]]+)\]\(references/" + re.escape(filename) + r"\)", r"\1 (bundled in this prompt)", body)
+        reference_url = (
+            f"{REFERENCE_BLOB_BASE}/skills/{quote(item['id'])}/references/{quote(filename)}"
+        )
+        body = re.sub(
+            r"\[([^\]]+)\]\(references/" + re.escape(filename) + r"\)",
+            lambda match: f"[{match.group(1)}]({reference_url})",
+            body,
+        )
         if reference not in included_refs:
             body += "\n\n" + reference
             included_refs.add(reference)

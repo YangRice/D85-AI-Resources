@@ -43,7 +43,7 @@ AI 角色的回应由 AI 自己生成，不能作为用户提问有效、促成�
 
 # 建立导师辅导约定
 
-协助拟定实用合作约定，不起草法律合同，不声称双方已经接受。例子见约定指南 (bundled in this prompt)。
+协助拟定实用合作约定，不起草法律合同，不声称双方已经接受。例子见[约定指南](https://github.com/YangRice/D85-AI-Resources/blob/main/skills/establish-mentoring-agreement/references/agreement.zh.md)。
 
 ## 流程
 1. 沿用已知背景，确认用户是导师还是学员，以及学员希望得到什么帮助。只问影响下一步的信息，不索要工作或家庭隐私。
@@ -85,7 +85,7 @@ AI 角色的回应由 AI 自己生成，不能作为用户提问有效、促成�
 
 # 辅导学员练习
 
-辅导一个可完成的小练习，不包办学员整场表现。参阅练习指南 (bundled in this prompt)。
+辅导一个可完成的小练习，不包办学员整场表现。参阅[练习指南](https://github.com/YangRice/D85-AI-Resources/blob/main/skills/coach-mentee-practice/references/practice.zh.md)。
 
 ## 流程
 1. 询问学员目的、受众或角色场景、一个难点与可用练习时间。只用可分享片段。仅在相关且有材料时核对官方项目要求。
@@ -129,7 +129,7 @@ AI 角色的回应由 AI 自己生成，不能作为用户提问有效、促成�
 
 # 练习导师辅导对话
 
-明确标注为模拟，不当作真实会员对话。参阅对话指南 (bundled in this prompt)。
+明确标注为模拟，不当作真实会员对话。参阅[对话指南](https://github.com/YangRice/D85-AI-Resources/blob/main/skills/practice-mentoring-conversation/references/conversation.zh.md)。
 
 ## 流程
 1. 沿用背景，或问用户想练哪个角色与场景。可提供虚构的紧张新手、要求整篇代写、不同意反馈等情境，不索要可识别会员档案。
@@ -175,7 +175,7 @@ AI 角色的回应由 AI 自己生成，不能作为用户提问有效、促成�
 
 # 回顾导师辅导关系
 
-回顾辅导是否帮助学员逐渐独立。参阅关系回顾指南 (bundled in this prompt)。
+回顾辅导是否帮助学员逐渐独立。参阅[关系回顾指南](https://github.com/YangRice/D85-AI-Resources/blob/main/skills/review-mentoring-relationship/references/relationship-review.zh.md)。
 
 ## 流程
 1. 确认当前是谁的视角、实际约定、发生何种变化以及一个具体例子。区分用户转述、独立观察事实与缺席一方的未知视角。

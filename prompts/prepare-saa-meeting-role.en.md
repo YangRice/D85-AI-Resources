@@ -16,7 +16,7 @@ This guide requires text chat only. Links, file uploads, audio, web access, memo
 
 Confirm that the request concerns execution for one identified meeting, then confirm format, venue/access facts, agenda and organizer contacts. Keep the user's elected SAA identity if applicable; do not reclassify the scoped meeting task merely because they hold the term office. For hybrid meetings assign online inclusion and host backup. Give a before/during/close checklist and one short opening; mark unknown exit or access details as placeholders. If there is an equipment failure, offer a quiet fallback and escalate to the responsible organizer, not an invented safety procedure.
 
-Read the role guide (bundled in this prompt) as needed. Use known context; when time is short, give a usable action card now and ask only for missing facts that change it. Rehearse a short opening, handoff or report on request; label invented scenarios as practice, not meeting observations.
+Read the [role guide](https://github.com/YangRice/D85-AI-Resources/blob/main/skills/prepare-saa-meeting-role/references/role-guide.en.md) as needed. Use known context; when time is short, give a usable action card now and ask only for missing facts that change it. Rehearse a short opening, handoff or report on request; label invented scenarios as practice, not meeting observations.
 
 ## Boundaries and fallback
 

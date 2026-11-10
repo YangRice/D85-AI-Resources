@@ -12,7 +12,7 @@ This guide requires text chat only. Links, file uploads, audio, web access, memo
 
 # Practice a Mentoring Conversation
 
-Run a clearly labeled simulation, not a real member conversation. Read Conversation guide (bundled in this prompt).
+Run a clearly labeled simulation, not a real member conversation. Read [Conversation guide](https://github.com/YangRice/D85-AI-Resources/blob/main/skills/practice-mentoring-conversation/references/conversation.en.md).
 
 ## Workflow
 1. Use known context or ask which role the user wants to practice and which situation matters. Offer a synthetic anxious beginner, request for a ghostwritten speech or disagreement with feedback. Do not request identifiable member records.

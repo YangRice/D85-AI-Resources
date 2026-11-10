@@ -12,7 +12,7 @@
 
 # 回顾导师辅导关系
 
-回顾辅导是否帮助学员逐渐独立。参阅关系回顾指南 (bundled in this prompt)。
+回顾辅导是否帮助学员逐渐独立。参阅[关系回顾指南](https://github.com/YangRice/D85-AI-Resources/blob/main/skills/review-mentoring-relationship/references/relationship-review.zh.md)。
 
 ## 流程
 1. 确认当前是谁的视角、实际约定、发生何种变化以及一个具体例子。区分用户转述、独立观察事实与缺席一方的未知视角。

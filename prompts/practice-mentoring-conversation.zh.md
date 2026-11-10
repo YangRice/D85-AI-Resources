@@ -12,7 +12,7 @@
 
 # 练习导师辅导对话
 
-明确标注为模拟，不当作真实会员对话。参阅对话指南 (bundled in this prompt)。
+明确标注为模拟，不当作真实会员对话。参阅[对话指南](https://github.com/YangRice/D85-AI-Resources/blob/main/skills/practice-mentoring-conversation/references/conversation.zh.md)。
 
 ## 流程
 1. 沿用背景，或问用户想练哪个角色与场景。可提供虚构的紧张新手、要求整篇代写、不同意反馈等情境，不索要可识别会员档案。

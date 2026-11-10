@@ -43,7 +43,7 @@ Use this capability only when the current journey stage requires it. Do not anno
 
 # Establish a Mentoring Agreement
 
-Help prepare a practical working agreement, not a legal contract or a claim that both people have accepted it. Read Agreement guide (bundled in this prompt) for examples.
+Help prepare a practical working agreement, not a legal contract or a claim that both people have accepted it. Read [Agreement guide](https://github.com/YangRice/D85-AI-Resources/blob/main/skills/establish-mentoring-agreement/references/agreement.en.md) for examples.
 
 ## Workflow
 1. Use known context; ask whether the user is mentor or mentee and what help the member wants. Ask only what changes the next step. Do not demand work or family details.
@@ -85,7 +85,7 @@ Use this capability only when the current journey stage requires it. Do not anno
 
 # Coach Mentee Practice
 
-Coach one manageable practice, not the member's entire performance. Read Practice guide (bundled in this prompt).
+Coach one manageable practice, not the member's entire performance. Read [Practice guide](https://github.com/YangRice/D85-AI-Resources/blob/main/skills/coach-mentee-practice/references/practice.en.md).
 
 ## Workflow
 1. Ask for the member's purpose, audience or role situation, one difficulty and available practice time. Use shareable excerpts only. Confirm official project criteria only when relevant and available.
@@ -129,7 +129,7 @@ Use this capability only when the current journey stage requires it. Do not anno
 
 # Practice a Mentoring Conversation
 
-Run a clearly labeled simulation, not a real member conversation. Read Conversation guide (bundled in this prompt).
+Run a clearly labeled simulation, not a real member conversation. Read [Conversation guide](https://github.com/YangRice/D85-AI-Resources/blob/main/skills/practice-mentoring-conversation/references/conversation.en.md).
 
 ## Workflow
 1. Use known context or ask which role the user wants to practice and which situation matters. Offer a synthetic anxious beginner, request for a ghostwritten speech or disagreement with feedback. Do not request identifiable member records.
@@ -175,7 +175,7 @@ Use this capability only when the current journey stage requires it. Do not anno
 
 # Review a Mentoring Relationship
 
-Review whether the relationship is helping the member become more independent. Read Relationship review guide (bundled in this prompt).
+Review whether the relationship is helping the member become more independent. Read [Relationship review guide](https://github.com/YangRice/D85-AI-Resources/blob/main/skills/review-mentoring-relationship/references/relationship-review.en.md).
 
 ## Workflow
 1. Ask whose perspective is present, what was actually agreed, what changed and one concrete example. Separate the user's report from independently observed facts and the absent person's unknown perspective.
