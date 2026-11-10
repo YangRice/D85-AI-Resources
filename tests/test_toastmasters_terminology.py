@@ -470,3 +470,64 @@ class ChineseTerminologyContracts(unittest.TestCase):
             ("later contest shorthand", f"{references}/jobs-presentation-secrets.md",
              "但**头马比赛通常不允许道具**"),
         ))
+
+    def test_egg_introduces_formal_contests_in_each_independent_context(self):
+        egg = "egg-toastmasters-speech-mentor"
+        self.assert_phrases("skills", (
+            ("contest option in user form", f"{egg}/SKILL.zh.md",
+             "1. 特定场合：____（头马演讲比赛、公司年会、毕业典礼等）"),
+            ("contest judges in audience table", f"{egg}/references/audience-analysis.md",
+             "| **头马演讲比赛评委** | 内容/表达/语言三维"),
+            ("D85 contest scenario", f"{egg}/references/audience-analysis.md",
+             "| **D85 小区/中区/大区演讲比赛** | 陌生评委 + 陌生观众"),
+            ("contest judging framework", f"{egg}/references/delivery-craft.md",
+             "## 0. 表达维度在演讲比赛里怎么被打分"),
+            ("contest content weighting", f"{egg}/references/efficient-speaking.md",
+             "头马演讲比赛里，内容的权重远不止 7%（内容占 50%）"),
+            ("later contest activity shorthand", f"{egg}/references/audience-analysis.md",
+             "同一篇稿子从例会搬去比赛，通常要动"),
+            ("later judging table shorthand", f"{egg}/references/delivery-craft.md",
+             "| 比赛维度 | 权重 | 表达占 30%，其中 |"),
+            ("quoted user contest shorthand", f"{egg}/SKILL.zh.md",
+             "> 用户：这是我下周比赛的稿子，帮我看看什么水平。"),
+        ))
+
+    def test_meeting_coordinator_introduces_official_speech_contest_rules(self):
+        phrase = "可选会议安排由本会确认，不自动套演讲比赛规则。"
+        self.assert_phrases("skills", (
+            ("official contest rules", "perform-toastmasters-meeting-role/SKILL.zh.md", phrase),
+        ))
+        self.assert_phrases("prompts", (
+            ("official contest rules", "perform-toastmasters-meeting-role.zh.md", phrase),
+        ))
+
+    def test_egg_indigo_report_is_diagnostic_and_formal_table_topics_stays_evaluation(self):
+        egg = "egg-toastmasters-speech-mentor"
+        playbook = f"{egg}/references/evaluation-playbook.md"
+        self.assert_phrases("skills", (
+            ("indigo diagnostic report", playbook,
+             "使用 HTML/PDF 时，即兴演讲评估报告可用靛蓝色系 `#1d4ed8` 区分。"),
+            ("formal meeting evaluation", playbook,
+             "## 3. 即兴演讲点评（Table Topics Evaluation）"),
+            ("original question requirement", playbook,
+             "用户要评即兴时，必须先拿到**题目原文**"),
+            ("diagnostic color mapping", f"{egg}/SKILL.zh.md",
+             "| 即兴评估 | `#1d4ed8` 靛蓝 |"),
+            ("diagnostic evidence rule", f"{egg}/SKILL.zh.md",
+             "沿用模式B证据规则：文字不能证明前10秒、真实停顿或时长；只给相关文本诊断。"),
+        ))
+
+    def test_successful_club_names_the_member_preparing_the_official_presentation(self):
+        references = "prepare-successful-club-presentation/references"
+        self.assert_phrases("skills", (
+            ("speaker checking speech information", f"{references}/finding-new-members.zh.md",
+             "来宾关怀延伸到会后，演讲者应先核对当前认可与会员发展信息"),
+            ("same speaker receiving cues", f"{references}/finding-new-members.zh.md",
+             "演讲者提示要区分官方提纲重点和可选教练补充"),
+            ("facilitator inviting audience participation", f"{references}/meeting-roles.zh.md",
+             "讲者也邀请听众说明角色"),
+            ("presenter handling the checklist", f"{references}/club-climate.zh.md",
+             "手册指示讲者准备**官方 Model Club Checklist**"),
+            ("contextually adjudicated presenter", f"{references}/going-beyond.zh.md",
+             "手册明确要求讲者提到本会与 District 实际举办的比赛"),
+        ))
