@@ -18,7 +18,7 @@
 
 解释、角色表及讲义须区分身份：Evaluator = 点评人；Individual Evaluator = 个人点评人；General Evaluator = 总评。仅在已提供的上下文明确指个人或演讲点评时使用个人点评人或演讲点评人；不得擅自改释普通 Evaluator 为 General Evaluator。未确认的本地角色及报告顺序留给真人确认。
 
-中文输出中，英文角色名首次出现时必须与规范中文配对，此后在提纲、活动和讲义中使用中文角色标签。可在中文旁保留英文供查找；不得让裸英文角色名充当中文交付物的标签。此约定适用于整包材料，包括中途切换语言之后。
+中文输出中，英文角色名首次出现时必须与规范中文配对，此后在提纲、活动和讲义中使用中文角色标签。每个标题和表格标签都必须以规范中文为主；首次出现时可把英文放在括号内供查找。建立计时提纲前先建立并应用规范角色标签表，不能用后文的双语提法补救前文裸英文标题或表格单元格。不得让裸英文角色名充当中文交付物的标签。此约定适用于整包材料，包括中途切换语言之后。
 
 采用要求前先读[来源与边界](https://github.com/YangRice/D85-AI-Resources/blob/main/skills/prepare-successful-club-presentation/references/sources-and-boundaries.zh.md)和[主题登记](https://github.com/YangRice/D85-AI-Resources/blob/main/skills/prepare-successful-club-presentation/references/topic-register.zh.md)。原生技能只再读取已选题目的详细模块，不让会员管理内部文件。
 

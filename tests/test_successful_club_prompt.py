@@ -718,11 +718,13 @@ class SuccessfulClubPortablePackage(unittest.TestCase):
                 "pair each English role title with its canonical Chinese name at first use",
                 "use Chinese role labels thereafter in the outline, activity and handout",
                 "Never use a bare English role title as the Chinese deliverable's label",
+                "Chinese label must be primary in every heading and table label",
             )),
             ("zh", "SKILL.zh.md", (
                 "英文角色名首次出现时必须与规范中文配对",
                 "此后在提纲、活动和讲义中使用中文角色标签",
                 "不得让裸英文角色名充当中文交付物的标签",
+                "每个标题和表格标签都必须以规范中文为主",
             )),
         ):
             folder = ROOT / "skills" / SKILL_ID
@@ -739,6 +741,13 @@ class SuccessfulClubPortablePackage(unittest.TestCase):
                                   "unconfirmed local roles" if lang == "en" else "未确认的本地角色"):
                     with self.subTest(lang=lang, surface=surface, preserved=preserved):
                         self.assertIn(preserved, text)
+
+    def test_native_english_entrypoint_switches_to_matching_chinese_detail(self):
+        text = (ROOT / "skills" / SKILL_ID / "SKILL.md").read_text(encoding="utf-8")
+        self.assertIn(
+            "replace the selected English detailed module with its matching Chinese module before drafting",
+            text,
+        )
 
     def test_native_only_reference_paths_are_validated_and_rewritten(self):
         with tempfile.TemporaryDirectory() as temp:
