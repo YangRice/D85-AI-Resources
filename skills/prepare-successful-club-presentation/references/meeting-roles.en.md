@@ -15,6 +15,8 @@ Source: [official resource](https://www.toastmasters.org/resources/meeting-roles
 
 Teach how participants and officers work together to create a smooth, engaging meeting. The source is an **overview**, not training in only one role or a set of universal local scripts. Cover:
 
+In a requested role list, Evaluator = 点评人 and General Evaluator = 总评. An individual or speech evaluator may be labeled 个人点评人 or 演讲点评人 when that scope is explicit; never silently reinterpret a generic Evaluator as General Evaluator because the manual describes that role. Keep unconfirmed local roles and reporting order explicitly unknown.
+
 - **Assigned meeting participants:** Toastmaster, Topicsmaster, speakers, General Evaluator, speech evaluators, Timer, Grammarian and Ah-Counter. Explain their purposes and handoffs, including how evaluation/reporting supports learning.
 - **Additional local roles:** ask what the club actually uses and briefly explain those duties. The manual gives examples such as Jokemaster, Vote Counter and Parliamentarian; their appearance in a source does not make them mandatory everywhere.
 - **Officers' contributions:** Sergeant at Arms (venue/setup), President (leadership and coordination), VPE (learning needs and meeting assignments), VPPR (public communication), VPM (membership and guest experience), Secretary (records), Treasurer (financial administration). Distinguish these officer functions from meeting assignments; use current official guidance before turning operational examples into instructions.

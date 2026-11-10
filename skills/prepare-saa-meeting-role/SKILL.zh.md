@@ -3,7 +3,9 @@ name: prepare-saa-meeting-role
 description: Prepare hospitality, access, equipment and opening handoff for one Toastmasters meeting as Sergeant at Arms. Use for meeting SAA logistics, not term-level officer planning.
 ---
 
-# 准备当次会议 SAA
+# 准备当次会议接待官（SAA）
+
+中文交付中，首次出现及标题、表头、行动卡中的角色标签使用接待官（SAA）或接待官，不单写 SAA；这不改变已确认的当次会议执行范围。
 
 ## 执行
 

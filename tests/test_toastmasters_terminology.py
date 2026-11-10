@@ -439,10 +439,10 @@ class ChineseTerminologyContracts(unittest.TestCase):
         ))
 
     def test_egg_crc_attribution_names_toastmasters_international(self):
-        self.assert_phrases("skills", (
-            ("institution named in CRC attribution", "egg-toastmasters-speech-mentor/references/evaluation-playbook.md",
-             "**CRC**（Commend-Recommend-Commend） | 表扬 → 建议 → 表扬 | 国际头马官方体系，英文俱乐部常用"),
-        ))
+        playbook = (ROOT / "skills/egg-toastmasters-speech-mentor/references/evaluation-playbook.md").read_text(encoding="utf-8")
+        crc_row = next(line for line in playbook.splitlines() if line.startswith("| **CRC**"))
+        # Terminology only: this does not verify or freeze the attribution claim.
+        self.assertIn("国际头马", crc_row)
 
     def test_egg_nvc_capability_names_the_formal_evaluation_context(self):
         egg = "egg-toastmasters-speech-mentor"
@@ -466,9 +466,9 @@ class ChineseTerminologyContracts(unittest.TestCase):
             ("D85 contest scenario", f"{references}/structure-and-logic.md",
              "| 头马演讲比赛（小区/中区/大区 D85） |"),
             ("contest in prop guidance", f"{references}/jobs-presentation-secrets.md",
-             "头马演讲比赛通常**不允许道具**"),
+             "头马演讲比赛"),
             ("later contest shorthand", f"{references}/jobs-presentation-secrets.md",
-             "但**头马比赛通常不允许道具**"),
+             "但**头马比赛"),
         ))
 
     def test_egg_introduces_formal_contests_in_each_independent_context(self):
@@ -531,3 +531,86 @@ class ChineseTerminologyContracts(unittest.TestCase):
             ("contextually adjudicated presenter", f"{references}/going-beyond.zh.md",
              "手册明确要求讲者提到本会与 District 实际举办的比赛"),
         ))
+
+    def test_successful_club_public_chinese_pathways_input_uses_stage(self):
+        readme = (ROOT / "README.md").read_text(encoding="utf-8")
+        section = readme.split("### Successful Club Series", 1)[1].split("\n---", 1)[0]
+        self.assertIn("没有阶段限制", section)
+        self.assertNotIn("等级", section)
+        item = next(item for item in json.loads((ROOT / "catalog/skills.json").read_text())["skills"]
+                    if item["id"] == "prepare-successful-club-presentation")
+        label = "是否用于当前 Pathways 学分？如果是，请提供学习路径语言与阶段："
+        self.assertIn(label, item["input_fields"]["zh"])
+        self.assertIn(label, (ROOT / "prompts/prepare-successful-club-presentation.zh.md").read_text())
+
+    def test_successful_club_keeps_generic_and_general_evaluators_distinct(self):
+        for lang, native in (("en", "SKILL.md"), ("zh", "SKILL.zh.md")):
+            paths = (
+                f"skills/prepare-successful-club-presentation/{native}",
+                f"skills/prepare-successful-club-presentation/references/meeting-roles.{lang}.md",
+                f"prompts/prepare-successful-club-presentation.{lang}.md",
+            )
+            for path in paths:
+                with self.subTest(path=path):
+                    text = (ROOT / path).read_text(encoding="utf-8")
+                    self.assertIn("Evaluator = 点评人", text)
+                    self.assertIn("General Evaluator = 总评", text)
+                    self.assertIn("never silently reinterpret" if lang == "en" else "不得擅自改释", text)
+                    self.assertIn("unconfirmed local roles" if lang == "en" else "未确认的本地角色", text)
+
+    def test_officer_handoff_requires_chinese_role_labels_in_the_deliverable(self):
+        paths = ("skills/serve-toastmasters-club-officer/SKILL.zh.md",
+                 "prompts/serve-toastmasters-club-officer.zh.md")
+        for path in paths:
+            with self.subTest(path=path):
+                text = (ROOT / path).read_text(encoding="utf-8")
+                for label in ("接待官（SAA）", "教育副主席（VPE）", "时间官（Timer）", "秘书长（Secretary）"):
+                    self.assertIn(label, text)
+                self.assertIn("首次出现及标题、表头、行动卡中的角色标签", text)
+                self.assertIn("不得只用英文或缩写", text)
+                self.assertIn("计时、实测用时等动作与证据描述", text)
+
+    def test_role_and_pathways_atomics_carry_the_chinese_output_contract(self):
+        for skill, label in (
+            ("prepare-saa-meeting-role", "接待官（SAA）"),
+            ("serve-club-secretary", "秘书长（Secretary）"),
+            ("serve-club-vpe", "教育副主席（VPE）"),
+            ("understand-pathways-project", "时间官（Timer）"),
+        ):
+            for path in (f"skills/{skill}/SKILL.zh.md", f"prompts/{skill}.zh.md"):
+                with self.subTest(path=path):
+                    text = (ROOT / path).read_text(encoding="utf-8")
+                    self.assertIn(label, text)
+                    self.assertIn("首次出现及标题、表头、行动卡中的角色标签", text)
+
+    def test_powerpoint_overflow_stops_before_geometry_or_margin_changes(self):
+        for path in ("skills/powerpoint-translation-redesign/references/portable-workflow.md",
+                     "prompts/powerpoint-translation-redesign.md"):
+            with self.subTest(path=path):
+                text = (ROOT / path).read_text(encoding="utf-8")
+                for contract in (
+                    "Do not resize or move text boxes, change internal margins",
+                    "Flag overflow before proposing any geometry or spacing change",
+                    "explicit human approval before making any such change",
+                    "Apply this rule to manual instructions as well as file edits",
+                ):
+                    self.assertIn(contract, text)
+
+    def test_chinese_coaching_uses_role_headings_and_localized_report_sections(self):
+        for path in ("skills/toastmasters-speech-coaching-team/references/portable-workflow.md",
+                     "prompts/toastmasters-speech-coaching-team.md"):
+            with self.subTest(path=path):
+                text = (ROOT / path).read_text(encoding="utf-8")
+                for heading in ("内容教练", "个人点评人", "时间官", "语言官", "哼哈官"):
+                    self.assertRegex(text, rf"(?m)^## {heading}$")
+                for label in ("所用证据：", "置信度：高 / 中 / 低", "### 优点", "### 发现",
+                              "观察：", "证据：", "影响：", "### 建议", "### 局限",
+                              "## 综合反馈", "### 下一次练习计划"):
+                    self.assertIn(label, text)
+                self.assertIn("not only a ROLE line", text)
+                # English requests and evidence limitations retain their existing contract.
+                self.assertIn("For English output, use the English report and synthesis templates below.", text)
+                for preserved in ("ROLE: {role name}", "EVIDENCE USED:", "## Holistic Team Synthesis",
+                                  "Do **not** invent delivery, timing, gesture, or filler-word evidence",
+                                  "Never claim that independent agents were used unless they actually were."):
+                    self.assertIn(preserved, text)

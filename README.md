@@ -84,11 +84,11 @@ skills/{answer-table-topics-question, build-speech-outline, …}/SKILL.md + agen
 
 One entry covers all eleven Successful Club Series topics assigned across Pathways Levels 3-5. When current credit matters, it routes within the member's level; with no Pathways level constraint, it chooses by the club's learning need. Native use loads one detailed topic module, while the portable prompt carries a compact verified source register. Preparation is not delivery or approval, and current-sensitive facts still require an official check.
 
-单一入口覆盖 Pathways Levels 3-5 对应的 11 个 Successful Club Series 主题。涉及当前学分时按会员所在 level 选题；没有等级限制时按俱乐部学习需求选择。原生技能只读取一份详细主题模块，便携提示词使用精简且已核对的来源登记。准备不等于发表或批准，会变化的信息仍需查看官方来源。
+单一入口覆盖 Pathways Levels 3-5 对应的 11 个 Successful Club Series 主题。涉及当前学分时按会员所在阶段选题；没有阶段限制时按俱乐部学习需求选择。原生技能只读取一份详细主题模块，便携提示词使用精简且已核对的来源登记。准备不等于发表或批准，会变化的信息仍需查看官方来源。
 
 Examples / 例句：
 
-- `Help me prepare Mentoring as club education; I am not seeking Pathways credit and have no Pathways level constraint.` / 「请帮我准备 Mentoring 俱乐部教育分享；我不申请 Pathways 学分，也没有等级限制。」
+- `Help me prepare Mentoring as club education; I am not seeking Pathways credit and have no Pathways level constraint.` / 「请帮我准备 Mentoring 俱乐部教育分享；我不申请 Pathways 学分，也没有阶段限制。」
 - `Help me facilitate Moments of Truth as the official 60-90 minutes club assessment.` / 「请帮我按官方 60-90 分钟形式引导 Moments of Truth 俱乐部自评。」
 
 Maintenance ownership / 维护责任：repository maintainers refresh the sources when an official link or rule changes, breaks, or conflicts, and before relying on current-sensitive guidance. They reopen the official source, update only supported claims and dates, preserve URL provenance, review English/Simplified Chinese equivalence, regenerate prompts, and rerun static plus behavioral checks. This is a manual process with no automatic upstream synchronization or live-status guarantee. / 官方链接或规则变化、失效、冲突，或准备使用即时指引前，由仓库维护者重新打开官方来源，只更新有证据支持的内容与日期，保留 URL 出处，检查英文与简体中文一致性，重新生成提示词并重跑静态及行为验证；本流程为人工维护，没有自动上游同步或即时状态保证。

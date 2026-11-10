@@ -34,7 +34,7 @@ class ClubServicePackaging(unittest.TestCase):
         self.assertIn('prepare-saa-meeting-role',item['requires']+item['recommends'])
         headings={
             'en':'# Prepare SAA Meeting Role',
-            'zh':'# 准备当次会议 SAA',
+            'zh':'# 准备当次会议接待官（SAA）',
         }
         for lang,heading in headings.items():
             with self.subTest(lang=lang):

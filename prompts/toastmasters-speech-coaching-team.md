@@ -35,7 +35,38 @@ Proceed with partial inputs when there is enough speech content to evaluate; cle
 
 ### How to Produce Each Report
 
-For each of the five roles, write a report following this structure:
+For Chinese output, each report must have the canonical Chinese role name as its actual Markdown heading, not only a ROLE line or a numbered generic heading. Use these five headings; keep the content coach separate from the individual evaluator:
+
+```markdown
+## 内容教练
+## 个人点评人
+## 时间官
+## 语言官
+## 哼哈官
+```
+
+Under each heading, use this Chinese structure. Translate all section labels, confidence values and report prose into the requested Chinese variety; do not retain English field labels from the English template.
+
+```markdown
+所用证据：{实际检查的内容}
+置信度：高 / 中 / 低
+
+### 优点
+- ...
+
+### 发现
+- 观察：...
+  证据：...
+  影响：...
+
+### 建议
+1. ...
+
+### 局限
+- ...
+```
+
+For English output, use the English report and synthesis templates below. For each of the five roles, write a report following this structure:
 
 ```
 ROLE: {role name}
@@ -67,7 +98,28 @@ LIMITATIONS
 
 ### Final Synthesis
 
-After all five reports, produce a synthesis:
+After all five reports, produce a synthesis. For Chinese output, use these Chinese headings and Chinese prose:
+
+```markdown
+## 综合反馈
+
+### 各角色一致认可的优点
+（汇总有证据的共同优点）
+
+### 优先改进的三点
+（按影响排序，并注明提出建议的角色）
+
+### 角色分歧或不确定事项
+（说明意见差异与证据缺口）
+
+### 下一次练习计划
+（一次练习可完成的具体动作）
+
+### 整体评价
+（一段平衡、鼓励且坦诚的反馈）
+```
+
+For English output:
 
 ```
 ## Holistic Team Synthesis
@@ -92,6 +144,7 @@ After all five reports, produce a synthesis:
 
 - [ ] Did you produce all five distinct role reports?
 - [ ] Is every report separately labeled and complete?
+- [ ] For Chinese output, are the actual Markdown role headings, section labels and synthesis in Chinese?
 - [ ] Are observed facts vs. estimates vs. unavailable evidence clearly separated?
 - [ ] No fabricated timing, delivery, filler, or audience-response claims?
 - [ ] Does the synthesis attribute its conclusions to specific roles?

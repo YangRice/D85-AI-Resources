@@ -14,6 +14,8 @@ Edit only the text. Preserve the original presentation's design settings and vis
 
 Keep the original file intact. Line wrapping and visible text length may change as a natural result of accurate translation. Preserve fonts and other design settings, and translate the complete meaning even when the text is longer. If accurate text does not fit, flag the affected slide and text box for manual review. Check for overlap, overflow, and clipping.
 
+Do not resize or move text boxes, change internal margins, or alter layout or spacing to make text fit. Flag overflow before proposing any geometry or spacing change; preserve the current design and require explicit human approval before making any such change. Apply this rule to manual instructions as well as file edits: give the slide/text-box location, accurate replacement text and unresolved fit issue for review, not a resize-first workaround.
+
 ## Use the approved Toastmasters terminology
 
 For Toastmasters content, read the glossary included below and apply it consistently. Translate complete sentences in context, joining text split across runs where necessary. Retain acronyms such as TI, VPE, VPM, VPPR, SAA, TMoD, TTM, GE, and DTM as written in the source.

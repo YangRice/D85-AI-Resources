@@ -5,6 +5,8 @@ description: Help the club Secretary prepare accurate minutes, distinguish propo
 
 # 担任俱乐部秘书长
 
+中文交付中，首次出现及标题、表头、行动卡中的角色标签使用秘书长（Secretary）或秘书长，不单写 Secretary。
+
 用于此俱乐部职位的入职、日常工作、困难决策或交接；不是大区官员培训，也不授权操作俱乐部账号。
 
 ## 实用流程

@@ -9,6 +9,8 @@ description: "陪伴会员从 Pathways Levels 3-5 对应的 11 项 Successful Cl
 
 中文输出遵循本包的 [Toastmasters 术语表](references/toastmasters-terminology.md)，包括从其他语言切换到中文时。
 
+解释、角色表及讲义须区分身份：Evaluator = 点评人；General Evaluator = 总评。仅在已提供的上下文明确指个人或演讲点评时使用个人点评人或演讲点评人；不得擅自改释普通 Evaluator 为 General Evaluator。未确认的本地角色及报告顺序留给真人确认。
+
 采用要求前先读[来源与边界](references/sources-and-boundaries.zh.md)和[主题登记](references/topic-register.zh.md)。原生技能只再读取已选题目的详细模块，不让会员管理内部文件。
 
 ## 从用户请求开始
