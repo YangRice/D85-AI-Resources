@@ -33,7 +33,7 @@ Official-handout boundary: **retrieve the official handout and chart; do not rec
 | 290A p. 7 | Membership Strength 和 Achievement Recognition 完成六类体验。 | 会员目标、活动、DCP 信息和奖励处理都可能变化，操作建议前先查当前权威来源。 |
 | 290A p. 8 | 官方活动把参与者分为六组，使用官方 handout，每组负责一类体验并提出评分与建议。 | 获取官方 handout，不根据这些笔记重建评分表，也不把小组意见带出约定的俱乐部流程。 |
 | 290A p. 9 | 引导者收集报告和建议，把记录交给俱乐部记录员或 Secretary，并安排之后的分发和跟进。 | 会前确认谁记录、谁接收摘要、哪些内容可分享。具名评论与原始表单不进入 AI。 |
-| 290A p. 10 | 官方 Best Practices Chart 为部分来宾与评估问题提供可能原因和做法。 | 应获取当前 chart，不在这里复制完整内容；任何角色、计划或流程都先核对是否仍有效。 |
+| 290A p. 10 | 官方 Best Practices Chart 为部分来宾与点评问题提供可能原因和做法。 | 应获取当前 chart，不在这里复制完整内容；任何角色、计划或流程都先核对是否仍有效。 |
 | 290A p. 11 | Chart 继续涉及成就、保留会员与 mentoring 情况。 | 用它促进讨论，不诊断个人。只保留匿名汇总主题，由俱乐部官员负责后续。 |
 
 ## 主题专属引导

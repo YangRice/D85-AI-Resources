@@ -68,7 +68,7 @@ def validate_reference_templates(
             for lang in languages:
                 try:
                     filename = template.format(lang=lang)
-                except (KeyError, ValueError) as exc:
+                except (AttributeError, IndexError, KeyError, ValueError) as exc:
                     errors.append(f"{skill_id}: invalid {field} template {template!r}: {exc}")
                     break
                 path = (reference_dir / filename).resolve()

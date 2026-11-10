@@ -865,6 +865,30 @@ class SuccessfulClubPortablePackage(unittest.TestCase):
                         "appears in both manifests",
                     ),
                 ),
+                "automatic-field": (
+                    {
+                        "id": "fixture",
+                        "portable_references": ["{}.md"],
+                        "native_only_references": [],
+                    },
+                    ("invalid portable_references template '{}.md'",),
+                ),
+                "positional-field": (
+                    {
+                        "id": "fixture",
+                        "portable_references": ["{0}.md"],
+                        "native_only_references": [],
+                    },
+                    ("invalid portable_references template '{0}.md'",),
+                ),
+                "attribute-field": (
+                    {
+                        "id": "fixture",
+                        "portable_references": ["{lang.unknown}.md"],
+                        "native_only_references": [],
+                    },
+                    ("invalid portable_references template '{lang.unknown}.md'",),
+                ),
             }
             for label, (item, expected) in cases.items():
                 with self.subTest(case=label):
