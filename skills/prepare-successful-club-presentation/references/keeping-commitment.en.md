@@ -46,3 +46,11 @@ The manual does not prescribe a special worksheet. Optional AI-designed activiti
 Speaker cues can follow title → Participate → Interact → Maintain Club Quality, with an opening and conclusion in the member's words. Include a coverage map across all ten responsibilities, one developed example, an optional audience question and a practical takeaway. Do not force a particular slide count.
 
 After delivery, ask what application the member actually chose and what they learned from the evaluator. An optional next-meeting practice plan should have one observable action and a realistic opportunity, not a promise invented by the AI.
+
+## Topic-specific preparation contract
+
+- **Materials:** Bring the current public Toastmaster's Promise, a ten-responsibility coverage map, one anonymized example, and an optional private reflection card that is clearly not an official pledge or worksheet.
+- **Accessibility:** Read each responsibility in plain language, offer the private choice in spoken and text form, and permit silent reflection so nobody must disclose attendance, performance, or personal circumstances.
+- **Handoff and follow-through:** Keep individual choices with participants; if a club-wide idea emerges, hand only the anonymous idea to the appropriate officer and schedule a voluntary check-in rather than recording promises.
+- **Rehearsal and live evaluation:** Rehearse balanced coverage of Participate, Interact, and Maintain Club Quality; ask the evaluator to check accurate wording, a non-shaming tone, practical examples, timing, and a voluntary close.
+- **Reflection:** Ask which application the member actually chose, what the evaluator observed, and whether a realistic practice opportunity occurred, while keeping intentions distinct from completed action.

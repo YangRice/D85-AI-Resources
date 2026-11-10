@@ -35,3 +35,11 @@ Create a dated source card listing the FAQ and any current program page actually
 ## Coaching additions and output
 
 Produce a 10-15-minute outline with one goal-to-learning-choice example, a simple progression explanation, a current-source checkpoint and a next-step question. Mark current paths, interface behavior, prices, enhancements, DTM and recognition processes `VERIFY LIVE`. The output may guide the member but must not access Base Camp, approve a level, purchase a path or reproduce nonpublic course content.
+
+## Topic-specific preparation contract
+
+- **Materials:** Prepare a fictional goal-to-learning-choice card, a simple text progression map, and a dated public FAQ/source card; use no Base Camp screenshots, account records, evaluations, or private course material.
+- **Accessibility:** Make every navigation concept available as text and spoken explanation, avoid requiring a live Base Camp demonstration, and provide a low-bandwidth route using public links and copyable questions.
+- **Handoff and follow-through:** Route account-specific, path, purchase, and approval questions to the member and VPE; leave each mutable fact with a named official source and a date for rechecking.
+- **Rehearsal and live evaluation:** Rehearse stable concepts separately from `VERIFY LIVE` facts; ask the evaluator to check goal relevance, clear progression, current-source disclosure, privacy boundaries, timing, and one usable next question.
+- **Reflection:** Record what the audience understood, which program fact remains unverified, which official or VPE question the member will pursue, and no completion, purchase, or approval claim.

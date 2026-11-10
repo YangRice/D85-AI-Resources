@@ -35,3 +35,11 @@ Before delivery, add a dated “live facts” card containing only links and ver
 ## Coaching additions and output
 
 Produce a 10-15-minute outline that moves from meeting quality to mutual fit, relevant benefits, respectful invitation and officer handoff. Include one low-pressure role-play and an explicit statement that the listener may say no or decide later. Mark all amounts, application versions and processing steps `VERIFY LIVE`; the output must not send, sign, pay or submit anything.
+
+## Topic-specific preparation contract
+
+- **Materials:** Prepare a fictional guest-goal role-play, a dated live-facts card containing links and verification owners only, and the current official application and dues authorities without copying financial or form data.
+- **Accessibility:** Give the scenario and decision rights in readable text, speak every role-play instruction, and offer observer or written-response roles so nobody must perform a sales conversation publicly.
+- **Handoff and follow-through:** End at the verified Vice President Membership or treasurer handoff; the guest controls whether to continue, and no application, payment, follow-up message, or mentor assignment is created by the session.
+- **Rehearsal and live evaluation:** Rehearse asking before explaining benefits and accepting “not now”; ask the evaluator to check mutual fit, truthful claims, current-source labels, respectful language, timing, and clean officer handoff.
+- **Reflection:** Record which language preserved choice, which current fact still needs verification, and what the member learned from the evaluator—not conversion, payment, or application completion.

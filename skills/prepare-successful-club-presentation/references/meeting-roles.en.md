@@ -49,3 +49,11 @@ Speaker cues can follow title → core participants → local additions → offi
 If the requester only wants to be a Timer or Toastmaster next week, route to ordinary role preparation. Performing that role does not itself constitute this education presentation or satisfy its separate credit requirement. If the member is presenting this session, keep the full overview even when they are particularly interested in one role.
 
 After delivery, ask what the audience clarified and one teamwork improvement they would discuss with the club. Do not assign duties, contact role holders or claim changes were adopted.
+
+## Topic-specific preparation contract
+
+- **Materials:** Prepare a purpose-and-handoff map for the core roles, the club-confirmed list of local additions, one fictional handoff problem, and the correct official evaluation resource for the presenter.
+- **Accessibility:** Make the role map readable and available as text, describe visual handoffs aloud, and let remote or quiet participants contribute through voluntary chat or private reflection instead of forced speaking.
+- **Handoff and follow-through:** Give unanswered local-protocol questions to the VPE or meeting organizer, identify who owns any agreed clarification, and set a future meeting at which the club will check whether the handoff works.
+- **Rehearsal and live evaluation:** Rehearse role transitions rather than reciting titles; ask the evaluator to check purpose, sequence, confirmed local variations, hybrid inclusion, timing, and avoidance of invented club rules.
+- **Reflection:** Capture what the audience clarified, which protocol remains unverified, and one member-reported teamwork improvement to discuss, without assigning a role or claiming adoption.

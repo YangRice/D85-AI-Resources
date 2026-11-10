@@ -31,3 +31,11 @@ A compact feedback frame is: objective or speaker goal -> observed choice -> lis
 ## Coaching additions and output
 
 Produce a 10-15-minute outline with one fictional comparison exercise, two examples of respectful language and a short rehearsal. Speaker notes should separate source principles from optional wording. The output must preserve the speaker's agency, avoid a pass score and direct the live evaluator to the correct official project resource.
+
+## Topic-specific preparation contract
+
+- **Materials:** Prepare one fictional speech moment, three contrasting feedback drafts, the compact observation frame, and the correct official project evaluation resource without importing a completed identifiable evaluation.
+- **Accessibility:** Display and read each feedback example, allow silent comparison before discussion, and avoid relying on vocal, visual, health, or cultural assumptions that the speaker has not chosen to share.
+- **Handoff and follow-through:** Give live feedback only to the speaker through the club's agreed process, let the speaker choose the experiment to try, and keep private forms and comments outside AI and public notes.
+- **Rehearsal and live evaluation:** Rehearse observable-choice language and one prioritized suggestion; ask the evaluator to check preparation, speaker-centered evidence, sincere strength, actionable direction, timing, and absence of diagnosis or scoring.
+- **Reflection:** Ask what feedback the member actually delivered, how the speaker received it if reported, what the evaluator advised, and which experiment remains the speaker's choice rather than an imposed correction.

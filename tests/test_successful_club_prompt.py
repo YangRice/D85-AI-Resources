@@ -34,8 +34,65 @@ REGISTER_COLUMNS = (
     "package_url",
     "printed_locators",
     "mutable_authorities",
+    "conflict_or_uncertainty",
     "brief_summary",
 )
+REGISTER_FACT_COLUMNS = (
+    "official_title",
+    "level",
+    "item",
+    "canonical_url",
+    "supplied_lms_url",
+    "duration",
+    "research_date",
+    "package_url",
+    "printed_locators",
+    "mutable_authorities",
+)
+MODULE_CONTRACT_LABELS = {
+    "en": (
+        "Materials",
+        "Accessibility",
+        "Handoff and follow-through",
+        "Rehearsal and live evaluation",
+        "Reflection",
+    ),
+    "zh": (
+        "材料",
+        "无障碍与混合形式",
+        "交接与后续",
+        "排练与现场评估",
+        "回顾",
+    ),
+}
+MODULE_CONTRACT_MARKERS = {
+    "en": {
+        "club-climate": ("Model Club Checklist", "officer"),
+        "meeting-roles": ("purpose-and-handoff map", "VPE"),
+        "keeping-commitment": ("Toastmaster's Promise", "private reflection"),
+        "going-beyond": ("verified public local example", "registration"),
+        "finding-new-members": ("fictional guest-journey", "Vice President Membership"),
+        "closing-the-sale": ("live-facts card", "treasurer"),
+        "distinguished-club": ("299A/FAQ", "fictional Club Success Plan"),
+        "education-program": ("goal-to-learning-choice", "Base Camp"),
+        "moments-of-truth": ("six work areas", "notetaker", "60–90-minute"),
+        "evaluate-to-motivate": ("fictional speech moment", "speaker's choice"),
+        "mentoring": ("support-or-takeover", "four-stage relationship map", "VPE"),
+    },
+    "zh": {
+        "club-climate": ("官方 Model Club Checklist", "干事"),
+        "meeting-roles": ("目的与交接图", "VPE"),
+        "keeping-commitment": ("Toastmaster's Promise", "私下反思"),
+        "going-beyond": ("已核实的公开本地例子", "报名"),
+        "finding-new-members": ("虚构访客旅程", "VPM"),
+        "closing-the-sale": ("即时事实卡", "财务长"),
+        "distinguished-club": ("299A／FAQ", "虚构 Club Success Plan"),
+        "education-program": ("目标到学习选择", "Base Camp"),
+        "moments-of-truth": ("六个工作区", "记录员", "60–90 分钟"),
+        "evaluate-to-motivate": ("虚构演讲时刻", "讲者自主决定"),
+        "mentoring": ("支持还是代替", "四阶段关系图", "VPE"),
+    },
+}
 REGISTER_FACTS = {
     "club-climate": (
         "Creating the Best Club Climate",
@@ -205,6 +262,22 @@ def parse_topic_register(path: Path) -> tuple[list[str], dict[str, dict[str, str
             raise AssertionError(f"{path}: duplicate topic ID {row['topic_id']}")
         rows[row["topic_id"]] = row
     return table_lines, rows
+
+
+def parse_module_contract(text: str, lang: str) -> dict[str, str]:
+    marker = {
+        "en": "## Topic-specific preparation contract",
+        "zh": "## 主题专属准备约定",
+    }[lang]
+    if marker not in text:
+        return {}
+    section = text.split(marker, 1)[1].split("\n## ", 1)[0]
+    rows = {}
+    for label in MODULE_CONTRACT_LABELS[lang]:
+        match = re.search(rf"^- \*\*{re.escape(label)}[：:]?\*\*\s+(.+)$", section, re.MULTILINE)
+        if match:
+            rows[label] = match.group(1).strip()
+    return rows
 
 
 class SuccessfulClubPortablePackage(unittest.TestCase):
@@ -448,6 +521,24 @@ class SuccessfulClubPortablePackage(unittest.TestCase):
                         )
             self.assertEqual(pair_locators["en"], pair_locators["zh"])
 
+    def test_all_eleven_bilingual_modules_define_topic_specific_preparation_contracts(self):
+        folder = ROOT / "skills" / SKILL_ID / "references"
+        contract_bodies = {"en": [], "zh": []}
+        for stem in sorted(ALL_TOPIC_STEMS):
+            for lang in ("en", "zh"):
+                with self.subTest(topic=stem, lang=lang):
+                    text = (folder / f"{stem}.{lang}.md").read_text(encoding="utf-8")
+                    contract = parse_module_contract(text, lang)
+                    self.assertEqual(tuple(contract), MODULE_CONTRACT_LABELS[lang])
+                    self.assertTrue(all(len(value) >= 40 for value in contract.values()))
+                    body = "\n".join(contract.values())
+                    contract_bodies[lang].append(body)
+                    for marker in MODULE_CONTRACT_MARKERS[lang][stem]:
+                        self.assertIn(marker, body)
+        for lang, bodies in contract_bodies.items():
+            with self.subTest(lang=lang, check="distinct contracts"):
+                self.assertEqual(len(bodies), len(set(bodies)))
+
     def test_level4_modules_have_matching_bilingual_metadata_and_locator_sets(self):
         folder = ROOT / "skills" / SKILL_ID / "references"
         topics = {
@@ -514,14 +605,28 @@ class SuccessfulClubPortablePackage(unittest.TestCase):
                 _, rows = parse_topic_register(folder / f"topic-register.{lang}.md")
                 self.assertEqual(set(rows), set(REGISTER_FACTS))
                 for topic_id, expected in REGISTER_FACTS.items():
-                    actual = tuple(rows[topic_id][column] for column in REGISTER_COLUMNS[1:-1])
+                    actual = tuple(rows[topic_id][column] for column in REGISTER_FACT_COLUMNS)
                     self.assertEqual(actual, expected)
                     self.assertTrue(rows[topic_id]["brief_summary"])
+                    self.assertTrue(rows[topic_id]["conflict_or_uncertainty"])
                 self.assertEqual(rows["moments-of-truth"]["duration"], "60-90 minutes")
                 self.assertEqual(
                     {row["duration"] for topic_id, row in rows.items() if topic_id != "moments-of-truth"},
                     {"10-15 minutes"},
                 )
+
+    def test_register_preserves_known_distinguished_club_credit_conflict(self):
+        folder = ROOT / "skills" / SKILL_ID / "references"
+        required = {
+            "en": ("does not count", "lists it at Level 4", "VPE"),
+            "zh": ("不计入", "列为 Level 4", "VPE"),
+        }
+        for lang in ("en", "zh"):
+            with self.subTest(lang=lang):
+                _, rows = parse_topic_register(folder / f"topic-register.{lang}.md")
+                note = rows["distinguished-club"]["conflict_or_uncertainty"]
+                for marker in ("299A", "FAQ", *required[lang]):
+                    self.assertIn(marker, note)
 
     def test_topic_register_language_pairs_preserve_authorities_and_provenance(self):
         folder = ROOT / "skills" / SKILL_ID / "references"
@@ -534,7 +639,7 @@ class SuccessfulClubPortablePackage(unittest.TestCase):
 
         for topic_id in REGISTER_FACTS:
             with self.subTest(topic=topic_id):
-                for column in REGISTER_COLUMNS[:-1]:
+                for column in REGISTER_FACT_COLUMNS:
                     self.assertEqual(rows["en"][topic_id][column], rows["zh"][topic_id][column])
                 self.assertNotEqual(
                     rows["en"][topic_id]["brief_summary"],

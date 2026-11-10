@@ -49,3 +49,11 @@ An optional AI-designed exercise: compare an explicitly fictional guest's first 
 Speaker cues can follow the official visual topics: title → climate → example → guests → member care → conclusion. Do not impose a mandatory slide count. Keep story and discussion time within the agreed slot, while checklist collection happens at meeting end.
 
 Return the shared preparation pack plus a clear checklist logistics line: obtain / distribute after conclusion / collect at meeting end / deliver to officers. After delivery, ask which steps actually happened and what anonymous aggregate learning the member can share. Do not claim officers accepted or implemented an improvement without evidence.
+
+## Topic-specific preparation contract
+
+- **Materials:** Obtain the current official Model Club Checklist, prepare a source link and timing card, and agree on a private paper or digital return route without copying completed responses into AI.
+- **Accessibility:** Offer readable paper and digital access, explain every checklist step aloud, and provide a no-screen response route without asking participants to disclose disability or accommodation details.
+- **Handoff and follow-through:** Name the officer who will receive the official checklists, distinguish raw responses from any anonymous summary, and agree on an owner and review date for one feasible improvement.
+- **Rehearsal and live evaluation:** Rehearse the conclusion-to-distribution transition and meeting-end collection; ask the evaluator to check balanced coverage, respectful guest/member language, timing, and accurate checklist handling.
+- **Reflection:** Record which logistics actually occurred, one anonymous pattern the member may share, the officer handoff status, and the next review date without claiming that an improvement was adopted.

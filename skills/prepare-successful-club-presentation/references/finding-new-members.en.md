@@ -36,3 +36,11 @@ For a guest-experience activity, use a fictional timeline: invitation, arrival, 
 ## Coaching additions and output
 
 Produce a 10-15-minute outline with one audience question, one fictional guest journey and one locally realistic action. Add a source-check box naming the program or channel that still needs live verification. Speaker cues should distinguish official outline ideas from optional coaching additions. End with a member action that is personal and respectful, not a numeric promise or an instruction to contact someone without consent.
+
+## Topic-specific preparation contract
+
+- **Materials:** Prepare a fictional guest-journey card, an anonymous outreach-category board, and a dated public Membership Building source card; exclude prospect names, guest contacts, attendance records, and private messages.
+- **Accessibility:** Supply the fictional journey in readable text, describe each stage aloud, and accept spoken, chat, or private-note ideas so participation never depends on disclosing a real guest relationship.
+- **Handoff and follow-through:** Hand only anonymous action categories and unverified-program questions to the Vice President Membership or organizer, with an owner and review date; do not create a contact list or outreach task.
+- **Rehearsal and live evaluation:** Rehearse consent-based language and the boundary between welcome and pressure; ask the evaluator to check source freshness, guest dignity, realistic club action, timing, and absence of quotas.
+- **Reflection:** Ask which welcoming behavior the club intends to test, who will review the anonymous result, and what was actually observed, without treating interest, contact, or membership as guaranteed.

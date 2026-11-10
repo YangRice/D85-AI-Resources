@@ -34,3 +34,11 @@ If the club uses the official Club Mentor Program kit, members should retrieve a
 ## Coaching additions and output
 
 Produce a 10-15-minute outline with a definition, benefits across the three parties, qualities, staged responsibilities, mentee agency and finite closure. Add one fictional “support or takeover?” activity and a practical next question for the club. Label current Base Camp, officer-process, event and organizational details `VERIFY LIVE`; leave matching and records to members and the VPE.
+
+## Topic-specific preparation contract
+
+- **Materials:** Prepare a fictional support-or-takeover scenario, a four-stage relationship map, and an empty non-official boundary conversation aid; retrieve official program forms only for member-operated use outside AI.
+- **Accessibility:** Provide the scenario and stages in readable text, describe them aloud, allow observer or written roles, and avoid requiring anyone to disclose mentoring history, goals, identity, or matching preferences.
+- **Handoff and follow-through:** Leave matching, forms, identities, and records with members and the VPE; any real pair agrees on purpose, privacy, review date, pause route, and closure without AI assigning participants.
+- **Rehearsal and live evaluation:** Rehearse the difference between support and takeover and the finite close; ask the evaluator to check benefits for all parties, mentee agency, boundaries, staged responsibilities, timing, and no matching claim.
+- **Reflection:** Ask what boundary or closure idea the member learned, what the evaluator observed, and which club-process question goes to the VPE, without recording confidential mentoring details or claiming a match.

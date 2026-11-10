@@ -32,3 +32,11 @@ For an activity, use a fictional club with one broad goal and ask the audience t
 ## Coaching additions and output
 
 Produce a 10-15-minute outline with: why club quality matters, the current goal framework at a high level, planning and review, shared ownership, and one action exercise. Add a visible source-conflict note for the Pathways credit question and a `VERIFY LIVE` block for thresholds, dates, awards and dashboard status. Never claim recognition or submit a Club Success Plan.
+
+## Topic-specific preparation contract
+
+- **Materials:** Prepare the current DCP manual and FAQ links, a dated source-conflict card, and a fictional Club Success Plan exercise with one observable action, owner, date, and review point.
+- **Accessibility:** Present goals and planning fields in readable text, explain charts or dashboards without requiring live access, and provide a nonvisual fictional exercise that does not expose real membership or award records.
+- **Handoff and follow-through:** Give unresolved rule and credit questions to the VPE or club officers; keep the fictional plan separate from club records and assign no real owner or submission without human agreement.
+- **Rehearsal and live evaluation:** Rehearse the difference between planning logic and current thresholds; ask the evaluator to check the 299A/FAQ conflict disclosure, `VERIFY LIVE` labels, shared ownership, timing, and no recognition claim.
+- **Reflection:** Ask whether listeners can distinguish goals, qualifying conditions, and planning actions, then record the verified question, human owner, and review date without declaring the club Distinguished.

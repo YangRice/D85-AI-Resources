@@ -48,3 +48,11 @@ An optional AI-designed activity: ask listeners which skill they want to practic
 Speaker cues can follow title → contest opportunities → supporting contest roles → leadership → conference learning → conclusion. Include a current-source/unknowns list, one verified local example (or a labeled placeholder), a range of contestant and non-contestant options, and one realistic next inquiry. Do not impose a mandatory slide count.
 
 After delivery, ask which opportunity interested the audience according to the member's actual observations and which next step the member wants to take. Do not report attendance, registration or leadership selection without evidence.
+
+## Topic-specific preparation contract
+
+- **Materials:** Prepare the general opportunity map, one verified public local example or labeled placeholder, a dated source-and-unknowns card, and a low-commitment versus larger-service comparison activity.
+- **Accessibility:** Provide opportunity names, dates, and links in copyable text, describe any calendar or hierarchy aloud, and include options that do not require travel, payment, contest entry, or public commitment.
+- **Handoff and follow-through:** Route eligibility, registration, and vacancy questions to the named official organizer or VPE; let the member own any inquiry and record no registration or commitment until verified.
+- **Rehearsal and live evaluation:** Rehearse the distinction between stable opportunity types and current local facts; ask the evaluator to check source labels, range of options, realistic next inquiry, timing, and absence of invented events.
+- **Reflection:** Record only the member's observed audience interest, the opportunity they choose to investigate, the official question still open, and any later action supported by evidence.

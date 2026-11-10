@@ -45,3 +45,11 @@ Teams rate only the club experience described by their assigned moment and propo
 ## Coaching additions and output
 
 Output a facilitation plan, participant instructions, materials/accessibility checklist, timing cues, notetaker handoff and follow-through review. If only 10-15 minutes are available, output an **adapted overview** with one fictional example and a plan to schedule the official 60-90-minute exercise. State plainly that the overview is not the official assessment and may not satisfy the Level 5 requirement.
+
+## Topic-specific preparation contract
+
+- **Materials:** Obtain the current official handout and Best Practices Chart, prepare six work areas, visible timing, private collection routes, and a named notetaker without reconstructing the official forms.
+- **Accessibility:** Provide large-print or digital handouts, read team instructions aloud, support remote teams and nonverbal input, and agree on anonymous reporting without collecting personal accommodation details.
+- **Handoff and follow-through:** Give raw official materials and anonymized recommendations to the agreed notetaker or secretary, confirm the distribution audience, and set an officer-owned review date for priorities and actions.
+- **Rehearsal and live evaluation:** Rehearse team assignment, report timing, privacy language, and handoff; ask the evaluator to check all six moments, official-material use, balanced participation, 60–90-minute timing, and follow-through ownership.
+- **Reflection:** Record whether each official step occurred, what anonymous aggregate themes may be shared, who owns the summary, and when the club will review actions, without importing completed ratings into AI.
