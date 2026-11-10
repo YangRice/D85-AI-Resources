@@ -406,3 +406,40 @@ class ChineseTerminologyContracts(unittest.TestCase):
             ("Topicsmaster's handoff recipients", "prepare-topicsmaster-role.zh.md", handoff),
             ("aggregate handoff recipients", "perform-toastmasters-meeting-role.zh.md", handoff),
         ))
+
+    def test_egg_formal_playbook_labels_do_not_rename_diagnostic_workflows(self):
+        egg = "egg-toastmasters-speech-mentor"
+        router = f"{egg}/SKILL.zh.md"
+        persuasion = f"{egg}/references/guiguzi-persuasion.md"
+        debate = f"{egg}/references/debate-and-qa.md"
+        self.assert_phrases("skills", (
+            ("eight-dimension evaluation capability", router, "听众分析、辩论与应答、点评技巧。"),
+            ("formal role methods in metadata", router, "点评侧方法：五角色（"),
+            ("formal playbook in changelog", router, "**P2 点评手册**（`references/evaluation-playbook.md`）"),
+            ("formal Table Topics playbook", router, "完整点评操作手册见 `references/evaluation-playbook.md` §3"),
+            ("formal evaluation in persuasion index", persuasion, "表达/点评 | `delivery-craft.md`、`evaluation-playbook.md`"),
+            ("suggested response after formal evaluation", debate, "不合适就丢掉——点评不是标准答案。"),
+            ("numeric contest assessment", router, "比赛级评估定级（大区评委视角"),
+            ("numeric Table Topics dimensions", router, "即兴演讲（Table Topics）评估维度"),
+            ("diagnostic report workflow", router, "评估报告（大区评委·蛋导）"),
+            ("evaluation activity alias", debate, "用户做完个评被追问"),
+            ("Table Topics practice aliases", router, "要做个评/总评/评即兴/自评"),
+        ))
+
+    def test_egg_evaluator_rosters_and_feedback_attribution_name_assigned_people(self):
+        egg = "egg-toastmasters-speech-mentor"
+        router = f"{egg}/SKILL.zh.md"
+        roster = "五角色（个人点评人/总评/即兴演讲点评人/比赛评委/自评）"
+        self.assert_phrases("skills", (
+            ("assigned evaluators in metadata", router, f"点评侧方法：{roster}"),
+            ("assigned evaluators in the playbook changelog", router, f"`references/evaluation-playbook.md`）：{roster}"),
+            ("assigned evaluator attribution", f"{egg}/references/audience-analysis.md",
+             '个人点评人说"看不懂标题和内容的关系"'),
+            ("individual evaluation example", router, "**完整逐字个评范例**"),
+        ))
+
+    def test_egg_crc_attribution_names_toastmasters_international(self):
+        self.assert_phrases("skills", (
+            ("institution named in CRC attribution", "egg-toastmasters-speech-mentor/references/evaluation-playbook.md",
+             "**CRC**（Commend-Recommend-Commend） | 表扬 → 建议 → 表扬 | 国际头马官方体系，英文俱乐部常用"),
+        ))

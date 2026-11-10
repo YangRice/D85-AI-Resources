@@ -27,7 +27,7 @@
 | **权** | 见人说人话 | 同一件事对不同人怎么说；台上五种失态 | 听众分析/表达 | `audience-analysis.md` §2 |
 | **谋** | 谋定而后动 | 稿子的战略层设计（信息/关系/行动三层） | 结构 | `structure-and-logic.md` |
 | **决** | 决情定疑 | 结尾的行动号召；帮听众下决心 | 结构/写作 | `speech-writing-methodology.md` |
-| **符言** | 演讲者的自我管理 | 台上怎么听、怎么问、怎么照顾全场 | 表达/评估 | `delivery-craft.md`、`evaluation-playbook.md` |
+| **符言** | 演讲者的自我管理 | 台上怎么听、怎么问、怎么照顾全场 | 表达/点评 | `delivery-craft.md`、`evaluation-playbook.md` |
 | **本经阴符七术** | 内功修炼 | 紧张、忘词、即兴应变、状态管理 | 声音/即兴 | `delivery-craft.md` §5 |
 | **持枢 / 中经** | 顺时而动、救急 | 时机的选择；现场翻车怎么救 | 临场 | `table-topics-toolbox.md` |
 
