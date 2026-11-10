@@ -18,7 +18,9 @@ POWERPOINT = "skills/powerpoint-translation-redesign/references/toastmasters-ter
 MENTOR = "skills/egg-toastmasters-speech-mentor/references/d85-toastmasters-terminology.md"
 PDF = "skills/translate-pdf/references/toastmasters-terminology.md"
 PDF_PATHWAYS = "skills/translate-pdf/references/pathways-terminology.md"
-CONSUMERS = (POSTER, POWERPOINT, MENTOR, PDF)
+SUCCESSFUL_CLUB = "skills/prepare-successful-club-presentation/references/toastmasters-terminology.md"
+COACHING = "skills/toastmasters-speech-coaching-team/references/toastmasters-terminology.md"
+CONSUMERS = (POSTER, POWERPOINT, MENTOR, PDF, SUCCESSFUL_CLUB, COACHING)
 TRANSLATION_PROMPTS = ("translate-pdf", "powerpoint-translation-redesign")
 SAMPLE = "# Glossary\n\n| Club Officer | 俱乐部官员 |\n"
 
@@ -97,7 +99,7 @@ class ToastmastersTerminology(unittest.TestCase):
         catalog = json.loads(catalog_path.read_text(encoding="utf-8"))
         catalog["skills"] = []
         catalog_path.write_text(json.dumps(catalog), encoding="utf-8")
-        for skill_id in TRANSLATION_PROMPTS:
+        for skill_id in (*TRANSLATION_PROMPTS, "toastmasters-speech-coaching-team"):
             shutil.copytree(ROOT / "skills" / skill_id, root / "skills" / skill_id)
         return root
 
@@ -124,6 +126,34 @@ class ToastmastersTerminology(unittest.TestCase):
         self.assertEqual(outputs["translate-pdf"].count(supplement), 1)
         self.assertIn("初试啼声 = Ice Breaker", outputs["translate-pdf"])
         self.assertNotIn(supplement, outputs["powerpoint-translation-redesign"])
+
+    def test_native_coaching_guides_load_the_package_glossary_for_chinese_output(self):
+        for mirror, editions in (
+            (SUCCESSFUL_CLUB, ("SKILL.md", "SKILL.zh.md")),
+            (COACHING, ("SKILL.md",)),
+        ):
+            for edition in editions:
+                with self.subTest(package=mirror, edition=edition):
+                    skill = ROOT / Path(mirror).parents[1] / edition
+                    self.assertIn("](references/toastmasters-terminology.md)", skill.read_text(encoding="utf-8"))
+                    self.assertTrue((ROOT / mirror).is_file())
+
+    def test_standalone_speech_coaching_is_generated_and_keeps_its_text_fallback(self):
+        root = self.make_prompt_repo()
+        self.generate_translation_prompts(root)
+        path = Path("prompts/toastmasters-speech-coaching-team.md")
+        self.assertTrue((root / path).is_file(), "The build must own the legacy prompt path")
+        generated = (root / path).read_text(encoding="utf-8")
+        self.assertEqual(generated, (ROOT / path).read_text(encoding="utf-8"))
+        instructions = generated.split("## Instructions for the AI", 1)[1]
+        core = (ROOT / SOURCE).read_text(encoding="utf-8").strip()
+        self.assertEqual(instructions.count(core), 1)
+        self.assertNotRegex(instructions, r"\]\(references/[^)]+\)")
+        self.assertIn("If it does not, evaluate the roles sequentially", instructions)
+        self.assertIn("Never claim that independent agents were used unless they actually were.", instructions)
+        self.assertIn("five separate role reports", instructions)
+        native = (ROOT / Path(COACHING).parents[1] / "SKILL.md").read_text(encoding="utf-8")
+        self.assertIn("If sub-agents are unavailable, stop", native)
 
     def test_build_refreshes_stale_mirrors_before_embedding(self):
         root = self.make_prompt_repo()
@@ -164,7 +194,7 @@ class ToastmastersTerminology(unittest.TestCase):
 
         self.assertEqual(poster.read_bytes(), b"stale")
         self.assertEqual(poster.stat().st_mtime_ns, modified)
-        for mirror in (POWERPOINT, MENTOR, PDF):
+        for mirror in CONSUMERS[1:]:
             self.assertFalse((root / mirror).parent.exists())
         self.assertEqual((root / SOURCE).read_bytes(), SAMPLE.encode())
 
@@ -217,3 +247,101 @@ class ToastmastersTerminology(unittest.TestCase):
 
         self.assertEqual(str(error.exception), f"Missing canonical glossary: {SOURCE.as_posix()}")
         self.assertFalse((root / "skills").exists())
+
+
+class ChineseTerminologyContracts(unittest.TestCase):
+    """Regressions for named concepts, not bans on words used in other contexts."""
+
+    def assert_phrases(self, directory, cases):
+        for concept, path, phrase in cases:
+            with self.subTest(concept=concept, path=path, phrase=phrase):
+                self.assertTrue(
+                    any(phrase in line for line in (ROOT / directory / path).read_text(encoding="utf-8").splitlines()),
+                    f"{path}: expected {phrase!r} for {concept}",
+                )
+
+    def test_pathways_and_speech_feedback_use_distinct_terms(self):
+        self.assert_phrases("skills", (
+            ("C01 Pathways Level", "build-speech-outline/SKILL.zh.md", "Pathways 阶段或项目"),
+            ("C01 Pathways completion", "serve-club-vpe/SKILL.zh.md", "项目／阶段认证完成"),
+            ("C02 formal Evaluation criteria", "build-speech-outline/SKILL.zh.md", "项目简介或点评标准"),
+            ("C13 Speaker ownership", "prepare-speech-evaluation/SKILL.zh.md", "演讲者内容所有权"),
+            ("C15 TI judgment", "prepare-speech-evaluation/SKILL.zh.md", "国际头马的官方判断"),
+            ("C16 feedback publication", "prepare-speech-evaluation/SKILL.zh.md", "发布反馈"),
+            ("C16 feedback learning objective", "understand-pathways-project/SKILL.zh.md", "领导力、研究、辅导、反馈"),
+            ("N25 formal evaluation form", "understand-pathways-project/SKILL.zh.md", "点评表"),
+        ))
+
+    def test_meeting_roles_name_people_in_the_dispatch_rows(self):
+        for edition in ("SKILL.md", "SKILL.zh.md"):
+            with self.subTest(edition=edition):
+                self.assert_phrases("skills", tuple(
+                    (concept, f"perform-toastmasters-meeting-role/{edition}", f"| {label} | `{target}` |")
+                    for concept, label, target in (
+                        ("C03 Table Topics Evaluator", "Table Topics Evaluator / 即兴演讲点评人 TTE", "prepare-table-topics-evaluation"),
+                        ("C04 Speech Evaluator", "Individual Speech Evaluator / 演讲点评人", "prepare-speech-evaluation"),
+                        ("C06 Topicsmaster", "Topicsmaster / 即兴演讲主持人 TTM", "prepare-topicsmaster-role"),
+                        ("C07 Timer", "Timer / 时间官", "prepare-timer-role"),
+                        ("C10 Toastmaster", "Toastmaster of the Day / 会议主持人", "prepare-toastmaster-role"),
+                    )
+                ))
+
+    def test_table_topics_labels_the_segment_role_and_contest_in_context(self):
+        self.assert_phrases("skills", (
+            *(("C03 optional segment route", f"{skill}/SKILL.zh.md", "#topics 是即兴演讲，不是导师入口")
+              for skill in ("coach-mentee-practice", "establish-mentoring-agreement",
+                            "practice-mentoring-conversation", "review-mentoring-relationship")),
+            ("C03 evaluation activity", "prepare-table-topics-evaluation/SKILL.zh.md", "# 准备即兴演讲点评"),
+            ("C03 assigned evaluator", "prepare-topicsmaster-role/references/role-guide.zh.md", "是否安排即兴演讲点评人"),
+            ("C20 contest disqualification", "prepare-topicsmaster-role/SKILL.zh.md", "普通会议不套用演讲比赛取消资格规则"),
+        ))
+
+    def test_egg_evaluation_uses_canonical_role_names_without_changing_user_triggers(self):
+        playbook = "egg-toastmasters-speech-mentor/references/evaluation-playbook.md"
+        router = "egg-toastmasters-speech-mentor/SKILL.zh.md"
+        self.assert_phrases("skills", (
+            ("C02 activity", playbook, "即兴演讲点评（Table Topics Evaluation）"),
+            ("C03 assigned TT evaluator", playbook, "即兴演讲点评人**（TT Evaluator）"),
+            ("C04 Individual Evaluator", playbook, "个人点评人**（Individual Evaluator）"),
+            ("C05 assigned Evaluator", playbook, "**感谢点评人**"),
+            ("C07/C08/C10/C11 meeting-role roster", playbook, "各会议角色履职情况（时间官、语言官、哼哈官、会议主持人）"),
+            ("C09 Grammarian's word", playbook, "**语言官** | 每日一词"),
+            ("C12 contest timebox", "egg-toastmasters-speech-mentor/references/delivery-craft.md", "| 国际演讲比赛（5-7 分钟） |"),
+            ("N06 participant's activity shorthand", playbook, '用户说"我要做个评"'),
+            ("N06 recognition alias", router, "担任即兴主持"),
+            ("N07 ASR speaker diarization", router, "说话人识别错误"),
+        ))
+
+    def test_officer_names_are_distinct_from_task_scopes(self):
+        self.assert_phrases("skills", (
+            ("C14 elected SAA in coordination", "serve-club-president/SKILL.md", "SAA (接待官) handles venue"),
+            ("C14 SAA handoff", "serve-club-vpm/SKILL.zh.md", "与接待官准备到场欢迎流程"),
+            ("N20 recurring logistics", "serve-club-saa/SKILL.zh.md", "可重复使用的运营标准与任期会务"),
+            ("C18 Treasurer handoff", "prepare-successful-club-presentation/references/closing-the-sale.zh.md", "VPM 或财务官交接"),
+            ("C19 Secretary roster", "serve-toastmasters-club-officer/SKILL.md", "| Secretary / 秘书长 | `serve-club-secretary` |"),
+            ("C19 Secretary roster", "serve-toastmasters-club-officer/SKILL.zh.md", "| Secretary / 秘书长 | `serve-club-secretary` |"),
+            ("C19 Secretary title", "serve-club-secretary/SKILL.zh.md", "# 担任俱乐部秘书长"),
+        ))
+
+    def test_successful_club_distinguishes_speech_evaluation_from_club_assessment(self):
+        folder = "prepare-successful-club-presentation/references"
+        self.assert_phrases("skills", (
+            ("C02 speech assessment form", f"{folder}/meeting-roles.zh.md", "项目点评表"),
+            ("C02 evaluation segment", f"{folder}/meeting-roles.zh.md", "总评协调点评环节并评估整场会议"),
+            ("C05 assigned evaluator", f"{folder}/evaluate-to-motivate.zh.md", "请点评人检查"),
+            ("C17 meeting Guest and act of visiting", f"{folder}/topic-register.zh.md", "来宾接待、再次来访与加入邀请"),
+            ("C17 / Q05 mixed scope", f"{folder}/moments-of-truth.zh.md", "部分来宾与评估问题"),
+            ("N18 club assessment", f"{folder}/moments-of-truth.zh.md", "各组只评估分配到的俱乐部体验"),
+            ("N18 separate privacy categories", f"{folder}/sources-and-boundaries.zh.md", "已填俱乐部评估、可识别演讲点评"),
+            ("N18 checklist assessment", f"{folder}/topic-register.zh.md", "Model Club Checklist 开展评估"),
+        ))
+
+    def test_updated_mappings_reach_the_portable_aggregates(self):
+        self.assert_phrases("prompts", (
+            ("C01/C02 speech preparation", "prepare-toastmasters-speech.zh.md", "Pathways 阶段或项目"),
+            ("C02 project Evaluation", "prepare-toastmasters-speech.zh.md", "项目简介或点评标准"),
+            ("C03 mentoring route", "mentor-toastmasters-member.zh.md", "#topics 是即兴演讲，不是导师入口"),
+            ("C10/C14 officer handoff", "serve-toastmasters-club-officer.zh.md", "与 VPM、VPE 和会议主持人的本会交接方式"),
+            ("C13/C16 speech ownership", "give-and-apply-toastmasters-feedback.zh.md", "发布反馈，尊重演讲者内容所有权"),
+            ("C16 Pathways navigation", "navigate-pathways-learning.zh.md", "领导力、研究、辅导、反馈"),
+        ))

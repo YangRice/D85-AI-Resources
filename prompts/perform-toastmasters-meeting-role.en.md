@@ -20,14 +20,14 @@ Use known role, language, format and available time. TTM usually means Topicsmas
 | Assignment | Atomic skill |
 |---|---|
 | SAA: meeting logistics / 当次会务 | `prepare-saa-meeting-role` |
-| Topicsmaster / 即兴主持 TTM | `prepare-topicsmaster-role` |
-| Table Topics Evaluator / 即兴点评 TTE | `prepare-table-topics-evaluation` |
+| Topicsmaster / 即兴演讲主持人 TTM | `prepare-topicsmaster-role` |
+| Table Topics Evaluator / 即兴演讲点评人 TTE | `prepare-table-topics-evaluation` |
 | Ah-Counter / 哼哈官 | `prepare-ah-counter-role` |
 | Grammarian or Word Master / 语言官 | `prepare-grammarian-role` |
-| Toastmaster of the Day / 大会主持 | `prepare-toastmaster-role` |
+| Toastmaster of the Day / 会议主持人 | `prepare-toastmaster-role` |
 | General Evaluator / 总评 | `prepare-general-evaluator-role` |
-| Timer / 计时 | `prepare-timer-role` |
-| Individual Speech Evaluator / 个评 | `prepare-speech-evaluation` |
+| Timer / 时间官 | `prepare-timer-role` |
+| Individual Speech Evaluator / 演讲点评人 | `prepare-speech-evaluation` |
 
 Load only the selected atomic skill and its relevant references in a native environment. In portable text, use the matching bundled capability below and ignore unrelated sections. For several roles, prepare separate small action cards and coordinate handoffs rather than mixing responsibilities. If the atomic package is unavailable, say so; provide a minimal text checklist using confirmed facts, ask for the package or local role instructions, and do not pretend its detailed procedure was loaded.
 

@@ -4,21 +4,21 @@
 
 ## 来源层级与原文获取
 
-使用本指引内附的精简主题登记查看 11 个官方题目、所属 level、编号、canonical 和用户提供的 LMS URL、时长、材料包、印刷页码与会变化的权威来源。官方手册或材料包是内容基准。当前 [Education Programs FAQ](https://www.toastmasters.org/EducationProgramFAQ) 决定 Pathways enhancements 的适用范围、等级分组与学分判断。[Successful Club Series shop](https://shop.toastmasters.org/shop/education/programs-and-modules/the-successful-club-series) 是时长权威，包含 `Moments of Truth` 例外。[Governing documents](https://www.toastmasters.org/membership/leadership/governing-documents) 决定语言、翻译与 AI 边界。
+使用本指引内附的精简主题登记查看 11 个官方题目、所属阶段、编号、canonical 和用户提供的 LMS URL、时长、材料包、印刷页码与会变化的权威来源。官方手册或材料包是内容基准。当前 [Education Programs FAQ](https://www.toastmasters.org/EducationProgramFAQ) 决定 Pathways enhancements 的适用范围、阶段分组与学分判断。[Successful Club Series shop](https://shop.toastmasters.org/shop/education/programs-and-modules/the-successful-club-series) 是时长权威，包含 `Moments of Truth` 例外。[Governing documents](https://www.toastmasters.org/membership/leadership/governing-documents) 决定语言、翻译与 AI 边界。
 
-主题笔记是选择性原创解释，不是全文库。特定来源修正要给编号与印刷页码；当前对话没有重新打开原文时，要说明定位来自有日期的笔记。不从记忆重建完整官方检查表、chart、评估表、简报或引文。
+主题笔记是选择性原创解释，不是全文库。特定来源修正要给编号与印刷页码；当前对话没有重新打开原文时，要说明定位来自有日期的笔记。不从记忆重建完整官方检查表、chart、点评表、简报或引文。
 
 需要原文时，打开主题公开资源页，进入官方材料包，按编号找到 `A` 手册。会员在 AI 之外操作官方表单和简报。定位以印刷页码为准，不使用 PDF 阅读器索引或 `V` 视觉编号；材料更新后重新查看可见页码。
 
 ## 学分与顺序边界
 
-只有正式学分、资格或完成状态相关时才查适用性。询问不识别个人的事实：当前 path、课程语言、level，以及该 level 是否已完成。不索取 Base Camp 截图或非公开项目材料。
+只有正式学分、资格或完成状态相关时才查适用性。询问不识别个人的事实：当前 path、课程语言、当前阶段及该阶段是否已完成。不索取 Base Camp 截图或非公开项目材料。
 
 在本研究基准，2025 年 10 月 enhancements 适用于六条当前销售的英文 paths：Dynamic Leadership、Engaging Humor、Motivational Strategies、Persuasive Influence、Presentation Mastery、Visionary Communication。翻译 paths 当前没有加入，五条 legacy paths 也没有收到这些要求。学分结论前重新检查 FAQ。
 
-FAQ 在适用的 Level 3、4、5 各要求一项 Successful Club Series 分享。必须在会员正在进行对应 level 时发表；更早发表不能带入，也不能追溯认定。项目可以按会员选择的顺序学习，但 level completion 认可仍按顺序提交。跨等级准备或发表可以作为自愿或未来工作，但不保证当前或以后学分。enhancement 前已完成的 level 不需要重开；尚未完成的适用 level 在批准前要满足当前要求。
+FAQ 在适用的 Level 3、4、5 各要求一项 Successful Club Series 分享。会员必须在进行对应阶段时发表；更早发表不能带入，也不能追溯认定。项目可以按会员选择的顺序学习，但阶段完成认可仍按顺序提交。跨阶段准备或发表可以作为自愿或未来工作，但不保证当前或以后学分。enhancement 前已完成的阶段不需要重开；尚未完成的适用阶段在批准前要满足当前要求。
 
-当前 FAQ 把 `How to Be a Distinguished Club` 列为 Level 4 选项，但 299A Rev. 07/2025 表示这项提纲式分享不计入 Pathways。要说明冲突，以当前 FAQ 作为公开项目权威，并要求 VPE 确认会员的具体情况。不得授予学分、批准 level 或代录 Base Camp。
+当前 FAQ 把 `How to Be a Distinguished Club` 列为 Level 4 选项，但 299A Rev. 07/2025 表示这项提纲式分享不计入 Pathways。要说明冲突，以当前 FAQ 作为公开项目权威，并要求 VPE 确认会员的具体情况。不得授予学分、批准阶段完成或代录 Base Camp。
 
 ## 时长与即时事实
 
@@ -39,9 +39,9 @@ FAQ 在适用的 Level 3、4、5 各要求一项 Successful Club Series 分享�
 
 ## 隐私、版权与人工责任
 
-只使用公开来源和原创、不敏感、去识别输入。不索取或摄入名册、可识别访客或潜在会员资料、导师学员配对细节、已填俱乐部评估、可识别演讲评估、财务付款资料、内部记录、私人录音或非公开 Base Camp 内容。改用虚构案例、匿名汇总或会员自己的非敏感反思，不把受限资料发送给可选工具。
+只使用公开来源和原创、不敏感、去识别输入。不索取或摄入名册、可识别来宾或潜在会员资料、导师学员配对细节、已填俱乐部评估、可识别演讲点评、财务付款资料、内部记录、私人录音或非公开 Base Camp 内容。改用虚构案例、匿名汇总或会员自己的非敏感反思，不把受限资料发送给可选工具。
 
-官方标志、表单、chart、手册和简报不是仓库资产或 AI 输入。会员可以自己获取并使用。AI 可以产出无品牌文字、空白且明确非官方的规划工具或讲者提示，但不能把重建内容标为官方。公开下载不等于允许翻译、改编、重发或重新授权第三方作品。使用前需要人工审阅。
+官方标志、表单、chart、手册和简报不是仓库资产或 AI 输入。会员可以自己获取并使用。AI 可以产出无品牌文字、空白且明确非官方的规划工具或演讲者提示，但不能把重建内容标为官方。公开下载不等于允许翻译、改编、重发或重新授权第三方作品。使用前需要人工审阅。
 
 ## 原生与便携能力
 

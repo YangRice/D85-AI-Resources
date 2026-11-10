@@ -8,19 +8,19 @@ description: Prepare and perform a Toastmasters meeting role, including SAA, Top
 本入口选择并协调下列角色原子技能，不重复讲解所有角色；除非用户询问，不展示内部技能 ID。
 
 ## 路由当前任务
-沿用已知角色、语言、形式与时间。TTM 通常是即兴主持，但尊重本会明确用法；歧义会改变行动才澄清。SAA 当次会务不同于任期官员工作。马上开会时先给能用的下一步，不先做完整问卷。
+沿用已知角色、语言、形式与时间。TTM 通常是即兴演讲主持人，但尊重本会明确用法；歧义会改变行动才澄清。SAA 当次会务不同于任期官员工作。马上开会时先给能用的下一步，不先做完整问卷。
 
 | 任务 | 原子技能 |
 |---|---|
 | SAA: meeting logistics / 当次会务 | `prepare-saa-meeting-role` |
-| Topicsmaster / 即兴主持 TTM | `prepare-topicsmaster-role` |
-| Table Topics Evaluator / 即兴点评 TTE | `prepare-table-topics-evaluation` |
+| Topicsmaster / 即兴演讲主持人 TTM | `prepare-topicsmaster-role` |
+| Table Topics Evaluator / 即兴演讲点评人 TTE | `prepare-table-topics-evaluation` |
 | Ah-Counter / 哼哈官 | `prepare-ah-counter-role` |
 | Grammarian or Word Master / 语言官 | `prepare-grammarian-role` |
-| Toastmaster of the Day / 大会主持 | `prepare-toastmaster-role` |
+| Toastmaster of the Day / 会议主持人 | `prepare-toastmaster-role` |
 | General Evaluator / 总评 | `prepare-general-evaluator-role` |
-| Timer / 计时 | `prepare-timer-role` |
-| Individual Speech Evaluator / 个评 | `prepare-speech-evaluation` |
+| Timer / 时间官 | `prepare-timer-role` |
+| Individual Speech Evaluator / 演讲点评人 | `prepare-speech-evaluation` |
 
 原生环境只加载选中的原子技能及相关参考；纯文字版使用下方对应内置能力，忽略无关小节。多角色时分开准备简洁行动卡并协调交接，不混淆职责。缺少原子包就明确说明，依已确认事实给最低限度文字清单，请补包或本会说明，不假装已读完整流程。
 

@@ -12,7 +12,8 @@
       "actions": [],
       "portable_references": [
         "sources-and-boundaries.{lang}.md",
-        "topic-register.{lang}.md"
+        "topic-register.{lang}.md",
+        "toastmasters-terminology.md"
       ],
       "native_only_references": [
         "club-climate.{lang}.md",
@@ -28,8 +29,8 @@
         "mentoring.{lang}.md"
       ],
       "compatibility": {
-        "en": "Text-only coaching across eleven Successful Club Series topics for Pathways Levels 3-5. The portable edition bundles a compact verified register, not detailed modules. Browsing, files, media and slides are optional; current credit rules and local facts require verification, and the guide cannot deliver, submit or approve completion.",
-        "zh": "文字教练覆盖 Pathways Levels 3-5 的 11 个主题；便携版只内嵌已核对的精简登记，不包含详细模块。浏览、文件、媒体和幻灯片均为可选；当前学分规则与本地事实需要核对，本指南不能代为发表、提交或批准完成。"
+        "en": "Text-only coaching across eleven Successful Club Series topics for Pathways Levels 3-5. The portable edition bundles a compact verified register and the glossary for Chinese output; detailed modules are omitted. Browsing, files, media and slides are optional; current credit rules and local facts require verification, and the guide cannot deliver, submit or approve completion.",
+        "zh": "文字教练覆盖 Pathways Levels 3-5 的 11 个主题；便携版内嵌已核对的精简登记与中文输出术语表，不包含详细模块。浏览、文件、媒体和幻灯片均为可选；当前学分规则与本地事实需要核对，本指南不能代为发表、提交或批准完成。"
       },
       "input_fields": {
         "en": [

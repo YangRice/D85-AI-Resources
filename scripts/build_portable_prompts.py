@@ -5,7 +5,8 @@ Generates up to two versions per catalog skill:
   - <skill-id>.en.md  — English (always, from SKILL.md)
   - <skill-id>.zh.md  — Chinese (only if SKILL.zh.md exists in the skill dir)
 
-Also updates the standalone PDF and PowerPoint prompts at their legacy paths.
+Also updates the standalone PDF, PowerPoint, and speech coaching prompts
+at their legacy paths.
 """
 
 from __future__ import annotations
@@ -39,6 +40,12 @@ STANDALONE_PROMPTS = (
         "portable_source": "references/portable-workflow.md",
         "portable_references": ["toastmasters-terminology.md"],
         "usage": "Attach your PowerPoint file and paste everything below the line into an assistant that can edit PPTX files.",
+    },
+    {
+        "id": "toastmasters-speech-coaching-team",
+        "portable_source": "references/portable-workflow.md",
+        "portable_references": ["toastmasters-terminology.md"],
+        "usage": "Paste everything below the line into an AI chat. Add the speech transcript and any evaluation details. Attach media only if the assistant can access it.",
     },
 )
 

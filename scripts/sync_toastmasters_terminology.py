@@ -12,6 +12,8 @@ MIRRORS: tuple[Path, ...] = (
     Path("skills/powerpoint-translation-redesign/references/toastmasters-terminology.md"),
     Path("skills/egg-toastmasters-speech-mentor/references/d85-toastmasters-terminology.md"),
     Path("skills/translate-pdf/references/toastmasters-terminology.md"),
+    Path("skills/prepare-successful-club-presentation/references/toastmasters-terminology.md"),
+    Path("skills/toastmasters-speech-coaching-team/references/toastmasters-terminology.md"),
 )
 
 

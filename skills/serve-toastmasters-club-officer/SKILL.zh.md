@@ -8,7 +8,7 @@ description: Help Toastmasters club officers plan a term, carry out responsibili
 本入口按职责调用原子技能，协调共同工作，不一次倾倒七份岗位说明。
 
 ## 选择职责
-沿用用户当前职位、任期阶段和实际问题，识别 Precident／Secretary／Sacretory 等拼写。只问会改变下一步的信息。SAA 按任务范围而非职位名称或紧急程度路由：某一场明确会议的执行交当次会务原子，即使用户正是任期会务官；可重复使用的标准与任期持续运营留在官员 SAA。
+沿用用户当前职位、任期阶段和实际问题，识别 Precident／Secretary／Sacretory 等拼写。只问会改变下一步的信息。SAA 按任务范围而非职位名称或紧急程度路由：某一场明确会议的执行交当次会务原子，即使用户正是任期接待官；可重复使用的标准与任期持续运营留在官员 SAA。
 
 | 职位 | 原子技能 |
 |---|---|
@@ -16,7 +16,7 @@ description: Help Toastmasters club officers plan a term, carry out responsibili
 | VPE / 教育副主席 | `serve-club-vpe` |
 | VPM / 会员副主席 | `serve-club-vpm` |
 | VPPR / 公关副主席 | `serve-club-vppr` |
-| Secretary / 秘书 | `serve-club-secretary` |
+| Secretary / 秘书长 | `serve-club-secretary` |
 | Treasurer / 财务官 | `serve-club-treasurer` |
 | SAA：可重复运营与任期持续工作 | `serve-club-saa` |
 | SAA：某一场明确会议的执行 | `prepare-saa-meeting-role` |

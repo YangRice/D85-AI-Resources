@@ -3,7 +3,7 @@ name: prepare-topicsmaster-role
 description: Prepare and lead a Toastmasters Table Topics segment with accessible questions, fair voluntary participation and confirmed timing. Use for Topicsmaster or Table Topics Master; clarify TTM if it means meeting host locally.
 ---
 
-# 准备即兴主持角色
+# 准备即兴演讲主持人角色
 
 ## 执行
 
@@ -13,7 +13,7 @@ description: Prepare and lead a Toastmasters Table Topics segment with accessibl
 
 ## 边界与备用方案
 
-确认本会角色约定，不把可选惯例当 TI 政策。工具或海外链接失效时用本文和纸笔继续；中文／双语卡片可选。问题允许跳过，不逼迫透露隐私。邀请仅作草稿，不自动发送。普通会议不套用比赛取消资格规则。
+确认本会角色约定，不把可选惯例当 TI 政策。工具或海外链接失效时用本文和纸笔继续；中文／双语卡片可选。问题允许跳过，不逼迫透露隐私。邀请仅作草稿，不自动发送。普通会议不套用演讲比赛取消资格规则。
 可选工具：[Table Topics](https://tmcompanion.netlify.app/#topics)。工具不是前提，也不代表 TI 背书；打不开时继续使用上述文字／纸笔方案，不声称已打开或保存。
 
 

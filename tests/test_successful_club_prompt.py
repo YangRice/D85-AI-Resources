@@ -61,7 +61,7 @@ MODULE_CONTRACT_LABELS = {
         "材料",
         "无障碍与混合形式",
         "交接与后续",
-        "排练与现场评估",
+        "排练与现场点评",
         "回顾",
     ),
 }
@@ -84,12 +84,12 @@ MODULE_CONTRACT_MARKERS = {
         "meeting-roles": ("目的与交接图", "VPE"),
         "keeping-commitment": ("Toastmaster's Promise", "私下反思"),
         "going-beyond": ("已核实的公开本地例子", "报名"),
-        "finding-new-members": ("虚构访客旅程", "VPM"),
-        "closing-the-sale": ("即时事实卡", "财务长"),
+        "finding-new-members": ("虚构来宾旅程", "VPM"),
+        "closing-the-sale": ("即时事实卡", "财务官"),
         "distinguished-club": ("299A／FAQ", "虚构 Club Success Plan"),
         "education-program": ("目标到学习选择", "Base Camp"),
         "moments-of-truth": ("六个工作区", "记录员", "60–90 分钟"),
-        "evaluate-to-motivate": ("虚构演讲时刻", "讲者自主决定"),
+        "evaluate-to-motivate": ("虚构演讲时刻", "演讲者自主决定"),
         "mentoring": ("支持还是代替", "四阶段关系图", "VPE"),
     },
 }
@@ -281,11 +281,11 @@ def parse_module_contract(text: str, lang: str) -> dict[str, str]:
 
 
 class SuccessfulClubPortablePackage(unittest.TestCase):
-    def test_catalog_declares_eleven_native_topic_modules_and_two_portable_references(self):
+    def test_catalog_declares_eleven_native_topic_modules_and_shared_portable_references(self):
         self.assertEqual(ITEM["version"], "0.3.0")
         self.assertEqual(
             ITEM["portable_references"],
-            ["sources-and-boundaries.{lang}.md", "topic-register.{lang}.md"],
+            ["sources-and-boundaries.{lang}.md", "topic-register.{lang}.md", "toastmasters-terminology.md"],
         )
         self.assertEqual(
             set(ITEM["native_only_references"]),
@@ -411,9 +411,9 @@ class SuccessfulClubPortablePackage(unittest.TestCase):
                 "topic-specific duration",
             ),
             "zh": (
-                "没有等级限制",
+                "没有阶段限制",
                 "一次只问一个问题",
-                "自愿或未来等级",
+                "自愿或未来阶段",
                 "你现在更优先的是 Level 3 学分，还是 mentoring 学习需求？",
                 "不能保证当前或以后获得学分",
                 "按主题查找时长",
@@ -668,10 +668,19 @@ class SuccessfulClubPortablePackage(unittest.TestCase):
                 self.assertIn("俱乐部官员", contents)
                 self.assertNotRegex(contents, r"干部|干事")
 
-    def test_chinese_portable_prompt_supplies_club_officer_term_offline(self):
-        output = (ROOT / "prompts" / f"{SKILL_ID}.zh.md").read_text(encoding="utf-8")
-        self.assertRegex(output, r"Club Officer\s+译为[“\"]俱乐部官员[”\"]")
-        self.assertNotRegex(output, r"干部|干事")
+    def test_both_portable_editions_supply_the_glossary_for_chinese_output(self):
+        core = (ROOT / "references/toastmasters-terminology.md").read_text(encoding="utf-8").strip()
+        for lang, heading, end, guidance in (
+            ("en", "Instructions for the AI", "End of instructions", "For Chinese output"),
+            ("zh", "AI 指令", "指令结束", "中文输出"),
+        ):
+            with self.subTest(lang=lang):
+                output = BUILDER.build_prompt(ITEM, lang)
+                instructions = output.split(f"## {heading}", 1)[1].split(f"## {end}", 1)[0]
+                self.assertIn(guidance, instructions)
+                self.assertEqual(instructions.count(core), 1)
+                self.assertIn("| Club Officer | 俱乐部官员 |", instructions)
+                self.assertNotRegex(instructions, r'Club Officer\s+译为[“"]俱乐部官员[”"]')
 
     def test_native_only_reference_paths_are_validated_and_rewritten(self):
         with tempfile.TemporaryDirectory() as temp:

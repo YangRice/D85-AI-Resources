@@ -23,7 +23,7 @@ Use the user's current role, term/stage and actual decision; normalize misspelli
 | VPE / 教育副主席 | `serve-club-vpe` |
 | VPM / 会员副主席 | `serve-club-vpm` |
 | VPPR / 公关副主席 | `serve-club-vppr` |
-| Secretary / 秘书 | `serve-club-secretary` |
+| Secretary / 秘书长 | `serve-club-secretary` |
 | Treasurer / 财务官 | `serve-club-treasurer` |
 | SAA: reusable operations and term continuity / 任期会务 | `serve-club-saa` |
 | SAA: execution for one identified meeting / 当次会务执行 | `prepare-saa-meeting-role` |
@@ -70,7 +70,7 @@ Follow the user's requested language, format and number of fields exactly. If th
 Original practical synthesis, not an official appointment or a reproduction of TI manuals. Consult the current [Club Leadership Handbook](https://www.toastmasters.org/membership/leadership/club-officer-tools/club-leadership-handbook), [governing documents](https://www.toastmasters.org/membership/leadership/governing-documents) and [club officer tools](https://www.toastmasters.org/membership/leadership/club-officer-tools). Use current [D85 notices](https://d85toastmasters.org/) for local training and events; local practice cannot override governance. Record source edition/date when relying on a changing rule; no live verification is implied by this package. Link and summarize rather than copying/rehosting official materials.
 Verify education/program claims against the current [DCP manual](https://www.toastmasters.org/membership/leadership/club-officer-tools/distinguished-club-program-manual), not an assumed scoring threshold.
 
-For cross-role coordination: the President coordinates the team; VPE handles education and the educational meeting agenda; VPM supports joining and retention; VPPR handles public relations; the Secretary handles records and minutes; the Treasurer handles dues and finances; SAA (事务官／会务官) handles venue, equipment and meeting logistics. Verify actual authority under club rules. Do not confuse SAA with Treasurer; clarify ambiguous titles or combined appointments. Do not add unrelated investigations to an officer’s work.
+For cross-role coordination: the President coordinates the team; VPE handles education and the educational meeting agenda; VPM supports joining and retention; VPPR handles public relations; the Secretary handles records and minutes; the Treasurer handles dues and finances; SAA (接待官) handles venue, equipment and meeting logistics. Verify actual authority under club rules. Do not confuse SAA with Treasurer; clarify ambiguous titles or combined appointments. Do not add unrelated investigations to an officer’s work.
 
 ## Bundled capability: serve-club-vpe
 
