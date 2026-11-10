@@ -304,7 +304,7 @@
         ]
       },
       "type": "journey",
-      "version": "0.2.0",
+      "version": "0.3.0",
       "resource_page": "serve-as-a-club-officer",
       "requires": [],
       "recommends": [
@@ -314,7 +314,8 @@
         "serve-club-vppr",
         "serve-club-secretary",
         "serve-club-treasurer",
-        "serve-club-saa"
+        "serve-club-saa",
+        "prepare-saa-meeting-role"
       ],
       "actions": []
     },
@@ -349,7 +350,7 @@
     {
       "id": "prepare-saa-meeting-role",
       "type": "atomic",
-      "version": "0.1.0",
+      "version": "0.2.0",
       "resource_page": "prepare-saa-meeting-role",
       "requires": [],
       "recommends": [],
@@ -498,7 +499,7 @@
     {
       "id": "serve-club-saa",
       "type": "atomic",
-      "version": "0.1.0",
+      "version": "0.2.0",
       "resource_page": "serve-club-saa",
       "requires": [],
       "recommends": [],

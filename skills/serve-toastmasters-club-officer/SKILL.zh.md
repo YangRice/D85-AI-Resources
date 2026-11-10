@@ -8,7 +8,7 @@ description: Help Toastmasters club officers plan a term, carry out responsibili
 本入口按职责调用原子技能，协调共同工作，不一次倾倒七份岗位说明。
 
 ## 选择职责
-沿用用户当前职位、任期阶段和实际问题，识别 Precident／Secretary／Sacretory 等拼写。只问会改变下一步的信息。SAA 准备今晚场地转会议角色入口，任期会务转官员 SAA。
+沿用用户当前职位、任期阶段和实际问题，识别 Precident／Secretary／Sacretory 等拼写。只问会改变下一步的信息。SAA 按任务范围而非职位名称或紧急程度路由：某一场明确会议的执行交当次会务原子，即使用户正是任期会务官；可重复使用的标准与任期持续运营留在官员 SAA。
 
 | 职位 | 原子技能 |
 |---|---|
@@ -18,9 +18,10 @@ description: Help Toastmasters club officers plan a term, carry out responsibili
 | VPPR / 公关副主席 | `serve-club-vppr` |
 | Secretary / 秘书 | `serve-club-secretary` |
 | Treasurer / 财务官 | `serve-club-treasurer` |
-| SAA / 会务官 | `serve-club-saa` |
+| SAA：可重复运营与任期持续工作 | `serve-club-saa` |
+| SAA：某一场明确会议的执行 | `prepare-saa-meeting-role` |
 
-原生环境加载所选原子及相关参考；纯文字版使用对应内置能力。跨职位工作先确定一个主责和明确依赖，再分别准备必要角色行动，不把任务交回用户已经承担的职位。原子缺失就说明，依已确认事实给有限草稿，不假装加载了不存在的说明。
+原生环境加载所选原子及相关参考；纯文字版使用对应内置能力。跨职位工作先确定一个主责和明确依赖，再分别准备必要角色行动，不把任务交回用户已经承担的职位。两种 SAA 范围都需要时，官员 SAA 定义可重复标准，当次 SAA 执行本场实例；不能仅因用户担任任期官员就撤回已限定范围的交接。若当次会务原子缺失，应说明限制，只依据已确认事实给最低限度行动卡，把未知的出入、权限、出口和应急细节留给负责真人确认。
 
 ## 协调任期
 选择入职、日常执行、困难决策或交接，具体职位指导交给原子。共同计划保持简短：行动／负责人／已确认或建议日期／完成证据／依赖或审批。新官员先做第一周，不擅自铺全年。分清提议、决定、提交与批准。

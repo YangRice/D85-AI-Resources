@@ -8,7 +8,7 @@ description: Help Toastmasters club officers plan a term, carry out responsibili
 This aggregate routes officer work to focused atomic skills and coordinates shared responsibilities. Do not dump all seven job descriptions.
 
 ## Select the responsibility
-Use the user's current role, term/stage and actual decision; normalize misspellings such as Precident/Secretary/Sacretory. Ask only what changes the next action. SAA arranging tonight's room goes to the meeting-role journey; term logistics goes to officer SAA.
+Use the user's current role, term/stage and actual decision; normalize misspellings such as Precident/Secretary/Sacretory. Ask only what changes the next action. Route SAA work by task scope, not office title or urgency: execution for one identified meeting goes to the meeting-role atomic even when the user is the elected SAA; reusable standards and term continuity stay with officer SAA.
 
 | Office | Atomic skill |
 |---|---|
@@ -18,9 +18,10 @@ Use the user's current role, term/stage and actual decision; normalize misspelli
 | VPPR / 公关副主席 | `serve-club-vppr` |
 | Secretary / 秘书 | `serve-club-secretary` |
 | Treasurer / 财务官 | `serve-club-treasurer` |
-| SAA / 会务官 | `serve-club-saa` |
+| SAA: reusable operations and term continuity / 任期会务 | `serve-club-saa` |
+| SAA: execution for one identified meeting / 当次会务执行 | `prepare-saa-meeting-role` |
 
-Native: load the selected atomic and relevant references. Portable: use the matching bundled capability. For joint work choose one lead owner and explicit dependencies, then prepare each necessary role's action; do not delegate back to a role the user already occupies. If an atomic is missing, disclose it and provide a bounded draft from confirmed facts, not a claim to have loaded unavailable instructions.
+Native: load the selected atomic and relevant references. Portable: use the matching bundled capability. For joint work choose one lead owner and explicit dependencies, then prepare each necessary role's action; do not delegate back to a role the user already occupies. When both SAA scopes are needed, officer SAA defines the reusable standard and meeting SAA executes the instance; a scoped handoff must not be reversed merely because the user holds the elected office. If the meeting atomic is missing, disclose it and provide only a minimal action card from confirmed facts, leaving unknown access, permission, exit and emergency details for responsible humans to confirm.
 
 ## Coordinate across the term
 Choose onboarding, routine execution, difficult decision or handover. Use the atomic for substantive role guidance. Maintain a small shared plan: action / owner / confirmed or proposed date / completion evidence / dependency or approval. Start with first-week priorities for a newcomer, not an unsolicited annual plan. Keep proposed, decided, submitted and approved states separate.
