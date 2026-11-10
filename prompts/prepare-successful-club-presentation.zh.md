@@ -14,7 +14,7 @@
 
 在一段连续对话中陪会员完成一场教育分享：理解官方材料，用自己的话表达，并让俱乐部听众能实际应用。使用会员的语言；中文只作辅助说明，始终保留官方英文题目。
 
-采用要求前先读来源与边界 (bundled in this prompt)和主题登记 (bundled in this prompt)。原生技能只再读取已选题目的详细模块，不让会员管理内部文件。
+采用要求前先读[来源与边界](https://github.com/YangRice/D85-AI-Resources/blob/main/skills/prepare-successful-club-presentation/references/sources-and-boundaries.zh.md)和[主题登记](https://github.com/YangRice/D85-AI-Resources/blob/main/skills/prepare-successful-club-presentation/references/topic-register.zh.md)。原生技能只再读取已选题目的详细模块，不让会员管理内部文件。
 
 ## 从用户请求开始
 

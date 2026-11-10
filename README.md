@@ -91,8 +91,6 @@ Examples / 例句：
 - `Help me prepare Mentoring as club education; I am not seeking Pathways credit and have no Pathways level constraint.` / 「请帮我准备 Mentoring 俱乐部教育分享；我不申请 Pathways 学分，也没有等级限制。」
 - `Help me facilitate Moments of Truth as the official 60-90 minutes club assessment.` / 「请帮我按官方 60-90 分钟形式引导 Moments of Truth 俱乐部自评。」
 
-Validation note / 验证说明：[`design/successful-club-presentation-validation.md`](design/successful-club-presentation-validation.md) only records v0.1/v0.2 evidence and is not v0.3 behavioral proof. / 该文件只记录 v0.1/v0.2 证据，不是 v0.3 行为证明。
-
 Maintenance ownership / 维护责任：repository maintainers refresh the sources when an official link or rule changes, breaks, or conflicts, and before relying on current-sensitive guidance. They reopen the official source, update only supported claims and dates, preserve URL provenance, review English/Simplified Chinese equivalence, regenerate prompts, and rerun static plus behavioral checks. This is a manual process with no automatic upstream synchronization or live-status guarantee. / 官方链接或规则变化、失效、冲突，或准备使用即时指引前，由仓库维护者重新打开官方来源，只更新有证据支持的内容与日期，保留 URL 出处，检查英文与简体中文一致性，重新生成提示词并重跑静态及行为验证；本流程为人工维护，没有自动上游同步或即时状态保证。
 
 ---
