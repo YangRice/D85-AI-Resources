@@ -51,6 +51,7 @@ python3 scripts/build_portable_prompts.py
 python3 scripts/validate_skill_packages.py
 python3 scripts/validate_portable_skills.py
 python3 scripts/sync_poster_references.py --check
+python3 scripts/sync_toastmasters_terminology.py --check
 git diff --check
 ```
 

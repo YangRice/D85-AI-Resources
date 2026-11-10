@@ -1,6 +1,8 @@
+<!-- Generated from references/toastmasters-terminology.md. Do not edit this mirror manually. -->
+
 # Approved Toastmasters Terminology
 
-Use the first Chinese translation as the default. Use an alternative after `/` only when context clearly requires it, and keep the selected wording consistent throughout one poster.
+Use the first Chinese translation as the default. Use an alternative after `/` only when context clearly requires it, and keep the selected wording consistent throughout each translated deliverable.
 
 | English | Approved Chinese translation |
 |---|---|
