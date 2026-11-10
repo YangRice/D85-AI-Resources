@@ -1,5 +1,8 @@
+import json
 import re
 import shutil
+import subprocess
+import sys
 import tempfile
 import unittest
 from pathlib import Path
@@ -16,6 +19,7 @@ MENTOR = "skills/egg-toastmasters-speech-mentor/references/d85-toastmasters-term
 PDF = "skills/translate-pdf/references/toastmasters-terminology.md"
 PDF_PATHWAYS = "skills/translate-pdf/references/pathways-terminology.md"
 CONSUMERS = (POSTER, POWERPOINT, MENTOR, PDF)
+TRANSLATION_PROMPTS = ("translate-pdf", "powerpoint-translation-redesign")
 SAMPLE = "# Glossary\n\n| Club Officer | 俱乐部官员 |\n"
 
 
@@ -81,6 +85,60 @@ class ToastmastersTerminology(unittest.TestCase):
             with self.subTest(alias=alias):
                 self.assertIn(alias, pathways)
                 self.assertNotIn(alias, core)
+
+    def make_prompt_repo(self):
+        root = self.make_repo()
+        (root / SOURCE).write_bytes((ROOT / SOURCE).read_bytes())
+        (root / "scripts").mkdir()
+        for filename in ("build_portable_prompts.py", "sync_toastmasters_terminology.py"):
+            shutil.copy2(ROOT / "scripts" / filename, root / "scripts" / filename)
+        shutil.copytree(ROOT / "catalog", root / "catalog")
+        catalog_path = root / "catalog/skills.json"
+        catalog = json.loads(catalog_path.read_text(encoding="utf-8"))
+        catalog["skills"] = []
+        catalog_path.write_text(json.dumps(catalog), encoding="utf-8")
+        for skill_id in TRANSLATION_PROMPTS:
+            shutil.copytree(ROOT / "skills" / skill_id, root / "skills" / skill_id)
+        return root
+
+    def generate_translation_prompts(self, root):
+        result = subprocess.run(
+            [sys.executable, "scripts/build_portable_prompts.py"],
+            cwd=root, capture_output=True, text=True, check=False,
+        )
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        paths = {skill_id: root / "prompts" / f"{skill_id}.md" for skill_id in TRANSLATION_PROMPTS}
+        self.assertEqual([skill_id for skill_id, path in paths.items() if path.is_file()], list(paths))
+        return {skill_id: path.read_text(encoding="utf-8") for skill_id, path in paths.items()}
+
+    def test_standalone_translation_prompts_match_generated_offline_content(self):
+        outputs = self.generate_translation_prompts(self.make_prompt_repo())
+        core = (ROOT / SOURCE).read_text(encoding="utf-8").strip()
+        supplement = (ROOT / PDF_PATHWAYS).read_text(encoding="utf-8").strip()
+        for skill_id, output in outputs.items():
+            with self.subTest(skill=skill_id):
+                checked_in = (ROOT / "prompts" / f"{skill_id}.md").read_text(encoding="utf-8")
+                self.assertEqual(checked_in, output)
+                self.assertEqual(output.count(core), 1)
+                self.assertNotRegex(output, r"\]\([^)]*terminology\.md\)")
+        self.assertEqual(outputs["translate-pdf"].count(supplement), 1)
+        self.assertIn("初试啼声 = Ice Breaker", outputs["translate-pdf"])
+        self.assertNotIn(supplement, outputs["powerpoint-translation-redesign"])
+
+    def test_build_refreshes_stale_mirrors_before_embedding(self):
+        root = self.make_prompt_repo()
+        new_term = "| Fixture Term | 测试术语 |"
+        glossary = (root / SOURCE).read_text(encoding="utf-8") + new_term + "\n"
+        (root / SOURCE).write_text(glossary, encoding="utf-8")
+        self.assertNotIn(new_term, (root / PDF).read_text(encoding="utf-8"))
+        self.assertNotIn(new_term, (root / POWERPOINT).read_text(encoding="utf-8"))
+
+        outputs = self.generate_translation_prompts(root)
+
+        for mirror in CONSUMERS:
+            self.assert_mirror(root, mirror, glossary.encode())
+        for output in outputs.values():
+            self.assertEqual(output.count(new_term), 1)
 
     def test_sync_repairs_drift(self):
         root = self.make_repo()
