@@ -1,16 +1,22 @@
 #!/usr/bin/env python3
-"""Build self-contained copy/paste prompts from the canonical skill catalog.
+"""Build self-contained copy/paste prompts from canonical skills and references.
 
-Generates two versions per skill:
+Generates up to two versions per catalog skill:
   - <skill-id>.en.md  — English (always, from SKILL.md)
   - <skill-id>.zh.md  — Chinese (only if SKILL.zh.md exists in the skill dir)
+
+Also updates the standalone PDF, PowerPoint, and speech coaching prompts
+at their legacy paths.
 """
 
 from __future__ import annotations
 
 import json
 import re
+import subprocess
+import sys
 from pathlib import Path
+from urllib.parse import quote
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -21,6 +27,27 @@ INTEGRATIONS = json.loads(
 OUT_DIR = ROOT / "prompts"
 FRONTMATTER_RE = re.compile(r"^---\n.*?\n---\n", re.DOTALL)
 ACTION_RE = re.compile(r"`action:([a-z0-9-]+)`")
+REFERENCE_BLOB_BASE = "https://github.com/YangRice/D85-AI-Resources/blob/main"
+
+STANDALONE_PROMPTS = (
+    {
+        "id": "translate-pdf",
+        "portable_references": ["toastmasters-terminology.md", "pathways-terminology.md"],
+        "usage": "Attach your PDF, paste everything below the line, and specify the target language.",
+    },
+    {
+        "id": "powerpoint-translation-redesign",
+        "portable_source": "references/portable-workflow.md",
+        "portable_references": ["toastmasters-terminology.md"],
+        "usage": "Attach your PowerPoint file and paste everything below the line into an assistant that can edit PPTX files.",
+    },
+    {
+        "id": "toastmasters-speech-coaching-team",
+        "portable_source": "references/portable-workflow.md",
+        "portable_references": ["toastmasters-terminology.md"],
+        "usage": "Paste everything below the line into an AI chat. Add the speech transcript and any evaluation details. Attach media only if the assistant can access it.",
+    },
+)
 
 LANG = {
     "en": {
@@ -35,6 +62,7 @@ LANG = {
         "bundled_note": "Use this capability only when the current journey stage requires it. Do not announce internal composition unless the user asks.",
         "end": "End of instructions",
         "input_label": "Suggested user input",
+        "native_detail": "detailed notes are not bundled here; use the verified topic summary and official source below",
         "fields": [
             "My goal or assigned role:",
             "My current stage:",
@@ -57,6 +85,7 @@ LANG = {
         "bundled_note": "仅在当前旅程阶段需要时使用此能力。除非用户询问，否则不要透露内部组合方式。",
         "end": "指令结束",
         "input_label": "建议用户输入格式",
+        "native_detail": "此处不内嵌详细笔记；请使用下方已核实的主题摘要与官方来源",
         "fields": [
             "我的目标或角色：",
             "当前阶段：",
@@ -100,9 +129,17 @@ def resolve_actions(text: str) -> str:
     return ACTION_RE.sub(replace, text)
 
 
-def portable_body(item: dict, lang: str, included_refs: set[str] | None = None) -> str | None:
+def portable_body(
+    item: dict,
+    lang: str,
+    included_refs: set[str] | None = None,
+    *,
+    body: str | None = None,
+    link_embedded_references: bool = True,
+) -> str | None:
     """Embed declared references so a copied prompt has no local-file dependency."""
-    body = skill_body(item["id"], lang)
+    if body is None:
+        body = skill_body(item["id"], lang)
     if body is None:
         return None
     if included_refs is None:
@@ -114,10 +151,37 @@ def portable_body(item: dict, lang: str, included_refs: set[str] | None = None) 
         if not path.is_relative_to(directory):
             raise ValueError(f"Reference escapes skill package: {filename}")
         reference = path.read_text(encoding="utf-8").strip()
-        body = re.sub(r"\[([^\]]+)\]\(references/" + re.escape(filename) + r"\)", r"\1 (bundled in this prompt)", body)
+        replacement = r"embedded \1"
+        if link_embedded_references:
+            reference_url = f"{REFERENCE_BLOB_BASE}/skills/{quote(item['id'])}/references/{quote(filename)}"
+            replacement = rf"[\1]({reference_url})"
+        body = re.sub(
+            r"\[([^\]]+)\]\(references/" + re.escape(filename) + r"\)",
+            replacement,
+            body,
+        )
         if reference not in included_refs:
             body += "\n\n" + reference
             included_refs.add(reference)
+
+    native_only = item.get("native_only_references", [])
+    if not isinstance(native_only, list):
+        raise ValueError(f"{item['id']}: native_only_references must be a list")
+    directory = (ROOT / "skills" / item["id"] / "references").resolve()
+    for template in native_only:
+        if not isinstance(template, str) or not template:
+            raise ValueError(f"{item['id']}: invalid native_only_references template {template!r}")
+        filename = template.format(lang=lang)
+        path = (directory / filename).resolve()
+        if not path.is_relative_to(directory):
+            raise ValueError(f"{item['id']}: native_only_references template {template!r} escapes the reference directory")
+        if not path.is_file():
+            raise ValueError(f"{item['id']}: native_only_references template {template!r} is missing {filename}")
+        body = re.sub(
+            r"\[([^\]]+)\]\(references/" + re.escape(filename) + r"\)",
+            rf"\1 ({LANG[lang]['native_detail']})",
+            body,
+        )
     # Asset catalogs are supporting native data, not a portable chat prerequisite.
     if item.get("portable_references"):
         body = re.sub(r"\[([^\]]+)\]\(references/asset-sources\.json\)", r"\1 (official asset links in the bundled rules)", body)
@@ -200,28 +264,51 @@ def build_prompt(item: dict, lang: str = "en") -> str | None:
     return "\n".join(sections)
 
 
-def main() -> None:
+def build_standalone_prompt(item: dict) -> str:
+    source = item.get("portable_source")
+    body = None
+    if source:
+        body = (ROOT / "skills" / item["id"] / source).read_text(encoding="utf-8").strip()
+    body = portable_body(item, "en", body=body, link_embedded_references=False)
+    if body is None:
+        raise ValueError(f"{item['id']}: missing SKILL.md")
+    title, _, instructions = body.partition("\n\n")
+    return (
+        f"{title}\n\n"
+        "> Generated from the canonical skill and references. Do not edit this file manually.\n\n"
+        f"{item['usage']}\n\n---\n\n{instructions}\n"
+    )
+
+
+def write_prompt(path: Path, output: str) -> None:
+    if not path.exists() or path.read_text(encoding="utf-8") != output:
+        path.write_text(output, encoding="utf-8")
+    print(f"{path.relative_to(ROOT)}: {len(output)} chars")
+
+
+def main() -> int:
+    sync = subprocess.run([sys.executable, ROOT / "scripts/sync_toastmasters_terminology.py"])
+    if sync.returncode:
+        return sync.returncode
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     for item in CATALOG["skills"]:
         skill_id = item["id"]
 
         # English — always generated from SKILL.md
         en_out = build_prompt(item, "en")
-        en_path = OUT_DIR / f"{skill_id}.en.md"
-        if not en_path.exists() or en_path.read_text(encoding="utf-8") != en_out:
-            en_path.write_text(en_out, encoding="utf-8")
-        print(f"{en_path.relative_to(ROOT)}: {len(en_out)} chars")
+        write_prompt(OUT_DIR / f"{skill_id}.en.md", en_out)
 
         # Chinese — only if SKILL.zh.md exists
         zh_out = build_prompt(item, "zh")
         if zh_out:
-            zh_path = OUT_DIR / f"{skill_id}.zh.md"
-            if not zh_path.exists() or zh_path.read_text(encoding="utf-8") != zh_out:
-                zh_path.write_text(zh_out, encoding="utf-8")
-            print(f"{zh_path.relative_to(ROOT)}: {len(zh_out)} chars")
+            write_prompt(OUT_DIR / f"{skill_id}.zh.md", zh_out)
         else:
             print(f"  ⚠️  {skill_id}: SKILL.zh.md not found, skipping Chinese prompt")
 
+    for item in STANDALONE_PROMPTS:
+        write_prompt(OUT_DIR / f"{item['id']}.md", build_standalone_prompt(item))
+    return 0
+
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())

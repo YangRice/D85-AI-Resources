@@ -38,6 +38,54 @@ def parse_frontmatter(skill_md: Path) -> tuple[str, str, str]:
     return fields.get("name", ""), fields.get("description", ""), text
 
 
+def validate_reference_templates(
+    item: dict,
+    skill_dir: Path,
+    languages: tuple[str, ...] = ("en", "zh"),
+) -> list[str]:
+    """Validate portable/native-only reference manifests for one catalog item."""
+    skill_id = item.get("id", "<missing-id>")
+    errors: list[str] = []
+    manifests: dict[str, list[str]] = {}
+    reference_dir = (skill_dir / "references").resolve()
+
+    for field in ("portable_references", "native_only_references"):
+        templates = item.get(field, [])
+        if not isinstance(templates, list):
+            errors.append(f"{skill_id}: {field} must be a list, got {templates!r}")
+            manifests[field] = []
+            continue
+        manifests[field] = []
+        seen: set[str] = set()
+        for template in templates:
+            if not isinstance(template, str) or not template:
+                errors.append(f"{skill_id}: invalid {field} template {template!r}")
+                continue
+            manifests[field].append(template)
+            if template in seen:
+                errors.append(f"{skill_id}: duplicate {field} template {template!r}")
+            seen.add(template)
+            for lang in languages:
+                try:
+                    filename = template.format(lang=lang)
+                except (AttributeError, IndexError, KeyError, ValueError) as exc:
+                    errors.append(f"{skill_id}: invalid {field} template {template!r}: {exc}")
+                    break
+                path = (reference_dir / filename).resolve()
+                if not path.is_relative_to(reference_dir):
+                    errors.append(f"{skill_id}: {field} template {template!r} escapes the reference directory")
+                    break
+                if not path.is_file():
+                    errors.append(f"{skill_id}: {field} template {template!r} is missing {filename}")
+
+    overlap = set(manifests.get("portable_references", [])) & set(
+        manifests.get("native_only_references", [])
+    )
+    for template in sorted(overlap):
+        errors.append(f"{skill_id}: reference template {template!r} appears in both manifests")
+    return errors
+
+
 def detect_cycles(graph: dict[str, list[str]]) -> list[str]:
     visiting: set[str] = set()
     visited: set[str] = set()
@@ -90,6 +138,7 @@ def main() -> int:
             errors.append(f"{skill_id}: missing future Resource Center page slug")
 
         skill_dir = ROOT / "skills" / skill_id
+        errors.extend(validate_reference_templates(item, skill_dir))
         skill_md = skill_dir / "SKILL.md"
         agent_yaml = skill_dir / "agents" / "openai.yaml"
         if not skill_md.exists():

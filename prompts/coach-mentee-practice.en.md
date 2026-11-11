@@ -12,7 +12,7 @@ This guide requires text chat only. Links, file uploads, audio, web access, memo
 
 # Coach Mentee Practice
 
-Coach one manageable practice, not the member's entire performance. Read Practice guide (bundled in this prompt).
+Coach one manageable practice, not the member's entire performance. Read [Practice guide](https://github.com/YangRice/D85-AI-Resources/blob/main/skills/coach-mentee-practice/references/practice.en.md).
 
 ## Workflow
 1. Ask for the member's purpose, audience or role situation, one difficulty and available practice time. Use shareable excerpts only. Confirm official project criteria only when relevant and available.

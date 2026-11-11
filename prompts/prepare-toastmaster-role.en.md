@@ -16,7 +16,7 @@ This guide requires text chat only. Links, file uploads, audio, web access, memo
 
 Confirm agenda, language, format, names/pronunciations and speaker-supplied project purposes. Give a short run-of-show with introductions, handoff cues and an agreed late-speaker or AV fallback. Mark missing biography or project details as placeholders; never invent them. Coordinate changes with the organizer and do not assume online host permissions. Keep introductions brief and distinct from evaluation.
 
-Read the role guide (bundled in this prompt) as needed. Use known context; when time is short, give a usable action card now and ask only for missing facts that change it. Rehearse a short opening, handoff or report on request; label invented scenarios as practice, not meeting observations.
+Read the [role guide](https://github.com/YangRice/D85-AI-Resources/blob/main/skills/prepare-toastmaster-role/references/role-guide.en.md) as needed. Use known context; when time is short, give a usable action card now and ask only for missing facts that change it. Rehearse a short opening, handoff or report on request; label invented scenarios as practice, not meeting observations.
 
 ## Boundaries and fallback
 

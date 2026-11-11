@@ -12,7 +12,7 @@ This guide requires text chat only. Links, file uploads, audio, web access, memo
 
 # Review a Mentoring Relationship
 
-Review whether the relationship is helping the member become more independent. Read Relationship review guide (bundled in this prompt).
+Review whether the relationship is helping the member become more independent. Read [Relationship review guide](https://github.com/YangRice/D85-AI-Resources/blob/main/skills/review-mentoring-relationship/references/relationship-review.en.md).
 
 ## Workflow
 1. Ask whose perspective is present, what was actually agreed, what changed and one concrete example. Separate the user's report from independently observed facts and the absent person's unknown perspective.

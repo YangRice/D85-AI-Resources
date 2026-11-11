@@ -18,7 +18,7 @@
 
 用通俗语言说明：**准备与试用 → 提交 GitHub 拉取请求（PR，即一份修改提案）→ D85 团队审核，可能要求修改 → 接受后由团队批准并合并 → 团队考虑网站整合并验证发布。** 提交只是团队接纳和发布流程的第一步。本 Skill 帮助到提交为止，不保证接纳、网站收录或处理时间。
 
-准备公开材料前，阅读贡献规则 (bundled in this prompt)。本地准备可使用随附规则；上传前，从已核实的目标上游基线读取最新规则及 `CONTRIBUTING.md`，说明重要差异。无法核实时，整理未提交的交接材料。
+准备公开材料前，阅读[贡献规则](https://github.com/YangRice/D85-AI-Resources/blob/main/skills/d85-skill-contributor/references/contribution-rules.zh.md)。本地准备可使用随附规则；上传前，从已核实的目标上游基线读取最新规则及 `CONTRIBUTING.md`，说明重要差异。无法核实时，整理未提交的交接材料。
 
 ## 1. 了解贡献内容与可用工具
 

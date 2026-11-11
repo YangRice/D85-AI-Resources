@@ -52,7 +52,7 @@ merely by putting it inside an SVG.
 ## Launch and return
 
 Resolve `scripts/edit_svg.py` relative to this installed skill, not the task's
-working directory. Read runtime instructions (bundled in this prompt) for
+working directory. Read [runtime instructions](https://github.com/YangRice/D85-AI-Resources/blob/main/skills/edit-svg-canvas/references/runtime.en.md) for
 cache preparation, fonts, session lifecycle, and recovery.
 
 ```sh

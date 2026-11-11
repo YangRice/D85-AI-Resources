@@ -16,7 +16,7 @@ Use the user's current role, term/stage and actual decision; normalize misspelli
 | VPE / 教育副主席 | `serve-club-vpe` |
 | VPM / 会员副主席 | `serve-club-vpm` |
 | VPPR / 公关副主席 | `serve-club-vppr` |
-| Secretary / 秘书 | `serve-club-secretary` |
+| Secretary / 秘书长 | `serve-club-secretary` |
 | Treasurer / 财务官 | `serve-club-treasurer` |
 | SAA: reusable operations and term continuity / 任期会务 | `serve-club-saa` |
 | SAA: execution for one identified meeting / 当次会务执行 | `prepare-saa-meeting-role` |

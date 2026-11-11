@@ -59,12 +59,21 @@ class PosterResources(unittest.TestCase):
         with tempfile.TemporaryDirectory() as td:
             root = Path(td)
             (root/'skills/example/references').mkdir(parents=True)
-            (root/'skills/example/SKILL.md').write_text('---\nname: example\ndescription: example\n---\nRead [rules](references/rules.md).')
-            (root/'skills/example/references/rules.md').write_text('Specific canonical rule: keep official logos intact.')
+            (root/'skills/example/SKILL.md').write_text('---\nname: example\ndescription: example\n---\nRead [rules](references/rules.en.md).')
+            (root/'skills/example/SKILL.zh.md').write_text('---\nname: example\ndescription: example\n---\n阅读[规则](references/rules.zh.md)。')
+            (root/'skills/example/references/rules.en.md').write_text('Specific canonical rule: keep official logos intact.')
+            (root/'skills/example/references/rules.zh.md').write_text('具体规范：保持官方标志完整。')
             module.ROOT = root
-            result = module.build_prompt({'id':'example','version':'1','portable_references':['rules.md'],'compatibility':{'en':'Images required.'}}, 'en')
+            item={'id':'example','version':'1','portable_references':['rules.{lang}.md'],'compatibility':{'en':'Images required.','zh':'需要图像。'}}
+            result = module.build_prompt(item, 'en')
+            result_zh = module.build_prompt(item, 'zh')
             self.assertIn('Specific canonical rule', result)
             self.assertIn('Images required.', result)
-            self.assertNotIn('(references/rules.md)', result)
+            self.assertIn('[rules](https://github.com/YangRice/D85-AI-Resources/blob/main/skills/example/references/rules.en.md)', result)
+            self.assertIn('[规则](https://github.com/YangRice/D85-AI-Resources/blob/main/skills/example/references/rules.zh.md)', result_zh)
+            self.assertNotIn('bundled in this prompt', result)
+            self.assertNotIn('bundled in this prompt', result_zh)
+            self.assertNotIn('](references/', result)
+            self.assertNotIn('](references/', result_zh)
 
 if __name__=='__main__': unittest.main()

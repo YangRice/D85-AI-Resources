@@ -77,6 +77,24 @@ skills/{answer-table-topics-question, build-speech-outline, …}/SKILL.md + agen
 
 ---
 
+### Successful Club Series presentation coach | 成功俱乐部系列分享教练
+
+- [Skill](skills/prepare-successful-club-presentation/SKILL.md) / [中文技能](skills/prepare-successful-club-presentation/SKILL.zh.md)
+- [Portable English prompt](prompts/prepare-successful-club-presentation.en.md) / [中文便携提示词](prompts/prepare-successful-club-presentation.zh.md)
+
+One entry covers all eleven Successful Club Series topics assigned across Pathways Levels 3-5. When current credit matters, it routes within the member's level; with no Pathways level constraint, it chooses by the club's learning need. Native use loads one detailed topic module, while the portable prompt carries a compact verified source register. Preparation is not delivery or approval, and current-sensitive facts still require an official check.
+
+单一入口覆盖 Pathways Levels 3-5 对应的 11 个 Successful Club Series 主题。涉及当前学分时按会员所在阶段选题；没有阶段限制时按俱乐部学习需求选择。原生技能只读取一份详细主题模块，便携提示词使用精简且已核对的来源登记。准备不等于发表或批准，会变化的信息仍需查看官方来源。
+
+Examples / 例句：
+
+- `Help me prepare Mentoring as club education; I am not seeking Pathways credit and have no Pathways level constraint.` / 「请帮我准备 Mentoring 俱乐部教育分享；我不申请 Pathways 学分，也没有阶段限制。」
+- `Help me facilitate Moments of Truth as the official 60-90 minutes club assessment.` / 「请帮我按官方 60-90 分钟形式引导 Moments of Truth 俱乐部自评。」
+
+Maintenance ownership / 维护责任：repository maintainers refresh the sources when an official link or rule changes, breaks, or conflicts, and before relying on current-sensitive guidance. They reopen the official source, update only supported claims and dates, preserve URL provenance, review English/Simplified Chinese equivalence, regenerate prompts, and rerun static plus behavioral checks. This is a manual process with no automatic upstream synchronization or live-status guarantee. / 官方链接或规则变化、失效、冲突，或准备使用即时指引前，由仓库维护者重新打开官方来源，只更新有证据支持的内容与日期，保留 URL 出处，检查英文与简体中文一致性，重新生成提示词并重跑静态及行为验证；本流程为人工维护，没有自动上游同步或即时状态保证。
+
+---
+
 ### Poster skills retired | 海报技能退役
 
 `toastmasters-poster-maker` and `toastmasters-poster-reviewer` are retired from this collection, including their generated prompts. D85 cannot consistently substantiate the brand-compliance assurance implied by these workflows. Use [official resources and templates](materials/toastmasters-brand/README.md) for brand guidance; saved references are historical guidance snapshots, not official approval or a maintained compliance service. Previous implementations remain in Git history.
@@ -180,12 +198,18 @@ For best results, paste only the reusable instruction section identified in each
 
 为获得更稳定的效果，请仅复制每个文件中标明的可复用指令部分，再按照示例格式添加自己的材料。
 
-Portable Toastmasters prompts under [`prompts/`](prompts/) are generated from the canonical skill catalog. Portability is a repository-wide promise, so generated and manually authored prompts share this folder. Generated files identify themselves in their headers and should not be edited manually. Regenerate and validate them with:
+Portable Toastmasters prompts under [`prompts/`](prompts/) are generated from the canonical skill catalog. Portability is a repository-wide promise, so generated and manually authored prompts share this folder. Generated files identify themselves in their headers and should not be edited manually. Regenerate first, then validate the generated result with:
 
 ```bash
-python3 scripts/validate_portable_skills.py
 python3 scripts/build_portable_prompts.py
+python3 scripts/validate_skill_packages.py
+python3 scripts/validate_portable_skills.py
+python3 scripts/sync_poster_references.py --check
+python3 -m unittest discover -s tests
+git diff --check
 ```
+
+For changed skill behavior, also run fresh realistic and missing-input or missing-capability trials after static review and record revision-specific expected/observed evidence in the PR, following [CONTRIBUTING.md](CONTRIBUTING.md). Generated equality and static checks do not substitute for behavioral evidence. / 修改技能行为时，还要在静态审查后用新对话运行真实任务与缺少输入或能力的情境，并按照 [CONTRIBUTING.md](CONTRIBUTING.md) 在 PR 中记录对应 revision 的预期、实际结果与证据；生成一致性和静态检查不能代替行为验证。
 
 ### Agent Skills
 

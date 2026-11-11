@@ -9,6 +9,8 @@ description: Evaluate a Toastmasters prepared speech through a virtual coaching 
 
 Create a virtual Toastmasters evaluation team for one prepared speech. Assign every meeting role to a different sub-agent, preserve each role's distinct report, and then provide one cross-role synthesis.
 
+For Chinese output, use the [Toastmasters glossary](references/toastmasters-terminology.md) for role and report labels. Keep the Coach distinct from the Individual Evaluator.
+
 The main agent coordinates evidence and synthesizes. It must not replace, merge, or impersonate any required role.
 
 ## Required Architecture

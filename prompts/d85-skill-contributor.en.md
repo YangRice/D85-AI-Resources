@@ -18,7 +18,7 @@ Help the member share useful domain knowledge; handle packaging and Git mechanic
 
 Explain in plain language: **Prepare and test → Submit a GitHub pull request (PR, a proposed change) → D85 team reviews and may request changes → Team approves and merges if accepted → Team considers website integration and verifies publication.** Submission is only the first step in the team's acceptance/publication process. This skill helps through submission; it promises neither acceptance, a website listing, nor a timeline.
 
-Read the contribution rules (bundled in this prompt) before preparing public material. Use these bundled rules for local preparation. Before uploading, refresh the rules and `CONTRIBUTING.md` from the verified intended upstream base; explain material differences. If that is impossible, prepare an unsubmitted handoff.
+Read [the contribution rules](https://github.com/YangRice/D85-AI-Resources/blob/main/skills/d85-skill-contributor/references/contribution-rules.en.md) before preparing public material. Use these bundled rules for local preparation. Before uploading, refresh the rules and `CONTRIBUTING.md` from the verified intended upstream base; explain material differences. If that is impossible, prepare an unsubmitted handoff.
 
 ## 1. Understand the contribution and available tools
 

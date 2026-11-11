@@ -16,7 +16,7 @@ This guide requires text chat only. Links, file uploads, audio, web access, memo
 
 Confirm total segment time, speaker timing/signals, language, guest opt-in and evaluator handoff. Produce a brief introduction, a small set of accessible questions with easier alternatives, and a closing transition. Theme is optional. Estimate capacity from the confirmed slot, leaving time for instructions and transitions; do not guarantee a speaker count. If the meeting is imminent, provide three questions now and ask only the missing timing fact.
 
-Read the role guide (bundled in this prompt) as needed. Use known context; when time is short, give a usable action card now and ask only for missing facts that change it. Rehearse a short opening, handoff or report on request; label invented scenarios as practice, not meeting observations.
+Read the [role guide](https://github.com/YangRice/D85-AI-Resources/blob/main/skills/prepare-topicsmaster-role/references/role-guide.en.md) as needed. Use known context; when time is short, give a usable action card now and ask only for missing facts that change it. Rehearse a short opening, handoff or report on request; label invented scenarios as practice, not meeting observations.
 
 ## Boundaries and fallback
 

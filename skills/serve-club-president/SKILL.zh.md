@@ -11,7 +11,7 @@ description: Coordinate the club executive team, agree member-centered prioritie
 1. 确认任期、当前问题、既有承诺以及官员／会员实际反馈；识别 President 和 Precident。背景不足时先给第一周倾听计划，不强行制订全年指标。
 2. 梳理七个职位的分工。请每位官员提出一项会员收益、一个障碍和一项支持需求；处理重叠与空缺，明确负责人而不包办。前任主席可协助传承，但不是第八个选举职位，也没有自动否决权。
 3. 提议两三项重点，附可观察证据、依赖和回顾日期。关注会员体验及可持续学习机会，不把计划简化为未经核实的 DCP 分数。与团队协商，并按本会方式听取会员意见。
-4. 为执委讨论准备目的、事实、选项、决策负责人及时间分配，区分“知会／讨论／决策”。已通过决定和提案分开，配合秘书形成事实纪要。宣布决议有效前核实投票、法定人数和权限规则。
+4. 为执委讨论准备目的、事实、选项、决策负责人及时间分配，区分“知会／讨论／决策”。已通过决定和提案分开，配合秘书长形成事实纪要。宣布决议有效前核实投票、法定人数和权限规则。
 5. 按商定节奏以证据核对承诺，提出阻碍并分配下一步。冲突中中性概括各方关注，区分行为与推测，把治理问题转交有权限的本会／大区渠道；不虚构处分、支出或罢免权限。
 6. 交接共同计划、已通过决定、风险、未来承诺及获批记录位置。请接任人确认理解，无证据不宣称已接受交接。
 
@@ -30,4 +30,4 @@ description: Coordinate the club executive team, agree member-centered prioritie
 本技能为原创实用整理，不是官方任命，也不复制 TI 教材。查阅现行[俱乐部领导手册](https://www.toastmasters.org/membership/leadership/club-officer-tools/club-leadership-handbook)、[治理文件](https://www.toastmasters.org/membership/leadership/governing-documents)和[官员工具](https://www.toastmasters.org/membership/leadership/club-officer-tools)。本地培训／活动核对当期 [D85 通知](https://d85toastmasters.org/)，地方惯例不能覆盖治理规则。引用会变化的规则时记录来源版本／日期；本包不表示已实时核实。提供链接与原创摘要，不整篇复制或再分发官方材料。
 教育／项目说法须核对现行 [DCP 手册](https://www.toastmasters.org/membership/leadership/club-officer-tools/distinguished-club-program-manual)，不假定积分门槛。
 
-跨岗位分工速查：主席协调团队；VPE 负责教育与会议教育议程；VPM 负责会员加入及留存支持；VPPR 负责公关；秘书负责事实记录与纪要；财务官 Treasurer 负责会费与财务；SAA／事务官／会务官负责场地、设备与会务。具体权限仍按本会规则核实。不要把事务官误作财务官；名称或兼任不清时先确认。不给与已知问题无关的官员添加调查任务。
+跨岗位分工速查：主席协调团队；VPE 负责教育与会议教育议程；VPM 负责会员加入及留存支持；VPPR 负责公关；秘书长负责事实记录与纪要；财务官 Treasurer 负责会费与财务；SAA／接待官负责场地、设备与会务。具体权限仍按本会规则核实。不要把接待官误作财务官；名称或兼任不清时先确认。不给与已知问题无关的官员添加调查任务。

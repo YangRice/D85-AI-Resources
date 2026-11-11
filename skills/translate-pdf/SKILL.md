@@ -19,7 +19,7 @@ Record the source checksum, page count, page boxes, rotation, and protected artw
 
 ## Toastmasters terminology reference
 
-For Toastmasters content, read [references/toastmasters-terminology.md](references/toastmasters-terminology.md) before translating, then follow its link to the shared glossary. Use the appropriate target-language entries without updating the source program version or requirements. Include these references in the reviewer's brief. If a reference is unavailable, disclose the limitation and flag unverified terminology; never claim an unread glossary was applied.
+For Toastmasters content, read both references before translating: the [core Toastmasters glossary](references/toastmasters-terminology.md) for shared terms and the [Pathways supplement](references/pathways-terminology.md) for additional names and source aliases. Use the English column of the core glossary for English output and its approved Chinese wording and context rules for Chinese output. Apply the supplement only where the terms occur in the source. Include both references in the reviewer's brief. If a reference is unavailable, disclose the limitation and flag unverified terminology; never claim an unread glossary was applied. Do not update the source program version or requirements.
 
 ## Translate and replace in place
 

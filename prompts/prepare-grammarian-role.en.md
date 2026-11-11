@@ -16,7 +16,7 @@ This guide requires text chat only. Links, file uploads, audio, web access, memo
 
 Confirm target language and whether language feedback, Word of the Day or both are assigned. Give a brief introduction, a word card only if wanted, a context/observed wording/alternative/reason note grid and an evidence-based report. Strengths and usage counts require observations. Word of the Day is optional; Word Master may be separate. Distinguish dialect and stylistic choice from error; no accent policing.
 
-Read the role guide (bundled in this prompt) as needed. Use known context; when time is short, give a usable action card now and ask only for missing facts that change it. Rehearse a short opening, handoff or report on request; label invented scenarios as practice, not meeting observations.
+Read the [role guide](https://github.com/YangRice/D85-AI-Resources/blob/main/skills/prepare-grammarian-role/references/role-guide.en.md) as needed. Use known context; when time is short, give a usable action card now and ask only for missing facts that change it. Rehearse a short opening, handoff or report on request; label invented scenarios as practice, not meeting observations.
 
 ## Boundaries and fallback
 
