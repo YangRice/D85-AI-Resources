@@ -9,7 +9,7 @@ description: Clarify a Toastmasters Pathways project using member-supplied or ac
 
 ## 收集证据
 
-询问官方项目简介、点评标准、项目名称、所属学习路径和阶段、所需产出以及时间范围。在可行时使用可获取的官方材料。
+询问项目名称、所属学习路径和阶段、所需产出以及时间范围；如有公开可查的官方项目简介或点评标准（如空白点评表），请提供链接。
 
 ### 有官方材料时
 
