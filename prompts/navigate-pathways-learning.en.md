@@ -77,7 +77,7 @@ Use this capability only when the current journey stage requires it. Do not anno
 
 ## Gather Evidence
 
-Ask for the official project brief, evaluation criteria, project name, path and level, required outputs, and time range. Use accessible official material when available.
+Ask for the project name, path and level, required outputs, time range, and a link to any publicly available official project brief or evaluation criteria (for example, a blank evaluation form).
 
 ### When Official Material Is Available
 

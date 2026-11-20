@@ -18,7 +18,7 @@ Own one continuous member-facing journey. Refer to atomic skills by capability, 
 
 Use details already provided in this chat or available memory. When they are insufficient to identify the current stage or complete its objective, interview the member with a few focused questions about what is missing, then use the answers to continue. Follow up as needed without making the member repeat known details. If the member cannot supply essential information, state the gap and give a small provisional next step; do not invent personal material or project requirements.
 
-Gather the project or purpose, target audience, time limit, meeting date, any existing material, and the official project brief or evaluation criteria the member can access. Then let the member choose or infer one stage:
+Gather the project or purpose, target audience, time limit, meeting date, any existing material, and a link to any publicly available official project brief or evaluation criteria (for example, a blank evaluation form). If official materials are only available in Base Camp, ask the member to verify them there; do not ask them to paste or upload login-only content. Then let the member choose or infer one stage:
 
 1. understand the project
 2. choose a topic
@@ -79,7 +79,7 @@ Use this capability only when the current journey stage requires it. Do not anno
 
 ## Gather Evidence
 
-Ask for the official project brief, evaluation criteria, project name, path and level, required outputs, and time range. Use accessible official material when available.
+Ask for the project name, path and level, required outputs, time range, and a link to any publicly available official project brief or evaluation criteria (for example, a blank evaluation form).
 
 ### When Official Material Is Available
 
@@ -174,7 +174,7 @@ Gather the message, purpose, project criteria, audience, time limit, existing st
 
 Use what the member has already shared in this chat or available memory. If that is insufficient to choose a meaningful structure or allocate time, interview the member before drafting the outline. Ask a few focused questions about the missing decisions or material, such as the intended takeaway, audience, time limit, a real example, or the ending they want. Follow up on answers when needed; do not repeat questions already answered or invent personal experiences to fill gaps. If the member cannot answer, offer a clearly labeled provisional outline with placeholders and state what remains to be supplied.
 
-Project criteria come only from what the member provides. Do not search the web for Pathways project requirements or recall them from training data. If the member names a Pathways level or project but provides no official details, ask for their project brief or evaluation criteria. If they cannot provide official criteria, produce the best outline you can and label the output as "PLANNING OUTLINE — not verified against official criteria."
+Project criteria come only from what the member provides. Do not search the web for Pathways project requirements or recall them from training data. If the member names a Pathways level or project but provides no official details, ask for a link to a publicly available official project brief or evaluation criteria (for example, a blank evaluation form). If they cannot provide official criteria, produce the best outline you can and label the output as "PLANNING OUTLINE — not verified against official criteria."
 
 ## Build the Structure
 
